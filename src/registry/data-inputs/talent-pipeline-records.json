@@ -1,0 +1,33 @@
+{
+  "uid": "talent-pipeline-records",
+  "name": "Competency-Inflow-Registry (CIR)",
+  "description": "A high-fidelity funnel mapping 'Human-Affinitive-Scores' against 'Role-Fit-Accuracy' and 'Integration-Readiness'.",
+  "schemaType": "Human-Capital-Protocol",
+  "requiredFields": [
+    "candidate_uid",
+    "timestamp_iso8601",
+    "target_slot_dependency",
+    "competency_vector_score",
+    "interview_logic_hash",
+    "offer_probability_index",
+    "hiring_cycle_efficiency"
+  ],
+  "sampleSource": "hr/recruiting-vault/q1-talent-flow",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "funnel_stages": {
+          "SOURCING": "Passive-Outreach / AI-Vetting",
+          "ALIGNMENT": "Cultural-Resonance-Check (Sangama-Sync)",
+          "TECHNICAL": "Logic-Verification / Sovereign-Review",
+          "OFFER": "Equity-Ledger-Integration / Final-Handoff"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

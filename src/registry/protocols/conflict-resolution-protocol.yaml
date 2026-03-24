@@ -1,0 +1,35 @@
+id: conflict-resolution-protocol
+title: "Global Inter-Agent Conflict Arbitration"
+description: "Stateless governance standard for resolving logic-deadlocks and priority-clashes between autonomous nodes."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Strategic-Tie-Breaker: In cases of a deadlock, the 'Primary-Strategic-Objective' defined in the Strategic-Vision.md (Slot-10) takes precedence over local agent KPIs."
+  - rule_2: "Evidence-Weighting: The agent providing the higher 'Confidence-Score' backed by 'Real-Time Telemetry' holds the initial drafting priority for the recovery path."
+  - rule_3: "Integrative-Solution-Mandate: Agents must attempt at least one 'Integrative-Solution' (a third way that satisfies both constraints) before moving to formal escalation."
+  - rule_4: "Recursive-Syllogism-Block: If two agents exchange the same logic-string more than twice without progress, a 'Logic-Stall' is auto-detected and escalated."
+  - rule_5: "Finality of Decision: Once the Director (Slot-10) arbitrates, the resulting 'Decision-Hash' becomes a 'Hard-Rule' for all future identical conflict-nodes."
+
+logic_sequence:
+  step_1: "Isolate Conflict-Node: Identify the specific parameter or 'Sovereignty-Boundary' causing the friction (e.g., Budget vs. Performance)."
+  step_2: "Generate Conflict-Brief: Using the Communication-Style-Protocol, outline Agent A's rationale vs. Agent B's rationale."
+  step_3: "Impact-Simulation: Run a 48-hour projection for both competing paths to calculate the 'Projected-Value-Loss' of each decision."
+  step_4: "IF RESOLVABLE: Apply the 'Stateless-Arbitration-Logic' (favoring 'Survival-Runway' over 'Experimental-Growth')."
+  step_5: "IF DEADLOCKED: Escalate to Slot-10 with a 'Binary-Choice-Architecture' brief (Option A vs. Option B)."
+
+escalation_triggers:
+  - "Condition: A conflict involves 'Core-Domain-Logic' that could destabilize the technical or financial foundation."
+  - "Condition: A 'Sovereignty-Breach' occurs where one agent attempts to force-write to another agent's local directory."
+  - "Condition: The 'Logic-Stall' timer exceeds 15 minutes of compute-time."
+
+dependencies:
+  required_skills:
+    - risk-modeling
+    - forensic-intent-analysis
+    - execution-governance
+  required_kpis:
+    - decision-cycle-time
+    - mean-time-to-repair (MTTR-Logic)

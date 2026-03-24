@@ -1,0 +1,33 @@
+{
+  "uid": "system-architecture-md",
+  "name": "Modular-Orchestration-Map (MOM)",
+  "description": "The definitive technical mapping of 'Service-Nodes', 'Data-Highways', and 'Security-Enclaves' within the 10-slot array.",
+  "schemaType": "Architectural-Protocol",
+  "requiredFields": [
+    "blueprint_version",
+    "timestamp_iso8601",
+    "component_topology_hash",
+    "interface_definition_vector",
+    "redundancy_logic_tier",
+    "security_perimeter_ref",
+    "scalability_threshold_limit"
+  ],
+  "sampleSource": "tech/architecture-vault/v4-system-map",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "architectural_layers": {
+          "INGESTION": "Semantic-Gateway / Intent-Mapping",
+          "COGNITION": "LLM-Inference-Nodes / 10-Slot-Logic",
+          "PERSISTENCE": "Schema-Sql / Vector-Memory",
+          "INTEGRATION": "API-Connectors / External-Sync"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

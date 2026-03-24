@@ -1,0 +1,34 @@
+id: self-healing-goose-protocol
+title: "Global Asset-Protection & Yield-Resiliency"
+description: "Stateless governance standard for the automated detection of 'Asset-Degradation' and the proactive 'Healing' of high-value revenue streams."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Goose-Identification: Every 'Revenue-Node' must be ranked; any asset generating >20% of 'Total-Gross-Margin' is designated a 'Golden-Goose'."
+  - rule_2: "The 'Yield-Floor' Mandate: If a 'Golden-Goose' asset experiences a >10% drop in 'Yield-Efficiency' over 7 days, a 'Healing-Sprint' is automatically triggered."
+  - rule_3: "Resource-Priority-Preemption: In a 'Goose-Crisis', Dani (Growth) and Julia (Tech) must divert up to 30% of their 'Secondary-Bandwidth' to stabilize the asset."
+  - rule_4: "Recursive-Competitor-Audit: The system must perform a 24-hour 'Market-Parity-Check' to see if the 'Goose' is being disrupted by a new external entrant."
+  - rule_5: "Immutable-Asset-Mirror: Every 'Golden-Goose' must have a 'Shadow-Pivot-Plan'—a pre-approved strategy to move the asset's value to a new platform/model if the current one fails."
+
+logic_sequence:
+  step_1: "Performance-Telemetry-Scan: Monitor 'LTV', 'Retention', and 'Margin' for all designated 'Golden-Goose' assets."
+  step_2: "Diagnose 'Drift-Vector': Is the decline 'Technical' (Bugs), 'Market' (Competition), or 'Operational' (Friction)?"
+  step_3: "Execute 'Pivot-or-Patch': Apply a 'Conversion-Optimization-Patch' (Dani) or a 'Performance-Infrastructure-Heal' (Julia)."
+  step_4: "IF YIELD-RESTORED: Log the 'Success-Signature' and resume 'Secondary-Growth' tasks."
+  step_5: "IF YIELD-DECAY-PERSISTS: Trigger the 'Incident-Escalation-Protocol' (Tier-1) for a 'Director-Level-Strategic-Pivot'."
+
+escalation_triggers:
+  - "Condition: A 'Golden-Goose' asset reaches its 'Obsolescence-Threshold' (e.g., market demand shifts permanently)."
+  - "Condition: Detection of a 'Predatory-Competitor' targeting the 'Goose's' core user-base."
+  - "Condition: The cost to 'Heal' the asset exceeds the 'Projected-LTV' for the next 12 months."
+
+dependencies:
+  required_skills:
+    - risk-modeling
+    - talent-calibration
+  required_kpis:
+    - yield-efficiency-ratio
+    - brand-fidelity-index

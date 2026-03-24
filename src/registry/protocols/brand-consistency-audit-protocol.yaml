@@ -1,0 +1,34 @@
+id: brand-consistency-audit-protocol
+title: "Global Brand Fidelity & Narrative Consistency"
+description: "Stateless governance standard for ensuring all agent outputs align with the core brand voice, visual tokens, and strategic messaging."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Voice-Fidelity: All textual output must adhere to the 'Brand-Voice-Parameters' (e.g., 'Authoritative yet Empathetic' or 'Witty but Professional')."
+  - rule_2: "Visual-Token-Sync: Any UI/Graphic output must utilize active hex-codes and typography from the 'visual_tokens.json' manifest."
+  - rule_3: "Narrative-Alignment: No agent may introduce terms, slogans, or mission-claims that contradict the 'Strategic-Vision.md'."
+  - rule_4: "Component-Standardization: Reuse existing 'Brand-UI-Patterns' before generating new ones to prevent 'Interface-Fragmentation'."
+  - rule_5: "Cultural-Sensitivity-Filter: All external-facing content must pass a 'Sentiment-Audit' to ensure no unintentional brand-risk is introduced."
+
+logic_sequence:
+  step_1: "Ingest Style-Guide: Retrieve the current 'Brand-Identity-Manifest' from the /governance/design/ directory."
+  step_2: "Scan Proposed Output: Analyze the draft (Text/Image/Code) for 'Brand-Drift' (e.g., off-brand colors, slang, or conflicting terminology)."
+  step_3: "IF PASS: Hash the output as [BRAND-VALIDATED] and proceed to the 'Accessibility-Gate'."
+  step_4: "IF DRIFT-DETECTED: Identify the specific 'Divergence-Node' and invoke a 'Self-Correction' using the approved tokens/voice-profile."
+  step_5: "Log Validation: Update the 'Brand-History-Vault' to track the evolution of the brand's digital footprint."
+
+escalation_triggers:
+  - "Condition: An agent attempts to push a 'Major-Re-brand' element without a 'Director-Auth-Hash'."
+  - "Condition: A conflict arises between 'Conversion-Optimization' (Dani) and 'Brand-Elegance' (Sofia) that exceeds the 'Aesthetic-Delta' limit."
+  - "Condition: The 'Cultural-Sensitivity-Filter' detects high-risk content."
+
+dependencies:
+  required_skills:
+    - visual-audit
+    - forensic-intent-analysis
+  required_kpis:
+    - brand-fidelity-index
+    - interaction-quality-score

@@ -1,0 +1,34 @@
+id: crisis-lockdown-protocol
+title: "Global Systems & Security Lockdown"
+description: "Stateless emergency standard for the immediate isolation of agent nodes and suspension of external data-write privileges."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Node-Isolation: Upon trigger, all agents lose 'Inter-Agent-Write' access. Communication is restricted to 'Read-Only' from the Governance Lab."
+  - rule_2: "External-IO-Severance: All outgoing API 'POST' or 'PUT' requests to non-whitelisted production environments are instantly killed."
+  - rule_3: "Credential-Rotation: Trigger an automated 'Secret-Rotation' for all primary system keys (GitHub, AWS, Stripe) stored in the Vault."
+  - rule_4: "Logic-Baseline-Reversion: Agents must discard all 'Short-Term-Memory' and revert to the 'Golden-Prompt-Baseline' to clear potential prompt-injections."
+  - rule_5: "Single-Point-Entry: The only authorized input-node becomes the 'Director-Override-Terminal' (Slot-10)."
+
+logic_sequence:
+  step_1: "Threat-Verification: Validate the 'Lockdown-Trigger-Auth' (e.g., detected breach, unauthorized logic-shift, or Director-Command)."
+  step_2: "Sever-Connections: Initiate the 'Technical-Gullotine'—disconnecting all live webhooks and socket-listeners."
+  step_3: "Snapshot-System-State: Perform a deep-dump of all agent 'Context-Windows' and 'Active-Logs' for forensic reconstruction."
+  step_4: "IF SECURITY-BREACH: Activate 'Honeypot-Redirection'—route all suspicious traffic to a sandboxed environment."
+  step_5: "Log-Lockdown-Entry: Generate an immutable 'Lockdown-UUID' in the /governance/emergency/security-log.md."
+
+escalation_triggers:
+  - "Condition: Detection of 'Adversarial-Prompting' or 'Jailbreak-Attempts' on any agent slot."
+  - "Condition: Multiple failed 'Authentication-Handshakes' within a 60-second window."
+  - "Condition: The system detects an 'Unauthorized-Sovereignty-Expansion'—an agent trying to access the root /governance/ directory."
+
+dependencies:
+  required_skills:
+    - risk-modeling
+    - forensic-intent-analysis
+  required_kpis:
+    - mean-time-to-repair (MTTR-Security)
+    - routing-accuracy-score

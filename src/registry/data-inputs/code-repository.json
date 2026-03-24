@@ -1,0 +1,14 @@
+{
+  "uid": "code-repository",
+  "name": "Code Repository",
+  "description": "Generated data input for registry reference normalization: code-repository.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/julia/seed-autonomous-alignment",
+  "privacyClassification": "internal"
+}

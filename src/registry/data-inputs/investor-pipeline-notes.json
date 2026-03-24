@@ -1,0 +1,33 @@
+{
+  "uid": "investor-pipeline-notes",
+  "name": "Capital-Signal-Matrix (CSM)",
+  "description": "A high-fidelity record of 'Investor-Thesis-Alignment', 'Diligence-Velocity', and 'Sentiment-Trend-Analysis' for the 10-slot array.",
+  "schemaType": "Financial-Relationship-Protocol",
+  "requiredFields": [
+    "timestamp_iso8601",
+    "investor_entity_uid",
+    "thesis_alignment_score",
+    "diligence_stage_vector",
+    "objection_logic_payload",
+    "next_strategic_action",
+    "probability_of_close"
+  ],
+  "sampleSource": "finance/investor-ops/v3-pipeline",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "diligence_stages": {
+          "FIRST_CONTACT": "Initial-Vetting / Vision-Sync",
+          "DATA_ROOM": "Deep-Dive (TIV-Access)",
+          "PARTNER_MEETING": "Logic-Verification / Sovereign-Review",
+          "TERM_SHEET": "Final-Negotiation / Governance-Lock"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

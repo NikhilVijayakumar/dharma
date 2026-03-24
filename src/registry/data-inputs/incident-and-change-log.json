@@ -1,0 +1,33 @@
+{
+  "uid": "incident-and-change-log",
+  "name": "Operational-Stability-Stream (OSS)",
+  "description": "A real-time event-stream mapping 'Change-Intent' against 'System-Stability-Deltas' and 'Remediation-Efficacy'.",
+  "schemaType": "Stability-Protocol",
+  "requiredFields": [
+    "event_id",
+    "timestamp_iso8601",
+    "originating_change_id",
+    "affected_slot_vector",
+    "severity_index",
+    "recovery_logic_path",
+    "prevention_protocol_update"
+  ],
+  "sampleSource": "ops/resilience-vault/v4-stream",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "event_states": {
+          "CHANGE_PENDING": "Validation-Stage (Pre-Flight)",
+          "INCIDENT_ACTIVE": "Degradation-Detected (Triage)",
+          "REMEDIATED": "Stability-Restored (Post-Mortem)",
+          "HARDENED": "Protocol-Updated (Immunized)"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

@@ -1,0 +1,51 @@
+id: seed-autonomous-alignment
+agent_id: elina
+trigger: "Periodic Autonomous Window (Default: Every 8 Task Cycles or 2h)"
+logic_sequence:
+  phase_1_ops_telemetry_harvest:
+    step_1: "Collect Execution Telemetry: Extract 'SLA-Breach-Count' and 'IPC-Latency' from Julia’s SystemHealthService."
+    step_2: "Queue Health Scan: Analyze the 10-slot occupancy rate to find 'Idle-Gaps' or 'Persistent-Clogs'."
+    step_3: "Initialize 'Operational-Pulse': Map current task velocity against the 'Baseline-Velocity-Target' in the Vault."
+  phase_2_micro_recalibration_logic:
+    step_4: >-
+      Generate Ranked Actions: Identify low-risk adjustments (e.g., swapping Slot-4 for Slot-2 to balance compute, or
+      flushing stale logs).
+    step_5: >-
+      Assign Confidence Score: Calculate the probability of a 'Latency Reduction' (>2ms) without violating any
+      Governance Gates.
+    step_6: >-
+      IF Confidence < 90%: Terminate Seed-Workflow and escalate to 'Human-in-Loop Bottleneck Resolution' if a deadlock
+      is suspected.
+  phase_3_precision_tuning:
+    step_7: >-
+      Execute 'Silent-Slot-Rebalancing': Update the internal QueueService weights to favor the most critical active
+      milestones.
+    step_8: >-
+      Verification Cycle: Monitor the next 5 inter-agent handoffs to confirm the 'Handoff-Integrity-Audit' score is
+      improving.
+  phase_4_pulse_reporting:
+    step_9: "Publish Compact Status: Deliver an 'Ops-Pulse' to Arya (CEO) and Julia (CTO) with the current Confidence Score."
+    step_10: "Schedule Next Review: Update the ephemeral 'Next-Tune-Up' timestamp in the /local/ops/ directory."
+dependencies:
+  required_skills:
+    - execution-governance
+    - queue-health-management
+    - handoff-integrity-audit
+  required_kpis:
+    - sla-breach-count
+    - queue-throughput-velocity
+  data_inputs:
+    - queue-telemetry-feed
+    - system-latency-logs
+    - global-ops-protocol-md
+  protocols:
+    - seed-alignment-protocol
+    - latency-guardrail-protocol
+    - low-risk-execution-gate
+error_handling:
+  on_latency_spike: If a micro-adjustment increases IPC latency by >5ms, auto-revert to 'Last-Known-Stable-Configuration'.
+  on_deadlock_detection: Abort tuning and immediately trigger 'Human-in-Loop-Bottleneck-Resolution'.
+expected_output: >
+  A validated Autonomous Ops-Pulse containing: 1. Status: [ALIGNED / REBALANCED / ESCALATED] 2. Confidence Score:
+  [0-100%] 3. Tuning Log: Summary of Slot-weight adjustments or process-flushes. 4. Efficiency Delta: Predicted gain in
+  system throughput (ms).

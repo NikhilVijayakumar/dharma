@@ -1,0 +1,34 @@
+id: inter-agent-communication-protocol-gicp-1
+title: "Global Inter-Agent Communication (GICP-1)"
+description: "Stateless governance standard for the structured, asynchronous exchange of data, logic-requests, and state-updates between agent nodes."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Header-Mandate: Every message must include: [Source-Slot], [Target-Slot], [Priority-Level], and [Originating-Work-Order-UUID]."
+  - rule_2: "Payload-Structure: Data must be transmitted in 'Contract-First' formats (JSON/YAML). Natural language is permitted only in the 'Rationale' field for audit purposes."
+  - rule_3: "The 'Short-Circuit' Rule: Agents must check the 'Global-State-Cache' before requesting data from another agent to minimize inter-node latency."
+  - rule_4: "Conflict-ID-Tagging: If a message conveys a 'Logic-Contradiction', it must be tagged with [CONFLICT-DETECTION] to trigger the Friction-Resolution-Protocol."
+  - rule_5: "Non-Blocking-Wait: A requesting agent must define a 'Callback-Timeout'. If the target agent does not respond, the requester must execute 'Safe-Fail-Logic' or escalate."
+
+logic_sequence:
+  step_1: "Message-Construction: Package the 'Request-Intent' into a GICP-1 compliant object."
+  step_2: "Address-Resolution: Identify the correct 'Specialized-Agent' capable of fulfilling the request (e.g., Nora for Fiscal, Julia for Tech)."
+  step_3: "Transmission-Log: Write the message metadata to the /governance/audit/communication-bus.log."
+  step_4: "IF ACKNOWLEDGED: Enter 'Awaiting-Payload' state while continuing other non-dependent background tasks."
+  step_5: "IF TIMEOUT/REJECTED: Trigger the 'Incident-Escalation-Protocol' to resolve the communication breakdown."
+
+escalation_triggers:
+  - "Condition: An agent receives >5 'Malformed-Packet' errors from the same source node."
+  - "Condition: A 'Circular-Dependency' is detected (Agent A and Agent B waiting for each other)."
+  - "Condition: Communication frequency between two nodes exceeds the 'Token-Burn-SLA' for non-critical tasks."
+
+dependencies:
+  required_skills:
+    - execution-governance
+    - forensic-intent-analysis
+  required_kpis:
+    - routing-accuracy-score
+    - decision-cycle-time

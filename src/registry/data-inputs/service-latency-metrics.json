@@ -1,0 +1,33 @@
+{
+  "uid": "service-latency-metrics",
+  "name": "Temporal-Performance-Monitor (TPM)",
+  "description": "High-resolution telemetry tracking 'Inference-Speed', 'Network-Transit', and 'Agent-Processing-Time' across the 10-slot array.",
+  "schemaType": "Telemetry-Protocol",
+  "requiredFields": [
+    "snapshot_id",
+    "timestamp_iso8601",
+    "trace_route_vector",
+    "p99_latency_ms",
+    "cold_start_penalty",
+    "bottleneck_probability_score",
+    "sla_compliance_flag"
+  ],
+  "sampleSource": "ops/telemetry-vault/v4-latency-stream",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "latency_thresholds": {
+          "REAL_TIME": "< 200ms (Conversational-Fluidity)",
+          "OPERATIONAL": "200ms - 2s (Standard-Execution)",
+          "DEFERRED": "2s - 30s (Complex-Synthesis)",
+          "STALLED": "> 30s (Timeout-Risk)"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

@@ -1,0 +1,111 @@
+id: google-ecosystem-action-intelligence
+agent_id: mira
+workflow_mode: global-collaborative
+trigger: Dedicated admin email or meeting transcript enters the Google ecosystem ingestion pipeline.
+pre_conditions:
+  - condition: admin-mailbox-bound
+    description: Dedicated admin account is configured in runtime environment.
+    source: data-input
+    validation_rule: exists
+  - condition: ingestion-protocol-loaded
+    description: Google ecosystem ingestion protocol is loaded and active.
+    source: agent-state
+    validation_rule: "true"
+logic_sequence:
+  phase_1_ingestion_and_normalization:
+    step_1: Ingest inbound records from Gmail API, Zapier webhook, or MCP connector.
+    step_2: If primary connectors are unavailable, ingest from approved Telegram bridge fallback with allowlist checks.
+    step_3: Normalize every record into google-ecosystem-admin-intelligence-feed contract and write trace ids.
+  phase_2_summary_and_action_item_extraction:
+    step_4: Extract meeting notes, decisions, owners, due dates, and blockers from normalized text.
+    step_5: Generate deterministic Action Items summary with owner and due-date mapping.
+    step_6: Route summary package to relevant execution agents and log collaboration memos.
+  phase_3_policy_impact_and_governance:
+    step_7: Classify policy impact as no_change, possible_change, or confirmed_change.
+    step_8: If possible_change or confirmed_change, request compliance validation by Eva.
+    step_9: If confirmed_change, invoke governance-policy-update workflow and stage policy draft update.
+  phase_4_publish_and_audit:
+    step_10: Publish action-item digest to approved channel targets.
+    step_11: Persist decision and action-item artifacts into audit trail and decisions registry.
+    step_12: Emit completion status with policy-sync state and references.
+collaborators:
+  - agent_id: mira
+    role: secretary
+    responsibility: Intake orchestration, synthesis owner, and routing coordinator.
+    required: true
+  - agent_id: eva
+    role: compliance
+    responsibility: Policy impact validation and governance update gate.
+    required: true
+  - agent_id: elina
+    role: operations
+    responsibility: Action item sequencing and queue governance.
+    required: true
+  - agent_id: arya
+    role: director
+    responsibility: Approval authority for confirmed policy changes.
+    required: true
+handoff_rules:
+  transfer_points:
+    - id: intake-to-compliance
+      from_agent: mira
+      to_agent: eva
+      condition: policy_impact_signal is possible_change or confirmed_change
+      context_packet_required_fields:
+        - record_id
+        - action_item_summary
+        - decision_signals
+        - policy_impact_signal
+      rfi_allowed: true
+      director_approval_required: false
+    - id: compliance-to-director
+      from_agent: eva
+      to_agent: arya
+      condition: policy_impact_signal is confirmed_change
+      context_packet_required_fields:
+        - policy_change_rationale
+        - draft_policy_path
+        - compliance_impact_summary
+      rfi_allowed: false
+      director_approval_required: true
+    - id: compliance-to-operations
+      from_agent: eva
+      to_agent: elina
+      condition: action item package approved for execution
+      context_packet_required_fields:
+        - action_item_summary
+        - owner_due_date_matrix
+        - execution_priority
+      rfi_allowed: true
+      director_approval_required: false
+dependencies:
+  required_skills:
+    - multi-agent-sync-orchestration
+    - automated-policy-validation
+    - routing-precision
+  required_kpis:
+    - handshake-success-rate
+    - audit-trail-completeness-score
+    - cross-role-resolution-time
+  data_inputs:
+    - google-ecosystem-admin-intelligence-feed
+    - channel-management-config-registry
+    - compliance-policy-md
+    - decisions
+  protocols:
+    - google-ecosystem-ingestion-protocol
+    - external-channel-communication-protocol
+    - internal-memo-rfi-protocol
+    - git-governance-handshake-protocol
+error_handling:
+  on_missing_admin_account: Block pipeline activation and route to onboarding channel configuration.
+  on_auth_failure: Reject connector payload, emit security alert, and log pre-parse rejection reason.
+  on_policy_update_rejection: Mark policy-sync as REJECTED, preserve action items, and escalate to director.
+expected_output: >
+  An action intelligence package including: 1) normalized meeting or email summary,
+  2) explicit Action Items with owners and due dates, 3) policy impact classification,
+  4) policy update state [NO_CHANGE/STAGED/COMMITTED/REJECTED], and 5) complete audit trace references.
+metadata:
+  version: 1.0.0
+  status: active
+  estimated_duration: 20 minutes

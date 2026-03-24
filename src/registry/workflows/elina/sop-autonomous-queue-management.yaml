@@ -1,0 +1,53 @@
+id: sop-autonomous-queue-management
+agent_id: elina
+trigger: Standard Operating / Queue Occupancy > 50% Capacity
+logic_sequence:
+  phase_1_congestion_forensics:
+    step_1: >-
+      Scan 'queue-bottleneck-telemetry': Identify specific tasks in the 10-slot array with the highest wait-to-execution
+      ratio.
+    step_2: >-
+      Handoff-Audit: Analyze 'handoff-rejection-rate' to detect inter-agent friction (e.g., Nora rejecting Julia’s
+      budget specs).
+    step_3: "Initialize 'Congestion-Map' (Local/Ignored): Map the flow of data to see where the 'Traffic Jam' originates."
+  phase_2_dynamic_rebalancing:
+    step_4: >-
+      Auto-Rebalance Priority: Elevate tasks tagged with Arya’s 'High-Impact-Milestone' and de-prioritize 'Exploration'
+      tasks.
+    step_5: >-
+      Compute-Shifting: Allocate extra IPC bandwidth to agents currently on the 'Critical Path' (e.g., Julia during a
+      deploy).
+    step_6: "Verify 'Protocol-Fidelity': Ensure rebalancing doesn't violate the 'Global-Ops-Protocol.md' stored in Git."
+  phase_3_latency_self_healing:
+    step_7: >-
+      25ms Trigger: If any task stalls >25ms, invoke 'Self-Healing' to re-route the logic through the
+      'ModelGatewayService'.
+    step_8: >-
+      Secondary Execution: Use a lighter, high-velocity model variant to clear the bottleneck if the primary agent is
+      'Thinking' too deeply.
+  phase_4_event_logging:
+    step_9: "Log 'Optimization Event': Store a record in the git-ignored /local/ops/incident-log.md."
+    step_10: "Report: Deliver a 'Throughput-Delta' summary to Arya to confirm the system has returned to <40% occupancy."
+dependencies:
+  required_skills:
+    - execution-governance
+    - queue-health-management
+    - handoff-integrity-audit
+  required_kpis:
+    - sla-breach-count
+    - queue-throughput-velocity
+  data_inputs:
+    - queue-telemetry-feed
+    - strategic-milestones-json
+    - model-gateway-status
+  protocols:
+    - sop-monitoring-protocol
+    - priority-rebalancing-protocol
+    - self-healing-routing-protocol
+error_handling:
+  on_re-routing_failure: If ModelGatewayService fails, immediately trigger 'Human-in-Loop Bottleneck Resolution' (HIL-BR).
+  on_priority_clash: If two 'High-Impact' tasks collide, defer to Nora’s 'Fiscal-Safety' priority as the ultimate tie-breaker.
+expected_output: >
+  A validated Queue Optimization Pulse containing: 1. Status: [QUE-OPTIMIZED / RE-ROUTED / STABLE] 2. Rationale:
+  Data-link between the specific bottleneck and the priority shift. 3. Latency Gain: Milliseconds saved per task cycle.
+  4. Traceable References: Local Log IDs for the specific re-routed tasks.

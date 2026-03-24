@@ -1,0 +1,14 @@
+{
+  "uid": "director-preference-ledger",
+  "name": "Director Preference Ledger",
+  "description": "Generated data input for registry reference normalization: director-preference-ledger.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/mira/human-in-loop-intent-clarification",
+  "privacyClassification": "internal"
+}

@@ -1,0 +1,19 @@
+{
+  "uid": "autonomous-recovery-rate",
+  "name": "Autonomous-Recovery-Rate (ARR)",
+  "description": "The percentage of 'System-Degradation-Events' (Tier-1/2) successfully resolved by automated protocols (SMGP, SHRP, SHCP) to restore 'Green-Pulse' status.",
+  "unit": "% (Success-Ratio)",
+  "target": "> 95.00",
+  "value": "Calculated via Governance-Log (Resolved-Auto / Total-Incidents)",
+  "goalMapping": "Measures system 'Self-Correction' maturity and reduces the 'Cost-of-Downtime'.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Incident / Post-Mortem",
+    "shorthand": "Recovery-Index"
+  },
+  "thresholds": {
+    "critical": "< 80% (Triggers 'Emergency-Director-Override' via Slot-10)",
+    "warning": "80% - 90% (Triggers 'Protocol-Logic-Audit' by Eva/Compliance)",
+    "optimal": "> 98%"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "uid": "infrastructure-cost-ledger",
+  "name": "Infrastructure Cost Ledger",
+  "description": "Generated data input for registry reference normalization: infrastructure-cost-ledger.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/julia/architectural-evolution",
+  "privacyClassification": "internal"
+}

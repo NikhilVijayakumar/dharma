@@ -1,0 +1,19 @@
+{
+  "uid": "autonomous-report-accuracy",
+  "name": "Autonomous-Report-Accuracy (ARA)",
+  "description": "The percentage of generated reports that match 'Source-of-Truth' telemetry without requiring manual 'Director-Correction' or 'Logic-Patching'.",
+  "unit": "% (Fidelity-Ratio)",
+  "target": "100.00",
+  "value": "Calculated via SHNP-Scan (Telemetry-vs-Narrative)",
+  "goalMapping": "Enforces 'Narrative-Integrity' and supports the 'Investor-Readiness-Protocol'.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Report / Weekly-Audit",
+    "shorthand": "Report-Fidelity"
+  },
+  "thresholds": {
+    "critical": "< 98.0% (Triggers SHNP 'Narrative-Patch' and pauses outbound reporting)",
+    "warning": "98% - 99.9% (Triggers Forensic-Intent-Analysis of the report-agent)",
+    "optimal": "100.00%"
+  }
+}

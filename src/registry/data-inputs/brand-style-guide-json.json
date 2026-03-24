@@ -1,0 +1,14 @@
+{
+  "uid": "brand-style-guide-json",
+  "name": "Brand Style Guide Json",
+  "description": "Generated data input for registry reference normalization: brand-style-guide-json.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/sofia/seed-autonomous-alignment",
+  "privacyClassification": "internal"
+}

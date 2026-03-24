@@ -1,0 +1,32 @@
+{
+  "uid": "content-approval-ledger",
+  "name": "Content Approval Ledger",
+  "description": "Approval sign-off ledger for creative content publication with reviewer trace and risk trade-off metadata.",
+  "schemaType": "audit-trail",
+  "sourceType": "vault",
+  "sourceLocation": "governance/vault/content-approval-ledger",
+  "requiredFields": [
+    "approval_id",
+    "content_id",
+    "content_track",
+    "reviewer_id",
+    "approval_status",
+    "risk_tradeoff_summary",
+    "approved_at",
+    "publication_gate_state"
+  ],
+  "sampleSource": "governance/vault/content-approval-ledger/2026-03",
+  "updateFrequency": "per-transaction",
+  "responsibleAgent": "arya",
+  "privacyClassification": "internal",
+  "retentionPolicy": "indefinite",
+  "dependencies": {
+    "dependent_kpis": [
+      "human-review-gate-pass-rate",
+      "bavans-value-gate-pass-rate"
+    ],
+    "dependent_workflows": [
+      "creative-content-approval-gate"
+    ]
+  }
+}

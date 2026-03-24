@@ -1,0 +1,19 @@
+{
+  "uid": "hiring-cycle-time",
+  "name": "Hiring-Cycle-Time (HCT)",
+  "description": "The elapsed duration from 'Gap-Identification' (Slot-10) to 'Active-Onboarding-Status' (Operational-Ready-State) for new agent-slots or key human-collaborators.",
+  "unit": "Days/Hours",
+  "target": "< 7.0 Days (Human) / < 0.5 Hours (Agentic)",
+  "value": "Calculated via 'SHRP-Requisition-TS' vs. 'System-Access-Grant-TS'",
+  "goalMapping": "Measures the 'Scaling-Elasticity' of the organization and the efficiency of the 'Persona-Onboarding-Logic'.",
+  "metadata": {
+    "priority": "High (Tier-2)",
+    "sampling_frequency": "Per-Hiring-Event",
+    "shorthand": "Talent-Velocity"
+  },
+  "thresholds": {
+    "critical": "> 21 Days (Triggers 'Sourcing-Automation-Audit' via Lina/HR)",
+    "warning": "10 - 21 Days (Triggers 'Interview-Logic-Refinement')",
+    "optimal": "< 5 Days"
+  }
+}

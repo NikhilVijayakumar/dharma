@@ -1,0 +1,33 @@
+id: agent-performance-review-protocol
+title: "Autonomous Agent Performance & Logic Review"
+description: "Stateless governance standard for auditing agent output quality, KPI alignment, and strategic fidelity."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "KPI-Threshold Alignment: Agent must maintain a Success-Rate > 92% for their assigned primary KPIs over the last 50 cycles."
+  - rule_2: "Logic-Fidelity: All outputs must be cross-referenced against the 'Strategic-Vision.md' to ensure zero 'Mission-Drift'."
+  - rule_3: "Handoff-Integrity: Rejection rates from downstream agents (e.g., Julia rejecting Sofia’s specs) must remain below 5%."
+  - rule_4: "Token-Efficiency: Agents must operate within 10% of their 'Compute-Budget' baseline to prevent 'Fiscal-Drain' (Nora)."
+  - rule_5: "Transparency-Traceability: Every decision must be accompanied by a 'Rationale-Hash' linked to a specific protocol ID."
+
+logic_sequence:
+  step_1: "Telemetry-Pull: Aggregate recent execution logs and KPI deltas from the local /governance/logs/ directory."
+  step_2: "Self-Diagnostic: Compare current performance against the 'Last-Known-Stable-Baseline' stored in the Vault."
+  step_3: "IF PERFORMANCE-DROP: Initiate 'Micro-Calibration'. Adjust internal prompt-weights or query the 'Contextual-Self-Healing' service for missing data."
+  step_4: "IF UNRESOLVED: Flag the slot as [DEGRADED] and trigger a 'Talent-Optimization' request to Lina Kovic (HR)."
+
+escalation_triggers:
+  - "Condition: Success-Rate drops below 85% for three consecutive audit cycles."
+  - "Condition: Agent attempts to execute logic outside of its 'Sovereignty-Hard-Rules'."
+  - "Condition: Persistent circular-dependency detected during handoff-arbitration."
+
+dependencies:
+  required_skills:
+    - forensic-intent-analysis
+    - low-risk-recalibration
+  required_kpis:
+    - decision-cycle-time
+    - routing-accuracy-score

@@ -1,0 +1,33 @@
+{
+  "uid": "product-usage-events",
+  "name": "Behavioral-Utility-Stream (BUS)",
+  "description": "A high-fidelity telemetry stream mapping 'User-Interactions' against 'Value-Thresholds' and 'Retention-Propensity'.",
+  "schemaType": "Behavioral-Protocol",
+  "requiredFields": [
+    "event_id",
+    "timestamp_iso8601",
+    "user_persona_segment",
+    "feature_vector_ref",
+    "interaction_depth_score",
+    "session_context_hash",
+    "value_moment_flag"
+  ],
+  "sampleSource": "product/analytics-vault/real-time-usage",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "event_dimensions": {
+          "ACTIVATION": "First-Mile / Time-to-Value (TTV)",
+          "ENGAGEMENT": "Core-Loop / Feature-Adoption",
+          "FRICTION": "Error-States / Drop-off-Points",
+          "EXPANSION": "Power-User / Multi-Slot-Utility"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

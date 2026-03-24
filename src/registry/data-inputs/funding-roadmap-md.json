@@ -1,0 +1,33 @@
+{
+  "uid": "funding-roadmap-md",
+  "name": "Capital-Inflection-Roadmap (CIR)",
+  "description": "A dynamic schedule linking 'Operational-Milestones' to 'Valuation-Triggers' and 'Liquidity-Events' across the 10-slot array.",
+  "schemaType": "Financial-Strategy-Protocol",
+  "requiredFields": [
+    "timestamp_iso8601",
+    "funding_stage_id",
+    "valuation_target_vector",
+    "runway_threshold_ms",
+    "dilution_limit_logic",
+    "investor_persona_alignment",
+    "milestone_dependency_ref"
+  ],
+  "sampleSource": "finance/strategy-vault/v2-roadmap",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "funding_stages": {
+          "PRE-SEED": "Logic-Verification / Substrate-Build",
+          "SEED": "Market-Friction-Test / Initial-Agentic-Scale",
+          "SERIES-A": "Revenue-Velocity-Standardization",
+          "EXPANSION": "Global-Protocol-Deployment"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

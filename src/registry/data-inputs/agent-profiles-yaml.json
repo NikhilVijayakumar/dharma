@@ -1,0 +1,14 @@
+{
+  "uid": "agent-profiles-yaml",
+  "name": "Agent Profiles Yaml",
+  "description": "Generated data input for registry reference normalization: agent-profiles-yaml.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/lina/friction-resolution-mode",
+  "privacyClassification": "internal"
+}

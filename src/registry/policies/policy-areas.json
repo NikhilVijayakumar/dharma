@@ -1,0 +1,40 @@
+{
+  "uid": "policy-areas",
+  "name": "Policy Area Taxonomy",
+  "description": "Enumerated taxonomy of policy areas used for classification and routing in the Administration policy vault.",
+  "version": "1.0.0",
+  "areas": [
+    {
+      "id": "core-governance",
+      "name": "Core Governance",
+      "description": "Foundational decision-making, authority delegation, and organizational governance policies.",
+      "vaultSubfolder": "core-governance",
+      "defaultReviewCadence": "quarterly",
+      "defaultOwner": "arya"
+    },
+    {
+      "id": "hr-performance",
+      "name": "HR & Performance",
+      "description": "Human resources, employee wellbeing, performance evaluation, and talent management policies.",
+      "vaultSubfolder": "hr-performance",
+      "defaultReviewCadence": "monthly",
+      "defaultOwner": "mira"
+    },
+    {
+      "id": "operations-controls",
+      "name": "Operations Controls",
+      "description": "Attendance, calendar management, workflow controls, and operational procedure policies.",
+      "vaultSubfolder": "operations-controls",
+      "defaultReviewCadence": "monthly",
+      "defaultOwner": "elina"
+    },
+    {
+      "id": "security-compliance",
+      "name": "Security & Compliance",
+      "description": "Data security, external integration security, access controls, and regulatory compliance policies.",
+      "vaultSubfolder": "security-compliance",
+      "defaultReviewCadence": "quarterly",
+      "defaultOwner": "eva"
+    }
+  ]
+}

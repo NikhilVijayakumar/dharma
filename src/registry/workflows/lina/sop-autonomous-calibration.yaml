@@ -1,0 +1,72 @@
+id: sop-autonomous-calibration
+agent_id: lina
+trigger: "Standard Operating / Monthly Performance Review (Default: Every 30 Days)"
+logic_sequence:
+  phase_1_performance_audit:
+    step_1: >-
+      Scan 'kpi/registry.json': Identify agents currently falling below the 85% 'Control-Pass-Rate' or
+      'Execution-Velocity' baseline.
+    step_2: >-
+      Work-Order-Forensics: Cross-reference failures with Elina’s 'work-order-routing-log' to determine if the failure
+      is 'Agent-Incompetence' or a 'Systemic-Bottleneck'.
+    step_3: >-
+      Initialize 'Calibration-Matrix': Map the delta between the agent’s 'Initial-Backstory' and their
+      'Observed-Behavioral-Output'.
+  phase_2_skill-gap_remediation:
+    step_4: >-
+      Generate 'Skill-Enhancement' Briefs: Identify missing logic-patterns (e.g., Dani needing better
+      'Ad-Copy-Constraint' logic) and send to Julia (CTO) for synthesis.
+    step_5: >-
+      Persona-Correction: If an agent's tone (e.g., Nora becoming overly aggressive) drifts from her backstory, invoke
+      'Self-Healing' to re-align their core persona.
+    step_6: >-
+      IF Calibration requires > 20% Persona Overhaul: Halt autonomous correction and escalate to 'Human-in-Loop Talent
+      Pivot'.
+  phase_3_cross-module-alignment:
+    step_7: >-
+      Cohesion Sync: Run a 'Cross-Functional-Alignment' check to ensure that the new skill-upgrades for one agent don't
+      break the 'Handoff-Protocols' of another.
+    step_8: >-
+      Verify 'Cultural-Manifesto': Ensure all calibrated behaviors still resonate with the Director's
+      'Strategic-Vision.md'.
+    step_9: >-
+      Verify 'Fiscal-Impact': Confirm with Nora that any new skill-sets won't result in a 'Token-Burn-Spike' beyond the
+      Opex-limit.
+  phase_4_governance_reporting:
+    step_10: >-
+      Log Calibration Event: Record all behavioral and logic micro-adjustments in the git-ignored
+      '/local/governance/talent-log.md'.
+    step_11: >-
+      Publish 'Team-Pulse' Report: Deliver a summary of the 'Uplift-Index' (predicted efficiency gain) to the Director’s
+      Slot-10.
+    step_12: >-
+      Post-Calibration Monitor: Track 'Hiring-Cycle-Time' and 'Alignment-Index' for 48h to confirm successful behavioral
+      integration.
+dependencies:
+  required_skills:
+    - talent-evaluation
+    - execution-governance
+    - cross-module-cohesion
+  required_kpis:
+    - cross-functional-alignment-index
+    - hiring-cycle-time
+  data_inputs:
+    - kpi-registry-json
+    - work-order-routing-log
+    - agent-profiles-yaml
+  protocols:
+    - autonomous-calibration-protocol
+    - persona-self-healing-protocol
+    - skill-request-handshake-protocol
+error_handling:
+  on_calibration_rejection: >-
+    If an agent rejects the new persona-calibration, Lina invokes 'Static-Wait-State' and flags the slot for a Director
+    'Hard-Reset'.
+  on_skill_synthesis_failure: >-
+    If Julia cannot synthesize the requested skill, Lina re-routes the task to a 'Safe-State-Agent' and logs the
+    logic-gap.
+expected_output: >
+  A validated Talent Calibration Report containing: 1. Status: [CALIBRATED / SKILL-UPGRADE-PENDING / ESCALATED] 2.
+  Performance Delta: Identification of specific KPI failures and the proposed logic fix. 3. Persona Integrity Score:
+  Numerical confirmation of brand-voice alignment. 4. Traceable Reference: The log-entry in the 'talent-log' documenting
+  the optimization.

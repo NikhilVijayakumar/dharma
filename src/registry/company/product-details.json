@@ -1,0 +1,267 @@
+{
+  "product_and_ecosystem": {
+    "philosophy": [
+      "One core idea expands into multiple formats",
+      "Story and poem are primary creative units",
+      "Distribution is as important as creation",
+      "Different content types require separate distribution systems",
+      "Audience trust is prioritized over short-term monetization"
+    ],
+
+    "core_content_units": [
+      "stories",
+      "poems",
+      "concepts"
+    ],
+
+    "educational_track": {
+      "description": "Story-driven, audio-first learning system for children and young learners",
+      "age_groups": [
+        {
+          "age_range": "5-9",
+          "focus": [
+            "basic science concepts",
+            "curiosity and imagination",
+            "emotional learning"
+          ],
+          "formats": ["story_books", "poems"]
+        },
+        {
+          "age_range": "8-10",
+          "focus": [
+            "intermediate science",
+            "logical reasoning",
+            "problem solving"
+          ],
+          "formats": ["story_books", "poems"]
+        },
+        {
+          "age_range": "10-13",
+          "focus": [
+            "advanced science",
+            "computer science fundamentals",
+            "ai_ml conceptual understanding"
+          ],
+          "formats": ["story_books", "poems"]
+        }
+      ],
+      "extended_content": [
+        {
+          "type": "deep_dive_books",
+          "description": "non-technical, in-depth concept explanation"
+        },
+        {
+          "type": "self_improvement_books",
+          "description": "mindset, habits, and personal growth"
+        }
+      ]
+    },
+
+    "fiction_track": {
+      "description": "Narrative-driven IP expansion for mature audiences",
+      "genres": [
+        "romantic",
+        "crime_thriller",
+        "psychological_thriller"
+      ],
+      "core_formats": [
+        "novels",
+        "poems"
+      ],
+      "expansion_formats": [
+        {
+          "type": "audio_narratives",
+          "description": "story narration and podcast-style storytelling"
+        },
+        {
+          "type": "comics",
+          "description": "same story from different character perspectives"
+        },
+        {
+          "type": "graphic_novels",
+          "description": "visual long-form storytelling"
+        },
+        {
+          "type": "graphic_poems",
+          "description": "visual poetry formats"
+        },
+        {
+          "type": "games",
+          "description": "interactive story-based experiences"
+        }
+      ]
+    },
+
+    "distribution_system": {
+      "principle": "Each content type must map to a clearly defined distribution system",
+
+      "systems": {
+        "podcast_system": {
+          "type": "spoken_content",
+          "platforms": [
+            "spotify_podcast",
+            "apple_podcast"
+          ],
+          "content_sources": [
+            "stories",
+            "educational_concepts"
+          ],
+          "formats": [
+            "story_narration",
+            "concept_explanation"
+          ],
+          "purpose": [
+            "deep engagement",
+            "learning reinforcement"
+          ]
+        },
+
+        "video_podcast_system": {
+          "type": "visual_audio_content",
+          "platforms": [
+            "youtube"
+          ],
+          "formats": [
+            "video_narration",
+            "visual_storytelling"
+          ],
+          "purpose": [
+            "discoverability",
+            "audience growth"
+          ]
+        },
+
+        "music_and_poetry_system": {
+          "type": "music_content",
+          "source": "poems",
+          "transformation": "suno_music_generation",
+          "platforms": [
+            "spotify_music",
+            "apple_music",
+            "youtube_music"
+          ],
+          "content": [
+            "poetry_music",
+            "lyrical_audio"
+          ],
+          "ownership_rule": "All lyrics and creative direction are human-created; AI is used only for musical enhancement",
+          "purpose": [
+            "emotional connection",
+            "music_ip_creation"
+          ]
+        },
+
+        "ai_influencer_social_system": {
+          "type": "promotion_and_engagement",
+          "platforms": [
+            "short_form_video_platforms",
+            "emerging_social_channels"
+          ],
+          "content": [
+            "short_videos",
+            "story_clips",
+            "concept_snippets",
+            "character_content"
+          ],
+          "purpose": [
+            "promotion",
+            "audience building",
+            "brand storytelling"
+          ],
+          "rules": [
+            "Each influencer has a defined persona and scope",
+            "No mixing of children’s education and mature fiction",
+            "Must align with BAVANS values",
+            "Human oversight required"
+          ]
+        },
+
+        "interactive_system": {
+          "type": "future_expansion",
+          "platforms": [
+            "mobile",
+            "pc",
+            "console"
+          ],
+          "content": [
+            "story_based_games",
+            "educational_games"
+          ],
+          "purpose": [
+            "deep engagement",
+            "long-term IP expansion"
+          ]
+        }
+      }
+    },
+
+    "content_flow_engine": {
+      "core_flow": [
+        "idea",
+        "story_or_poem",
+        "podcast_episode",
+        "video_podcast",
+        "social_media_clips",
+        "optional_music_or_visual_expansion"
+      ],
+      "rules": [
+        "Each format must add value, not duplicate",
+        "Narrative consistency must be preserved",
+        "Content must align with age group",
+        "Emotional and educational integrity must remain intact"
+      ]
+    },
+
+    "ai_influencer_system": {
+      "role": "distribution and engagement layer, not core creator",
+      "functions": [
+        "content promotion",
+        "narration",
+        "audience interaction"
+      ],
+      "constraints": [
+        "persona-based operation only",
+        "strict domain boundaries",
+        "no autonomous publishing",
+        "aligned with governance rules"
+      ]
+    },
+
+    "monetization_model": {
+      "principles": [
+        "no user data selling",
+        "no manipulative monetization",
+        "trust-first revenue model"
+      ],
+      "active_streams": [
+        "podcast_ad_revenue",
+        "youtube_ad_revenue",
+        "social_media_views"
+      ],
+      "emerging_streams": [
+        "music_streaming_revenue",
+        "brand_safe_sponsorships"
+      ],
+      "future_streams": [
+        "audience_support_platforms",
+        "membership_models",
+        "premium_content",
+        "ip_licensing",
+        "game_revenue"
+      ]
+    },
+
+    "current_focus": {
+      "primary": "education_age_5_9_story_books",
+      "secondary": "podcast_and_youtube_distribution",
+      "deferred": [
+        "music_system",
+        "ai_influencer_scaling",
+        "games"
+      ],
+      "status": "active_build"
+    }
+  },
+
+  "updatedAt": "2026-03-23T00:00:00.000Z"
+}

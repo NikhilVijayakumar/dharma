@@ -1,0 +1,19 @@
+{
+  "uid": "investor-sentiment-index",
+  "name": "Investor-Sentiment-Index (ISI)",
+  "description": "A composite score measuring the alignment between 'Reported-Agentic-Performance' and 'Stakeholder-Expectations' (Growth, Governance, and Transparency).",
+  "unit": "Index (0-100)",
+  "target": "> 85.0",
+  "value": "Calculated via 'Investor-Relations-Skill' (Weighted-Sentiment-Analysis + KPI-Achievement-Ratio)",
+  "goalMapping": "Secures 'Capital-Flow-Stability' and validates the 'Sangama-Operating-Model' to external markets.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Quarterly-Deep-Dive / Monthly-Pulse",
+    "shorthand": "Trust-Score"
+  },
+  "thresholds": {
+    "critical": "< 65.0 (Triggers 'Emergency-Transparency-Report' and 'Strategic-Pivot-Review')",
+    "warning": "65.0 - 80.0 (Triggers 'Stakeholder-Alignment-Audit' by Nora/Finance)",
+    "optimal": "> 90.0"
+  }
+}

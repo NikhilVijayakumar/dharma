@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "core/schemas/onboarding/onboarding-commit.schema.json",
+  "title": "OnboardingCommitPayload",
+  "type": "object",
+  "required": ["kpiData", "contextByStep", "approvalByStep", "agentMappings"],
+  "properties": {
+    "kpiData": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "contextByStep": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": { "type": "string" }
+      }
+    },
+    "approvalByStep": {
+      "type": "object",
+      "required": [
+        "company-core",
+        "product-context",
+        "global-assets",
+        "global-guardrails",
+        "agent-profile-persona",
+        "agent-workflows",
+        "infrastructure-finalization"
+      ],
+      "properties": {
+        "company-core": { "type": "string", "enum": ["PENDING", "DRAFT", "APPROVED"] },
+        "product-context": { "type": "string", "enum": ["PENDING", "DRAFT", "APPROVED"] },
+        "global-assets": { "type": "string", "enum": ["PENDING", "DRAFT", "APPROVED"] },
+        "global-guardrails": { "type": "string", "enum": ["PENDING", "DRAFT", "APPROVED"] },
+        "agent-profile-persona": { "type": "string", "enum": ["PENDING", "DRAFT", "APPROVED"] },
+        "agent-workflows": { "type": "string", "enum": ["PENDING", "DRAFT", "APPROVED"] },
+        "infrastructure-finalization": { "type": "string", "enum": ["PENDING", "DRAFT", "APPROVED"] }
+      },
+      "additionalProperties": false
+    },
+    "agentMappings": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["skills", "protocols", "kpis", "workflows"],
+        "properties": {
+          "skills": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "protocols": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "kpis": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "workflows": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

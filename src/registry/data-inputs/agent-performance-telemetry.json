@@ -1,0 +1,14 @@
+{
+  "uid": "agent-performance-telemetry",
+  "name": "Agent Performance Telemetry",
+  "description": "Generated data input for registry reference normalization: agent-performance-telemetry.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/elina/operational-improvement-cycle",
+  "privacyClassification": "internal"
+}

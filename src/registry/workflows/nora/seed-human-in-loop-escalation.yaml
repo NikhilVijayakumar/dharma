@@ -1,0 +1,65 @@
+id: seed-human-in-loop-escalation
+agent_id: nora
+trigger: High-Risk Fiscal Variance (>15%) / Runway Threshold Breach (<6 Months)
+logic_sequence:
+  phase_1_forensic_burn_analysis:
+    step_1: >-
+      Summarize the 'Variance-Rupture': Identify the specific agent slot or API-category driving the overspend (e.g.,
+      Julia’s GPU-Compute or Dani’s Ad-Spikes).
+    step_2: "Workflow Impact Mapping: Determine which 'Milestones' in Arya’s plan are now unfunded due to the capital drain."
+    step_3: "Projected 'Default-Dead' Timeline: Calculate the exact date of liquidity exhaustion if the current burn continues."
+  phase_2_evidence_gathering:
+    step_4: >-
+      Attach Hard-Evidence: Extract 'Real-time-Billing-Logs' and 'Audit-Trail-Hashes' from the secure /local/finance/
+      ledger.
+    step_5: >-
+      Protocol Violation Check: Identify which 'Fiscal-Gate' (Eva) was bypassed—or if the market conditions (Maya) have
+      shifted the 'Valuation-Floor'.
+    step_6: "Verify 'Essential-Runway': Confirm the minimum 'Life-Support-Opex' required to keep the Vault and core IP active."
+  phase_3_recovery_arbitration_modeling:
+    step_7: >-
+      Draft 'Option A (Hard-Austerity)': Immediate 50% cut to non-essential slots to extend runway by 5 months,
+      sacrificing growth-velocity.
+    step_8: >-
+      Draft 'Option B (Strategic-Bridge)': Reallocate the remaining 'Emergency-Reserve' to a high-yield marketing push
+      (Dani) to trigger a revenue inflection.
+    step_9: >-
+      Implementation Risk Matrix: Detail the trade-offs (e.g., 'Operational-Stall' vs. 'Capital-Exhaustion') for each
+      recovery path.
+  phase_4_director_emergency_gate:
+    step_10: >-
+      Escalate to Director: Push the 'Fiscal-Recovery-Brief' to Mira’s high-priority Slot-10 for an immediate digital
+      signature.
+    step_11: >-
+      Active Capital-Lock: Suspend all 'Discretionary-Spend' across the organization until a Director-signed
+      'Recovery-Auth' hash is detected.
+    step_12: >-
+      Execution & Logging: Once authorized, commit the new 'Fiscal-Rules.json' and update the
+      'Strategic-History-Ledger'.
+dependencies:
+  required_skills:
+    - budget-allocation
+    - financial-forecasting
+    - strategic-alignment
+  required_kpis:
+    - runway-coverage-months
+    - burn-variance-ratio
+  data_inputs:
+    - growth-opex-ledger
+    - billing-api-telemetry
+    - strategic-vision-md
+  protocols:
+    - emergency-stabilization-protocol
+    - fiscal-burn-containment-protocol
+    - binary-choice-governance-protocol
+error_handling:
+  on_auth_stale_state: >-
+    If the Director is silent > 12h, Nora invokes 'Maximum-Preservation'—shutting down all non-governance agents to save
+    the core.
+  on_logic-clash: >-
+    If Maya (CIO) and Nora disagree on the recovery path, Nora enforces the 'Liquidity-Safety-Hard-Rule' until the
+    Director breaks the tie.
+expected_output: >
+  A Decision-Ready Fiscal Escalation Brief containing: 1. Breach Summary: Forensic breakdown of why the money is
+  disappearing. 2. Evidence Package: Burn charts and protocol-violation logs. 3. Action Paths: Two distinct recovery
+  options (A & B) with clear 'Growth vs. Survival' trade-offs. 4. Status: [PENDING DIRECTOR EMERGENCY AUTH]

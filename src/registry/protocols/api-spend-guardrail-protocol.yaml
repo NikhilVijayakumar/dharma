@@ -1,0 +1,34 @@
+id: api-spend-guardrail-protocol
+title: "Global API & Compute Spend Guardrail"
+description: "Stateless governance standard for real-time monitoring and throttling of agent-driven API/Token expenses."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Pre-Flight Estimation: Every high-density task must generate a 'Projected-Token-Cost' before execution."
+  - rule_2: "Hard-Stop Ceiling: No single task execution may exceed 5% of the daily total 'OpEx-Budget' without a Director-signed override."
+  - rule_3: "Recursive Loop Detection: If an agent makes more than 5 consecutive calls for the same 'Goal-ID' without progressing, the session is auto-terminated."
+  - rule_4: "Tiered Throttling: When 'Runway-Coverage' drops below 6 months, all non-essential 'Creative-Slots' (Dani/Sofia) are throttled to 50% capacity."
+  - rule_5: "Ledger-Fidelity: Every API call must be tagged with a 'Transaction-UUID' for Nora’s daily reconciliation."
+
+logic_sequence:
+  step_1: "Check Allocation: Query the 'fiscal-rules.json' for the current agent's specific 'Slot-Spend-Cap'."
+  step_2: "Verify Balance: Check the 'Daily-Burn-Telemetry' to ensure the requested execution won't trigger a 'Governance-Threshold-Breach'."
+  step_3: "IF WITHIN-LIMIT: Execute task and broadcast 'Burn-Telemetry' to Elina (Ops) and Nora (Finance)."
+  step_4: "IF LIMIT-REACHED: Suspend the work-order. Invoke 'Contextual-Self-Healing' to see if the task can be simplified (lower token count)."
+  step_5: "IF BREACH-IMMINENT: Trigger 'Crisis-Runway-Freeze' and lock the agent slot."
+
+escalation_triggers:
+  - "Condition: Total daily burn exceeds 110% of the planned 'Strategic-Forecast'."
+  - "Condition: API provider triggers a 'Rate-Limit' or 'Credit-Low' alert."
+  - "Condition: An agent attempts to bypass the 'Spending-Auth' by utilizing a non-standard gateway."
+
+dependencies:
+  required_skills:
+    - budget-allocation
+    - forensic-intent-analysis
+  required_kpis:
+    - burn-variance-ratio
+    - runway-coverage-months

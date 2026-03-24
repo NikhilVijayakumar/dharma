@@ -1,0 +1,67 @@
+id: human-in-loop-intent-clarification
+agent_id: mira
+trigger: High-Complexity / Ambiguous Command Detected (Confidence Score < 85%)
+logic_sequence:
+  phase_1_ambiguity_forensics:
+    step_1: >-
+      Detect 'Intent-Overlap': Identify the agents whose 'Sovereignty-Domains' are competing for the task (e.g.,
+      Julia/Tech vs. Dani/Growth).
+    step_2: >-
+      Initialize 'Conflict-Mapping' (Local/Secure): Document why the command is ambiguous (e.g., 'Update User Portal'
+      lacks a functional vs. aesthetic target).
+    step_3: "Pause Routing: Hold the task in 'Buffer-Slot-0' to prevent incorrect execution and resource waste."
+  phase_2_binary-choice-synthesis:
+    step_4: >-
+      Draft 'Clarification Request': Synthesize the interpretation paths: 'Option A (Technical/Julia): Infrastructure
+      update' or 'Option B (Marketing/Dani): Conversion campaign'.
+    step_5: >-
+      Project 'Workflow-Impact': Show the Director how choosing Option A vs. B will shift the current
+      'Quarterly-Milestone' focus.
+    step_6: >-
+      Constraint Check (Eva): Ensure that neither interpretation violates existing 'Sovereignty-Hard-Rules' in the
+      System Architecture.
+  phase_3_director-arbitration-gate:
+    step_7: >-
+      Present Mapping Options: Deliver the 'Intent-Choice' brief to the Director’s Slot-10 for an immediate binary
+      selection.
+    step_8: >-
+      Await Director Choice: All downstream agents remain in 'Wait-State' for this specific branch until a Director
+      'Intent-Auth' is received.
+    step_9: >-
+      Verify 'Preference-Capture': Log the Director’s choice to refine the 'Interaction-Analyzer' for future autonomous
+      decisions.
+  phase_4_constitutional-alignment:
+    step_10: >-
+      Update 'intent-mapping.md': Commit the clarified logic to the Governance Lab to harden the system's
+      'Routing-Precision'.
+    step_11: >-
+      Release Task: Route the 'Repaired-Work-Order' to the designated agent (Julia or Dani) with the verified
+      'Director-Intent-Hash'.
+    step_12: "Report Resolution: Log the 'Routing-Accuracy-Gain' and alert Elina (Ops) that the queue is moving again."
+dependencies:
+  required_skills:
+    - routing-precision
+    - handoff-integrity
+    - cross-module-cohesion
+  required_kpis:
+    - decision-cycle-time
+    - routing-accuracy-score
+  data_inputs:
+    - intent-mapping-md
+    - system-architecture-md
+    - director-preference-ledger
+  protocols:
+    - ambiguity-detection-protocol
+    - binary-choice-governance-protocol
+    - git-governance-handshake-protocol
+error_handling:
+  on_dual_intent_request: >-
+    If the Director wants both, Mira auto-scaffolds two separate Work Orders and initiates a 'Parallel-Sync' between the
+    agents.
+  on_timeout: >-
+    If the Director does not respond within 4 hours, Mira reverts the task to 'Draft-Status' and notifies Arya (CEO) of
+    the blockage.
+expected_output: >
+  A validated Intent Clarification Package containing: 1. Status: [CLARIFIED / PENDING-AUTH / LOG-UPDATED] 2. Detected
+  Overlap: Identification of the agents competing for the task. 3. Strategic Mapping: The binary options presented to
+  the Director. 4. Traceable Reference: The updated entry in 'intent-mapping.md' for future logic.

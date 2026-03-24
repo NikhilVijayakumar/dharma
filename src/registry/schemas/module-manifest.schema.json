@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "registry/module-manifest.schema.json",
+  "title": "ModuleManifest",
+  "type": "object",
+  "required": ["id", "title", "enabled", "ownership", "kpis", "inputs", "agentRequirements"],
+  "properties": {
+    "id": { "type": "string", "minLength": 2 },
+    "title": { "type": "string", "minLength": 2 },
+    "route": { "type": ["string", "null"] },
+    "enabled": { "type": "boolean" },
+    "ownership": { "type": "string", "minLength": 2 },
+    "kpis": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "required"],
+        "properties": {
+          "id": { "type": "string", "minLength": 2 },
+          "label": { "type": "string", "minLength": 2 },
+          "required": { "type": "boolean" },
+          "minimumData": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "description", "required"],
+        "properties": {
+          "id": { "type": "string", "minLength": 2 },
+          "description": { "type": "string", "minLength": 2 },
+          "required": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "agentRequirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["agentId", "role", "required"],
+        "properties": {
+          "agentId": { "type": "string", "minLength": 2 },
+          "role": { "type": "string", "minLength": 2 },
+          "required": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "hybrid_content": {
+      "type": "object",
+      "description": "Hybrid envelope supporting structured records and unstructured markdown sidecar content.",
+      "properties": {
+        "structured_payload": {
+          "oneOf": [
+            { "type": "object" },
+            { "type": "array" },
+            { "type": "string" },
+            { "type": "number" },
+            { "type": "boolean" },
+            { "type": "null" }
+          ]
+        },
+        "unstructured_markdown": { "type": "string" },
+        "source_format": { "type": "string", "enum": ["json", "yaml", "markdown", "mixed"] },
+        "projection_target": { "type": "string", "enum": ["git", "sqlite", "vault", "memory-cache", "hybrid"] },
+        "data_classification": { "type": "string", "enum": ["T1", "T2", "T3", "T4", "public", "internal", "confidential", "restricted"] },
+        "sync_status": { "type": "string", "enum": ["PENDING", "COMMITTED", "REJECTED", "STALE"] },
+        "canonical_source": { "type": "string", "enum": ["git", "vault", "registry"] },
+        "ingest_timestamp": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

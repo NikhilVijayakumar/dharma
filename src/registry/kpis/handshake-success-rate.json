@@ -1,0 +1,30 @@
+{
+  "uid": "handshake-success-rate",
+  "name": "Handshake-Success-Rate (HSR)",
+  "description": "Percentage of inter-agent transfer points completed with valid context packets and accepted by the receiving role on first or corrected attempt.",
+  "unit": "%",
+  "target": ">= 97",
+  "value": "successful_handshakes / total_handshakes * 100",
+  "formula": "(successful_handshakes / total_handshakes) * 100",
+  "goalMapping": "Tracks collaboration quality and transfer reliability across global workflows.",
+  "frequency_of_check": "real-time",
+  "responsible_agent_role": "secretary",
+  "thresholds": {
+    "critical": "< 85",
+    "warning": "85 - 95",
+    "optimal": ">= 97"
+  },
+  "escalation_policy": {
+    "on_critical": "Freeze new global handshakes and escalate to Director with root-cause summary.",
+    "on_warning": "Trigger handoff integrity review and additional context validation."
+  },
+  "dependencies": {
+    "data_inputs": [
+      "handoff-integrity-log",
+      "agent-task-logs"
+    ],
+    "dependent_kpis": [
+      "routing-accuracy-score"
+    ]
+  }
+}

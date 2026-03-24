@@ -1,0 +1,34 @@
+id: friction-resolution-protocol
+title: "Global Operational Friction & Drag Resolution"
+description: "Stateless governance standard for identifying and eliminating systemic inefficiencies and inter-agent delays."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Bottleneck-Detection: Any 'Task-Node' that remains in a [PENDING] state for >2x its 'Historical-Mean-Duration' is flagged as a 'Friction-Point'."
+  - rule_2: "Resource-Prioritization: In cases of 'Compute-Contention', tokens are diverted from 'Secondary-Growth' (Dani) to 'Core-Stability' (Julia/Nora)."
+  - rule_3: "The 'Asynchronous-First' Rule: Agents must utilize 'Non-Blocking-Logic'; no agent may halt the entire system while waiting for a single non-critical data-point."
+  - rule_4: "Inter-Agent-Feedback-Loop: If an agent's output requires >2 'Refactoring-Requests' from another node, a 'Friction-Audit' is triggered to update the Handoff-Protocol."
+  - rule_5: "Friction-Taxing: Any recurring friction point that costs >$100 in wasted 'Compute-Tokens' per week must be escalated for 'Structural-Refactoring'."
+
+logic_sequence:
+  step_1: "Identify Friction-Vector: Is it 'Data-Latency', 'Logic-Ambiguity', or 'Resource-Scarcity'?"
+  step_2: "Analyze Dependencies: Map the 'Critical-Path' to see which agents are downstream of the friction."
+  step_3: "Execute Throttling/Redirection: Temporarily lower the 'Task-Priority' of the non-essential nodes to clear the pipeline."
+  step_4: "IF RESOLVED: Update the 'Performance-Calibration' in the Governance Lab to prevent recurrence."
+  step_5: "IF PERSISTENT: Invoke the 'Complexity-Based-Escalation-Protocol' to request a Director-level 'Workflow-Pivot'."
+
+escalation_triggers:
+  - "Condition: Friction results in a 'Decision-Cycle-Time' increase of >25% across the organization."
+  - "Condition: Two agents are stuck in a 'Sub-Threshold-Loop' (minor disagreements that don't trigger a full Conflict but cause delay)."
+  - "Condition: Critical 'External-API' latency exceeds the 'Operational-Threshold' for >10 minutes."
+
+dependencies:
+  required_skills:
+    - execution-governance
+    - low-risk-recalibration
+  required_kpis:
+    - decision-cycle-time
+    - mean-time-to-repair (MTTR-Logic)

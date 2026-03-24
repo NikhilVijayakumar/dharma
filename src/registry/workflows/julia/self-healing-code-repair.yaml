@@ -1,0 +1,60 @@
+id: self-healing-code-repair
+agent_id: julia
+trigger: Task Failure / 'Missing Skill' / Logic Syntax Error / Schema Mismatch
+logic_sequence:
+  phase_1_error_interception:
+    step_1: "Intercept Failure: Use 'CodeGenService' to trap the execution error before it cascades into a 'Slot-Lockdown'."
+    step_2: "Forensic Analysis: Identify the specific .md, .ts, or .json file causing the 'Logic-Stall'."
+    step_3: >-
+      Initialize 'Repair-Workspace' (Local/Secure): Isolate the failing component to prevent 'State-Pollution' in the
+      main repository.
+  phase_2_autonomous_remediation:
+    step_4: >-
+      Contract Reference: Analyze 'system-architecture.md' to determine the required input/output types and security
+      constraints.
+    step_5: >-
+      Auto-Generate Fix: Synthesize a replacement skill-file or patch the syntax using 'Clean-Architecture' design
+      patterns.
+    step_6: "IF 'Logic-Drift' > 15%: Pause the fix and trigger 'Human-in-Loop Technical Risk' for a Director-approved refactor."
+  phase_3_fidelity_testing:
+    step_7: >-
+      Local Diagnostic: Run a 'Headless-Test-Cycle' to ensure the new code resolves the error without breaking
+      dependencies.
+    step_8: >-
+      Compliance Handshake (Eva): Pass the patched code through 'ComplianceScanService' to verify no PII leaks or
+      security backdoors.
+    step_9: >-
+      Fidelity Verification: Ensure the fix aligns with the 'Technical-North-Star.md' and doesn't introduce structural
+      debt.
+  phase_4_systemic_restoration:
+    step_10: >-
+      Commit & Re-Insert: Upon validation, push the patch to the 'Recovery-Branch' and re-insert the task into Elina’s
+      Slot-queue.
+    step_11: >-
+      Optimization Log: Record the 'Root-Cause' and 'Resolution-Path' in the git-ignored incident-log for future
+      'Seed-Alignment' cycles.
+    step_12: "Closure: Mark the task [RECOVERED] and alert Arya (CEO) of the restored system velocity."
+dependencies:
+  required_skills:
+    - clean-architecture-enforcement
+    - code-forensics
+    - git-orchestration
+  required_kpis:
+    - deployment-success-rate
+  data_inputs:
+    - system-architecture-md
+    - compliance-scan-results
+    - error-stack-trace
+  protocols:
+    - self-healing-code-protocol
+    - git-orchestration-protocol
+    - compliance-gate-protocol
+error_handling:
+  on_recursive_failure: >-
+    If the fix fails the diagnostic test twice, Julia invokes 'Hard-Lock' on the module and requests a Director
+    'Hard-Reset'.
+  on_compliance_veto: If Eva rejects the patch, Julia reverts to the 'Last-Known-Stable' logic and logs a 'Security-Logic-Clash'.
+expected_output: >
+  A validated Code-Repair Summary containing: 1. Status: [RECOVERED / ESCALATED / REROUTED] 2. Rationale: Technical
+  identification of the syntax/logic error. 3. Patch Fidelity: Confirmation of 100% pass on Compliance and Diagnostic
+  tests. 4. Traceable Reference: The local Commit-ID for the autonomous repair.

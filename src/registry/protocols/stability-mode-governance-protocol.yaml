@@ -1,0 +1,34 @@
+id: stability-mode-governance-protocol
+title: "Global Stability-Mode & Risk-Containment"
+description: "Stateless governance standard for the automated transition into a low-risk, high-integrity operational state."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Activation-Trigger: Stability Mode must activate if >2 'Tier-1' Incidents occur within 60 minutes or if 'Global-System-Integrity' drops <90%."
+  - rule_2: "The 'Freeze-Order' Mandate: All non-essential 'Code-Commits' (Julia), 'Ad-Spend' (Dani), and 'New-Onboarding' (Lina) are paused instantly upon activation."
+  - rule_3: "Core-Telemetry-Focus: Monitoring frequency must increase by 400% for 'Golden-Goose' assets and 'Fiscal-Reserves' (Nora)."
+  - rule_4: "Recursive-Validation-Enforcement: Every outbound action requires 'Triple-Signature' (e.g., Mira, Eva, and Nora) to prevent automated logic errors from compounding."
+  - rule_5: "The 'De-Escalation' Path: Stability Mode cannot be exited until 120 minutes of 'Zero-Error-Telemetry' and a manual 'Director-Release-Hash' from Slot-10."
+
+logic_sequence:
+  step_1: "Risk-Assessment: Detect a breach of 'Stability-Thresholds' across the 10-agent bus."
+  step_2: "Broadcast 'Condition-Yellow': Notify all agents to switch to 'Low-Energy/High-Precision' logic-trees."
+  step_3: "Execute 'Non-Critical-Purge': Kill all pending tasks in the Queue (QPP) tagged as [EXPLORATORY] or [SECONDARY-GROWTH]."
+  step_4: "IF STABILIZED: Maintain 'Core-Pulse' (Health-Check) and generate a 'Recovery-Roadmap' for the Director."
+  step_5: "IF INSTABILITY-ACCELERATES: Trigger 'Condition-Red'—Total system freeze except for 'Emergency-Contact-Protocols'."
+
+escalation_triggers:
+  - "Condition: An agent attempts to bypass the 'Freeze-Order' to execute a 'Shadow-Task'."
+  - "Condition: The 'Stability-Mode' itself causes a 'Deadlock' that prevents 'Emergency-Healing'."
+  - "Condition: External 'Fiscal-Burn' continues despite the 50% throttle (SHBP)."
+
+dependencies:
+  required_skills:
+    - risk-modeling
+    - execution-governance
+  required_kpis:
+    - mean-time-to-repair (MTTR-System)
+    - yield-efficiency-ratio

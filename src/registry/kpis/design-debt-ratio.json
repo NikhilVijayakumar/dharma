@@ -1,0 +1,19 @@
+{
+  "uid": "design-debt-ratio",
+  "name": "Design-Debt-Ratio (DDR)",
+  "description": "The ratio of 'Non-Compliant-UI-Elements' to 'Standard-System-Tokens' across all production interfaces and brand touchpoints.",
+  "unit": "Ratio (Debt-to-Asset)",
+  "target": "< 0.08 (8% Max)",
+  "value": "Calculated via Visual-Audit-Skill (Non-Standard-CSS / Total-CSS-Tokens)",
+  "goalMapping": "Prevents 'Visual-Decay' and ensures 'Brand-Cohesion' across the 10-agent execution bus.",
+  "metadata": {
+    "priority": "High (Tier-2)",
+    "sampling_frequency": "Per-Deployment / Weekly-Visual-Sweep",
+    "shorthand": "UX-Entropy"
+  },
+  "thresholds": {
+    "critical": "> 0.20 (Triggers 'Visual-Refactor-Mandate' and blocks Growth-Sprints)",
+    "warning": "0.10 - 0.20 (Triggers 'Token-Alignment-Sprint' by Dani/Growth)",
+    "optimal": "< 0.05"
+  }
+}

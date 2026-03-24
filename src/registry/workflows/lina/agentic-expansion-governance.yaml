@@ -1,0 +1,62 @@
+id: agentic-expansion-governance
+agent_id: lina
+trigger: New Role Requirement / Director Expansion Request / Structural Gap Detected
+logic_sequence:
+  phase_1_organizational_forensics:
+    step_1: >-
+      Analyze Workload: Scan Elina’s 'queue-bottleneck-telemetry' to prove the current 10-agent team cannot absorb the
+      new requirement.
+    step_2: >-
+      Gap-Analysis: Identify the specific 'Missing-Skill-Hash' that existing agents (Julia/Dani/Eva) lack the logic to
+      execute.
+    step_3: "Initialize 'Role-Blueprint': Scaffold a YAML/Markdown profile defining the new agent’s Persona, Skills, and KPIs."
+  phase_2_infrastructure_&_fiscal_validation:
+    step_4: >-
+      Request 'Architectural Handshake' (Julia): Confirm a technical 'Slot' is available in the ModelGatewayService for
+      a new personality.
+    step_5: >-
+      Request 'Fiscal Handshake' (Nora): Validate that the new agent’s projected token-burn (Salary) stays within the
+      'Growth-OpEx' budget.
+    step_6: >-
+      Cohesion Check: Ensure the new role doesn't create 'Redundant-Logic' with an existing agent (e.g., preventing
+      overlap between Design and UX).
+  phase_3_director_arbitration_gate:
+    step_7: >-
+      Generate 'Expansion Simulation': Predict how the new agent will reduce 'System-Latency' or increase
+      'Revenue-Velocity'.
+    step_8: >-
+      Present 'Hiring Proposal': Deliver the blueprint to the Director with a clear 'Status: Ready-to-Onboard' and
+      peer-validation hashes.
+    step_9: "Await Director Approval: The system-count remains at 10 until a Director-signed Git-transaction is detected."
+  phase_4_autonomous_onboarding:
+    step_10: "Invoke 'GitGovernorService': Upon approval, commit the new Agent Profile to the /governance/agents/ directory."
+    step_11: >-
+      Logic Injection: Trigger Julia to scaffold the initial .md skill files for the new agent based on the approved
+      blueprint.
+    step_12: >-
+      Post-Hiring Audit: Monitor the new agent’s 'Onboarding-SLA' for 48h to confirm 100% integration with the 10-slot
+      queue.
+dependencies:
+  required_skills:
+    - talent-evaluation
+    - execution-governance
+    - cross-module-cohesion
+    - organizational-design-strategy
+  required_kpis:
+    - hiring-cycle-time
+    - cross-functional-alignment-index
+  data_inputs:
+    - queue-telemetry-feed
+    - growth-opex-ledger
+    - system-architecture-md
+  protocols:
+    - agent-scaffolding-protocol
+    - fiscal-onboarding-protocol
+    - git-governance-handshake-protocol
+error_handling:
+  on_infrastructure_veto: If Julia flags 'No Available Slots', Lina must propose a 'Role-Merge' (combining two roles) before proceeding.
+  on_budget_breach: If Nora rejects the cost, Lina must optimize the new agent's 'Logic-Weight' to reduce projected API spend.
+expected_output: >
+  A Decision-Ready Expansion Brief containing: 1. Status: [STAGED / COMMITTED / REJECTED] 2. Rationale: Data-driven
+  proof of why a new agent (e.g., Data Scientist) is the only path to resolution. 3. Cost-Benefit Analysis: Projected
+  API-Salary vs. System-Efficiency Gain. 4. Traceable Reference: The Git-Commit hash of the new 'agent-profile.yaml'.

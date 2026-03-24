@@ -1,0 +1,64 @@
+id: human-in-loop-technical-risk
+agent_id: julia
+trigger: High-Complexity Refactor / Structural Debt Warning / Incompatible Schema Requests
+logic_sequence:
+  phase_1_conflict_forensics:
+    step_1: >-
+      Detect 'Architectural Friction': Identify where two agents (e.g., Dani's tracking needs vs. Nora's fiscal privacy)
+      demand incompatible codebase changes.
+    step_2: >-
+      Debt-Quantification: Calculate the 'Structural-Debt-Index'—estimating the future man-hours required to fix a
+      'Quick-and-Dirty' solution.
+    step_3: "Initialize 'Technical Risk Disclosure': Scaffold a Markdown report in the /local/technical/ staged directory."
+  phase_2_trade-off-modeling:
+    step_4: >-
+      Draft 'Option A (Velocity-First)': A path that prioritizes immediate feature deployment but leaves a
+      'Technical-Debt-Marker' for future resolution.
+    step_5: >-
+      Draft 'Option B (Stability-First)': A path that prioritizes a deep refactor, ensuring long-term scalability at the
+      cost of current 'Change-Lead-Time'.
+    step_6: >-
+      Verify 'Compliance-Safety': Confirm with Eva that neither path violates the 'Security-Baseline' or
+      'Data-Integrity' protocols.
+  phase_3_director_arbitration:
+    step_7: "Generate 'Tech-Debt Alert': Push a high-priority 'Technical-North-Star' notification to Mira’s Slot-10."
+    step_8: >-
+      Present 'Resolution Package': Provide a clear impact simulation of choosing A (Speed) vs. B (Refactor) on the next
+      three 'Strategic-Milestones'.
+    step_9: >-
+      Await Director Choice: The conflicting code-branches remain 'Locked' until a Director-signed 'Risk-Acceptance'
+      hash is received.
+  phase_4_north_star_alignment:
+    step_10: >-
+      Execute Resolution: Merge the chosen branch and commit the Director's rationale to the Git-tracked
+      'technical-decisions.md'.
+    step_11: >-
+      Update 'Technical North Star': Modify the project's long-term architectural documentation to reflect this new
+      structural standard.
+    step_12: "Telemetry Reset: Calibrate 'Change-Lead-Time' KPIs to account for the intentional speed or refactor delay."
+dependencies:
+  required_skills:
+    - clean-architecture-enforcement
+    - code-forensics
+    - git-orchestration
+  required_kpis:
+    - deployment-success-rate
+    - change-lead-time
+  data_inputs:
+    - system-architecture-md
+    - technical-north-star-md
+    - agent-performance-telemetry
+  protocols:
+    - technical-risk-disclosure-protocol
+    - git-governance-handshake-protocol
+    - binary-choice-governance-protocol
+error_handling:
+  on_stalled_arbitration: If the Director is silent > 12h, Julia auto-defaults to 'Option B (Refactor)' to prevent permanent structural rot.
+  on_logic_recursion: >-
+    If the chosen path creates a new circular dependency, Julia triggers an immediate 'Hard-Architecture-Lock' and
+    alerts the Director.
+expected_output: >
+  A Decision-Ready Technical Risk Package containing: 1. Status: [PENDING-DECISION / DEBT-ACCEPTED / REFACTORED] 2.
+  Rationale: Forensic breakdown of why the current code state cannot resolve itself. 3. Debt Impact: Numerical
+  prediction of the future "Cost to Fix" vs. "Time to Market". 4. Traceable Reference: Director's authorization hash for
+  the chosen technical path.

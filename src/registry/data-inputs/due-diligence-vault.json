@@ -1,0 +1,31 @@
+{
+  "uid": "due-diligence-vault",
+  "name": "Trust-Infrastructure-Vault (TIV)",
+  "description": "A high-security, version-controlled repository of 'Verification-Assets', 'Risk-Profiles', and 'Legal-Integrity-Certificates' for the 10-slot array.",
+  "schemaType": "Vault-Protocol",
+  "requiredFields": [
+    "timestamp_iso8601",
+    "verification_tier",
+    "document_provenance_hash",
+    "risk_exposure_vector",
+    "attestation_slot_id",
+    "expiry_threshold"
+  ],
+  "sampleSource": "governance/trust-vault/q1-risk-audit",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "verification_tiers": {
+          "TIER-1": "Self-Attested (Agent-Generated)",
+          "TIER-2": "Cross-Validated (Multi-Agent-Audit)",
+          "TIER-3": "Sovereign-Certified (Human/External-Verified)"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

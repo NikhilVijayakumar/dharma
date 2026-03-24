@@ -1,0 +1,19 @@
+{
+  "uid": "autonomous-bug-resolution-rate",
+  "name": "Autonomous-Bug-Resolution-Rate (ABRR)",
+  "description": "The percentage of 'Production-Anomalies' and 'Logic-Regressions' successfully patched and verified by the SHCP without human intervention.",
+  "unit": "% (Success-Ratio)",
+  "target": "> 85.00",
+  "value": "Calculated via SHCP-Logs (Success / Total-Detected-Anomalies)",
+  "goalMapping": "Measures the maturity of the 'Self-Healing-Codebase' and reduces 'Mean-Time-to-Repair' (MTTR).",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Continuous / Event-Driven",
+    "shorthand": "Auto-Heal-Index"
+  },
+  "thresholds": {
+    "critical": "< 60% (Triggers Manual-Developer-Override + Stability-Mode)",
+    "warning": "60% - 80% (Triggers 'Code-Hygiene-Sprint' via TDTP)",
+    "optimal": "> 95%"
+  }
+}

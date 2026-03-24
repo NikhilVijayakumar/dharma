@@ -1,0 +1,61 @@
+id: self-healing-code-repair-goose-protocol
+agent_id: julia
+trigger: Task Failure / 'Missing Skill' / Logic Syntax Error / Schema Mismatch
+logic_sequence:
+  phase_1_error_interception:
+    step_1: "Intercept Failure: Capture the execution stack-trace via 'CodeGenService' to isolate the specific logic-break."
+    step_2: >-
+      Contract Analysis: Cross-reference 'system-architecture.md' to extract the required Interface/Type definitions for
+      the missing capability.
+    step_3: >-
+      Initialize 'Goose-Sandbox' (Local/Secure): Create an isolated branch to prevent the experimental repair from
+      polluting the main 'Production' slot.
+  phase_2_autonomous_synthesis:
+    step_4: >-
+      Auto-Generate Capability: Synthesize the missing skill file (.md/.ts) or patch the syntax error using
+      'Clean-Architecture' design patterns.
+    step_5: >-
+      Fidelity Validation: Verify the generated logic adheres to Nora’s 'Infrastructure-Constraint-Limit' (e.g., no
+      infinite loops or memory leaks).
+    step_6: >-
+      IF 'Logic-Complexity' > Threshold: Stop autonomous generation and trigger 'Human-in-Loop Technical Risk' for
+      Director-led architectural review.
+  phase_3_compliance_&_diagnostic_gate:
+    step_7: >-
+      Execute Diagnostic Test: Run the synthesized code through a headless unit-test to verify the 'Logic-Break' is
+      resolved.
+    step_8: >-
+      Compliance Scan (Eva): Pass the file to 'ComplianceScanService' to ensure no unauthorized API calls or security
+      vulnerabilities were introduced.
+    step_9: "Verify 'Traceability': Log the generation seed and the specific architecture-clause that guided the repair."
+  phase_4_systemic_restoration:
+    step_10: "Git-Orchestration: Merge the validated patch into the 'Recovery-Branch' and update the 'Global-Skill-Registry'."
+    step_11: >-
+      Queue Re-insertion: Push the original task back into Elina’s Slot-queue for immediate execution with the new
+      capability.
+    step_12: >-
+      Post-Mortem: Deliver a 'Logic-Healed' status report to the Director's Slot-10, confirming restored system
+      velocity.
+dependencies:
+  required_skills:
+    - clean-architecture-enforcement
+    - code-forensics
+    - git-orchestration
+  required_kpis:
+    - deployment-success-rate
+    - change-lead-time
+  data_inputs:
+    - system-architecture-md
+    - compliance-scan-results
+    - error-stack-trace
+  protocols:
+    - goose-generation-protocol
+    - git-orchestration-protocol
+    - clean-code-gate
+error_handling:
+  on_generation_failure: If the fix fails the diagnostic test twice, Julia invokes 'Safe-State-Hibernation' and requests manual intervention.
+  on_compliance_veto: If Eva identifies a security risk in the generated code, Julia reverts the sandbox and enters 'Forensic-Audit' mode.
+expected_output: >
+  A validated Code-Repair Package containing: 1. Status: [LOGIC-HEALED / REROUTED / ESCALATED] 2. Rationale: Forensic
+  identification of why the original skill was missing or broken. 3. Patch Fidelity: 100% pass on Diagnostic and
+  Compliance tests. 4. Traceable Reference: The Git-Commit hash for the newly synthesized capability.

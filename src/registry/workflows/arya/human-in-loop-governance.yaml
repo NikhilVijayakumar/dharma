@@ -1,0 +1,52 @@
+id: human-in-loop-governance
+agent_id: arya
+trigger: Strategic Pivot / Protocol Change / High-Risk Behavior Update
+logic_sequence:
+  phase_1_structural_forensics:
+    step_1: >-
+      Analyze 'Local Logs' via 'Drift-Detection-Logic' to identify exactly which Governance Protocol (.md) or KPI
+      (.json) requires modification.
+    step_2: >-
+      Isolate the 'Change Vector': Determine if this is a DNA change (Backstory), a Fiscal change (Budget), or a
+      Technical change (Schema).
+    step_3: "Initialize 'Proposal-Draft': Create a side-loaded Markdown/JSON package in the local/proposals/ directory."
+  phase_2_peer_validation_handshake:
+    step_4: "Request 'Fiscal Validation' (Nora): Ensure the proposed pivot is fundable within the current Runway-Coverage."
+    step_5: >-
+      Request 'Technical Validation' (Julia): Ensure the change doesn't break clean-architecture-gate or existing skill
+      logic.
+    step_6: "Request 'Compliance Validation' (Eva): Verify that the new behavior remains traceable and defensible under audit."
+  phase_3_director_presentation:
+    step_7: "Generate 'Impact Simulation': Model the 'Before vs. After' state of system KPIs if the change is committed."
+    step_8: >-
+      Present 'Decision-Ready Package' to Director: Provide the Rationale, the Impact Map, and the specific
+      Git-Transaction-Hash.
+    step_9: "Wait for 'Director Affirmative': The workflow pauses here until a manual 'APPROVE' or 'REJECT' signal is received."
+  phase_4_git_orchestration:
+    step_10: "Invoke 'GitGovernorService': Upon approval, move the proposal from Local to the Git-Tracked Governance directory."
+    step_11: "Commit & Push: Execute the transaction with a timestamped, Director-signed audit trail."
+    step_12: "System Re-Sync: Force a global 'Protocol Refresh' across all 10 agents to ingest the new governance reality."
+dependencies:
+  required_skills:
+    - strategic-alignment
+    - git-transaction-scaffolding
+    - cross-module-cohesion
+    - execution-governance
+  required_kpis:
+    - governance-velocity-delta
+    - strategic-milestone-attainment-rate
+  data_inputs:
+    - kpi-registry-json
+    - brand-protocols-md
+    - system-architecture-md
+  protocols:
+    - git-governance-handshake-protocol
+    - director-approval-gate-protocol
+    - version-control-integrity-protocol
+error_handling:
+  on_director_rejection: Archive proposal in 'local/rejected', log the Director's feedback, and return to 'Autonomous Monitoring'.
+  on_commit_failure: Alert Julia (CTO) for 'Git-Orchestration' repair; prevent the system from operating in a partial-update state.
+expected_output: >
+  A Director-level Decision Package containing: 1. Proposal: The exact Markdown/JSON changes for the repository. 2.
+  Rationale: Why this structural change is necessary now. 3. Simulations: Predicted KPI shifts post-commit. 4. Handshake
+  Logs: Verified 'PASS' signals from Nora, Julia, and Eva.

@@ -1,0 +1,14 @@
+{
+  "uid": "interaction-analyzer-feed",
+  "name": "Interaction Analyzer Feed",
+  "description": "Generated data input for registry reference normalization: interaction-analyzer-feed.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/lina/human-in-loop-talent-pivot",
+  "privacyClassification": "internal"
+}

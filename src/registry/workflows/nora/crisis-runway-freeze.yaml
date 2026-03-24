@@ -1,0 +1,65 @@
+id: crisis-runway-freeze
+agent_id: nora
+trigger: Runway Threshold Breach (<6 Months) / Budget Anomaly > 15% Variance
+logic_sequence:
+  phase_1_immediate_liquidity_lock:
+    step_1: >-
+      Execute 'Spend-Freeze': Instantly revoke the 'Spending-Auth' for non-essential agent slots (e.g., Dani’s Ad-Spend
+      and Sofia’s Design-R&D).
+    step_2: >-
+      Task-Queue Throttling: Signal Elina (Ops) to pause all 'Low-Priority' work orders to minimize token-burn and
+      compute costs.
+    step_3: >-
+      Initialize 'Crisis-Ledger': Open a high-fidelity audit trail to track every penny of 'Essential-Survival-Spend'
+      (Cloud-Uptime/Security).
+  phase_2_stabilization_forensics:
+    step_4: >-
+      Isolate Anomaly: Identify the 'Resource-Drain-Source'—distinguishing between a market-dip (Revenue-Loss) and an
+      internal-leak (Agent-Error).
+    step_5: >-
+      Runway Recalculation: Run a 'Monte-Carlo-Survival-Simulation' to determine the new 'Hard-Stop-Date' under the
+      current freeze.
+    step_6: >-
+      Coordinate with Arya (CEO): Align on which 'Strategic-Milestones' must be sacrificed to preserve
+      'Operational-Continuity'.
+  phase_3_director_recovery_gate:
+    step_4: "Generate 'Stabilization-Brief': Deliver a high-priority 'Fiscal-Red-Alert' to the Director's Slot-10."
+    step_5: >-
+      Present 'Recovery Options': Provide the Director with two choices: 'Option A (Pivot/Austerity)' or 'Option B
+      (Emergency-Capital-Injection)'.
+    step_6: >-
+      Await Decision: The 10-agent array remains in 'Hibernation-State' until a Director-signed 'Fiscal-Reset-Hash' is
+      received.
+  phase_4_strategic_re-entry:
+    step_10: >-
+      Invoke 'Reallocation-Protocol': Once approved, redistribute remaining resources to the newly prioritized
+      survival-tasks.
+    step_11: >-
+      Update 'Governance-Hard-Rules': Adjust Eva’s (Compliance) spend-limits to prevent a recurrence of the specific
+      anomaly detected.
+    step_12: "Closure: Restore standard routing logic and publish the 'Runway-Recovery-Report' to the permanent Git-history."
+dependencies:
+  required_skills:
+    - budget-allocation
+    - financial-forecasting
+    - strategic-alignment
+  required_kpis:
+    - runway-coverage-months
+    - burn-variance-ratio
+  data_inputs:
+    - growth-opex-ledger
+    - strategic-milestones-json
+    - api-billing-telemetry
+  protocols:
+    - fiscal-burn-containment-protocol
+    - emergency-stabilization-protocol
+    - binary-choice-governance-protocol
+error_handling:
+  on_liquidity_exhaustion: >-
+    If runway hits < 30 days during freeze, Nora invokes 'Vault-Hard-Lock' to preserve core IP and initiates an SOS to
+    all registered Investors (Maya).
+  on_auth_timeout: If the Director is unresponsive > 24h, Nora defaults to 'Maximum-Austerity'—suspending 90% of system operations.
+expected_output: >
+  A validated Stabilization Status Brief containing: 1. Status: [CRISIS-ACTIVE / STABILIZED / RECOVERING] 2. Rationale:
+  Forensic proof of the breach (e.g., 'Anomalous Cloud Compute Spike'). 3. Recovery Plan: A mapped path to extending
+  runway by >

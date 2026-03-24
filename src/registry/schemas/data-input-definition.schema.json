@@ -1,0 +1,244 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "registry/data-input-definition.schema.json",
+  "title": "DataInputDefinition",
+  "version": "2.0.0",
+  "description": "Data input with source type, validation rules, and required fields",
+  "type": "object",
+  "required": ["uid", "name", "description", "schemaType", "requiredFields", "sampleSource"],
+  "properties": {
+    "uid": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Unique data input identifier (kebab-case)"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Human-readable name"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 15,
+      "description": "Detailed description of what data this input provides"
+    },
+    "schemaType": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Category of data structure (supports canonical and custom hybrid schema types)."
+    },
+    "source_type": {
+      "type": "string",
+      "enum": ["csv", "json", "jsonl", "yaml", "sql-database", "api-endpoint", "vault", "git-repository", "event-broker", "vault-context", "file-system", "environment", "hybrid"],
+      "description": "Physical source format or system"
+    },
+    "sourceType": {
+      "type": "string",
+      "enum": ["csv", "json", "jsonl", "yaml", "sql-database", "api-endpoint", "vault", "git-repository", "event-broker", "vault-context", "file-system", "environment", "hybrid"],
+      "description": "Camel-case alias for source_type."
+    },
+    "source_location": {
+      "type": "string",
+      "description": "Path, URL, or reference to where data is stored (e.g., '/governance/vault', 'https://api.example.com/data')"
+    },
+    "sourceLocation": {
+      "type": "string",
+      "description": "Camel-case alias for source_location."
+    },
+    "requiredFields": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          { "type": "string", "minLength": 2 },
+          {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string", "description": "Field name" },
+              "type": { "type": "string", "enum": ["string", "number", "boolean", "array", "object", "datetime"], "description": "Data type" },
+              "required": { "type": "boolean", "description": "Is this field mandatory?" },
+              "description": { "type": "string" }
+            }
+          }
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Required fields in the data"
+    },
+    "validation_rules": {
+      "type": "object",
+      "description": "Constraints to prevent bad data",
+      "additionalProperties": {
+        "type": "string",
+        "description": "Validation rule (e.g., 'non-null', 'unique', 'email', 'iso8601', 'positive-number')"
+      }
+    },
+    "validationRules": {
+      "type": "object",
+      "description": "Camel-case alias for validation_rules.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "sampleSource": {
+      "type": "string",
+      "minLength": 3,
+      "description": "Example or reference implementation path"
+    },
+    "update_frequency": {
+      "type": "string",
+      "enum": ["real-time", "hourly", "daily", "weekly", "monthly", "on-demand"],
+      "description": "How often this data is updated"
+    },
+    "updateFrequency": {
+      "type": "string",
+      "enum": ["real-time", "hourly", "daily", "weekly", "monthly", "on-demand"],
+      "description": "Camel-case alias for update_frequency."
+    },
+    "responsible_agent": {
+      "type": "string",
+      "description": "Primary agent responsible for providing/updating this data"
+    },
+    "responsibleAgent": {
+      "type": "string",
+      "description": "Camel-case alias for responsible_agent."
+    },
+    "privacy_classification": {
+      "type": "string",
+      "enum": ["public", "internal", "confidential", "restricted"],
+      "description": "Data classification for governance"
+    },
+    "privacyClassification": {
+      "type": "string",
+      "enum": ["public", "internal", "confidential", "restricted"],
+      "description": "Camel-case alias for privacy_classification."
+    },
+    "retention_policy": {
+      "type": "string",
+      "description": "How long data should be retained (e.g., '90 days', '1 year', 'indefinite')"
+    },
+    "retentionPolicy": {
+      "type": "string",
+      "description": "Camel-case alias for retention_policy."
+    },
+    "dimensions": {
+      "type": "object",
+      "description": "For vector or multi-dimensional data (e.g., sentiment analysis vectors)",
+      "additionalProperties": {
+        "type": "string",
+        "description": "Range or description of each dimension"
+      }
+    },
+    "dependencies": {
+      "type": "object",
+      "description": "What other data or KPIs depend on this input",
+      "properties": {
+        "dependent_kpis": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "KPIs that use this data"
+        },
+        "dependent_workflows": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Workflows that require this data"
+        }
+      }
+    },
+    "model_config": {
+      "type": "object",
+      "description": "Optional model gateway configuration capture for provider/fallback/cooldown metadata.",
+      "properties": {
+        "provider_env_overrides": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "uniqueItems": true
+        },
+        "default_retry": {
+          "type": "object",
+          "properties": {
+            "max_retries": { "type": "integer", "minimum": 0 },
+            "initial_interval_ms": { "type": "integer", "minimum": 0 },
+            "backoff_multiplier": { "type": "number", "minimum": 1 },
+            "max_interval_ms": { "type": "integer", "minimum": 0 }
+          },
+          "additionalProperties": true
+        },
+        "cooldown_defaults_ms": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        }
+      },
+      "additionalProperties": true
+    },
+    "automation_config": {
+      "type": "object",
+      "description": "Optional automation policy capture for selector and timeout settings.",
+      "properties": {
+        "selector_policy": { "type": "object" },
+        "interaction_policy": { "type": "object" },
+        "network_policy_defaults": { "type": "object" }
+      },
+      "additionalProperties": true
+    },
+    "channel_config": {
+      "type": "object",
+      "description": "Optional external channel communication configuration (Telegram and related providers).",
+      "properties": {
+        "provider": { "type": "string", "minLength": 2 },
+        "required_env_vars": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "uniqueItems": true
+        },
+        "optional_env_vars": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "uniqueItems": true
+        },
+        "transmission_modes": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "uniqueItems": true
+        },
+        "retry_defaults": { "type": "object" },
+        "timeout_defaults": { "type": "object" }
+      },
+      "additionalProperties": true
+    },
+    "hybrid_content": {
+      "type": "object",
+      "description": "Hybrid envelope supporting structured records and unstructured markdown sidecar content.",
+      "properties": {
+        "structured_payload": {
+          "oneOf": [
+            { "type": "object" },
+            { "type": "array" },
+            { "type": "string" },
+            { "type": "number" },
+            { "type": "boolean" },
+            { "type": "null" }
+          ]
+        },
+        "unstructured_markdown": { "type": "string" },
+        "source_format": { "type": "string", "enum": ["json", "yaml", "markdown", "mixed"] },
+        "projection_target": { "type": "string", "enum": ["git", "sqlite", "vault", "memory-cache", "hybrid"] },
+        "data_classification": { "type": "string", "enum": ["T1", "T2", "T3", "T4", "public", "internal", "confidential", "restricted"] },
+        "sync_status": { "type": "string", "enum": ["PENDING", "COMMITTED", "REJECTED", "STALE"] },
+        "canonical_source": { "type": "string", "enum": ["git", "vault", "registry"] },
+        "ingest_timestamp": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "created_date": { "type": "string", "format": "date-time" },
+        "last_modified": { "type": "string", "format": "date-time" },
+        "version": { "type": "string" }
+      }
+    }
+  },
+  "additionalProperties": false
+}

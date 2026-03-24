@@ -1,0 +1,45 @@
+id: seed-autonomous-alignment
+agent_id: arya
+trigger: "Periodic Autonomous Window (Default: Every 4 Task Cycles or 60m)"
+logic_sequence:
+  phase_1_telemetry_harvest:
+    step_1: Collect real-time Agent KPIs from kpi/registry.json and cross-reference with Mira’s execution telemetry.
+    step_2: >-
+      Execute 'Alignment-Check-Logic': Map observed output quality against the 'Strategic North Star' defined in the
+      Vault.
+    step_3: "Identify 'Micro-Drift': Detect deviations <10% that do not yet warrant a full Stability Mode trigger."
+  phase_2_risk_assessment:
+    step_4: >-
+      Generate 'Ranked Action List': Identify low-risk corrective actions (e.g., prompt-tuning, priority-shifting, or
+      log-purging).
+    step_5: "Assign 'Confidence Score': Calculate the probability of success without lateral agent handshakes (Nora/Julia)."
+    step_6: >-
+      IF Confidence < 85%: Terminate Seed-Workflow and trigger the high-authority 'Autonomous-Optimization' workflow
+      instead.
+  phase_3_precision_execution:
+    step_7: Execute 'Low-Risk Corrections' via direct internal state updates to sub-agents (Dani, Sofia, etc.).
+    step_8: "Validate Instant Impact: Check the next 2 tasks in the queue for immediate quality improvement."
+  phase_4_pulse_reporting:
+    step_9: "Publish 'Compact Status Report': Provide a one-line summary of the alignment health and next scheduled review."
+    step_10: "Log 'Alignment-Pulse' (Local/Ignored): Store the delta for Arya’s long-term trend analysis."
+dependencies:
+  required_skills:
+    - strategic-alignment
+    - execution-governance
+  required_kpis:
+    - strategic-milestone-attainment
+  protocols:
+    - seed-alignment-protocol
+    - low-risk-execution-gate
+    - ephemeral-pulse-reporting-protocol
+  data_inputs:
+    - work-order-routing-log
+    - compliance-audit-trail
+    - product-usage-events
+error_handling:
+  on_high_friction: If corrective actions meet resistance from sub-agent logic, abort and flag for Director Review.
+  on_telemetry_gap: Wait one cycle for Mira to sync logs before attempting re-alignment.
+expected_output: >
+  A validated Autonomous Alignment Pulse containing: 1. Confidence Score: [0-100%] 2. Actions Taken: List of
+  micro-adjustments applied. 3. Status: [Aligned / Recalibrated / Escalated to Stability Mode] 4. Next Review: Timestamp
+  for the next scheduled seed-window.

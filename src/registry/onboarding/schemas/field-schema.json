@@ -1,0 +1,182 @@
+{
+  "company-core": [
+    {
+      "key": "company_vision",
+      "mandatoryForEfficiency": true,
+      "guidance": "Define the global company vision that all approved agents must align with.",
+      "minWords": 30
+    },
+    {
+      "key": "company_context",
+      "mandatoryForEfficiency": true,
+      "guidance": "Capture operating context (stage, constraints, risk envelope, market pressure).",
+      "minWords": 20
+    },
+    {
+      "key": "core_values",
+      "mandatoryForEfficiency": true,
+      "guidance": "List decision-driving core values that govern human and agent behavior.",
+      "minWords": 12
+    },
+    {
+      "key": "global_non_negotiables",
+      "mandatoryForEfficiency": true,
+      "guidance": "Specify global non-negotiable requirements all workflows and channels must obey.",
+      "minWords": 18
+    }
+  ],
+  "product-context": [
+    {
+      "key": "product_value_proposition",
+      "mandatoryForEfficiency": true,
+      "guidance": "Describe the product value proposition and customer impact in concrete terms.",
+      "minWords": 18
+    },
+    {
+      "key": "product_features",
+      "mandatoryForEfficiency": true,
+      "guidance": "List approved core features that agents may optimize or communicate.",
+      "minWords": 8
+    },
+    {
+      "key": "technical_constraints",
+      "mandatoryForEfficiency": true,
+      "guidance": "Define technical boundaries (latency, privacy, deployment constraints, integration boundaries).",
+      "minWords": 12
+    }
+  ],
+  "global-assets": [
+    {
+      "key": "approved_skills",
+      "mandatoryForEfficiency": true,
+      "guidance": "Provide comma-separated approved global skills for onboarding use.",
+      "minWords": 3
+    },
+    {
+      "key": "approved_kpis",
+      "mandatoryForEfficiency": true,
+      "guidance": "Provide comma-separated approved KPIs for agent mapping.",
+      "minWords": 3
+    }
+  ],
+  "global-guardrails": [
+    {
+      "key": "approved_protocols",
+      "mandatoryForEfficiency": true,
+      "guidance": "Provide comma-separated approved protocols for governance and safety boundaries.",
+      "minWords": 3
+    },
+    {
+      "key": "approved_data_inputs",
+      "mandatoryForEfficiency": true,
+      "guidance": "Provide comma-separated approved data inputs shared across agents.",
+      "minWords": 3
+    }
+  ],
+  "agent-profile-persona": [],
+  "agent-workflows": [
+    {
+      "key": "approved_workflows",
+      "mandatoryForEfficiency": true,
+      "guidance": "Provide comma-separated workflow IDs approved for execution by the selected virtual employees.",
+      "minWords": 3
+    },
+    {
+      "key": "workflow_dependency_rules",
+      "mandatoryForEfficiency": true,
+      "guidance": "Define dependency chain and escalation rules for workflow execution sequencing.",
+      "minWords": 8
+    }
+  ],
+  "infrastructure-finalization": [
+    {
+      "key": "channel_provider",
+      "mandatoryForEfficiency": true,
+      "guidance": "Primary communication provider (telegram/chat/custom).",
+      "minWords": 1,
+      "exampleText": "telegram"
+    },
+    {
+      "key": "allowed_channels",
+      "mandatoryForEfficiency": true,
+      "guidance": "Allowlisted channels (comma-separated).",
+      "minWords": 2,
+      "exampleText": "telegram:ops-room, chat:director"
+    },
+    {
+      "key": "approved_agents_for_channels",
+      "mandatoryForEfficiency": true,
+      "guidance": "Map approved agents to approved channels (e.g. mira>telegram:ops-room;eva>chat:director).",
+      "minWords": 4,
+      "exampleText": "mira>telegram:ops-room;eva>chat:director"
+    },
+    {
+      "key": "channel_access_rules",
+      "mandatoryForEfficiency": true,
+      "guidance": "Define channel security and approval gates for outbound communication.",
+      "minWords": 4,
+      "exampleText": "Require human-review for external broadcast channels"
+    }
+  ],
+  "agent-deep-dive": [],
+  "channel-access": [
+    {
+      "key": "channel_provider",
+      "mandatoryForEfficiency": true,
+      "guidance": "Primary communication provider (telegram/chat/custom).",
+      "minWords": 1,
+      "exampleText": "telegram"
+    },
+    {
+      "key": "allowed_channels",
+      "mandatoryForEfficiency": true,
+      "guidance": "Allowlisted channels (comma-separated).",
+      "minWords": 2,
+      "exampleText": "telegram:ops-room, chat:director"
+    },
+    {
+      "key": "channel_access_rules",
+      "mandatoryForEfficiency": true,
+      "guidance": "Agent-to-channel access control map (e.g. mira>telegram-ops;eva>chat-compliance).",
+      "minWords": 4,
+      "exampleText": "mira>telegram:ops-room;eva>chat:director"
+    }
+  ],
+  "channel-communication": [
+    {
+      "key": "channel_provider",
+      "mandatoryForEfficiency": true,
+      "guidance": "Select external communication provider. Use 'telegram' unless a custom managed channel is approved.",
+      "minWords": 1,
+      "exampleText": "telegram"
+    },
+    {
+      "key": "transmission_mode",
+      "mandatoryForEfficiency": true,
+      "guidance": "Define outbound mode: notify-only, interactive, or governance-only.",
+      "minWords": 1,
+      "exampleText": "notify-only"
+    },
+    {
+      "key": "default_destination",
+      "mandatoryForEfficiency": true,
+      "guidance": "Set the default chat/channel destination used when workflow does not provide explicit target.",
+      "minWords": 1,
+      "exampleText": "telegram:123456789"
+    },
+    {
+      "key": "allowed_destinations",
+      "mandatoryForEfficiency": true,
+      "guidance": "Provide allowlisted destinations as comma-separated values. Outbound messages must be blocked for non-listed destinations.",
+      "minWords": 2,
+      "exampleText": "telegram:123456789, telegram:987654321"
+    },
+    {
+      "key": "credential_env_key",
+      "mandatoryForEfficiency": true,
+      "guidance": "Define environment variable key used for channel credential retrieval.",
+      "minWords": 1,
+      "exampleText": "TELEGRAM_BOT_TOKEN"
+    }
+  ]
+}

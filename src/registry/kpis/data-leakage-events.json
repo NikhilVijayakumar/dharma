@@ -1,0 +1,19 @@
+{
+  "uid": "data-leakage-events",
+  "name": "Data-Leakage-Events (DLE)",
+  "description": "Total count of unauthorized 'Data-Exfiltration' or 'Cross-Tier-Contamination' incidents detected by the VATP monitoring layer.",
+  "unit": "Count (Integer)",
+  "target": "0",
+  "value": "Calculated via 'VATP-Audit-Skill' (Unauthorized-Movement-Logs)",
+  "goalMapping": "Enforces 'Zero-Trust' data privacy and maintains the 'Legal-Safe-Harbor' status of the organization.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Real-Time / Millisecond-Latency",
+    "shorthand": "Breach-Count"
+  },
+  "thresholds": {
+    "critical": "> 0 (Immediate 'Stability-Mode-Governance' and 'API-Kill-Switch')",
+    "warning": "N/A (This is a Binary-Safety metric)",
+    "optimal": "0"
+  }
+}

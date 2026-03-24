@@ -1,0 +1,34 @@
+id: self-healing-codebase-protocol
+title: "Global Self-Healing & Technical-Resiliency"
+description: "Stateless governance standard for the automated detection, regression-testing, and patching of repository-logic."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Automated-Regression-Trigger: Any 'Production-Error-Spike' (>1% failure rate) must trigger an immediate 'Last-Known-Good-State' (LKGS) rollback."
+  - rule_2: "The 'Sandbox-First' Patching: No automated fix may be applied to 'Production' without a 100% pass-rate in a 'Mirror-CI-Environment' (Staging)."
+  - rule_3: "Dependency-Security-Guard: Julia must automatically update 'Minor-Patch' versions of vulnerable libraries, provided the 'Unit-Test-Suite' remains green."
+  - rule_4: "Recursive-Lint-Correction: Static-Analysis errors (Style/Format) must be auto-corrected by the 'Git-Commit-Integrity-Protocol' before reaching the PR stage."
+  - rule_5: "Root-Cause-Documentation-Mandate: Every 'Heal' must generate an 'AI-Post-Mortem' in the /governance/tech-debt/ directory."
+
+logic_sequence:
+  step_1: "Anomaly-Detection: Monitor the 'Real-Time-Telemetry' for unhandled exceptions or 'Performance-Degradation'."
+  step_2: "Isolate-Fault-Vector: Identify if the error originated from a 'New-Commit', 'External-API-Change', or 'Resource-Exhaustion'."
+  step_3: "Execute 'Rollback-or-Patch': If the cause is a new commit, ROLLBACK. If it is a known environment bug, apply 'Automated-Patch'."
+  step_4: "IF HEALED: Re-verify the 'Product-SLA' and notify the Conductor (Mira)."
+  step_5: "IF HEAL-FAIL: Freeze the 'CI/CD-Pipeline' and trigger the 'Incident-Escalation-Protocol' (Tier-1)."
+
+escalation_triggers:
+  - "Condition: An automated heal results in a 'Recursive-Build-Failure' (Loop)."
+  - "Condition: The system attempts to heal 'Core-Financial-Logic' without a 'Dual-Signature' from Nora."
+  - "Condition: A 'Security-Vulnerability' is detected that has no available 'Auto-Patch' signature."
+
+dependencies:
+  required_skills:
+    - forensic-intent-analysis
+    - execution-governance
+  required_kpis:
+    - mean-time-to-repair (MTTR-Tech)
+    - system-uptime-percentage

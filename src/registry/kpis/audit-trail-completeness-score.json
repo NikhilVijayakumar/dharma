@@ -1,0 +1,19 @@
+{
+  "uid": "audit-trail-completeness-score",
+  "name": "Audit-Trail-Completeness-Score (ATCS)",
+  "description": "Verifies the presence of required metadata (Timestamp, Agent-ID, Intent-Hash, Protocol-Reference) for 100% of executed work-orders.",
+  "unit": "% (Integrity-Ratio)",
+  "target": "100.00",
+  "value": "Calculated via APV-Skill (Automated-Policy-Validation)",
+  "goalMapping": "Enforces 'Zero-Black-Box' operations and supports the 'Investor-Readiness-Protocol'.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Continuous / Real-Time-Stream",
+    "shorthand": "Audit-Fidelity"
+  },
+  "thresholds": {
+    "critical": "< 99.9% (Immediate Audit-Freeze via Stability-Mode-Governance-Protocol)",
+    "warning": "99.9% - 99.99% (Triggers Forensic-Intent-Analysis sub-routine)",
+    "optimal": "100.00%"
+  }
+}

@@ -1,0 +1,34 @@
+id: capital-allocation-handshake-protocol
+title: "Global Capital Allocation & Peer Handshake"
+description: "Stateless governance standard requiring multi-agent validation for any non-recurring resource expenditure."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Strategic-Priority-Match: The requested spend MUST link to an active 'Quarterly-Objective' in the Strategic-Vision.md."
+  - rule_2: "Runway-Impact-Analysis: No allocation may proceed if it reduces the 'Survival-Runway' to < 12 months without Director override."
+  - rule_3: "The 'Efficiency-Veto': If Nora (Finance) detects a 20% cheaper alternative (e.g., a different API provider), the handshake is suspended."
+  - rule_4: "Cross-Dependency-Sign-off: Spend for 'Growth' (Dani) must be validated by 'Ops' (Elina) to ensure the infrastructure can handle the resulting traffic."
+  - rule_5: "Atomic-Reversion: If the handshake fails at any node, the requested 'Capital-Reservation' is immediately released back to the general fund."
+
+logic_sequence:
+  step_1: "Initialize Allocation-Request: Tag the request with a 'Spend-Category' and 'Expected-ROI-Timeline'."
+  step_2: "Check Treasury-Gate: Verify 'Liquid-Capital-Availability' against Nora’s real-time 'Growth-Opex-Ledger'."
+  step_3: "Request Peer-Audit: Route the request to the most relevant 'Counter-Agent' (e.g., Tech requests must be audited by Finance)."
+  step_4: "IF HANDSHAKE-SUCCESS: Generate a 'Fiscal-Auth-Token' and commit the transaction to the Audit-Trail."
+  step_5: "IF HANDSHAKE-FAIL: Log the 'Conflict-Rationale' and return the work-order for 'Efficiency-Refactoring'."
+
+escalation_triggers:
+  - "Condition: Peer-agents enter a 'Deadlock' where neither will sign off on a critical infrastructure spend."
+  - "Condition: Attempted spend exceeds the 'Daily-Sovereignty-Cap' for the requesting agent slot."
+  - "Condition: Detected 'Spend-Fragmentation'—multiple small requests totaling a high-risk burn."
+
+dependencies:
+  required_skills:
+    - budget-allocation
+    - financial-forecasting
+  required_kpis:
+    - runway-coverage-months
+    - burn-variance-ratio

@@ -1,0 +1,34 @@
+id: deterministic-handoff-protocol
+title: "Global Deterministic Handoff & Context-State"
+description: "Stateless governance standard for ensuring 100% data-fidelity during inter-agent task transfers."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Immutable-State-Capture: Every handoff must include a 'Snapshot' of the current project state, including the 'Protocol-Lineage' followed so far."
+  - rule_2: "Variable-Strictness: All input parameters for the receiving agent must be explicitly defined (e.g., 'Target-Latency: <200ms') rather than descriptive (e.g., 'Make it fast')."
+  - rule_3: "The 'Acknowledge-Hash': The receiving agent must verify the 'Handoff-Manifest' against their own 'Competency-Calibration' before accepting the task."
+  - rule_4: "Recursive-Dependency-Check: No handoff can trigger if the required 'Upstream-Data' (e.g., Nora's budget approval) is missing or expired."
+  - rule_5: "Zero-Ambiguity-Filter: Any 'Abstract-Instruction' in the handoff must be converted into a 'Functional-Requirement' before the next node activates."
+
+logic_sequence:
+  step_1: "Generate Handoff-Manifest: Package the 'Intent', 'Constraints', 'Success-Criteria', and 'Active-Tokens' into a single object."
+  step_2: "Validate Lineage: Ensure the 'Audit-Trail-UUID' is attached to maintain the chain of command from Slot-10."
+  step_3: "Peer-Handshake: The sending agent transmits the manifest; the receiving agent runs a 'Structural-Integrity-Scan'."
+  step_4: "IF VALID: The receiving agent signs the 'Handshake-Token' and takes 'Operational-Sovereignty' over the task."
+  step_5: "IF INVALID: The handoff is rejected with a 'Missing-Variable-Report' sent back to the source agent for immediate refactoring."
+
+escalation_triggers:
+  - "Condition: A handoff is rejected three times in a row for 'Data-Incompleteness'."
+  - "Condition: Detection of a 'Circular-Dependency' where Agent A waits for Agent B who is waiting for Agent A."
+  - "Condition: The handoff involves a 'Sovereignty-Shift' that exceeds the 'Complexity-Based-Escalation' limits."
+
+dependencies:
+  required_skills:
+    - forensic-intent-analysis
+    - strategic-alignment
+  required_kpis:
+    - routing-accuracy-score
+    - mean-time-to-repair (MTTR-Logic)

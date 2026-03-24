@@ -1,0 +1,19 @@
+{
+  "uid": "token-compliance-rate",
+  "name": "Token-Compliance-Rate (TCR)",
+  "description": "Measures the percentage of 'Generated-Tokens' that pass 'Real-Time-Validator-Scans' for safety, formatting, and instruction-following.",
+  "unit": "% (Adherence-Ratio)",
+  "target": "> 99.95%",
+  "value": "Calculated via 'Eva-Gatekeeper-Skill' (Compliant-Tokens / Total-Output-Tokens)",
+  "goalMapping": "Eliminates 'Agentic-Hallucination' and ensures 'Zero-Trust-Compliance' across all outbound-agent communications.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Inference / Real-Time-Streaming",
+    "shorthand": "Logic-Safety"
+  },
+  "thresholds": {
+    "critical": "< 98.00% (Triggers 'Model-Switching' and 'System-Prompt-Lockdown' by Eva)",
+    "warning": "98.00% - 99.90% (Triggers 'Instruction-Tuning' and 'Context-Sanitization')",
+    "optimal": "100.00%"
+  }
+}

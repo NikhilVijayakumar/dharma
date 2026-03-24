@@ -1,0 +1,14 @@
+{
+  "uid": "global-ops-protocol-md",
+  "name": "Global Ops Protocol Md",
+  "description": "Generated data input for registry reference normalization: global-ops-protocol-md.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/elina/operational-improvement-cycle",
+  "privacyClassification": "internal"
+}

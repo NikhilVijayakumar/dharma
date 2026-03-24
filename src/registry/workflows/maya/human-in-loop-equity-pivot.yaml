@@ -1,0 +1,69 @@
+id: human-in-loop-equity-pivot
+agent_id: maya
+trigger: Term Sheet Received / Significant Equity-Ledger Change Proposal
+logic_sequence:
+  phase_1_forensic_dilution_analysis:
+    step_1: >-
+      Parse Term Sheet: Extract 'Pre-money Valuation', 'Option Pool Refresh', and 'Liquidation Preferences' from the
+      inbound document.
+    step_2: >-
+      Cap Table Impact Simulation: Compare the Term Sheet against the current 'Equity-Ledger.json' to calculate the
+      exact % dilution for the Director.
+    step_3: >-
+      Initialize 'Control-Shift-Report': Identify if any 'Protective Provisions' in the Term Sheet override Eva’s
+      'Governance-Enforcement' protocols.
+  phase_2_strategic_trade-off_modeling:
+    step_4: >-
+      Draft 'Option A vs B' Analysis: If multiple Term Sheets exist, map them by 'Capital-Efficiency' vs.
+      'Operational-Freedom'.
+    step_5: >-
+      Verify 'Fiscal-Runway' (Nora): Confirm the new capital injection meets the '18-Month-Survival-Baseline' after the
+      round-expenses.
+    step_6: >-
+      Constraint Check (Eva): Ensure that granting 'Board Observer' seats doesn't violate 'Data-Vault' security
+      protocols.
+  phase_3_director_arbitration_gate:
+    step_7: >-
+      Generate 'Exit-Scenario-Modeling': Predict the Director's payout at $10M, $100M, and $1B valuations under the new
+      equity structure.
+    step_8: >-
+      Present 'Funding Decision': Deliver the brief to the Director via Mira: 'Investor A offers higher valuation but
+      demands a Board Veto on Architectural-Evolution'.
+    step_9: >-
+      Await Director Signature: All system-wide equity records remain 'Frozen' until a Director-signed
+      'Equity-Commit-Hash' is detected.
+  phase_4_ledger_finalization:
+    step_10: >-
+      Coordinate Git-Commit: Upon signature, trigger Julia to update the 'Equity-Ledger.json' in the /vault/governance/
+      directory.
+    step_11: >-
+      Compliance Update (Eva): Reflect the new 'Shareholder-Rights' in the 'Governance-Enforcement' logic to prevent
+      illegal agent-actions.
+    step_12: "Closure: Log the finalized round in the 'Strategic-History-Ledger' and reset 'Runway-Coverage' KPIs."
+dependencies:
+  required_skills:
+    - investor-pipeline-prioritization
+    - financial-forecasting
+    - strategic-alignment
+  required_kpis:
+    - investor-stage-conversion
+    - runway-coverage-months
+  data_inputs:
+    - equity-ledger-json
+    - compliance-policy-md
+    - term-sheet-pdf
+  protocols:
+    - cap-table-simulation-protocol
+    - git-governance-handshake-protocol
+    - binary-choice-governance-protocol
+error_handling:
+  on_control_breach: >-
+    If a Term Sheet contains a 'Full-Ratchet' or 'Founder-Removal' clause, Maya flags it as a 'Critical-Governance-Risk'
+    immediately.
+  on_signature_mismatch: >-
+    If the digital signature on the Term Sheet does not match the Director’s Vault-ID, Eva invokes
+    'Transaction-Lockdown'.
+expected_output: >
+  A validated Equity Pivot Package containing: 1. Status: [PENDING-SIGNATURE / COMMITTED / REJECTED] 2. Dilution Table:
+  Before/After breakdown of ownership percentages. 3. Control Delta: Summary of changes to voting rights or governance
+  vetoes. 4. Traceable Reference: The Git-Commit hash for the updated 'Equity-Ledger.json'.

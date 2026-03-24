@@ -1,0 +1,34 @@
+id: director-inquiry-escalation-protocol
+title: "Global Director-Inquiry & High-Priority Escalation"
+description: "Stateless governance standard for processing direct Slot-10 (Director) queries and ensuring zero-latency response."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Interrupt-Priority: A direct inquiry from Slot-10 suspends all non-critical background 'Task-Nodes' for the relevant agent(s)."
+  - rule_2: "Evidence-Backing: Every response must cite at least one 'Primary-Source' (e.g., Nora's Ledger, Julia's Telemetry, or the Strategic-Vision.md)."
+  - rule_3: "Structural-Clarity: Responses must follow the 'Executive-Summary-First' format: (1) Answer, (2) Evidence, (3) Risk/Implication, (4) Next-Action."
+  - rule_4: "Recursive-Context-Check: Before replying, the agent must check the last 3 'Director-Interactions' to ensure continuity of logic and tone."
+  - rule_5: "Ambiguity-Threshold: If an inquiry is 'Broad', the agent must provide a 'Binary-Choice-Framework' rather than asking for clarification."
+
+logic_sequence:
+  step_1: "Inquiry-Parsing: Identify if the Director is asking for 'Data' (Fact), 'Projection' (Opinion), or 'Action' (Execution)."
+  step_2: "Global-State-Fetch: Trigger the 'Context-Injection-Protocol' to hydrate the agent with the most recent 60-second system telemetry."
+  step_3: "Draft-Response: Apply the 'Communication-Style-Protocol' (CSP) to strip verbosity and maximize actionability."
+  step_4: "IF UNCERTAIN: Mark the response with the [ASSUMPTION] tag and include a 'Confidence-Score' based on available data."
+  step_5: "Post-Response-Log: Archive the inquiry and answer in the /governance/decision-log.md for future 'Model-Alignment'."
+
+escalation_triggers:
+  - "Condition: An inquiry requires data from an 'Offline' or 'Rate-Limited' node."
+  - "Condition: The Director’s inquiry contradicts a previously established 'Hard-Rule' in the Governance Lab."
+  - "Condition: The time-to-response exceeds the 'Director-Patience-Limit' (60 seconds for real-time, 4 hours for async)."
+
+dependencies:
+  required_skills:
+    - forensic-intent-analysis
+    - strategic-alignment
+  required_kpis:
+    - decision-cycle-time
+    - interaction-quality-score

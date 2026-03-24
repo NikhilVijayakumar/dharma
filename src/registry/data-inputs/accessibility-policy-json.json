@@ -1,0 +1,14 @@
+{
+  "uid": "accessibility-policy-json",
+  "name": "Accessibility Policy Json",
+  "description": "Generated data input for registry reference normalization: accessibility-policy-json.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/sofia/seed-autonomous-alignment",
+  "privacyClassification": "internal"
+}

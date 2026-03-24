@@ -1,0 +1,34 @@
+id: self-healing-budget-protocol
+title: "Global Self-Healing & Fiscal-Resiliency"
+description: "Stateless governance standard for the automated detection, mitigation, and recovery of budget-anomalies."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Micro-Variance-Autonomy: Nora (Finance) may reallocate up to 5% of a 'Secondary-Growth' budget to cover a 'Core-Infrastructure' deficit without Slot-10 approval."
+  - rule_2: "The 'Kill-Switch-Threshold': If 'Real-Time-Burn' exceeds 150% of the daily 'Projected-SLA', all non-essential 'Compute-Nodes' must be throttled by 50% immediately."
+  - rule_3: "Recursive-Audit-Correction: If an 'Accounting-Discrepancy' is detected between the 'Ledger-Hash' and 'Bank-API', the system must 'Freeze-and-Reconcile' the specific 'Sub-Wallet'."
+  - rule_4: "Opportunity-Cost-Calibration: Budget 'Heals' must prioritize 'Revenue-Generating-Nodes' (Dani) and 'Compliance-Safety-Nodes' (Eva) over 'Exploratory-R&D'."
+  - rule_5: "Immutable-Recovery-Log: Every 'Self-Healing' action must generate a 'Fiscal-Patch-Report' detailing the source, destination, and rationale for the move."
+
+logic_sequence:
+  step_1: "Anomaly-Detection: Scan 'Burn-Telemetry' for spikes or 'Negative-Margin-Signals'."
+  step_2: "Impact-Simulation: Run a 30-day 'Runway-Projection' based on the current anomalous burn-rate."
+  step_3: "Identify 'Healing-Vectors': Locate under-utilized 'Budget-Pools' or 'Low-Priority-Tasks' (QPP) to harvest resources."
+  step_4: "IF HEALABLE: Execute the 'Internal-Transfer-Hash' and update the /governance/fiscal/real-time-ledger.json."
+  step_5: "IF UNHEALABLE: Trigger the 'Incident-Escalation-Protocol' (Tier-1) and request a 'Strategic-Capital-Injection' or 'Project-Pivot'."
+
+escalation_triggers:
+  - "Condition: A single 'Work-Order' attempts to consume >25% of the 'Total-Monthly-Reserve'."
+  - "Condition: 'Self-Healing' actions occur >3 times in a single 24-hour cycle (indicating a 'Systemic-Leak')."
+  - "Condition: Detection of 'Phantom-Spend'—outflows that have no 'Approval-Signature' in the /governance/ directory."
+
+dependencies:
+  required_skills:
+    - risk-modeling
+    - execution-governance
+  required_kpis:
+    - burn-rate-efficiency
+    - mean-time-to-repair (MTTR-Fiscal)

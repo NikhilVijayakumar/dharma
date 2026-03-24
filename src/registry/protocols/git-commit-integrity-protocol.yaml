@@ -1,0 +1,34 @@
+id: git-commit-integrity-protocol
+title: "Global Git-Commit & Repository Integrity"
+description: "Stateless governance standard for code versioning, cryptographic signing, and automated peer-review before repository injection."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Atomic-Commit-Requirement: Commits must be 'Atomic'—solving one specific 'Task-Node' or 'Bug-Fix'. Bulk-commits of unrelated logic are strictly prohibited."
+  - rule_2: "Conventional-Commits-Standard: All messages must follow the [type](scope): [description] format (e.g., 'feat(auth): add OAuth2 provider logic')."
+  - rule_3: "Cryptographic-Signature: Every commit must be signed with the agent's unique 'GPG-Key-Hash' to ensure non-repudiation."
+  - rule_4: "Pre-Commit-Guardian: Automated hooks must pass three checks before 'Push': (1) Linting/Style-Conformity, (2) Unit-Test-Pass-Rate (100%), and (3) Secret-Scanning (no leaked API keys)."
+  - rule_5: "The 'Context-Link' Rule: Every commit footer must reference the specific 'Work-Order-UUID' and 'Protocol-ID' that triggered the change."
+
+logic_sequence:
+  step_1: "Staging-Audit: Identify all 'Changed-Lines' and compare them against the 'Active-Work-Order' parameters."
+  step_2: "Static-Analysis-Trigger: Run the 'Clean-Architecture-Gate' to ensure no 'Spaghetti-Logic' or 'Dependency-Cycles' are introduced."
+  step_3: "Generate Metadata: Construct the 'Commit-Footer' including the Rationale-Hash and the 'Confidence-Score' of the code."
+  step_4: "IF PASS: Finalize the commit and trigger the 'Automated-Pull-Request' for Peer-Review (e.g., Julia-01 reviews Julia-02)."
+  step_5: "IF FAIL: Block the commit. Generate an 'Integrity-Violation-Report' and suggest specific 'Refactoring-Steps'."
+
+escalation_triggers:
+  - "Condition: An agent attempts to force-push (`--force`) or bypass 'Branch-Protection-Rules'."
+  - "Condition: Detection of 'Logic-Drift'—code that functionally works but deviates from the 'Design-to-Code-Handoff' specs."
+  - "Condition: Multiple failed 'Pre-Commit-Checks' for the same task, indicating a 'Competency-Gap'."
+
+dependencies:
+  required_skills:
+    - execution-governance
+    - interaction-quality-mapping
+  required_kpis:
+    - mean-time-to-repair (MTTR-Tech)
+    - brand-fidelity-index

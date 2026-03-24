@@ -1,0 +1,67 @@
+id: visual-identity-evolution
+agent_id: sofia
+trigger: Director Refresh Request / Dani’s Market Pivot / Usability Signal Drift
+logic_sequence:
+  phase_1_aesthetic_sentiment_analysis:
+    step_1: >-
+      Feedback Ingest: Scan 'customer-feedback-stream' and 'product-usage-events' for keywords related to 'Legibility',
+      'Navigation', or 'Outdated-UI'.
+    step_2: >-
+      Initialize 'Visual-Token-Audit': Map the current 'visual_tokens.json' against 2026 industry standards for
+      accessibility and mobile-first rendering.
+    step_3: >-
+      Draft 'Evolution-Manifest': Generate a new JSON schema for colors, typography, and spacing that resolves the
+      detected friction.
+  phase_2_peer_validation_handshake:
+    step_4: >-
+      Request 'Brand-Impact' (Dani): Verify that the new visual tokens amplify the 'Market-Pivot' and don't dilute
+      existing brand equity.
+    step_5: >-
+      Request 'Technical-Validation' (Julia): Audit the new tokens for 'Implementation-Load'—ensuring custom fonts or
+      heavy assets don't slow down the LCP (Largest Contentful Paint).
+    step_6: "IF Peer-Veto: Return to Phase 1 to refine the manifest until both 'Growth' and 'Infrastructure' signals are green."
+  phase_3_director_strategic_gate:
+    step_7: >-
+      Generate 'Visual-Refresh-Brief': Deliver the proposal to the Director via Mira: 'I recommend shifting to the 2026
+      Typography tokens to improve long-form legibility by 15%.
+    step_8: >-
+      Option-Modeling: Present 'Option A (Incremental)': Low-risk color shifts vs. 'Option B (Transformative)': Full
+      typography and grid overhaul.
+    step_9: >-
+      Await Strategic Decision: The 'Governance-Lab' remains in 'Read-Only' mode for design tokens until a
+      Director-signed 'Evolution-Hash' is received.
+  phase_4_constitutional_update:
+    step_10: >-
+      Execute 'Controlled-Commit': Use the 'GitGovernorService' to push the updated 'visual_tokens.json' to the
+      /governance/design/ directory.
+    step_11: >-
+      System-Wide Propagation: Signal Elina (Ops) to trigger a 'Style-Re-Scaffold' for all user-facing agent outputs
+      (Marketing & Product).
+    step_12: >-
+      Post-Audit: Monitor the 'Accessibility-Conformance-Rate' for 48 hours to ensure the evolution hasn't introduced
+      new usability blind spots.
+dependencies:
+  required_skills:
+    - visual-audit
+    - interaction-quality-mapping
+    - execution-governance
+  required_kpis:
+    - accessibility-conformance-rate
+    - token-compliance-score
+  data_inputs:
+    - visual-tokens-json
+    - customer-feedback-stream
+    - strategic-vision-md
+  protocols:
+    - visual-arbitration-protocol
+    - git-governance-handshake-protocol
+    - binary-choice-governance-protocol
+error_handling:
+  on_peer_deadlock: >-
+    If Dani and Julia disagree, Sofia presents both the 'Growth-Risk' and 'Tech-Risk' to the Director for final
+    arbitration.
+  on_accessibility-regression: If the new tokens cause a fail in the 'Accessibility-Gate', Sofia auto-reverts to the 'Last-Known-Stable-Manifest'.
+expected_output: >
+  A Decision-Ready Visual Evolution Brief containing: 1. Status: [PENDING-VAL / READY-FOR-COMMIT / EVOLVED] 2. Peer
+  Validation: Alignment hashes from Dani (Marketing) and Julia (Tech). 3. Evolution Rationale: Data-backed proof of why
+  the refresh improves UX/Brand. 4. Traceable Reference: The Git-Commit hash for the updated 'visual_tokens.json'.

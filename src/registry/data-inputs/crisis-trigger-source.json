@@ -1,0 +1,14 @@
+{
+  "uid": "crisis-trigger-source",
+  "name": "Crisis Trigger Source",
+  "description": "Generated data input for registry reference normalization: crisis-trigger-source.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/mira/crisis-command-prioritization",
+  "privacyClassification": "internal"
+}

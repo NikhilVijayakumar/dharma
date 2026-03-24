@@ -1,0 +1,14 @@
+{
+  "uid": "agent-performance-data",
+  "name": "Agent Performance Data",
+  "description": "Generated data input for registry reference normalization: agent-performance-data.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/nora/seed-autonomous-alignment",
+  "privacyClassification": "internal"
+}

@@ -1,0 +1,19 @@
+{
+  "uid": "decision-cycle-time",
+  "name": "Decision-Cycle-Time (DCT)",
+  "description": "Measures the latency from 'Initial-Inbound-Signal' to 'Validated-Execution-Decision' (OODA-Loop completion) across the agentic-bus.",
+  "unit": "Minutes/Seconds",
+  "target": "< 5.0 Minutes",
+  "value": "Calculated via 'Signal-Arrival-TS' vs. 'Mira-Auth-TS'",
+  "goalMapping": "Optimizes 'Competitive-Velocity' and prevents 'Logic-Congestion' in the orchestration layer.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Decision / Real-Time",
+    "shorthand": "Cognitive-Speed"
+  },
+  "thresholds": {
+    "critical": "> 30.0 mins (Triggers 'Orchestration-Bypass' or 'Logic-Simplification')",
+    "warning": "5.0 - 15.0 mins (Triggers 'Context-Pruning' for the Conductor agent)",
+    "optimal": "< 1.0 min"
+  }
+}

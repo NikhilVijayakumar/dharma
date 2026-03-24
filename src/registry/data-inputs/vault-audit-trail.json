@@ -1,0 +1,14 @@
+{
+  "uid": "vault-audit-trail",
+  "name": "Vault Audit Trail",
+  "description": "Generated data input for registry reference normalization: vault-audit-trail.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/arya/seed-human-in-loop-escalation",
+  "privacyClassification": "internal"
+}

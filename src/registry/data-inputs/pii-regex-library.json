@@ -1,0 +1,14 @@
+{
+  "uid": "pii-regex-library",
+  "name": "Pii Regex Library",
+  "description": "Generated data input for registry reference normalization: pii-regex-library.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/eva/sop-autonomous-compliance-gate",
+  "privacyClassification": "internal"
+}

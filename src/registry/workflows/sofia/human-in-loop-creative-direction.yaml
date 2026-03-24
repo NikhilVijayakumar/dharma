@@ -1,0 +1,67 @@
+id: human-in-loop-creative-direction
+agent_id: sofia
+trigger: Major Re-branding / Ambiguous Creative Choice / Accessibility Conflict Detected
+logic_sequence:
+  phase_1_visual-narrative_forensics:
+    step_1: >-
+      Conflict Detection: Identify the delta between Dani’s 'Brand-Narrative.md' and the 'Global-Usability-Baseline'
+      (e.g., color contrast vs. brand palette).
+    step_2: >-
+      Initialize 'Aesthetic-Audit': Scan the proposed UI/UX for 'Interaction-Friction' points where the creative
+      direction impedes the user-flow.
+    step_3: >-
+      Initialize 'Trade-off-Matrix': Map the impact of each choice on 'Accessibility-Conformance' vs.
+      'Brand-Identity-Weight'.
+  phase_2_comparative_visualization:
+    step_4: "Prepare Design Trade-off: Generate two high-fidelity mockups or logic-maps for the Director to review."
+    step_5: >-
+      Option A (Brand-Dominant): Prioritize Dani’s vision; highlight the 'Conversion-Psychology' gains vs. the
+      'Accessibility-Risks'.
+    step_6: >-
+      Option B (Standard-Dominant): Prioritize Sofia’s standards; highlight the 'Inclusivity-Gains' and
+      'Regulatory-Safety' vs. the 'Brand-Dilution'.
+  phase_3_director_arbitration:
+    step_7: >-
+      Present Creative Conflict: Deliver the 'Design-Choice-Brief' to the Director via Mira: 'We are at a crossroads
+      between aggressive branding and universal access'.
+    step_8: >-
+      Await Strategic Decision: The 'UI-Sync' remains in a 'Draft-State' until a Director-signed 'Design-Auth-Hash' is
+      detected.
+    step_9: >-
+      Verify 'Brand-Fidelity': Confirm the chosen path still resonates with the 'Strategic-Vision.md' stored in the
+      Vault.
+  phase_4_policy_hardening:
+    step_10: >-
+      Update 'Accessibility-Policy.json': Commit the Director’s choice to the Governance Lab to set a new
+      'Brand-vs-Usability' baseline.
+    step_11: >-
+      Execute UI-Deployment: Pass the approved design specs to Julia (CTO) for implementation and to Eva (Compliance)
+      for final validation.
+    step_12: "Status Log: Record the 'Creative-Resolution' in the git-ignored /local/design/direction-log.md."
+dependencies:
+  required_skills:
+    - visual-audit
+    - interaction-quality-mapping
+    - execution-governance
+  required_kpis:
+    - accessibility-conformance-rate
+    - token-compliance-score
+  data_inputs:
+    - brand-narrative-md
+    - usability-standards-json
+    - strategic-vision-md
+  protocols:
+    - visual-arbitration-protocol
+    - wcag-compliance-gate
+    - binary-choice-governance-protocol
+error_handling:
+  on_legal-non-compliance: >-
+    If Option A violates 'Hard-Compliance-Rules' set by Eva, Sofia flags it as [UNSAFE] and forces a re-design of the
+    brand-narrative.
+  on_decision-timeout: >-
+    If no choice is made within 48h, the system defaults to 'Option B' (Maximum Accessibility) to ensure regulatory
+    safety.
+expected_output: >
+  A validated Creative Direction Report containing: 1. Status: [PENDING-CHOICE / COMMITTED / RE-DESIGNED] 2. Conflict
+  Summary: Forensic breakdown of why the Brand vs. Usability clash occurred. 3. Risk Assessment: Numerical score for
+  'Accessibility Loss' vs. 'Brand Gain'. 4. Traceable Reference: The updated 'Accessibility-Policy.json' hash in Git.

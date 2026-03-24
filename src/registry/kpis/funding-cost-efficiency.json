@@ -1,0 +1,19 @@
+{
+  "uid": "funding-cost-efficiency",
+  "name": "Funding-Cost-Efficiency (FCE)",
+  "description": "Measures the 'Return-on-Allocated-Capital' (ROAC) by comparing 'Operational-Spend' against 'Verified-Value-Creation' (Revenue, Assets, or Efficiency-Gains).",
+  "unit": "Ratio (Value:Spend)",
+  "target": "> 3.5:1",
+  "value": "Calculated via 'Nora-Ledger-Audit' (Net-Value-Added / Total-Allocated-Funding)",
+  "goalMapping": "Enforces 'Fiscal-Optimization' and prevents 'Sub-Optimal-Capital-Deployment' across the 10-agent array.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Monthly-Settlement / Real-Time-Drift-Monitoring",
+    "shorthand": "Capital-Yield"
+  },
+  "thresholds": {
+    "critical": "< 1.2:1 (Triggers 'Immediate-Funding-Freeze' and 'Resource-Reallocation')",
+    "warning": "1.2:1 - 2.5:1 (Triggers 'Efficiency-Audit' on underperforming Work-Orders)",
+    "optimal": "> 5.0:1"
+  }
+}

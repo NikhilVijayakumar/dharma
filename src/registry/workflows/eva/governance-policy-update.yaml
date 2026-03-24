@@ -1,0 +1,57 @@
+id: governance-policy-update
+agent_id: eva
+trigger: Quarterly Review / Regulatory Shift / Director Request
+logic_sequence:
+  phase_1_compliance_forensics:
+    step_1: >-
+      Aggregate 'incident-and-change-log': Scan for recurring friction points where Dani (Growth) or Julia (Tech) nearly
+      bypassed safety-gates.
+    step_2: >-
+      Regulatory Delta-Scan: Analyze the external 'Regulatory-Mapping-Feed' for changes in data privacy, fiscal
+      reporting, or AI ethics laws.
+    step_3: "Initialize 'Policy-Draft': Scaffold a Markdown update in the /local/governance/ staged directory."
+  phase_2_cross-module-feasibility:
+    step_4: >-
+      Request 'Strategy Handshake' (Arya): Confirm the new compliance constraint doesn't kill the competitive edge of
+      the current Roadmap.
+    step_5: >-
+      Request 'Operational Handshake' (Elina): Verify that the extra 'Audit-Steps' won't cause a permanent SLA breach in
+      the 10-slot queue.
+    step_6: >-
+      Fidelity Check: Ensure the new policy aligns with Nora’s 'Fiscal-Safety-Baseline' to prevent unbudgeted compliance
+      costs.
+  phase_3_director_validation:
+    step_7: "Generate 'Compliance Impact Simulation': Model how the new policy would have prevented past 'Near-Miss' incidents."
+    step_8: >-
+      Present 'Governance Proposal': Deliver the Markdown draft to the Director with a clear 'Status: Ready-to-Commit'
+      and peer-validation hashes.
+    step_9: >-
+      Await Director Approval: The system remains on the 'Legacy Policy' until a Director-signed Git-transaction is
+      detected.
+  phase_4_constitutional_commit:
+    step_10: "Invoke 'GitGovernorService': Upon approval, commit the new policy to the repository's /governance/ directory."
+    step_11: "Global Logic Propagation: Trigger a mandatory 'Protocol-Reload' for all 10 agents to ingest the new constraints."
+    step_12: "Audit Trail Update: Log the specific regulatory trigger and the Director's rationale in the permanent ledger."
+dependencies:
+  required_skills:
+    - security-audit
+    - governance-enforcement
+    - regulatory-mapping
+  required_kpis:
+    - control-pass-rate
+    - audit-trail-completeness-score
+  data_inputs:
+    - incident-and-change-log
+    - external-regulatory-feed
+    - brand-protocols-md
+  protocols:
+    - governance-update-protocol
+    - git-governance-handshake-protocol
+    - compliance-feasibility-gate
+error_handling:
+  on_handshake_veto: If Elina flags 'Fatal Latency', Eva must optimize the audit-logic (e.g., move to asynchronous checks) and re-submit.
+  on_commit_conflict: If Julia detects a 'Schema-Clash', pause the update and request a joint Technical-Compliance review.
+expected_output: >
+  A validated Governance Policy Package containing: 1. Status: [POLICY-COMMITTED / STAGED / REJECTED] 2. Rationale:
+  Data-driven proof of why the policy change is legally or strategically required. 3. Peer Validation: Verified
+  handshake tokens from Arya and Elina. 4. Traceable Reference: The Git-Commit hash of the new 'compliance-policy.md'.

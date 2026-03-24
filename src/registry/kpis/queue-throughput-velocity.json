@@ -1,0 +1,19 @@
+{
+  "uid": "queue-throughput-velocity",
+  "name": "Queue-Throughput-Velocity (QTV)",
+  "description": "Measures the 'Task-Completion-Rate' (Work-Units per Hour) relative to 'Incoming-Demand-Volume' across all agentic-slots.",
+  "unit": "Tasks/Hour (Throughput-Rate)",
+  "target": "Dynamic (> 1.2x Input-Rate)",
+  "value": "Calculated via 'Mira-Bus-Telemetry' (Completed-Tasks / Total-Active-Queue-Time)",
+  "goalMapping": "Prevents 'Operational-Backlog' and ensures the 'System-Metabolism' scales with 'Market-Demand'.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Minute / Real-Time-Pulse",
+    "shorthand": "System-Metabolism"
+  },
+  "thresholds": {
+    "critical": "< 0.9x Input-Rate (Triggers 'Task-Triaging' and 'Compute-Scaling' by Julia)",
+    "warning": "0.9x - 1.1x (Triggers 'Context-Optimization' and 'Low-Priority-Task-Deferral')",
+    "optimal": "> 1.5x (Indicates 'High-Elasticity-Readiness')"
+  }
+}

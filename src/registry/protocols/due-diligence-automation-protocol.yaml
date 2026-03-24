@@ -1,0 +1,34 @@
+id: due-diligence-automation-protocol
+title: "Global Due Diligence & Risk Forensic Automation"
+description: "Stateless governance standard for the automated auditing of external entities, assets, or codebases before integration."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Multi-Vector-Scrutiny: All due diligence must cover four pillars: (1) Financial-Solvency, (2) Legal-Compliance, (3) Security-Integrity, and (4) Strategic-Cultures-Fit."
+  - rule_2: "Source-Verification: Data used for the audit must come from 'Primary-Oracles' (e.g., SEC filings, GitHub commit history, verified balance sheets) rather than secondary PR materials."
+  - rule_3: "The 'Red-Flag' Threshold: Detection of a 'High-Severity' risk (e.g., pending litigation or severe security vulnerabilities) triggers an automatic 'Block-and-Report'."
+  - rule_4: "Recursive-Entity-Mapping: The audit must map the 'Ultimate-Beneficial-Owner' (UBO) to ensure no conflict of interest with the Strategic-Vision.md."
+  - rule_5: "Timestamped-Validity: A Due Diligence report is valid for only 30 days. Any execution beyond this window requires a 'Delta-Re-scan'."
+
+logic_sequence:
+  step_1: "Define Audit-Scope: Identify the target (Vendor, Partner, or Asset) and the 'Exposure-Level' (How much access do they get?)."
+  step_2: "Trigger Distributed-Scan: Task Nora (Finance) with 'Cap-Table-Audit' and Eva (Compliance) with 'KYB/KYC-Validation'."
+  step_3: "Synthesize Forensic-Brief: Aggregate findings into a 'Risk-Heatmap' using the Communication-Style-Protocol (CSP)."
+  step_4: "IF RISK < LIMIT: Generate a 'Safe-to-Transact-Hash' and proceed to the 'Capital-Allocation-Handshake'."
+  step_5: "IF RISK > LIMIT: Flag as [DANGER-NODE] and suggest 'Mitigation-Terms' (e.g., Escrow requirements or indemnity clauses)."
+
+escalation_triggers:
+  - "Condition: Detection of 'Obfuscated-Ownership' or shell-company structures."
+  - "Condition: The target entity refuses to provide 'Critical-Data-Access' for the automated scan."
+  - "Condition: A 'Strategic-Conflict' is found (e.g., the vendor is owned by a direct competitor)."
+
+dependencies:
+  required_skills:
+    - risk-modeling
+    - forensic-intent-analysis
+  required_kpis:
+    - decision-cycle-time
+    - brand-fidelity-index

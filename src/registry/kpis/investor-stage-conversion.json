@@ -1,0 +1,19 @@
+{
+  "uid": "investor-stage-conversion",
+  "name": "Investor-Stage-Conversion (ISC)",
+  "description": "Measures the 'Conversion-Velocity' and 'Probability-of-Close' as investors progress from 'Initial-Outreach' to 'Term-Sheet-Execution'.",
+  "unit": "% (Step-over-Step)",
+  "target": "> 25.0% (Funnel-Average)",
+  "value": "Calculated via 'Nora-CRM-Skill' (Stage-n+1 / Stage-n)",
+  "goalMapping": "Validates the 'Funding-Narrative' and optimizes the 'Investor-Relations-Logic' for maximum capital-security.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Interaction / Weekly-Pipeline-Review",
+    "shorthand": "Closing-Power"
+  },
+  "thresholds": {
+    "critical": "< 10% Stage-Drop (Triggers 'Narrative-Recalibration' and 'Data-Room-Hardening')",
+    "warning": "10% - 20% (Triggers 'Friction-Audit' on current Investor-Collateral)",
+    "optimal": "> 35% (Indicates 'High-Market-Product-Fit')"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "uid": "fiscal-policy-md",
+  "name": "Fiscal Policy Md",
+  "description": "Generated data input for registry reference normalization: fiscal-policy-md.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/arya/crisis-support-mode",
+  "privacyClassification": "internal"
+}

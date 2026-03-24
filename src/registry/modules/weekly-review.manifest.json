@@ -1,0 +1,51 @@
+{
+    "id":  "weekly-review",
+    "title":  "Weekly Review",
+    "route":  "/weekly-review",
+    "enabled":  true,
+    "ownership":  "registry-driven-module",
+    "kpis":  [
+                 {
+                     "id":  "latency",
+                     "label":  "Response Latency",
+                     "required":  true,
+                     "minimumData":  [
+                                         "timestamp",
+                                         "durationMs"
+                                     ]
+                 },
+                 {
+                     "id":  "quality",
+                     "label":  "Output Quality",
+                     "required":  true,
+                     "minimumData":  [
+                                         "status",
+                                         "reviewNotes"
+                                     ]
+                 }
+             ],
+    "inputs":  [
+                   {
+                       "id":  "director_context",
+                       "description":  "Director context and intent",
+                       "required":  true
+                   },
+                   {
+                       "id":  "module_state",
+                       "description":  "Current module state snapshot",
+                       "required":  true
+                   }
+               ],
+    "agentRequirements":  [
+                              {
+                                  "agentId":  "arya",
+                                  "role":  "module-participant",
+                                  "required":  true
+                              },
+                              {
+                                  "agentId":  "eva",
+                                  "role":  "module-participant",
+                                  "required":  true
+                              }
+                          ]
+}

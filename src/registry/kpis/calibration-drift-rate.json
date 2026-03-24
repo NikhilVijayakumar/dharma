@@ -1,0 +1,19 @@
+{
+  "uid": "calibration-drift-rate",
+  "name": "Calibration-Drift-Rate (CDR)",
+  "description": "Measures the statistical divergence between 'Agent-Action-Logic' and the 'Global-Governance-Baseline' (The 10-Slot Protocol Library).",
+  "unit": "σ (Sigma / Deviation)",
+  "target": "< 1.5σ",
+  "value": "Calculated via Forensic-Intent-Analysis (Action-vs-Protocol-Mapping)",
+  "goalMapping": "Ensures 'Persona-Consistency' and prevents 'Autonomous-Shadow-Operations'.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Milestone / 72h-Logic-Sweep",
+    "shorthand": "Logic-Drift"
+  },
+  "thresholds": {
+    "critical": "> 3.0σ (Triggers Mandatory 'Persona-Reset' via SHRP-1)",
+    "warning": "1.5σ - 3.0σ (Triggers 'Instruction-Refinement' by Slot-10/Director)",
+    "optimal": "< 1.0σ"
+  }
+}

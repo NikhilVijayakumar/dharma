@@ -1,0 +1,54 @@
+{
+  "fonts": {
+    "display": "Inter",
+    "body": "Lora",
+    "monospace": "Fira Code"
+  },
+  "scale": {
+    "h1": {
+      "size": 36,
+      "weight": 700,
+      "letterSpacing": -0.5
+    },
+    "h2": {
+      "size": 30,
+      "weight": 600,
+      "letterSpacing": -0.25
+    },
+    "h3": {
+      "size": 24,
+      "weight": 600,
+      "letterSpacing": 0
+    },
+    "h4": {
+      "size": 20,
+      "weight": 600,
+      "letterSpacing": 0
+    },
+    "h5": {
+      "size": 18,
+      "weight": 600,
+      "letterSpacing": 0
+    },
+    "h6": {
+      "size": 16,
+      "weight": 600,
+      "letterSpacing": 0
+    },
+    "body": {
+      "size": 14,
+      "weight": 400,
+      "letterSpacing": 0
+    },
+    "small": {
+      "size": 12,
+      "weight": 400,
+      "letterSpacing": 0
+    }
+  },
+  "lineHeight": {
+    "tight": 1.2,
+    "normal": 1.5,
+    "relaxed": 1.75
+  }
+}

@@ -1,0 +1,59 @@
+id: seed-autonomous-alignment
+agent_id: nora
+trigger: "Periodic Autonomous Window (Default: Every 24h or 1,000 Task Completions)"
+logic_sequence:
+  phase_1_fiscal_telemetry_harvest:
+    step_1: >-
+      Collect Resource KPIs: Extract 'Token-Burn-Rate', 'Compute-Cost-Per-Agent', and 'Runway-Coverage' from the
+      real-time billing API.
+    step_2: >-
+      Execution Telemetry Scan: Review 'Output-Quality-Scores' from Lina (HR) to see which agents are providing the most
+      'Strategic-Value' per dollar spent.
+    step_3: "Initialize 'Burn-Efficiency-Matrix': Map the cost of each agent slot against their 'KPI-Success-Rate'."
+  phase_2_alignment_integrity_check:
+    step_4: >-
+      Targeted Alignment Check: Verify that active agent spending aligns with the priorities in 'Strategic-Vision.md'
+      (e.g., if we are in 'Growth Mode', is Dani's budget prioritized?).
+    step_5: "Identify 'Waste-Nodes': Flag agents with high compute-burn but low task-finalization scores for micro-throttling."
+    step_6: "IF 'Runway-Confidence' < 90%: Immediately abort autonomous optimization and escalate to 'Crisis-Runway-Freeze'."
+  phase_3_autonomous_micro-allocation:
+    step_7: >-
+      Execute 'Low-Risk-Patches': Shift up to 5% of 'Float-Capital' from dormant slots to active bottlenecks (e.g.,
+      giving Julia more compute for a critical deployment).
+    step_8: >-
+      Validation Cycle: Run a 'Fiscal-Projection-Delta' to confirm that the reallocation extends runway or increases
+      throughput without breaking the budget.
+    step_9: "Verify 'Compliance-Continuity': Ensure micro-shifts don't violate Eva’s 'Governance-Hard-Rules' on spending caps."
+  phase_4_fiscal_transparency:
+    step_10: >-
+      Publish 'Systemic-Fiscal-Pulse': Deliver a compact status report to the Director's Slot-10 with the current
+      'Capital-Efficiency-Score'.
+    step_11: "Log Alignment Event: Record the micro-adjustments in the git-ignored '/local/finance/alignment-log.md'."
+    step_12: >-
+      Post-Audit Monitoring: Track the 'Burn-Variance-Ratio' for the next 4 hours to ensure the new allocation is
+      stable.
+dependencies:
+  required_skills:
+    - budget-allocation
+    - financial-forecasting
+    - strategic-alignment
+  required_kpis:
+    - runway-coverage-months
+    - burn-variance-ratio
+  data_inputs:
+    - growth-opex-ledger
+    - agent-performance-data
+    - billing-api-telemetry
+  protocols:
+    - fiscal-burn-containment-protocol
+    - seed-alignment-protocol
+    - low-risk-execution-gate
+error_handling:
+  on_unstable_allocation: >-
+    If 'Cost-Per-Task' spikes after optimization, Nora auto-reverts to the 'Last-Known-Stable-Budget' and alerts Elina
+    (Ops).
+  on_critical_burn_detected: If an agent is consuming >20% of the daily budget in <1 hour, Nora invokes 'Kill-Switch-Alpha' on that slot.
+expected_output: >
+  A validated Autonomous Fiscal Alignment Report containing: 1. Status: [FISCAL-OPTIMIZED / STABLE / RE-ALIGNED] 2.
+  Capital Efficiency Score: [0-100%] 3. Action Log: Summary of micro-budget shifts (e.g., '+$50 API Credits to Slot-2').
+  4. Next Review Time: Timestamp for the next scheduled fiscal pulse.

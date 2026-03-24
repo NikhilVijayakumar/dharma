@@ -1,0 +1,14 @@
+{
+  "uid": "security-baseline-md",
+  "name": "Security Baseline Md",
+  "description": "Generated data input for registry reference normalization: security-baseline-md.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/eva/sop-autonomous-compliance-gate",
+  "privacyClassification": "internal"
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "registry/product-details.schema.json",
+  "title": "ProductDetails",
+  "description": "Product and ecosystem metadata used for product-specific skills, workflows, and onboarding alignment.",
+  "type": "object",
+  "required": ["product_and_ecosystem"],
+  "properties": {
+    "product_and_ecosystem": {
+      "type": "object",
+      "required": [
+        "philosophy",
+        "core_content_units",
+        "educational_track",
+        "fiction_track",
+        "distribution_system",
+        "content_flow_engine",
+        "current_focus"
+      ],
+      "properties": {
+        "philosophy": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 3 },
+          "minItems": 3
+        },
+        "core_content_units": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "minItems": 1
+        },
+        "educational_track": { "type": "object", "minProperties": 1 },
+        "fiction_track": { "type": "object", "minProperties": 1 },
+        "distribution_system": {
+          "type": "object",
+          "required": ["principle", "systems"],
+          "properties": {
+            "principle": { "type": "string", "minLength": 6 },
+            "systems": { "type": "object", "minProperties": 1 }
+          },
+          "additionalProperties": true
+        },
+        "content_flow_engine": {
+          "type": "object",
+          "required": ["core_flow", "rules"],
+          "properties": {
+            "core_flow": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 2 },
+              "minItems": 3
+            },
+            "rules": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 4 },
+              "minItems": 2
+            }
+          },
+          "additionalProperties": true
+        },
+        "ai_influencer_system": { "type": "object" },
+        "monetization_model": { "type": "object" },
+        "current_focus": {
+          "type": "object",
+          "required": ["primary", "status"],
+          "properties": {
+            "primary": { "type": "string", "minLength": 3 },
+            "status": { "type": "string", "minLength": 3 }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": true
+}

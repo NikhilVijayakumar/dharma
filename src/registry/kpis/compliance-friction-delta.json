@@ -1,0 +1,19 @@
+{
+  "uid": "compliance-friction-delta",
+  "name": "Compliance-Friction-Delta (CFD)",
+  "description": "Measures the net latency added to a 'Work-Order' by mandatory 'Policy-Validation-Gates' (APV) compared to 'Base-Execution-Time'.",
+  "unit": "Δ (Delta-Time-Ratio)",
+  "target": "< 0.15 (15% Overhead)",
+  "value": "Calculated via (Validation-Time / Execution-Time)",
+  "goalMapping": "Optimizes the balance between 'Operational-Speed' and 'Governance-Safety' to prevent 'System-Stall'.",
+  "metadata": {
+    "priority": "High (Tier-2)",
+    "sampling_frequency": "Per-Task / Weekly-Efficiency-Audit",
+    "shorthand": "Gov-Friction"
+  },
+  "thresholds": {
+    "critical": "> 0.50 (Triggers 'Protocol-Pruning' or 'Validation-Automation' by Eva)",
+    "warning": "0.30 - 0.50 (Triggers 'Logic-Optimization-Sprint' for APV-Skill)",
+    "optimal": "< 0.10"
+  }
+}

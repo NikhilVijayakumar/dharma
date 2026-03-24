@@ -1,0 +1,33 @@
+{
+  "uid": "customer-feedback-stream",
+  "name": "Market-Sentiment-Engine (MSE)",
+  "description": "A high-fidelity stream of 'Multi-Modal-Feedback' synthesized into 'Actionable-Insight-Vectors' for product and growth agents.",
+  "schemaType": "Intelligence-Protocol",
+  "requiredFields": [
+    "timestamp_iso8601",
+    "interaction_id",
+    "segment_affinity",
+    "sentiment_score_vector",
+    "raw_intent_payload",
+    "agent_attribution_ref",
+    "urgency_index"
+  ],
+  "sampleSource": "growth/market-ops/unified-feedback",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "sentiment_dimensions": {
+          "functional_utility": "0.0 - 1.0",
+          "brand_resonance": "0.0 - 1.0",
+          "ease_of_use": "0.0 - 1.0",
+          "trust_transparency": "0.0 - 1.0"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

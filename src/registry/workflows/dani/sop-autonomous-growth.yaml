@@ -1,0 +1,53 @@
+id: sop-autonomous-growth
+agent_id: dani
+trigger: Standard Operating / Performance Drift Detected (<10% deviation)
+logic_sequence:
+  phase_1_funnel_observability:
+    step_1: >-
+      Continuous Monitoring: Analyze 'product-usage-events' and 'sales-activity-log' to identify micro-bottlenecks in
+      the conversion path.
+    step_2: >-
+      Friction Point Detection: Isolate specific stages (e.g., onboarding drop-off, checkout friction) causing a dip in
+      'launch-to-liquidity-delta'.
+    step_3: >-
+      Initialize 'Funnel-Optimization-Memo' (Local/Git-Ignored): Document the detected friction and the proposed
+      automated fix.
+  phase_2_automated_remediation:
+    step_4: "Generate 'Funnel Fix' Work Orders: Issue automated updates to email sequences, CTA copy, or landing page metadata."
+    step_5: >-
+      Execute 'Self-Healing-Copy-Optimization': If the new copy fails Sofia’s Visual Tokens or Eva’s
+      'ComplianceScanService', auto-revert and re-generate.
+    step_6: >-
+      Fidelity Gate: Ensure the fix doesn't deviate from the 'Brand-Protocol.md' stored in the Git-Tracked Governance
+      layer.
+  phase_3_performance_validation:
+    step_7: "A/B Pulse Test: Deploy the fix to a 5% user segment and monitor 'qualified-pipeline-coverage' for 24 hours."
+    step_8: >-
+      Validation Check: If the delta is positive, roll out to 100%; if negative, invoke the 'Last-Known-Good' state and
+      log as a 'Logic-Stall'.
+  phase_4_synthesis_reporting:
+    step_9: "Report Generation: Deliver a 'Local Growth Impact Report' to Arya for inclusion in the global Synthesis layer."
+    step_10: "Closure: Mark the task [SOP-OPTIMIZED] and set the next monitoring window in Mira’s QueueService."
+dependencies:
+  required_skills:
+    - market-narrative-design
+    - campaign-architecture
+    - strategic-alignment
+  required_kpis:
+    - qualified-pipeline-coverage
+    - launch-to-liquidity-delta
+  data_inputs:
+    - sales-activity-log
+    - product-usage-events
+    - compliance-scan-results
+  protocols:
+    - sop-monitoring-protocol
+    - brand-consistency-audit-protocol
+    - autonomous-funnel-fix-protocol
+error_handling:
+  on_compliance_rejection: If Eva’s scan fails 3 times, pause the fix and escalate to 'Seed-Human-in-Loop-Escalation' for manual copy review.
+  on_revenue_dip: If the fix causes a >2% revenue drop in 12 hours, execute a 'Hard-Reset' of the marketing API keys.
+expected_output: >
+  A validated SOP Growth Report containing: 1. Status: [SOP-OPTIMIZED / RECOVERY-ACTIVE / ESCALATED] 2. Rationale:
+  Forensic link between the usage-event bottleneck and the deployed fix. 3. Conversion Delta: Numerical proof of the
+  fix's impact on liquidity. 4. Traceable References: Local log IDs for the Director’s Workspace.

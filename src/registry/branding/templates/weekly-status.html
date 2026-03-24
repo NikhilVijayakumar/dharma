@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      line-height: var(--line-height-normal);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--spacing-padding-large);
+    }
+    h1, h2 {
+      font-family: var(--font-display);
+      color: var(--color-primary);
+    }
+    h1 {
+      font-size: var(--scale-h1-size);
+      margin-bottom: var(--spacing-margins-medium);
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: var(--spacing-borderRadius-small);
+      font-weight: bold;
+      font-size: var(--scale-small-size);
+      color: white;
+    }
+    .status-on-track { background-color: var(--semantic-success); }
+    .status-at-risk { background-color: var(--semantic-warning); }
+    .status-delayed { background-color: var(--semantic-error); }
+    
+    .section-block {
+      margin-bottom: var(--spacing-margins-large);
+      padding-bottom: var(--spacing-padding-medium);
+      border-bottom: 1px solid var(--color-secondary);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Weekly Status Report: {{project_name}}</h1>
+    <p><strong>Week Ending:</strong> {{date}}</p>
+    <p><strong>Overall Status:</strong> <span class="status-badge status-{{overall_status_class}}">{{overall_status_text}}</span></p>
+  </header>
+  
+  <main>
+    <div class="section-block">
+      <h2>Top Accomplishments</h2>
+      {{accomplishments_html}}
+    </div>
+    
+    <div class="section-block">
+      <h2>Key Risks & Blockers</h2>
+      {{risks_html}}
+    </div>
+    
+    <div class="section-block">
+      <h2>Next Week's Priorities</h2>
+      {{priorities_html}}
+    </div>
+  </main>
+</body>
+</html>

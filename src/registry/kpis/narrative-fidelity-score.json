@@ -1,0 +1,19 @@
+{
+  "uid": "narrative-fidelity-score",
+  "name": "Narrative-Fidelity-Score (NFS)",
+  "description": "Measures the semantic and emotional alignment between 'Active-Outbound-Content' and the 'Master-Brand-Manifesto' (Source-Truth).",
+  "unit": "% (Semantic-Alignment)",
+  "target": "> 92.00",
+  "value": "Calculated via 'Vector-Alignment-Skill' (Content-Embedding vs. Manifesto-Embedding)",
+  "goalMapping": "Prevents 'Brand-Dilution' and ensures 'Mission-Cohesion' across all autonomous communications.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Output / Real-Time-Scanning",
+    "shorthand": "Story-Sync"
+  },
+  "thresholds": {
+    "critical": "< 80% (Triggers 'Communication-Embargo' and 'Voice-Recalibration' by Lina)",
+    "warning": "80% - 90% (Triggers 'Style-Guide-Injection' into agent prompts)",
+    "optimal": "> 95.0%"
+  }
+}

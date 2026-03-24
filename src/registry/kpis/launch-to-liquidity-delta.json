@@ -1,0 +1,19 @@
+{
+  "uid": "launch-to-liquidity-delta",
+  "name": "Launch-to-Liquidity-Delta (LLD)",
+  "description": "Measures the duration from 'Production-Deployment' (Launch) to the 'First-Liquidity-Event' (Positive-Cash-Flow or Asset-Monetization).",
+  "unit": "Days (Cycle-Time)",
+  "target": "< 45.0 Days",
+  "value": "Calculated via 'Dani-Launch-TS' vs. 'Nora-Revenue-Entry-TS'",
+  "goalMapping": "Optimizes 'Cash-Conversion-Cycle' and ensures the 'Economic-Viability' of all 10-agent work-orders.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Product-Launch / Monthly-Cohort-Analysis",
+    "shorthand": "Monetization-Speed"
+  },
+  "thresholds": {
+    "critical": "> 120 Days (Triggers 'Product-Pivot-Protocol' or 'Divestment-Audit' by Nora)",
+    "warning": "45 - 90 Days (Triggers 'Go-To-Market-Optimization' by Dani/Growth)",
+    "optimal": "< 14 Days"
+  }
+}

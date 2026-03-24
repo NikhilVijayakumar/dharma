@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "registry/company-core.schema.json",
+  "title": "CompanyCore",
+  "description": "Governance and mission context used to align agents, workflows, and onboarding decisions.",
+  "type": "object",
+  "required": ["vision", "context", "core_values", "global_non_negotiables"],
+  "properties": {
+    "identity": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "minLength": 2 },
+        "type": { "type": "string", "minLength": 2 },
+        "foundation": { "type": "string", "minLength": 2 },
+        "philosophy": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 3 },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "vision": { "type": "string", "minLength": 16 },
+    "context": {
+      "oneOf": [
+        { "type": "string", "minLength": 8 },
+        { "type": "object", "minProperties": 1 }
+      ]
+    },
+    "mission_alignment": {
+      "type": "object",
+      "properties": {
+        "primary_mission": { "type": "string", "minLength": 8 },
+        "secondary_mission": { "type": "string", "minLength": 8 },
+        "ai_role": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 4 },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "core_values": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 2 },
+      "minItems": 3
+    },
+    "global_non_negotiables": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 8 },
+      "minItems": 3
+    },
+    "operational_rules": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "string", "minLength": 4 }
+      }
+    },
+    "risk_framework": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "auditability": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": true
+}

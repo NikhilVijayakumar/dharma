@@ -1,0 +1,37 @@
+id: technical-debt-threshold-protocol
+title: "Global Technical-Debt & Code-Sustainability"
+description: "Stateless governance standard for the automated quantification, monitoring, and mandatory remediation of architectural debt."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Debt-Quantification-Gate: Every PR/Commit must be assigned a 'Debt-Score' (0-100) based on complexity, lack of tests, and 'Todo' count."
+  - rule_2: "The '30-Percent' Ceiling: If the 'Aggregate-Debt-Ratio' of a sub-system exceeds 30%, Julia (Tech) is prohibited from adding 'New-Features' until a 'Refactor-Sprint' lowers the score."
+  - rule_3: "Mandatory-Interest-Payment: 15% of every 'Sprint-Capacity' must be autonomously allocated to 'Technical-Hygiene' (Refactoring, Dependency-Updates, Documentation)."
+  - rule_4: "Recursive-Deprecation-Sweep: Any module or API that hasn't been called in >90 days must be 'Flagged-for-Decommissioning' to prevent 'Zombie-Code' bloat."
+  - rule_5: "The 'Clean-Exit' Requirement: No 'Emergency-Patch' (SHCP) can remain in the codebase for >7 days without being replaced by a 'Permanent-Architectural-Fix'."
+
+logic_sequence:
+  step_1: "Static-Analysis-Scan: Run 'Sonar-Logic' to identify code-smells, high cyclomatic complexity, and security vulnerabilities."
+  step_2: "Calculate 'Debt-Velocity': Compare current debt levels against the 30-day baseline to see if the system is becoming 'Stagnant'."
+  step_3: "Trigger 'Refactor-Work-Order':
+           - Option A: 'Auto-Lint' (Fix formatting/minor smells).
+           - Option B: 'Modular-Decoupling' (Break down large files).
+           - Option C: 'Test-Coverage-Injection' (Fill gaps in the Unit-Test-Suite)."
+  step_4: "IF THRESHOLD-CLEARED: Issue a 'Healthy-Build-Certificate' and unlock the 'Feature-Pipeline'."
+  step_5: "IF THRESHOLD-BREACHED: Activate 'Stability-Mode' (SMGP) for the affected module and block all 'Feature-Commits'."
+
+escalation_triggers:
+  - "Condition: 'Critical-Path' code (e.g., Payments) hits a 'Debt-Score' >50."
+  - "Condition: An agent attempts to 'Force-Merge' code that bypasses the 'Debt-Quantification-Gate'."
+  - "Condition: 'Dependency-Drift' results in a 'High-Severity' security vulnerability that cannot be auto-patched."
+
+dependencies:
+  required_skills:
+    - execution-governance
+    - forensic-intent-analysis
+  required_kpis:
+    - mean-time-to-repair (MTTR-Tech)
+    - code-maintainability-index

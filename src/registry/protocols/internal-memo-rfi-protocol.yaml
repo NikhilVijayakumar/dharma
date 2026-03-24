@@ -1,0 +1,26 @@
+id: internal-memo-rfi-protocol
+title: Internal Memo and RFI Protocol
+description: Structured inter-agent memo channel for requests-for-information, context transfer, and director-visible collaboration traces.
+tags:
+  - collaboration
+  - governance
+  - handoff
+rules:
+  - rule_1: Every memo must include memo_id, from_agent, to_agent, memo_type, related_work_order_id, and priority.
+  - rule_2: RFI memos must include explicit missing_fields and due_by timestamp.
+  - rule_3: Handoff memos must include context_packet with objective, scope, constraints, and success criteria.
+  - rule_4: Director oversight is read-only for memo stream unless milestone approval is requested.
+  - rule_5: Any unresolved RFI beyond SLA transitions workflow state to WAITING_ON_ROLE.
+logic_sequence:
+  step_1: Source agent drafts memo with contract fields.
+  step_2: Memo is logged to internal communication trail.
+  step_3: Target agent acknowledges receipt and starts response.
+  step_4: Target resolves memo or issues follow-up RFI.
+  step_5: Router agent closes memo and updates collaboration KPIs.
+dependencies:
+  required_skills:
+    - handoff-integrity
+    - multi-agent-sync-orchestration
+  required_kpis:
+    - handshake-success-rate
+    - cross-role-resolution-time

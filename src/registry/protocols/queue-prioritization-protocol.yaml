@@ -1,0 +1,34 @@
+id: queue-prioritization-protocol
+title: "Global Task-Queue & Priority-Triage"
+description: "Stateless governance standard for the dynamic ranking and execution-sequencing of agent work-orders."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Strategic-Yield-Ranking: Tasks must be weighted by (1) Impact-on-Core-KPIs, (2) Urgency-of-Deadline, and (3) Resource-Efficiency."
+  - rule_2: "The 'Emergency-Preemption' Rule: Tier-1 Incident-Response tasks (IEP) automatically jump to the [HEAD-OF-QUEUE], pausing all Tier-3 tasks (Maintenance/Research)."
+  - rule_3: "Starvation-Prevention: No task may remain in [PENDING] for >72 hours; if it does, it must be either 'Auto-Deleted' (Low-Value) or 'Priority-Bumped' (Necessary-Debt)."
+  - rule_4: "Dependency-Aware-Sequencing: Tasks that 'Unblock' multiple downstream agents (e.g., Julia providing a DB-Schema for Dani and Nora) receive a +25% Priority-Weight."
+  - rule_5: "Director-Intervention-Slot: Any task manually tagged by Slot-10 as [TOP-PRIORITY] bypasses all algorithmic triage for immediate execution."
+
+logic_sequence:
+  step_1: "Task-Ingestion: Parse the 'Parsed-Intent-Object' (IPP) for priority-markers and metadata."
+  step_2: "Calculate 'Priority-Score': Use the Weighted-Matrix to assign a numeric value (0.0 - 1.0) to the work-order."
+  step_3: "Resource-Check: Query Nora (Finance) and Julia (Tech) to ensure the tokens and capital are available for the current queue-depth."
+  step_4: "IF QUEUE-CAPACITY-REACHED: Execute 'Task-Shedding' logic, delaying non-critical background tasks (Dani's social-listening, etc.)."
+  step_5: "IF QUEUE-OPTIMIZED: Commit the 'Execution-Schedule' to the /governance/active-sprint.md."
+
+escalation_triggers:
+  - "Condition: The queue length exceeds the 'Operational-Threshold', causing a >20% 'Decision-Cycle-Time' delay."
+  - "Condition: A 'Priority-Inversion' where a low-value task is blocking a high-value strategic goal."
+  - "Condition: Detection of 'Recursive-Blocking' where agents are waiting in a circular loop for task-priorities to change."
+
+dependencies:
+  required_skills:
+    - execution-governance
+    - risk-modeling
+  required_kpis:
+    - decision-cycle-time
+    - mean-time-to-repair (MTTR-Logic)

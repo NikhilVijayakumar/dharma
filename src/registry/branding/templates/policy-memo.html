@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      line-height: var(--line-height-normal);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--spacing-padding-large);
+      background-color: var(--color-background);
+    }
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      color: var(--color-primary);
+    }
+    h1 {
+      font-size: var(--scale-h1-size);
+      border-bottom: 2px solid var(--color-secondary);
+      padding-bottom: var(--spacing-padding-small);
+      margin-bottom: var(--spacing-margins-large);
+    }
+    h2 {
+      font-size: var(--scale-h2-size);
+      margin-top: var(--spacing-margins-large);
+      margin-bottom: var(--spacing-margins-medium);
+    }
+    h3 {
+      font-size: var(--scale-h3-size);
+      margin-top: var(--spacing-margins-medium);
+      margin-bottom: var(--spacing-margins-small);
+    }
+    p {
+      font-size: var(--scale-body-size);
+      margin-bottom: var(--spacing-margins-medium);
+    }
+    .meta-data {
+      color: var(--color-textMuted);
+      font-size: var(--scale-small-size);
+      margin-bottom: var(--spacing-margins-xl);
+    }
+    .callout {
+      background-color: var(--color-secondary);
+      padding: var(--spacing-padding-medium);
+      border-left: 4px solid var(--color-primary);
+      margin-bottom: var(--spacing-margins-medium);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>{{title}}</h1>
+    <div class="meta-data">
+      <p><strong>Date:</strong> {{date}}</p>
+      <p><strong>Author:</strong> {{author}}</p>
+      <p><strong>Department:</strong> {{department}}</p>
+    </div>
+  </header>
+  
+  <main>
+    {{content}}
+  </main>
+  
+  <footer>
+    <p class="meta-data" style="text-align: center; margin-top: var(--spacing-margins-xl);">
+      CONFIDENTIAL - For Internal Use Only - Director's Office
+    </p>
+  </footer>
+</body>
+</html>

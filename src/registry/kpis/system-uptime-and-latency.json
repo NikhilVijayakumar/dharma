@@ -1,0 +1,19 @@
+{
+  "uid": "system-uptime-and-latency",
+  "name": "System-Uptime-and-Latency (SUL)",
+  "description": "Composite metric tracking 'Substrate-Availability' (Uptime) and 'Inference-Response-Time' (Latency) across the agentic-bus.",
+  "unit": "% (Uptime) / ms (Latency)",
+  "target": "99.99% / < 150ms (P99)",
+  "value": "Calculated via 'Julia-Infrastructure-Skill' (Operational-Secs / Total-Secs) + (Average-Packet-Trip)",
+  "goalMapping": "Ensures 'Operational-Continuity' and prevents 'User-Frustration-Friction' in real-time interactions.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Second / Continuous-Health-Check",
+    "shorthand": "Base-Pulse"
+  },
+  "thresholds": {
+    "critical": "< 99.9% Uptime OR > 500ms Latency (Triggers 'Failover-Protocol' and 'Traffic-Rerouting')",
+    "warning": "> 300ms Latency (Triggers 'Resource-Scaling' and 'Cache-Purge')",
+    "optimal": "99.999% / < 50ms"
+  }
+}

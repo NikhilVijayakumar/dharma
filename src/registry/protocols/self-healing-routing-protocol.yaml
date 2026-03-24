@@ -1,0 +1,37 @@
+id: self-healing-routing-protocol
+title: "Global Routing-Resiliency & Path-Correction"
+description: "Stateless governance standard for the automated detection and repair of inter-agent task-routing failures."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Latency-Threshold-Gate: If a routed 'Work-Order' remains [UNACKNOWLEDGED] for >300 seconds, the 'Routing-Table' must be flagged as [DEGRADED]."
+  - rule_2: "The 'Recursive-Loop-Breaker': If a task bounces between the same two agents >2 times without an [EXECUTION-START] signal, the 'Conductor' (Mira) must forcibly re-route the task to a 'Neutral-Third-Agent'."
+  - rule_3: "Handoff-Integrity-Audit: Every handoff must pass the 'Handoff-Validation-Protocol' (HVP). If the receiver fails validation, the 'Router' must identify the 'Competency-Gap' and find a new 'Target-Slot'."
+  - rule_4: "Dynamic-Load-Balancing: If an agent's 'Queue-Depth' (QPP) is >200% of the 'Daily-SLA', the 'Router' must divert 'Generalist-Tasks' to under-utilized nodes."
+  - rule_5: "Immutable-Route-Log: Every 'Route-Correction' must be logged with a 'Rationale-Hash' to prevent the system from repeating the same misrouting error."
+
+logic_sequence:
+  step_1: "Route-Monitoring: Track the 'Flow-State' of all active work-orders across the 10-agent bus."
+  step_2: "Detect 'Stall-Vector': Identify if a task is stuck due to 'Agent-Unresponsiveness', 'Permission-Denied', or 'Logic-Ambiguity'."
+  step_3: "Execute 'Path-Recalculation':
+           - Option A: 'Node-Bypass' (Skip a stalled agent if the task is non-critical).
+           - Option B: 'Persona-Hot-Swap' (Invoke SHRP-1 to reboot the target agent).
+           - Option C: 'Broadcast-Request' (Ask all agents for a 'Competency-Bid' on the stuck task)."
+  step_4: "IF ROUTE-REPAIRED: Update the 'Global-Routing-Matrix' and resume execution."
+  step_5: "IF ROUTE-FAILURE-PERSISTS: Trigger the 'Incident-Escalation-Protocol' (Tier-1) and alert the Director (Slot-10)."
+
+escalation_triggers:
+  - "Condition: A 'Circular-Handoff' is detected (Agent A -> B -> C -> A)."
+  - "Condition: The 'Conductor' (Mira) is the source of the routing error."
+  - "Condition: A 'High-Priority' (Tier-1) task is delayed by >600 seconds due to routing friction."
+
+dependencies:
+  required_skills:
+    - execution-governance
+    - strategic-alignment
+  required_kpis:
+    - routing-accuracy-score
+    - decision-cycle-time

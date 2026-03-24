@@ -1,0 +1,14 @@
+{
+  "uid": "investor-crm-data",
+  "name": "Investor Crm Data",
+  "description": "Generated data input for registry reference normalization: investor-crm-data.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/maya/seed-autonomous-alignment",
+  "privacyClassification": "internal"
+}

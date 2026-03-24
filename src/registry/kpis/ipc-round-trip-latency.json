@@ -1,0 +1,19 @@
+{
+  "uid": "ipc-round-trip-latency",
+  "name": "IPC-Round-Trip-Latency (IRTL)",
+  "description": "Measures the time elapsed for a 'Message-Packet' to travel from a 'Requester-Agent' to a 'Provider-Agent' and back with a 'Status-Acknowledgment'.",
+  "unit": "Milliseconds (ms)",
+  "target": "< 250ms",
+  "value": "Calculated via 'Bus-Telemetry-Skill' (Return-TS - Request-TS)",
+  "goalMapping": "Optimizes 'Real-Time-Orchestration' and prevents 'Logic-Stalling' in high-frequency execution environments.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Continuous / Automated-Sampling",
+    "shorthand": "Reflex-Speed"
+  },
+  "thresholds": {
+    "critical": "> 1500ms (Triggers 'Bus-Reset' and 'Context-Compression' by Julia/Tech)",
+    "warning": "250ms - 1500ms (Triggers 'Route-Optimization' and 'Cache-Check')",
+    "optimal": "< 50ms"
+  }
+}

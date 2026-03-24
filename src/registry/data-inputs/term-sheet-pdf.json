@@ -1,0 +1,14 @@
+{
+  "uid": "term-sheet-pdf",
+  "name": "Term Sheet Pdf",
+  "description": "Generated data input for registry reference normalization: term-sheet-pdf.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/maya/human-in-loop-equity-pivot",
+  "privacyClassification": "internal"
+}

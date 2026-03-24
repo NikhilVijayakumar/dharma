@@ -1,0 +1,98 @@
+id: multi-framework-registry-extraction
+agent_id: mira
+trigger: Director requests cross-repo extraction harmonization for Goose, NemoClaw, and OpenCLAW patterns
+pre_conditions:
+  - condition: registry-source-available
+    description: All target repositories and system extraction documents are reachable in workspace.
+    source: git
+    validation_rule: exists
+  - condition: schema-lock-mode
+    description: Schema updates are additive-only and must preserve existing fields.
+    source: agent-state
+    validation_rule: "true"
+logic_sequence:
+  phase_1_discovery_and_mapping:
+    step_1: "Extract Goose execution patterns: retry, approval, fallback, and scheduled recovery semantics."
+    step_2: "Extract NemoClaw navigation semantics: selector policy, wait rules, interaction retries, and guardrails."
+    step_3: "Extract OpenCLAW feature semantics: stage protocol, deep persona constraints, and model fallback behavior."
+  phase_2_registry_enrichment:
+    step_4: Append workflow metadata for extraction_targets and recovery_protocols without removing legacy steps.
+    step_5: Append protocol metadata for automation_guards and navigation_rules aligned to sandbox and policy gates.
+    step_6: Append skill metadata with feature-extraction parameters and execution limits required by OpenCLAW runtime.
+  phase_3_schema_locking:
+    step_7: Extend schema definitions to support hybrid structured and unstructured payloads while preserving compatibility.
+    step_8: Add model and timeout field support in data-input schemas for hidden runtime configuration capture.
+    step_9: Validate that no existing required field contracts are removed or narrowed.
+  phase_4_documentation_sync:
+    step_10: Update OpenCLAW extraction analysis with deep persona processing requirements and registry consumption flow.
+    step_11: Document Global Protocol and Multi-step Workflow consumption requirements for OpenCLAW execution stage pipeline.
+    step_12: Publish deterministic audit summary with field-level mapping and rationale.
+extraction_targets:
+  - source_framework: goose
+    target_registry_section: workflows
+    extracted_attributes:
+      - retry_config
+      - fallback_chain
+      - approval_gate
+      - execution_timeout
+      - scheduled_recovery
+  - source_framework: nemoclaw
+    target_registry_section: protocols
+    extracted_attributes:
+      - selector_strategy
+      - wait_policy
+      - interaction_timeout
+      - navigation_retry
+      - sandbox_network_guard
+  - source_framework: openclaw
+    target_registry_section: skills
+    extracted_attributes:
+      - stage_protocol
+      - deep_persona
+      - hard_constraints
+      - model_fallback_policy
+      - delegation_depth_guard
+  - source_framework: openclaw
+    target_registry_section: protocols
+    extracted_attributes:
+      - channel_provider_config
+      - outbound_policy_mode
+      - destination_allowlist
+      - channel_timeout_policy
+      - channel_retry_policy
+recovery_protocols:
+  - id: goose-retry-backoff-recovery
+    activation: provider failure classification in [rate_limit, overloaded, network, auth]
+    strategy: exponential-backoff-with-jitter
+    max_retries: 3
+  - id: nemoclaw-navigation-healing
+    activation: selector miss, stale element, or timeout in automation path
+    strategy: selector-fallback-chain and guarded re-navigation
+    max_retries: 2
+  - id: openclaw-stage-failover
+    activation: stage_execute risk threshold breach or subagent timeout
+    strategy: return-to-stage_plan with compliance re-check before execute
+    max_retries: 1
+dependencies:
+  required_skills:
+    - command-decomposition-logic
+    - multi-agent-sync-orchestration
+  required_kpis:
+    - routing-accuracy-score
+    - decision-cycle-time
+  data_inputs:
+    - model-gateway-config-registry
+    - automation-policy-registry
+    - channel-management-config-registry
+  protocols:
+    - intent-parsing-protocol
+    - deterministic-handoff-protocol
+    - nemoclaw-navigation-automation-guard-protocol
+    - external-channel-communication-protocol
+error_handling:
+  on_missing_extraction_attribute: Escalate to Julia for schema adaptation and preserve existing execution path.
+  on_schema_conflict: Write additive compatibility layer and block destructive migration.
+  on_timeout: Abort current run, persist audit snapshot, and handoff to crisis-command-prioritization workflow.
+expected_output: >
+  Registry enhancement pack containing additive workflow/protocol/skill/data-input updates, schema-lock compliance
+  notes, and OpenCLAW synchronization documentation with deep persona and multi-step protocol consumption details.

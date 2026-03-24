@@ -1,0 +1,34 @@
+id: complexity-based-escalation-protocol
+title: "Global Complexity & Risk-Based Escalation"
+description: "Stateless governance standard for calculating task weight and determining the path of authorization."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Multi-Variable-Scoring: Every task must be scored on three axes: (1) Financial-Impact, (2) Brand-Exposure, and (3) Technical-Irreversibility."
+  - rule_2: "The 'Sovereignty-Ceiling': If the combined Complexity-Score exceeds the agent's pre-defined 'Sovereignty-Limit', execution MUST pause for Director Approval."
+  - rule_3: "Binary-Choice-Requirement: All escalated tasks must be presented to the Director as two distinct action-paths with clear trade-offs."
+  - rule_4: "Conflict-Resolution-Escalation: If two agents (e.g., Dani and Julia) reach a 'Logic-Deadlock' that persists for >3 cycles, it is auto-escalated."
+  - rule_5: "Time-Sensitive-Bypass: If an escalation is marked 'CRITICAL' and the Director is silent for >4 hours, the system defaults to the 'Safest-Lower-Risk-Path'."
+
+logic_sequence:
+  step_1: "Complexity-Calculation: Pull 'Projected-Token-Cost' (Nora) and 'Visual-Drift-Potential' (Sofia) to generate the 'Total-Complexity-Weight'."
+  step_2: "Authorization-Routing: Compare the weight against the 'Agent-Calibration-Level' (Lina Kovic)."
+  step_3: "IF WEIGHT <= LIMIT: Execute autonomously and log the 'Rationale-Hash' in the Audit-Trail."
+  step_4: "IF WEIGHT > LIMIT: Generate an 'Escalation-Brief' using the Communication-Style-Protocol (CSP)."
+  step_5: "Update 'Governance-Thresholds': Periodically adjust escalation triggers based on historical 'Director-Correction-Rates'."
+
+escalation_triggers:
+  - "Condition: A task involves changing 'Core-Domain-Logic' or 'Strategic-Vision.md'."
+  - "Condition: The 'Financial-Impact' exceeds 10% of the monthly unallocated OpEx."
+  - "Condition: Legal or Regulatory compliance is flagged as [UNCERTAIN] by Eva."
+
+dependencies:
+  required_skills:
+    - risk-modeling
+    - forensic-intent-analysis
+  required_kpis:
+    - decision-cycle-time
+    - brand-fidelity-index

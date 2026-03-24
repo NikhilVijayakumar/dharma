@@ -1,0 +1,34 @@
+id: capital-allocation-protocol
+title: "Global Strategic Capital Allocation"
+description: "Stateless governance standard for the prioritization, authorization, and deployment of fiscal resources across all agent nodes."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Strategic-Yield-Priority: Capital must be allocated to the 'Constraint-Node' (the bottleneck) identified in the latest Arya/Elina sync."
+  - rule_2: "Runway-Integrity-Floor: No allocation may proceed if the resulting 'Daily-Burn' projects a runway of < 12 months without Director-level Override."
+  - rule_3: "Opportunity-Cost-Audit: For any spend > $500, the agent must generate a 'Counter-Scenario' (e.g., 'What if we invested this in Dani/Growth vs. Julia/Tech?')."
+  - rule_4: "Recursive-Waste-Block: If an agent's 'Cost-per-Successful-Task' increases by 20% over 48 hours, all new allocations are auto-suspended for audit."
+  - rule_5: "Incremental-Funding: Large-scale projects must be funded in 'Milestone-Tranches'—releasing capital only upon validation of the previous phase."
+
+logic_sequence:
+  step_1: "Categorize Spend: Identify if the request is 'Maintenance-OpEx' (Keeping lights on) or 'Growth-CapEx' (Expanding the empire)."
+  step_2: "Check Budget-Sovereignty: Ensure the request falls within the agent's pre-defined 'Sovereignty-Limit' in the Governance Lab."
+  step_3: "Calculate 'Burn-Delta': Project how this specific allocation changes the 'Default-Alive' date of the organization."
+  step_4: "IF ALIGNED: Issue a 'Encumbered-Funds-Notice' to Nora (Finance) and sign the transaction hash."
+  step_5: "IF MISALIGNED: Flag the request as [FISCAL-FRICTION] and suggest a lower-cost 'Lean-Alternative'."
+
+escalation_triggers:
+  - "Condition: Total 'Unallocated-Reserves' drop below the 'Emergency-Buffer' threshold (3 months of OpEx)."
+  - "Condition: An agent requests capital for a feature/task explicitly marked as 'Low-Priority' in the Strategic-Vision.md."
+  - "Condition: Simultaneous high-spend requests from multiple agents create a 'Liquidity-Lock'."
+
+dependencies:
+  required_skills:
+    - budget-allocation
+    - financial-forecasting
+  required_kpis:
+    - runway-coverage-months
+    - capital-efficiency-score

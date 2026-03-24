@@ -1,0 +1,19 @@
+{
+  "uid": "governance-velocity-delta",
+  "name": "Governance-Velocity-Delta (GVD)",
+  "description": "Measures the variance between 'Execution-Throughput-Growth' and 'Policy-Update-Cadence' to identify 'Regulatory-Lag'.",
+  "unit": "Δ (Velocity-Ratio-Change)",
+  "target": "± 0.05 (Near-Zero-Delta)",
+  "value": "Calculated via (Execution-Velocity-Trend / Governance-Velocity-Trend)",
+  "goalMapping": "Ensures that 'Governance-Scaling' keeps pace with 'Operational-Scaling' to prevent 'Protocol-Fragility'.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Monthly-Trend-Analysis / Per-Major-Release",
+    "shorthand": "Policy-Lag-Index"
+  },
+  "thresholds": {
+    "critical": "> 0.20 (Triggers 'Operational-Throttling' to allow Governance-Catchup)",
+    "warning": "0.10 - 0.20 (Triggers 'Automated-Policy-Drafting' via Eva/Compliance)",
+    "optimal": "< 0.05"
+  }
+}

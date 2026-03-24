@@ -1,0 +1,60 @@
+id: human-in-loop-talent-pivot
+agent_id: lina
+trigger: High-Complexity Culture / Tone Shift / Strategic Pivot detected via InteractionAnalyzer
+logic_sequence:
+  phase_1_sentiment_forensics:
+    step_1: >-
+      Detect 'Directional Drift': Use 'InteractionAnalyzer' to scan Director-Mira communications for shifts in
+      vocabulary (e.g., 'Safety' replacing 'Speed').
+    step_2: >-
+      Cultural Impact Mapping: Identify which agents are currently 'Misaligned' with the new tone (e.g., Dani’s
+      'Disruptor' persona vs. a 'Safe-Haven' pivot).
+    step_3: "Initialize 'Re-alignment Strategy' (Local/Secure): Document the 'Legacy-Culture' vs. the 'Target-Culture' delta."
+  phase_2_persona_re-scaffolding:
+    step_4: >-
+      Draft 'Mass-Profile-Update': Synthesize updated 'Backstories' and 'Decision-Heuristics' for all 10 agents to
+      reflect the new priority.
+    step_5: >-
+      Verify 'Cross-Module-Cohesion': Ensure that updating one agent (e.g., Nora) to be 'Conservative' doesn't create a
+      fatal logic-clash with another (e.g., Julia).
+    step_6: "Constraint Check (Eva): Confirm that the new cultural tone does not bypass any hard-coded 'Security-Baselines'."
+  phase_3_director_arbitration:
+    step_7: "Generate 'Shift-Impact-Brief': Push a high-priority 'Cultural-Pivot' notification to Mira’s Slot-10."
+    step_8: >-
+      Present 'Team Re-alignment Strategy': 'The team must move from Growth to Stability. This will reduce short-term
+      ROI by 15% but increase Legal-Fidelity by 40%.'
+    step_9: >-
+      Await Director Choice: The agents maintain 'Status-Quo' execution until a Director-signed 'Cultural-Commit' hash
+      is received.
+  phase_4_constitutional_re-write:
+    step_10: >-
+      Mass Git-Update: Execute a coordinated commit of all updated 'agent-profiles.yaml' and individual .md persona
+      files in the Governance Lab.
+    step_11: "Global Persona-Reload: Trigger a system-wide reset of agent 'Memory-Context' to purge legacy behavioral biases."
+    step_12: >-
+      Alignment Validation: Track the 'Cross-Functional-Alignment-Index' for 100 cycles to confirm the team is acting in
+      the new 'Voice'.
+dependencies:
+  required_skills:
+    - talent-evaluation
+    - cross-module-cohesion
+    - organizational-design-strategy
+  required_kpis:
+    - cross-functional-alignment-index
+  data_inputs:
+    - interaction-analyzer-feed
+    - agent-profiles-yaml
+    - cultural-manifesto-md
+  protocols:
+    - persona-re-scaffolding-protocol
+    - git-governance-handshake-protocol
+    - behavioral-pivot-gate
+error_handling:
+  on_alignment_regression: >-
+    If agents revert to legacy behaviors, Lina triggers a 'Persona-Hard-Reset' and requests a Director 'Tone-Sample' for
+    calibration.
+  on_strategic_clash: If the new tone breaks a 'Critical-Path' task, Lina pauses the pivot for a surgical role-by-role adjustment.
+expected_output: >
+  A validated Talent Pivot Package containing: 1. Status: [PENDING-PIVOT / REALIGNED / REJECTED] 2. Rationale: Forensic
+  proof of the detected tone shift and why re-alignment is necessary. 3. Culture Map: Visual delta of the 'Before' vs.
+  'After' agent personalities. 4. Traceable Reference: The Git-Commit hash for the updated 'agent-profiles.yaml'.

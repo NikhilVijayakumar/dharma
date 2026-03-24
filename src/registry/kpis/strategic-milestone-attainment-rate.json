@@ -1,0 +1,19 @@
+{
+  "uid": "strategic-milestone-attainment-rate",
+  "name": "Strategic-Milestone-Attainment-Rate (SMAR)",
+  "description": "Calculates the 'Velocity-of-Success' by measuring the ratio of 'Milestones-Validated' against 'Milestones-Scheduled' within a specific 'Market-Opportunity-Window'.",
+  "unit": "Rate (v/t)",
+  "target": "> 0.90",
+  "value": "Calculated via 'Mira-Orchestration-Logs' (Valid-Completions / Time-Adjusted-Expectations)",
+  "goalMapping": "Identifies 'Execution-Lag' and prevents 'Opportunity-Cost' accumulation in the 10-agent array.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Monthly-Review / Quarterly-Strategic-Audit",
+    "shorthand": "Impact-Velocity"
+  },
+  "thresholds": {
+    "critical": "< 0.70 (Triggers 'Strategic-Pivot' and 'Resource-Re-Allocation' by the Director)",
+    "warning": "0.70 - 0.85 (Triggers 'Bottleneck-Identification' and 'Process-Throttling' for non-essential tasks)",
+    "optimal": "> 0.95"
+  }
+}

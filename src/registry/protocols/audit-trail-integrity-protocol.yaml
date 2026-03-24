@@ -1,0 +1,34 @@
+id: audit-trail-integrity-protocol
+title: "Global Audit Trail & Ledger Integrity"
+description: "Stateless governance standard for ensuring the immutability, traceability, and cryptographic signing of all agent transactions."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Atomic-Logging: Every 'State-Change' (e.g., Code Commit, Budget Shift, Lead-Gen) must be recorded as an atomic transaction."
+  - rule_2: "Cryptographic-Signature: All logs must include the 'Agent-Slot-ID' and a 'Logic-Hash' derived from the specific 'intent-mapping.md' used."
+  - rule_3: "Historical-Immutability: No agent possesses the 'Sovereignty-Hard-Rule' to delete or overwrite the /governance/logs/ directory."
+  - rule_4: "Context-Chaining: Every new work-order must reference the 'Parent-Transaction-ID' to maintain a coherent 'Lineage-of-Intent'."
+  - rule_5: "Forensic-Ready: Logs must be formatted in a machine-readable JSON-L structure for real-time audit by Eva (Compliance) or Nora (Finance)."
+
+logic_sequence:
+  step_1: "Generate Transaction-ID: Create a unique UUID for the current work-order or task-node."
+  step_2: "Snapshot Pre-State: Record the 'Before' status of the targeted data or repository."
+  step_3: "Sign Intent: Generate a 'Rationale-Hash' explaining the logic used (linking back to the parent SOP/Protocol)."
+  step_4: "Execute & Log: Perform the task and immediately append the 'After' status and 'Execution-Latency' to the log-stream."
+  step_5: "Verify Integrity: Run a 'Hash-Chain-Check' to ensure the current log entry successfully links to the previous entry without gaps."
+
+escalation_triggers:
+  - "Condition: Detection of a 'Log-Gaps' or an unsanctioned edit to a historical governance file."
+  - "Condition: An agent attempts to execute a 'Ghost-Task'—a task without a valid Parent-Transaction-ID."
+  - "Condition: The cryptographic signature fails to match the agent's 'Identity-Key'."
+
+dependencies:
+  required_skills:
+    - forensic-intent-analysis
+    - execution-governance
+  required_kpis:
+    - routing-accuracy-score
+    - contextual-retrieval-success-rate

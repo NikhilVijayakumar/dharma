@@ -1,0 +1,31 @@
+{
+  "uid": "api-endpoint-registry",
+  "name": "API-Endpoint-Connectome (AEC)",
+  "description": "The authoritative mapping of 'Agentic-Capabilities' and 'Microservice-Hooks' within the 10-slot execution bus.",
+  "schemaType": "Infrastructure-Protocol",
+  "requiredFields": [
+    "endpoint_id",
+    "owner_agent_slot",
+    "auth_protocol",
+    "input_schema_vector",
+    "throughput_limit",
+    "slater_priority"
+  ],
+  "sampleSource": "infrastructure/registry/slot-02-julia-tech",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "connectivity_metadata": {
+          "versioning_strategy": "Semantic (v1.2.0)",
+          "failover_target": "Endpoint-UID-OR-Manual-Override",
+          "latency_threshold_ms": 250
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

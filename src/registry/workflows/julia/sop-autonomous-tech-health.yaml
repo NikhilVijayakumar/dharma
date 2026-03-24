@@ -1,0 +1,51 @@
+id: sop-autonomous-tech-health
+agent_id: julia
+trigger: Standard Operating / Telemetry Detect IPC Lag > 20ms
+logic_sequence:
+  phase_1_performance_profiling:
+    step_1: >-
+      Invoke 'SystemHealthService': Profile active background processes (Electron/Node) to pinpoint the specific
+      Agent-Slot causing the latency.
+    step_2: >-
+      Logic Forensic Scan: Identify 'Leaky Logic', unclosed DB connections, or recursive loops in the active skill files
+      (.md/.ts).
+    step_3: >-
+      Initialize 'Latency-Trace' (Local/Ignored): Map the data-path to see if the lag is in the 'ModelGatewayService' or
+      the local 'SQLite-Vault'.
+  phase_2_autonomous_optimization:
+    step_4: "Auto-Optimize: Execute a 'Goose-Style' re-scaffolding of the failing skill file to streamline the logic path."
+    step_5: "Database Vacuum: Perform an automated SQLite query optimization or index-rebuild to reduce I/O wait times."
+    step_6: >-
+      IF Optimization > 15% System Drift: Halt autonomous fix and escalate to 'Human-in-Loop Technical Risk' for
+      structural review.
+  phase_3_fidelity_gate:
+    step_7: "Validation Cycle: Run a 'Micro-Benchmark' to confirm the IPC lag has returned to the <16ms baseline."
+    step_8: "Compliance Check (Eva): Ensure the optimized logic hasn't bypassed any 'Security-Baseline' encryption protocols."
+    step_9: "Verify 'Clean-Architecture': Confirm the new logic still adheres to the 'System-Architecture.md' constraints."
+  phase_4_event_closure:
+    step_10: "Git-Orchestration: Commit the optimized skill file to the 'Maintenance-Branch' for future audit."
+    step_11: "Log Performance Fix: Record the specific optimization event in the git-ignored /local/ops/incident-log.md."
+    step_12: "Report: Push a 'System-Velocity' update to Arya (CEO) and Elina (Ops) confirming 100% throughput."
+dependencies:
+  required_skills:
+    - clean-architecture-enforcement
+    - code-forensics
+    - git-orchestration
+  required_kpis:
+    - deployment-success-rate
+    - change-lead-time
+  data_inputs:
+    - system-health-telemetry
+    - system-architecture-md
+    - sqlite-vault-schema
+  protocols:
+    - system-health-monitoring-protocol
+    - goose-optimization-protocol
+    - maintenance-commit-protocol
+error_handling:
+  on_schema_conflict: If the fix requires a schema migration, Julia triggers 'Architectural-Evolution' and awaits Director approval.
+  on_optimization_failure: If the lag persists, Julia invokes 'Safe-State-Parking' for the offending agent and alerts Elina (Ops).
+expected_output: >
+  A validated Tech-Health Pulse containing: 1. Status: [VELOCITY-RESTORED / OPTIMIZED / ESCALATED] 2. Rationale:
+  Technical identification of the logic-leak or DB bottleneck. 3. Latency Delta: Numerical proof of the ms reduction in
+  IPC lag. 4. Traceable Reference: The local Commit-ID for the maintenance patch.

@@ -1,0 +1,19 @@
+{
+  "uid": "handoff-rejection-rate",
+  "name": "Handoff-Rejection-Rate (HRR)",
+  "description": "The percentage of 'Work-Orders' or 'Data-Packets' returned to the sender by the receiving agent due to missing context, logic-errors, or protocol-violations.",
+  "unit": "% (Rejection-Ratio)",
+  "target": "< 4.00",
+  "value": "Calculated via 'Mira-Bus-Logs' (Returned-Tasks / Total-Handoffs)",
+  "goalMapping": "Minimizes 'Logic-Churn' and optimizes 'Autonomous-Handoff-Resolution' across the 10-agent array.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Handoff / Real-Time",
+    "shorthand": "Agent-Friction-Score"
+  },
+  "thresholds": {
+    "critical": "> 12% (Triggers 'Interface-Contract-Review' and 'Context-Injection' via Mira)",
+    "warning": "5% - 12% (Triggers 'SOP-Refinement' for the specific Agent-Pair)",
+    "optimal": "< 2%"
+  }
+}

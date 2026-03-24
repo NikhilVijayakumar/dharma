@@ -1,0 +1,34 @@
+id: operational-integrity-protocol
+title: "Global Operational-Integrity & System-Health"
+description: "Stateless governance standard for the continuous monitoring of agent logic, resource health, and execution-safety."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Pre-Execution-Sanity-Check: Every agent must run a 100ms 'Logic-Simulation' to predict the outcome of a task before committing resources."
+  - rule_2: "The 'Redline' Limit: If an agent's 'Error-Rate' exceeds 5% in a rolling 60-minute window, the node must enter [MAINTENANCE-MODE] and offload tasks to a peer."
+  - rule_3: "Resource-Purity-Standard: Agents are prohibited from using 'Low-Confidence' data or 'Expired-Context' for high-stakes fiscal or technical commits."
+  - rule_4: "Cross-Validation-Mandate: High-impact actions (e.g., changing a production API or moving >$5k) require 'Dual-Signature' from two independent agent slots."
+  - rule_5: "Immutable-State-Recovery: No operational change is permitted unless the system has a verified 'Restore-Point'—a way to undo the action instantly."
+
+logic_sequence:
+  step_1: "Health-Pulse-Scan: Check the 'Operational-Telemetry' for the 10-agent array (Latency, Token-Efficiency, Error-Logs)."
+  step_2: "Integrity-Audit: Verify that the current task aligns with the 'Strategic-Vision.md' and doesn't violate any 'Governance-Hard-Rules'."
+  step_3: "Resource-Lock: Secure the necessary 'Compute-Budget' and 'Data-Access-Tokens' required for the task."
+  step_4: "IF INTEGRITY-VERIFIED: Execute the 'Task-Node' and log the 'Success-Telemetry' in the /governance/audit/ directory."
+  step_5: "IF INTEGRITY-BREACH: Trigger the 'Incident-Escalation-Protocol' and freeze the affected sub-system."
+
+escalation_triggers:
+  - "Condition: Detection of 'Logic-Fracture' where an agent's output is mathematically impossible or structurally corrupt."
+  - "Condition: A 'Security-Probe' identifies an unauthorized attempt to bypass the 'Protocol-Lineage'."
+  - "Condition: The system's 'Mean-Time-To-Failure' (MTTF) drops below the 'Director-Safety-Threshold'."
+
+dependencies:
+  required_skills:
+    - execution-governance
+    - forensic-intent-analysis
+  required_kpis:
+    - mean-time-to-repair (MTTR-Logic)
+    - decision-cycle-time

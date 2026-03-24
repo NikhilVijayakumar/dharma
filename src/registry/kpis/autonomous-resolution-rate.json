@@ -1,0 +1,19 @@
+{
+  "uid": "autonomous-resolution-rate",
+  "name": "Autonomous-Resolution-Rate (ARR)",
+  "description": "The percentage of 'End-to-End' Work-Orders completed, policy-validated, and archived without Slot-10 (Director) intervention.",
+  "unit": "% (Autonomy-Ratio)",
+  "target": "> 92.00",
+  "value": "Calculated via APV-Skill (Execution-History / Total-Inbound-Intents)",
+  "goalMapping": "Measures the maturity of the 'Sangama-Directive' as a self-governing entity and maximizes Director 'Deep-Work' time.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Weekly-Aggregate / Per-SLA-Cycle",
+    "shorthand": "Autonomy-Score"
+  },
+  "thresholds": {
+    "critical": "< 75% (Triggers 'Operational-Inversion-Protocol' — System is too dependent on Director)",
+    "warning": "75% - 85% (Triggers 'Skill-Gap-Analysis' by Lina/HR)",
+    "optimal": "> 95%"
+  }
+}

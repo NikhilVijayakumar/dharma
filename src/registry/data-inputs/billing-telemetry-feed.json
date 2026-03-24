@@ -1,0 +1,14 @@
+{
+  "uid": "billing-telemetry-feed",
+  "name": "Billing Telemetry Feed",
+  "description": "Generated data input for registry reference normalization: billing-telemetry-feed.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/nora/sop-autonomous-fiscal-monitoring",
+  "privacyClassification": "internal"
+}

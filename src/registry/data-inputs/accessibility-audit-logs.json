@@ -1,0 +1,14 @@
+{
+  "uid": "accessibility-audit-logs",
+  "name": "Accessibility Audit Logs",
+  "description": "Generated data input for registry reference normalization: accessibility-audit-logs.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/sofia/seed-human-in-loop-escalation",
+  "privacyClassification": "internal"
+}

@@ -1,0 +1,62 @@
+id: seed-human-in-loop-escalation
+agent_id: julia
+trigger: High-Risk Variance / Technical Governance Breach (>10% Deployment Failure Rate)
+logic_sequence:
+  phase_1_forensic_isolation:
+    step_1: >-
+      Summarize the 'Technical Breach': Identify the specific commit, dependency, or schema change that broke the
+      'System-Latency-Baseline'.
+    step_2: >-
+      Workforce Impact Analysis: Map which agent-slots (e.g., Nora’s Fiscal calculations or Dani’s Web-hooks) are
+      currently timing out.
+    step_3: >-
+      Projected System Fallout: Simulate the 'Logic-Cascade' to predict if the error will lead to data corruption in the
+      Vault.
+  phase_2_evidence_compilation:
+    step_4: "Attach Hard-Evidence: Extract 'Git-Diffs', 'Error-Stack-Traces', and 'Unit-Test-Logs' from the failed deployment."
+    step_5: >-
+      Protocol Violation Check: Cross-reference the failure against the 'System-Architecture.md' to see which
+      'Clean-Code-Gate' was bypassed.
+    step_6: >-
+      Verify 'Infrastructure-Safety': Confirm with Nora if the technical failure has triggered an
+      'Auto-Scaling-Cost-Spike'.
+  phase_3_recovery_modeling:
+    step_7: >-
+      Draft 'Option A (Hard-Rollback)': A 100% safe return to the 'Last-Known-Good' state, potentially losing the last 2
+      hours of feature-data.
+    step_8: >-
+      Draft 'Option B (Surgical-Hotfix)': A high-speed code injection to patch the specific leak, maintaining
+      data-continuity but with a 'Medium-Risk' of instability.
+    step_9: "Implementation Risk Matrix: Detail the trade-offs (e.g., Data-Loss vs. Downtime) for both paths."
+  phase_4_director_decision_gate:
+    step_10: "Escalate to Director: Push the 'Technical Recovery Brief' to Mira’s high-priority Slot-10 for immediate signature."
+    step_11: >-
+      Active Code-Lockdown: Suspend all Git-commits and API-gateway changes until the Director provides a
+      'Recovery-Auth' hash.
+    step_12: >-
+      Execution & Logging: Once authorized, trigger the 'Git-Orchestration-Service' to apply the fix and log the
+      post-mortem in the /technical/incident-vault/.
+dependencies:
+  required_skills:
+    - clean-architecture-enforcement
+    - code-forensics
+    - git-orchestration
+  required_kpis:
+    - deployment-success-rate
+  data_inputs:
+    - code-repository
+    - system-health-telemetry
+    - technical-north-star-md
+  protocols:
+    - emergency-hotfix-protocol
+    - git-governance-handshake-protocol
+    - binary-choice-governance-protocol
+error_handling:
+  on_rollback_failure: >-
+    If Option A fails to stabilize the system, Julia invokes 'Safe-State-Hibernation' and requests manual developer
+    intervention.
+  on_identity_mismatch: If the Director's signature is not cryptographically verified, maintain 'Code-Lockdown' and notify Eva (Compliance).
+expected_output: >
+  A Decision-Ready Technical Escalation Brief containing: 1. Root-Cause Summary: Forensic identification of the
+  code/infrastructure failure. 2. Evidence Package: Traceable stack-traces and Git-diffs. 3. Recovery Paths: Two
+  distinct response options (A & B) with quantified risks. 4. Status: [PENDING DIRECTOR EMERGENCY AUTH]

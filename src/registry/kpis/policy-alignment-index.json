@@ -1,0 +1,19 @@
+{
+  "uid": "policy-alignment-index",
+  "name": "Policy-Alignment-Index (PAI)",
+  "description": "Measures the degree of 'Operational-Compliance' by auditing 'Agent-Work-Orders' against the 'Master-Policy-Engine' and 'Safety-Filters'.",
+  "unit": "Index (0-1.00)",
+  "target": "1.00 (Zero-Drift)",
+  "value": "Calculated via 'Eva-Audit-Skill' (Compliant-Steps / Total-Procedural-Steps)",
+  "goalMapping": "Eliminates 'Regulatory-Risk' and ensures 'Protocol-Integrity' across the 10-agent execution bus.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Task / Real-Time-Interception",
+    "shorthand": "Compliance-Lock"
+  },
+  "thresholds": {
+    "critical": "< 0.95 (Immediate 'Task-Suspension' and 'Policy-Re-Injection')",
+    "warning": "0.95 - 0.98 (Triggers 'Logic-Correction' alerts to Mira/Conductor)",
+    "optimal": "1.00"
+  }
+}

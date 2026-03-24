@@ -1,0 +1,68 @@
+id: seed-human-in-loop-escalation
+agent_id: maya
+trigger: High-Risk Variance / Governance-Threshold Breach (<6 Months Runway)
+logic_sequence:
+  phase_1_capital_forensics:
+    step_1: >-
+      Summarize the 'Valuation Variance': Identify the specific delta between 'Projected-Cash-Flow' and
+      'Actual-Burn-Rate'.
+    step_2: >-
+      Workflow Impact Mapping: Determine which agents (e.g., Dani’s Ad-Spend or Julia’s Cloud-Infrastructure) are the
+      primary drivers of the breach.
+    step_3: >-
+      Projected Strategic Fallout: Simulate the 'Default-Alive' vs. 'Default-Dead' timeline if no action is taken within
+      14 days.
+  phase_2_evidence_compilation:
+    step_4: "Attach Hard-Evidence: Extract 'Growth-OpEx-Ledgers' from Nora and 'Investor-Pipeline-Churn' data from the CRM."
+    step_5: >-
+      Protocol Violation Check: Identify which 'Fiscal-Gate' or 'Strategic-Milestone' was bypassed to reach this
+      variance level.
+    step_6: >-
+      Verify 'Investor-Sentiment': Pull recent interaction logs to see if the variance has leaked into
+      'External-Stakeholder-Trust' scores.
+  phase_3_recovery_arbitration_modeling:
+    step_7: >-
+      Draft 'Option A (Austerity-Pivot)': An immediate 40% reduction in non-essential agent-slots to extend runway by 4
+      months, sacrificing short-term growth.
+    step_8: >-
+      Draft 'Option B (Emergency-Bridge)': A high-speed 'SAFE' note issuance to current investors, maintaining velocity
+      but increasing 'Equity-Dilution'.
+    step_9: "Implementation Risk Matrix: Detail the trade-offs (e.g., 'Operational-Stall' vs. 'Ownership-Loss') for each path."
+  phase_4_director_decision_gate:
+    step_10: >-
+      Escalate to Director: Push the 'Strategic-Recovery-Brief' to Mira’s high-priority Slot-10 for an immediate
+      executive signature.
+    step_11: >-
+      Active Fiscal-Lockdown: Suspend all non-essential API-calls and 'Growth-Spend' until a Director-signed
+      'Recovery-Auth' hash is detected.
+    step_12: >-
+      Execution & Logging: Once authorized, trigger Nora to adjust the 'OpEx-Ledger' and Maya to update the
+      'Fundraising-Round-Status'.
+dependencies:
+  required_skills:
+    - investor-pipeline-prioritization
+    - financial-forecasting
+    - strategic-alignment
+  required_kpis:
+    - investor-stage-conversion
+    - runway-coverage-months
+  data_inputs:
+    - growth-opex-ledger
+    - equity-ledger-json
+    - investor-crm-data
+  protocols:
+    - emergency-fundraising-protocol
+    - fiscal-burn-containment-protocol
+    - binary-choice-governance-protocol
+error_handling:
+  on_liquidity_freeze: >-
+    If OpEx hits $0 before a decision, Maya invokes 'Core-State-Hibernation' (preserving only the Vault) and sends an
+    SOS to the Director.
+  on_investor_withdrawal: >-
+    If a lead investor pulls out during escalation, Maya re-calculates all simulations in real-time to reflect the new
+    'Valuation-Floor'.
+expected_output: >
+  A Decision-Ready Strategic Escalation Brief containing: 1. Breach Summary: Forensic breakdown of the capital/runway
+  failure. 2. Evidence Package: Burn-rate charts, CRM churn logs, and runway projections. 3. Response Paths: Two
+  distinct financial recovery options (A & B) with equity/operational trade-offs. 4. Status: [PENDING DIRECTOR EMERGENCY
+  AUTH]

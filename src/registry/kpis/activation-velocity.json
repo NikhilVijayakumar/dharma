@@ -1,0 +1,19 @@
+{
+  "uid": "activation-velocity",
+  "name": "Activation-Velocity (AV)",
+  "description": "Measures the latency between 'Intent-Parsing' (Slot-10 Input) and 'First-Action-Execution' across the 10-agent array.",
+  "unit": "Minutes/Seconds",
+  "target": "< 300s (Tier-1 Tasks)",
+  "value": "Calculated via IPP-to-Execution-Timestamp",
+  "goalMapping": "Measures system responsiveness and the efficiency of the 'Queue-Prioritization-Protocol'.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Work-Order",
+    "shorthand": "AV-Index"
+  },
+  "thresholds": {
+    "critical": "> 15 mins (Triggers Self-Healing-Routing-Protocol)",
+    "warning": "10-15 mins (Triggers Resource-Reallocation)",
+    "optimal": "< 5 mins"
+  }
+}

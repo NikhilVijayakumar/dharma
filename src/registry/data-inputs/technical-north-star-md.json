@@ -1,0 +1,14 @@
+{
+  "uid": "technical-north-star-md",
+  "name": "Technical North Star Md",
+  "description": "Generated data input for registry reference normalization: technical-north-star-md.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/julia/human-in-loop-technical-risk",
+  "privacyClassification": "internal"
+}

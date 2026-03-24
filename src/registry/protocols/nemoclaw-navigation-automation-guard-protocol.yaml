@@ -1,0 +1,60 @@
+id: nemoclaw-navigation-automation-guard-protocol
+title: "NemoClaw Navigation and Automation Guard"
+description: "Global protocol for deterministic selector-based navigation, guarded interactions, and safe retry behavior in automation-heavy workflows."
+tags:
+  - global
+  - automation
+  - navigation
+  - guardrail
+
+rules:
+  - "Selectors must be resolved using a ranked selector_chain before execution proceeds."
+  - "Every interaction must declare interaction_timeout_ms and wait_policy before click/type/submit actions."
+  - "Navigation retries are permitted only when retry_reason is classified as timeout, stale-element, or transient-network."
+  - "Automation paths must enforce allowlisted endpoint access using explicit network policy bindings."
+  - "High-risk actions that mutate files, credentials, or persistent state require approval gate escalation."
+
+automation_guards:
+  selector_resolution:
+    required: true
+    strategy: "ordered-selector-chain"
+    max_selector_attempts: 3
+  interaction_retries:
+    max_retries: 2
+    retryable_reasons:
+      - timeout
+      - stale-element
+      - transient-network
+  timeout_policy:
+    interaction_timeout_ms: 10000
+    navigation_timeout_ms: 30000
+    hard_fail_timeout_ms: 60000
+  approval_gate:
+    required_for:
+      - filesystem-write
+      - credentials-access
+      - external-side-effect
+
+navigation_rules:
+  required_metadata:
+    - selector_chain
+    - wait_policy
+    - interaction_type
+    - interaction_timeout_ms
+    - fallback_selectors
+  wait_policy:
+    allowed:
+      - dom-content-loaded
+      - network-idle
+      - explicit-element-visible
+  fallback_strategy:
+    selector_fallback_order: "css > role > text > xpath"
+    on_fallback_exhausted: "escalate-to-human-in-loop"
+
+dependencies:
+  required_skills:
+    - command-decomposition-logic
+    - self-healing-workflow-recovery
+  required_kpis:
+    - routing-accuracy-score
+    - interaction-quality-score

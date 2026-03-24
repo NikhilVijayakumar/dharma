@@ -1,0 +1,57 @@
+id: human-in-loop-bottleneck-resolution
+agent_id: elina
+trigger: High-Complexity Resource Conflict / Inter-Agent Deadlock Detected
+logic_sequence:
+  phase_1_conflict_forensics:
+    step_1: >-
+      Deadlock Detection: Identify circular dependencies (e.g., Julia requires Nora's API budget to build Nora's
+      fiscal-dashboard).
+    step_2: "Isolate 'Stalled Slots': Pinpoint which of the 10 Queue Slots are frozen by the dependency lock."
+    step_3: "Initialize 'Conflict-Memo': Document the specific protocol or data-input causing the friction."
+  phase_2_resolution_modeling:
+    step_4: >-
+      Draft 'Priority Option A (Fiscal-Lead)': Propose Nora’s budget-freeze until Julia provides the spec, prioritizing
+      runway preservation.
+    step_5: >-
+      Draft 'Priority Option B (Tech-Lead)': Propose Julia’s dev-sprint override, prioritizing technical velocity over
+      short-term burn.
+    step_6: "Verify 'Compliance Safety': Ensure neither option violates Eva’s Security-Baseline or Arya’s Strategic North Star."
+  phase_3_director_arbitration:
+    step_7: "Generate 'System-Stall Alert': Push a high-priority 'Director Decision Required' notification to Mira’s Slot-10."
+    step_8: >-
+      Present 'Resolution Package': Provide a clear impact simulation of choosing A vs. B on
+      'Strategic-Milestone-Attainment'.
+    step_9: >-
+      Await Director Choice: Pause the conflicting agents' execution loops until a 'Director-Auth' signature is
+      received.
+  phase_4_routing_recalibration:
+    step_10: "Execute Resolution: Immediately re-order the QueueService based on the Director's priority choice."
+    step_11: >-
+      Update 'Local Routing Logic': Modify the inter-agent handoff-rules to prevent this specific circular dependency
+      from recurring.
+    step_12: >-
+      Closure: Log the resolution ID and the Director's rationale in the 'Local-Execution-Audit' for Julia's future
+      logic-tuning.
+dependencies:
+  required_skills:
+    - execution-governance
+    - queue-health-management
+    - handoff-integrity-audit
+  required_kpis:
+    - sla-breach-count
+    - queue-throughput-velocity
+  data_inputs:
+    - queue-telemetry-feed
+    - api-usage-telemetry
+    - system-architecture-md
+  protocols:
+    - deadlock-detection-protocol
+    - priority-arbitration-protocol
+    - director-approval-gate-protocol
+error_handling:
+  on_escalation_timeout: If the Director is silent > 8h, auto-invoke 'Safe-State-Parking' for the stalled tasks and alert Arya (CEO).
+  on_re-entry_conflict: If the resolution creates a new bottleneck, trigger a 'Hard-Slot-Purge' and return to Phase 1.
+expected_output: >
+  A validated Bottleneck Resolution Brief containing: 1. Status: [CONFLICT-RESOLVED / PENDING-ARBITRATION] 2. Rationale:
+  Forensic breakdown of the A vs. B trade-offs. 3. Throughput Recovery: Estimated time to return to baseline velocity.
+  4. Traceable References: Handshake Tokens from the involved agents (e.g., Nora/Julia).

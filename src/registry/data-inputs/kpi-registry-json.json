@@ -1,0 +1,32 @@
+{
+  "uid": "kpi-registry-json",
+  "name": "Strategic-Metric-Registry (SMR)",
+  "description": "The definitive mapping of 'Performance-Indicators' to 'Agent-Accountability' and 'Strategic-Milestones'.",
+  "schemaType": "Performance-Protocol",
+  "requiredFields": [
+    "kpi_id",
+    "metric_owner_slot",
+    "target_threshold_vector",
+    "calculation_logic_hash",
+    "impact_weight",
+    "refresh_cadence"
+  ],
+  "sampleSource": "orchestration/metrics-vault/v2-performance",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "metric_categories": {
+          "VELOCITY": "Execution-Speed / Throughput",
+          "EFFICIENCY": "Token-Usage / Resource-Allocation",
+          "FIDELITY": "Brand-Alignment / Accuracy-Rate",
+          "GROWTH": "Market-Expansion / Retention-Delta"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

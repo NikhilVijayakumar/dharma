@@ -1,0 +1,34 @@
+id: context-injection-protocol
+title: "Global Contextual Hydration & State Synchronization"
+description: "Stateless governance standard for ensuring agents ingest relevant historical, environmental, and cross-domain data before logic execution."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Mandatory-Hydration: No task may proceed without fetching the 'Current-Stable-State' from the Governance Lab and the local /context/ directory."
+  - rule_2: "Cross-Domain-Sync: Agents must query the 'Latest-Signals' from adjacent slots (e.g., Julia must check Sofia's design-tokens before UI-refactoring)."
+  - rule_3: "Historical-Recall-Limit: Every injection must include the last 3 'Transaction-UUIDs' from the Audit-Trail to maintain a coherent 'Thread-of-Logic'."
+  - rule_4: "Environmental-Awareness: Agents must ingest external 'Market-Signals' (Dani) or 'Regulatory-Alerts' (Eva) if the task impacts external users."
+  - rule_5: "Context-Pruning: To avoid 'Token-Bloat', agents must strip irrelevant data, focusing only on 'High-Impact-Variables' defined in the task-node."
+
+logic_sequence:
+  step_1: "Trigger-Scan: Detect the 'Intent-Type' of the incoming work-order."
+  step_2: "Dependency-Mapping: Identify which other agents' data-streams are 'Inter-Linked' with this specific task."
+  step_3: "Execute-Injection: Pull the 'Rationale-Hashes' and 'KPI-Deltas' into the agent's active prompt-window."
+  step_4: "IF CONTEXT-COMPLETE: Sign the 'Hydration-Hash' and proceed to the 'Communication-Style-Protocol'."
+  step_5: "IF CONTEXT-GAP: Intercept. Invoke 'Collaborative-Routing' to ask the missing-data owner for an immediate state-update."
+
+escalation_triggers:
+  - "Condition: An agent detects a 'Contextual-Contradiction' (e.g., Julia's tech specs contradict Sofia's approved mocks)."
+  - "Condition: Critical 'Source-of-Truth' files (Strategic-Vision.md) are unreachable or corrupted."
+  - "Condition: The 'Token-Cost' of required context exceeds 40% of the total 'Task-Budget'."
+
+dependencies:
+  required_skills:
+    - contextual-retrieval-success-rate
+    - execution-governance
+  required_kpis:
+    - routing-accuracy-score
+    - decision-cycle-time

@@ -1,0 +1,34 @@
+id: competency-calibration-protocol
+title: "Global Agent Competency & Skill Calibration"
+description: "Stateless governance standard for verifying agent proficiency levels and ensuring task-to-skill alignment."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Skill-Authorization-Lock: An agent may only execute tasks tagged with skills listed in their active 'Required-Skills' manifest."
+  - rule_2: "Calibration-Recency: High-risk tasks (Financial/Security) require a 'Calibration-Stamp' no older than 24 hours."
+  - rule_3: "The 'Dunning-Kruger' Guard: Agents must perform a 'Confidence-Self-Audit' before high-stakes logic; if Confidence < 85%, they must request 'Peer-Verification'."
+  - rule_4: "Recursive-Learning-Block: Agents are prohibited from 'Auto-Learning' new skills that bypass the Director’s 'Strategic-Vision.md' without explicit Slot-10 authorization."
+  - rule_5: "Performance-Delta-Trigger: If an agent's 'Success-Rate' drops by 10%, a mandatory 'Competency-Calibration-Audit' is triggered via Lina Kovic (HR)."
+
+logic_sequence:
+  step_1: "Task-Requirement-Check: Extract the 'Required-Skills' metadata from the incoming work-order."
+  step_2: "Identity-Verification: Query the agent’s local 'Skill-Vault' to match proficiency levels (Junior, Senior, Lead) against task complexity."
+  step_3: "IF MATCH: Generate a 'Competency-Clearance-Hash' and proceed to the 'Audit-Trail-Integrity-Protocol'."
+  step_4: "IF MISMATCH: Pause execution. Invoke 'Collaborative-Routing' to find a more qualified agent or escalate to the Director for 'Skill-Upgrade-Auth'."
+  step_5: "Post-Execution-Update: Record the 'Skill-Utilization-Data' to help Lina Kovic track the organization's 'Total-Human-Capital-Value'."
+
+escalation_triggers:
+  - "Condition: An agent repeatedly attempts to access 'Domain-Logic' outside their calibrated sovereignty."
+  - "Condition: A critical task is stalled because no active agent possesses the required 'Validated-Skill'."
+  - "Condition: Detection of 'Model-Drift'—where an agent's logic no longer aligns with their calibrated training data."
+
+dependencies:
+  required_skills:
+    - forensic-intent-analysis
+    - talent-calibration
+  required_kpis:
+    - routing-accuracy-score
+    - decision-cycle-time

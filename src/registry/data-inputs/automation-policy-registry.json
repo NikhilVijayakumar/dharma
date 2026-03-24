@@ -1,0 +1,62 @@
+{
+  "uid": "automation-policy-registry",
+  "name": "Automation Policy Registry",
+  "description": "Selector, navigation, interaction timeout, and sandbox guard metadata extracted from NemoClaw blueprint and policy patterns.",
+  "schemaType": "automation-policy",
+  "source_type": "yaml",
+  "source_location": "automation/policies",
+  "requiredFields": [
+    "policy_name",
+    "selector_chain",
+    "interaction_timeout_ms",
+    "navigation_timeout_ms",
+    "max_retries",
+    "network_endpoints",
+    "filesystem_policy",
+    "process_policy"
+  ],
+  "validation_rules": {
+    "selector_chain": "non-empty-array",
+    "interaction_timeout_ms": "positive-number",
+    "navigation_timeout_ms": "positive-number",
+    "max_retries": "integer>=0",
+    "network_endpoints": "non-empty-array"
+  },
+  "sampleSource": "nemoclaw-blueprint/policies/openclaw-sandbox.yaml",
+  "update_frequency": "on-demand",
+  "responsible_agent": "eva_the_guardian",
+  "privacy_classification": "internal",
+  "retention_policy": "indefinite",
+  "automation_config": {
+    "selector_policy": {
+      "fallback_order": [
+        "css",
+        "role",
+        "text",
+        "xpath"
+      ],
+      "max_selector_attempts": 3
+    },
+    "interaction_policy": {
+      "retryable_reasons": [
+        "timeout",
+        "stale-element",
+        "transient-network"
+      ],
+      "max_retries": 2,
+      "interaction_timeout_ms": 10000,
+      "navigation_timeout_ms": 30000,
+      "hard_fail_timeout_ms": 60000
+    },
+    "network_policy_defaults": {
+      "enforcement": "enforce",
+      "tls": "terminate",
+      "allow_methods": [
+        "*"
+      ],
+      "allow_paths": [
+        "/**"
+      ]
+    }
+  }
+}

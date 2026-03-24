@@ -1,0 +1,33 @@
+{
+  "uid": "u-i-component-library",
+  "name": "Atomic-UI-Registry (AUR)",
+  "description": "A version-controlled library of 'Design-Tokens', 'Interactive-Patterns', and 'Accessibility-Guardrails' for the 10-slot array.",
+  "schemaType": "Design-System-Protocol",
+  "requiredFields": [
+    "component_id",
+    "timestamp_iso8601",
+    "atomic_layer_depth",
+    "accessibility_compliance_score",
+    "interaction_logic_hash",
+    "rendering_performance_ms",
+    "slot_usage_permissions"
+  ],
+  "sampleSource": "design/ui-vault/v4-component-set",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "design_layers": {
+          "ATOMS": "Tokens / Icons / Typography",
+          "MOLECULES": "Input-Groups / Card-Headers",
+          "ORGANISMS": "Data-Tables / Navigation-Sidebars",
+          "TEMPLATES": "Dashboard-Layouts / Report-Views"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

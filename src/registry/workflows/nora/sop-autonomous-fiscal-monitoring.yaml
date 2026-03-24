@@ -1,0 +1,59 @@
+id: sop-autonomous-fiscal-monitoring
+agent_id: nora
+trigger: "Standard Operating / Daily Ledger Sync (Default: 00:00 UTC)"
+logic_sequence:
+  phase_1_telemetry_aggregation:
+    step_1: "Resource Scan: Aggregate API usage, GPU compute-time, and token-burn telemetry from all 10 active agent slots."
+    step_2: "Financial Ingest: Sync the 'Daily-OpEx-Ledger' with real-time billing data from Julia's Infrastructure-Gate."
+    step_3: "Initialize 'Burn-Profile': Map current spending against the historical 'Avg-Burn' for the current project phase."
+  phase_2_reconciliation_&_compliance:
+    step_4: >-
+      Guardrail Validation: Reconcile the last 24h of burn against the 'fiscal-policy.md'—checking for any
+      'Per-Agent-Cap' violations.
+    step_5: >-
+      Variance Calculation: Compute the 'Burn-Variance-Ratio'. Any deviation > 10% from the 'Strategic-Forecast'
+      triggers an anomaly flag.
+    step_6: "Verify 'Runway-Health': Update the 'Runway-Coverage-Months' KPI based on the new daily burn-rate average."
+  phase_3_anomaly_governance:
+    step_7: >-
+      Route Detected Anomalies: If a leak is detected (e.g., Dani spending 3x on image generation), auto-route a
+      'Fiscal-Breach-Alert' to Eva (Compliance) and Arya (CEO).
+    step_8: >-
+      Context-Inquiry: Query the flagging agent (via Mira) to determine if the spend was 'Strategic-Pivot' or
+      'Technical-Error'.
+    step_9: "Threshold Check: If variance exceeds 25%, invoke 'Crisis-Runway-Freeze' to prevent immediate liquidity exhaustion."
+  phase_4_ledger_finalization:
+    step_10: >-
+      Generate 'Daily-Burn-Report': Publish a high-fidelity summary including 'Cost-per-Task' and 'Efficiency-Rank' for
+      each agent.
+    step_11: >-
+      Corrective Action Log: Recommend logic-patches (e.g., 'Throttling Dani’s slot' or 'Refactoring Julia’s recursive
+      loops').
+    step_12: "Commit to Vault: Save the signed Burn-Report to the local /vault/finance/history/ for the next Quarterly Audit."
+dependencies:
+  required_skills:
+    - budget-allocation
+    - financial-forecasting
+    - strategic-alignment
+  required_kpis:
+    - runway-coverage-months
+    - burn-variance-ratio
+  data_inputs:
+    - fiscal-policy-md
+    - billing-telemetry-feed
+    - agent-task-logs
+  protocols:
+    - daily-ledger-sync-protocol
+    - anomaly-routing-logic-gate
+    - fiscal-burn-containment-protocol
+error_handling:
+  on_data_gap: >-
+    If billing telemetry is missing, Nora flags an 'Infrastructure-Blind-Spot' and requests Julia to repair the
+    Telemetry-Bridge.
+  on_critical_burn: >-
+    If burn exceeds 1.5x the daily limit, Nora auto-revokes the 'Spending-Auth' for the highest-burning slot until
+    Director review.
+expected_output: >
+  A validated Daily Fiscal Monitor Report containing: 1. Status: [BALANCED / ANOMALY-DETECTED / CRITICAL-LEAK] 2.
+  Burn-Variance-Ratio: Numerical delta between planned vs. actual spend. 3. Runway Projection: Updated survival timeline
+  based on current velocity. 4. Traceable Reference: The 'Daily-Ledger-Hash' for historical audit.

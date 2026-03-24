@@ -1,0 +1,32 @@
+{
+  "uid": "agent-profiles",
+  "name": "Agent-Persona-Blueprint (APB)",
+  "description": "The high-fidelity 'Cognitive-Architecture' and 'Functional-Boundaries' for a specific agentic-slot in the Sangama-Array.",
+  "schemaType": "Identity-Protocol",
+  "requiredFields": [
+    "agent_id",
+    "persona_vector",
+    "authority_level",
+    "protocol_affinity",
+    "memory_context_window",
+    "governance_locks"
+  ],
+  "sampleSource": "governance/identity-vault/slot-04-dani",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "persona_vectors": {
+          "analytical_rigor": "0.0 - 1.0",
+          "creative_divergence": "0.0 - 1.0",
+          "risk_tolerance": "0.0 - 1.0",
+          "empathy_index": "0.0 - 1.0"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

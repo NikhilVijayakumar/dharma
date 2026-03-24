@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* 
+      Google Slides mapping relies heavily on <section> parsing.
+      Each <section> defines a new slide.
+    */
+    body {
+      font-family: var(--font-display);
+      color: var(--color-text);
+      background-color: var(--color-background);
+    }
+    section.slide {
+      width: 960px; /* Standard 16:9 1080p roughly scaled down or matching default presentation format */
+      height: 540px;
+      position: relative;
+      margin-bottom: 2rem;
+      border: 1px solid var(--color-secondary);
+      padding: var(--spacing-padding-large);
+      box-sizing: border-box;
+      /* Background logic for templates */
+    }
+    .title-slide {
+      background-color: var(--color-primary);
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .title-slide h1 {
+      color: white;
+      font-size: var(--scale-h1-size);
+      margin-bottom: var(--spacing-margins-medium);
+    }
+    h2 {
+      font-size: var(--scale-h2-size);
+      color: var(--color-primary);
+      border-bottom: 2px solid var(--color-primary);
+      padding-bottom: var(--spacing-padding-small);
+      position: absolute;
+      top: 32px;
+      left: 32px;
+      right: 32px;
+    }
+    .content-area {
+      position: absolute;
+      top: 100px;
+      left: 32px;
+      right: 32px;
+      bottom: 32px;
+      font-family: var(--font-body);
+      font-size: var(--scale-h4-size);
+      line-height: var(--line-height-relaxed);
+    }
+    .data-point {
+      color: var(--semantic-info);
+      font-weight: bold;
+      font-size: var(--scale-h3-size);
+    }
+    ul, ol {
+      margin-top: var(--spacing-margins-medium);
+      padding-left: var(--spacing-padding-large);
+    }
+    li {
+      margin-bottom: var(--spacing-margins-small);
+    }
+  </style>
+</head>
+<body>
+  <!-- Title Slide -->
+  <section class="slide title-slide">
+    <h1>{{presentation_title}}</h1>
+    <p class="subtitle">{{presentation_subtitle}}</p>
+    <p class="meta">{{date}} - Prepared by {{analyst_name}}</p>
+  </section>
+
+  <!-- Dynamic Content Slides Injected Here -->
+  {{slides_content}}
+</body>
+</html>

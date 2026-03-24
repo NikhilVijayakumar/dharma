@@ -1,0 +1,19 @@
+{
+  "uid": "evidence-fidelity-score",
+  "name": "Evidence-Fidelity-Score (EFS)",
+  "description": "Measures the cryptographic and logical alignment between 'Agent-Claims' and 'Source-Telemetry' (Raw-Logs, Blockchains, or API-Receipts).",
+  "unit": "% (Verification-Integrity)",
+  "target": "100.00",
+  "value": "Calculated via 'Forensic-Audit-Skill' (Verified-Claims / Total-Claims)",
+  "goalMapping": "Eliminates 'Narrative-Drift' and ensures all 'Executive-Decisions' are based on 'Telemetry-Proven' reality.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Report / Real-Time-Validation",
+    "shorthand": "Truth-Score"
+  },
+  "thresholds": {
+    "critical": "< 99.5% (Triggers 'Forensic-Lockdown' and immediate 'Narrative-Recalibration')",
+    "warning": "99.5% - 99.9% (Triggers 'Deep-Trace' on the claiming agent via Eva/Compliance)",
+    "optimal": "100.00%"
+  }
+}

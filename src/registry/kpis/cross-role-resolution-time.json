@@ -1,0 +1,30 @@
+{
+  "uid": "cross-role-resolution-time",
+  "name": "Cross-Role-Resolution-Time (CRRT)",
+  "description": "Median elapsed time required to resolve inter-agent dependencies from handshake initiation to accepted completion.",
+  "unit": "seconds",
+  "target": "<= 900",
+  "value": "median(resolved_handoff_duration_seconds)",
+  "formula": "median(handoff_resolved_at - handoff_created_at)",
+  "goalMapping": "Measures end-to-end collaboration speed and blocked-state recovery efficiency.",
+  "frequency_of_check": "per-transaction",
+  "responsible_agent_role": "coo",
+  "thresholds": {
+    "critical": "> 3600",
+    "warning": "900 - 3600",
+    "optimal": "<= 900"
+  },
+  "escalation_policy": {
+    "on_critical": "Escalate dependency bottleneck to COO and Secretary for intervention.",
+    "on_warning": "Mark workflow at-risk and request proactive RFI closure."
+  },
+  "dependencies": {
+    "data_inputs": [
+      "work-order-routing-log",
+      "queue-bottleneck-telemetry"
+    ],
+    "dependent_kpis": [
+      "decision-cycle-time"
+    ]
+  }
+}

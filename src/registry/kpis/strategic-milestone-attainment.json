@@ -1,0 +1,19 @@
+{
+  "uid": "strategic-milestone-attainment",
+  "name": "Strategic-Milestone-Attainment (SMA)",
+  "description": "Measures the 'Completion-Rate' of high-priority initiatives against 'Hard-Deadlines' and 'Verified-Success-Criteria'.",
+  "unit": "% (Success-Ratio)",
+  "target": "> 85.00",
+  "value": "Calculated via (Milestones-with-Validated-Outcome / Total-Active-Milestones)",
+  "goalMapping": "Verifies the 'Strategic-Execution-Capability' and ensures 'Resource-Alignment' with the Master-Roadmap.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Milestone / Monthly-Strategic-Sync",
+    "shorthand": "Roadmap-Yield"
+  },
+  "thresholds": {
+    "critical": "< 60% (Triggers 'Roadmap-Pruning' and 'Capacity-Re-Alignment' via Mira)",
+    "warning": "60% - 80% (Triggers 'Dependency-Audit' and 'Resource-Injection')",
+    "optimal": "> 90.0%"
+  }
+}

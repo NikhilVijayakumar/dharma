@@ -1,0 +1,19 @@
+{
+  "uid": "interaction-friction-delta",
+  "name": "Interaction-Friction-Delta (IFD)",
+  "description": "Measures the rate of change (Δ) in 'Refinement-Cycles' required to reach a 'Validated-Output' over a rolling 30-day window.",
+  "unit": "Δ (Cycle-Variance)",
+  "target": "Negative (Downward-Trend)",
+  "value": "Calculated via (Current-Avg-Refinement / Baseline-Avg-Refinement) - 1",
+  "goalMapping": "Verifies 'Agent-Learning-Efficiency' and identifies 'Cognitive-Degradation' in the interaction layer.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Interaction / Weekly-Aggregation",
+    "shorthand": "Friction-Trend"
+  },
+  "thresholds": {
+    "critical": "> +0.15 (Triggers 'Persona-Reset' and 'Prompt-Template-Audit' by Mira)",
+    "warning": "> +0.05 (Triggers 'Context-Pruning' for the specific interaction thread)",
+    "optimal": "< -0.10 (Indicates 'High-Velocity-Sync')"
+  }
+}
