@@ -2,19 +2,16 @@ import { resolve } from 'path'
 import { defineConfig } from 'electron-vite'
 import react from '@vitejs/plugin-react'
 
+// NOTE: Dharma is a domain library package, not an Electron application.
+// This config is maintained for development/testing purposes only.
+// Consumers (Dhi, Vidhan) provide the actual Electron build configuration.
+
 export default defineConfig({
   main: {
-    build: {
-      rollupOptions: {
-        input: {
-          index: resolve(__dirname, 'packages/prana/main/index.ts')
-        }
-      }
-    },
+    // Dharma does not have a main process entry point
     resolve: {
       alias: {
-        '@prana': resolve('packages/prana'),
-        '@dharma': resolve('packages/dharma')
+        '@dharma': resolve('.')
       }
     }
   },
@@ -22,20 +19,15 @@ export default defineConfig({
   preload: {
     resolve: {
       alias: {
-        '@prana': resolve('packages/prana'),
-        '@dharma': resolve('packages/dharma')
+        '@dharma': resolve('.')
       }
     }
   },
+
   renderer: {
     resolve: {
       alias: {
-        '@renderer': resolve('src/renderer/src'),
-        '@prana': resolve('packages/prana'),
-        '@dharma': resolve('packages/dharma'),
-        '@dhi': resolve('packages/dhi'),
-        '@vidhan': resolve('packages/vidhan'),
-        '@astra': resolve('packages/astra')
+        '@dharma': resolve('.')
       }
     },
     plugins: [react()]

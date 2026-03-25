@@ -1,13 +1,10 @@
 {
   "extends": "@electron-toolkit/tsconfig/tsconfig.node.json",
-  "include": ["electron.vite.config.*", "src/preload/**/*", "packages/prana/main/**/*", "packages/prana/services/**/*", "packages/dharma/**/*"],
+  "include": ["electron.vite.config.*"],
   "compilerOptions": {
     "composite": true,
     "types": ["electron-vite/node"],
     "baseUrl": ".",
-    "paths": {
-      "@prana/*": ["packages/prana/*"],
-      "@dharma/*": ["packages/dharma/*"]
-    }
+    "paths": {}
   }
 }
