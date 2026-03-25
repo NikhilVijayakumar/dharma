@@ -1,35 +1,33 @@
 {
   "name": "dharma",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dharma: Domain schemas, registry definitions, and virtual employee specifications",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "author": "example.com",
+  "author": "Nikhil V",
   "homepage": "https://electron-vite.org",
   "scripts": {
     "format": "prettier --write .",
-    "lint": "eslint --cache .",
+    "lint": "eslint src --cache",
     "build": "tsc --noEmit && npm run build:types",
     "build:types": "tsc --outDir dist --declaration --emitDeclarationOnly",
     "dev": "tsc --watch",
-    "lint": "eslint src --cache",
     "typecheck": "tsc --noEmit",
     "registry:gen-types": "node scripts/generate-registry-types.mjs"
   },
   "dependencies": {
     "ajv": "^6.14.0",
-    "js-yaml": "^4.1.1",
+    "js-yaml": "^4.1.1"
   },
   "devDependencies": {
     "@types/node": "^22.19.1",
     "eslint": "^9.39.1",
     "json-schema-to-typescript": "^15.0.4",
     "prettier": "^3.7.4",
-    "typescript": "^5.9.3",
+    "typescript": "^5.9.3"
   },
-  "overrides": {
-   "engines": {
-     "node": ">=18"
+  "engines": {
+    "node": ">=18"
   }
 }
