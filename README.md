@@ -1,35 +1,196 @@
 # Dharma — धर्म (Universal Law)
 
-> **The Knowledge Foundation** — Registry schemas, Business DNA, Virtual Employee specifications, and the universal governance model.
+> **The Knowledge Foundation** — Registry schemas, default templates, and domain contracts for the ecosystem.
 
-**Status**: ✅ Pure TypeScript Domain Library (not an Electron application)
-## Scope
+**Status**: Pure TypeScript Domain Library (not an Electron application)
 
-| Layer | Contents |
-|---|---|
-| **Registry** | JSON schemas defining agents, KPIs, protocols, workflows, skills, and data inputs |
-| **Schemas** | TypeScript-generated types from registry definitions |
-| **Virtual Employees** | Role specifications (CEO, CFO, CTO, CMO, COO, HR, Funding, Compliance, Design, Secretary) |
-| **Business DNA** | The foundational data model that all modules consume |
+Dharma is a **domain and registry package** that serves as the authoritative source of default/template data for the ecosystem. It contains no application logic, no runtime execution, and no UI flows.
 
-## Architecture
-
-Dharma is a **pure data package** — it contains no UI code and no runtime logic. It defines the "laws" that govern the entire system.
-
+## Dharma in the Ecosystem
 
 ```
-src/
-├── registry/        # JSON schema definitions & loader
-├── schemas/         # Generated TypeScript types from registry
-└── docs/            # Referenced documentation
-    ├── virtual-employee/   # Agent role specifications
-    └── system/              # System-level schemas
+┌─────────────────────────────────────────────────────────────────────┐
+│                        DHARMA (Domain Library)                       │
+│                                                                          │
+│  • Registry schemas (agents, skills, protocols, workflows, KPIs)       │
+│  • Default/template data                                               │
+│  • JSON schemas with AJV validation                                    │
+│  • Loader pipeline for registry processing                             │
+│  • Company registry with product definitions                            │
+│                                                                          │
+│  Dharma is consumed by applications. It does not consume others.       │
+└─────────────────────────────────────────────────────────────────────┘
+                                  │
+                                  │ Consumed and enhanced by
+                                  ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                    PRANA (Runtime Library)                            │
+│                                                                          │
+│  • Electron runtime infrastructure                                     │
+│  • SQLite + encrypted vault persistence                                │
+│  • Services: storage, sync, auth, email, agents, cron                 │
+│  • MVVM renderer with React/MUI                                        │
+│                                                                          │
+│  Prana is the execution engine. It consumes Dharma's schemas.           │
+└─────────────────────────────────────────────────────────────────────┘
+                                  │
+                                  │ Host application
+                                  ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                    DHI (Director Office App)                           │
+│                                                                          │
+│  • Electron application                                                │
+│  • Director suite: triage, reports, dashboards                        │
+│  • Consumes: Prana (runtime) + Dharma (schemas) + Astra (design)     │
+│                                                                          │
+│  Dhi is an application. It consumes Prana and Dharma as dependencies.   │
+└─────────────────────────────────────────────────────────────────────┘
 ```
-## Import Rules
+
+## Dharma as Default Provider
+
+Dharma provides **default/template data** that applications enhance for their specific organization:
+
+| Registry Asset  | Purpose                                           |
+| --------------- | ------------------------------------------------- |
+| **Agents**      | Virtual employee templates, roles, configurations |
+| **Skills**      | Functional capabilities and system abilities      |
+| **Protocols**   | Operational behavioral mandates                   |
+| **Workflows**   | Orchestration logic and cross-agent interactions  |
+| **KPIs**        | Metric definitions, thresholds, monitoring        |
+| **Data Inputs** | Stream definitions and access policies            |
+
+> Dharma data is not meant to be consumed directly. Applications like Dhi enhance Dharma's defaults for their organization.
+
+## Dharma is a Library
+
+Dharma is **not an application**. It is a library that:
 
 - ✅ **May be imported by**: All packages
 - ❌ **Must never import from**: `@prana/*`, `@dhi/*`, `@astra/*`
 
-## Documentation
+Dharma defines the foundational contracts. Applications (like Dhi) integrate Dharma with Prana to build the complete system.
 
-See [docs/](../docs/) for registry schemas, virtual employee specifications, and the hybrid persistence schema.
+## Registry Structure
+
+Dharma organizes registry data into two layers:
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                      SHARED POOL                                      │
+│           (agents, skills, protocols, kpis, data-inputs, workflows)     │
+└────────────────────────────────┬────────────────────────────────────┘
+                                 │
+                                 └── COMPANY ── links ──► SHARED POOL
+                                     ├── metadata.json
+                                     ├── registry.json
+                                     └── branding/
+```
+
+### Shared Pool
+
+Generic, reusable assets shared across all companies:
+
+- `agents/` — Agent templates
+- `skills/` — Functional capabilities
+- `protocols/` — Behavioral mandates
+- `kpis/` — Metric definitions
+- `data-inputs/` — Stream definitions
+- `workflows/` — Orchestration logic
+
+### Company
+
+Organizational units with company-specific data:
+
+- `metadata.json` — Corporate identity and values (formerly `company-core.json`)
+- `branding/` — Visual identity (inside company)
+- `registry.json` — Products definitions + links to shared pool assets
+
+## Architecture
+
+```
+src/
+├── schemas/
+│   ├── domain/          # Runtime domain payload contracts
+│   │   ├── compliance.ts
+│   │   ├── cron.ts
+│   │   ├── governance.ts
+│   │   ├── queue.ts
+│   │   └── settings.ts
+│   └── onboarding/
+│       └── onboarding-commit.schema.json
+│
+└── registry/
+    ├── agents/           # Shared pool
+    ├── skills/           # Shared pool
+    ├── protocols/        # Shared pool
+    ├── kpis/             # Shared pool
+    ├── data-inputs/      # Shared pool
+    ├── workflows/        # Shared pool
+    ├── schemas/          # JSON schema definitions
+    ├── scripts/          # Build scripts
+    ├── loader.ts         # Registry loader
+    ├── types.ts          # TypeScript types
+    │
+    └── company/          # Company-specific
+        └── {company-id}/
+            ├── metadata.json          # Company identity/values
+            ├── registry.json          # Products + asset references
+            └── branding/              # Company branding
+```
+
+## Documentation Index
+
+### Core Concepts
+
+1. [System Overview](docs/feature/overview.md)
+2. [Registry Loader](docs/feature/registry-loader.md)
+3. [Schema Generation](docs/feature/schema-generation.md)
+4. [Registry Isolation](docs/feature/registry-isolation.md)
+
+### Registry Modules
+
+- [Agents](docs/feature/agents.md)
+- [KPIs](docs/feature/kpis.md)
+- [Data Inputs](docs/feature/data-inputs.md)
+- [Protocols & Skills](docs/feature/protocols-and-skills.md)
+- [Workflows](docs/feature/workflows.md)
+- [Company](docs/feature/company.md)
+
+## Build & Tooling
+
+Dharma is built as an **ESM package** (`"type": "module"` in `package.json`).
+
+```bash
+# Type checking
+npm run typecheck
+
+# Generate TypeScript types from JSON schemas
+npm run registry:gen-types
+
+# Build types only
+npm run build:types
+```
+
+## Import Rules
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                         DHARMA                                   │
+│                     (No dependencies)                            │
+│                                                                  │
+│  Dharma must NEVER import from:                                  │
+│    • @prana/* (runtime library)                                  │
+│    • @dhi/* (application)                                       │
+│    • @astra/* (design system)                                    │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+## Core Ownership
+
+| Layer                 | Contents                                                         |
+| --------------------- | ---------------------------------------------------------------- |
+| **Registry Schemas**  | JSON schemas defining agents, KPIs, protocols, workflows, skills |
+| **Loader Pipeline**   | Dynamic parsing, validation, normalization, enrichment           |
+| **Default Templates** | Base configurations for all registry assets                      |
+| **Company Registry**  | Company metadata, products, and asset references                 |
