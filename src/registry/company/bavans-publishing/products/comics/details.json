@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/product-standalone.schema.json",
+  "productId": "comics",
+  "companyId": "bavans-publishing",
+  "goal": "Expand stories into visual comic format for both educational and fiction content",
+  "vision": "Stories come alive through vibrant visual storytelling",
+  "problemSolved": "Visual learners underserved; stories need multiple format adaptations",
+  "usp": "Same story from different character perspectives through comic panels",
+  "mvp": [],
+  "validation": {
+    "methodology": "Digital comic platform metrics, print sales if applicable",
+    "successCriteria": "TBD"
+  },
+  "contentFormats": ["comic", "graphic-novel"],
+  "targetAudience": ["children", "adults"],
+  "contentTrack": "both",
+  "updatedAt": "2026-04-08T00:00:00.000Z"
+}

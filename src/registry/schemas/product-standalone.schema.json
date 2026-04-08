@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "registry/product-standalone.schema.json",
+  "title": "ProductStandalone",
+  "description": "Standalone product definition containing core product information.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "productId",
+    "companyId",
+    "goal",
+    "vision",
+    "problemSolved",
+    "usp",
+    "mvp",
+    "validation"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "pattern": ".*product-standalone\\.schema\\.json$"
+    },
+    "productId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "companyId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 10,
+      "description": "The primary goal of this product"
+    },
+    "vision": {
+      "type": "string",
+      "minLength": 10,
+      "description": "The long-term vision for this product"
+    },
+    "problemSolved": {
+      "type": "string",
+      "minLength": 10,
+      "description": "The problem this product solves"
+    },
+    "usp": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Unique selling proposition"
+    },
+    "mvp": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 3 },
+      "description": "Minimum viable product features"
+    },
+    "validation": {
+      "type": "object",
+      "required": ["methodology", "successCriteria"],
+      "properties": {
+        "methodology": {
+          "type": "string",
+          "minLength": 5
+        },
+        "successCriteria": {
+          "type": "string",
+          "minLength": 5
+        }
+      }
+    },
+    "contentFormats": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["book", "audio", "video", "graphic", "comic", "game", "interactive", "series"]
+      }
+    },
+    "targetAudience": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "contentTrack": {
+      "type": "string",
+      "enum": ["education", "fiction", "both"],
+      "description": "Content track: education (kids), fiction (adults), or both"
+    },
+    "ageGroups": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Applicable age groups for education content"
+    },
+    "genres": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Applicable genres for fiction content"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": true
+}

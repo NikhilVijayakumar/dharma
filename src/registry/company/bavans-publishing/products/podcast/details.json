@@ -1,0 +1,23 @@
+{
+  "$schema": "../../schemas/product-standalone.schema.json",
+  "productId": "podcast",
+  "companyId": "bavans-publishing",
+  "goal": "Enable story-driven, audio-first distribution of educational and creative content through podcasts and video podcasts",
+  "vision": "Every story and concept can be heard and understood through immersive audio experiences",
+  "problemSolved": "Limited reach for written content; audience prefers consuming content through audio/video",
+  "usp": "Audio-first distribution that transforms stories and concepts into engaging podcast episodes and video podcasts",
+  "mvp": [
+    "Basic podcast episode creation from story content",
+    "Distribution to Spotify and Apple Podcasts",
+    "Video podcast creation for YouTube",
+    "Analytics dashboard for episode performance"
+  ],
+  "validation": {
+    "methodology": "listener engagement metrics, subscription growth, completion rates",
+    "successCriteria": "20% episode completion rate, 500+ subscribers in first quarter"
+  },
+  "contentFormats": ["audio", "video"],
+  "targetAudience": ["general", "children", "adults"],
+  "contentTrack": "both",
+  "updatedAt": "2026-04-08T00:00:00.000Z"
+}

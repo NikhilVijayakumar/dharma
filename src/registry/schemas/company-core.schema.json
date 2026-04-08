@@ -65,6 +65,32 @@
       "type": "object",
       "additionalProperties": true
     },
+    "branding": {
+      "type": "object",
+      "description": "Reference to company branding assets",
+      "properties": {
+        "theme": { "type": "string" },
+        "typography": { "type": "string" },
+        "templates": { "type": "string" }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Reference to metadata catalog files",
+      "properties": {
+        "agents": { "type": "string" },
+        "skills": { "type": "string" },
+        "protocols": { "type": "string" },
+        "kpis": { "type": "string" },
+        "data-inputs": { "type": "string" },
+        "workflows": { "type": "string" },
+        "products": { "type": "string" }
+      }
+    },
+    "products": {
+      "type": "string",
+      "description": "Reference to products/index.json"
+    },
     "updatedAt": { "type": "string", "format": "date-time" }
   },
   "additionalProperties": true

@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/product-standalone.schema.json",
+  "productId": "kids-educational-books",
+  "companyId": "bavans-publishing",
+  "goal": "Teach scientific concepts and life skills to children (ages 5-13) through engaging stories and poems",
+  "vision": "Children learn complex concepts naturally through the joy of storytelling",
+  "problemSolved": "Traditional education is dry and unengaging for children; stories make learning memorable",
+  "usp": "Story-driven learning that teaches science, logic, and emotional intelligence through narrative",
+  "mvp": [
+    "Story books for ages 5-9 (basic science, curiosity, emotional learning)",
+    "Story books for ages 8-10 (intermediate science, reasoning, problem-solving)",
+    "Story books for ages 10-13 (advanced science, CS fundamentals, AI concepts)",
+    "Poetry collections for each age group",
+    "Deep-dive books for extended learning",
+    "Self-improvement books for mindset and habits"
+  ],
+  "validation": {
+    "methodology": "Parent reviews, classroom adoption, comprehension testing",
+    "successCriteria": "4.5+ star rating, adoption in 10+ schools, demonstrated learning outcomes"
+  },
+  "contentFormats": ["book", "audio", "interactive"],
+  "targetAudience": ["children-5-9", "children-8-10", "children-10-13"],
+  "contentTrack": "education",
+  "ageGroups": ["5-9", "8-10", "10-13"],
+  "updatedAt": "2026-04-08T00:00:00.000Z"
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "registry/metadata-agents.schema.json",
+  "title": "MetadataAgents",
+  "description": "Metadata catalog specifically for agent references with company-specific agent metadata.",
+  "type": "object",
+  "required": ["$schema", "companyId", "entries"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "pattern": ".*metadata-agents\\.schema\\.json$"
+    },
+    "companyId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "entries": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "description": "Relative path to the global agent file"
+      }
+    },
+    "agentAssignments": {
+      "type": "object",
+      "description": "Optional company-specific agent role assignments",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "role": { "type": "string" },
+          "productAssignment": { "type": "string" },
+          "priority": { "type": "string" }
+        }
+      }
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": true
+}

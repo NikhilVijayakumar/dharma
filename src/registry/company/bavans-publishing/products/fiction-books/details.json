@@ -1,0 +1,25 @@
+{
+  "$schema": "../../schemas/product-standalone.schema.json",
+  "productId": "fiction-books",
+  "companyId": "bavans-publishing",
+  "goal": "Create compelling narrative fiction for mature audiences across multiple formats",
+  "vision": "Stories that entertain, challenge, and inspire adult readers across genres",
+  "problemSolved": "Limited variety of quality narrative fiction; readers seek fresh voices and formats",
+  "usp": "Multi-genre fiction (romance, thriller, psychological) with graphic and audio adaptations",
+  "mvp": [
+    "Novel series in romance and thriller genres",
+    "Poetry collections for mature audiences",
+    "Audio narratives and podcast storytelling",
+    "Graphic poems and illustrated content",
+    "Character perspective expansion content"
+  ],
+  "validation": {
+    "methodology": "Reader engagement, review quality, genre-specific community growth",
+    "successCriteria": "500+ reviews per novel, strong genre community engagement"
+  },
+  "contentFormats": ["book", "audio", "graphic"],
+  "targetAudience": ["adults"],
+  "contentTrack": "fiction",
+  "genres": ["romance", "thriller", "psychological", "poetry"],
+  "updatedAt": "2026-04-08T00:00:00.000Z"
+}

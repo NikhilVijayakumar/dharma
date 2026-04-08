@@ -1,0 +1,45 @@
+{
+  "$schema": "../schemas/company-product.schema.json",
+  "companyId": "bavans-publishing",
+  "description": "Product catalog for BAVANS Publishing - standalone product definitions",
+  "products": {
+    "podcast": {
+      "details": "./podcast/details.json",
+      "documentation": "./podcast/documentation.md"
+    },
+    "poetry-music": {
+      "details": "./poetry-music/details.json",
+      "documentation": "./poetry-music/documentation.md"
+    },
+    "kids-educational-books": {
+      "details": "./kids-educational-books/details.json",
+      "documentation": "./kids-educational-books/documentation.md"
+    },
+    "fiction-books": {
+      "details": "./fiction-books/details.json",
+      "documentation": "./fiction-books/documentation.md"
+    },
+    "comics": {
+      "details": "./comics/details.json",
+      "documentation": "./comics/documentation.md"
+    },
+    "games": {
+      "details": "./games/details.json",
+      "documentation": "./games/documentation.md"
+    },
+    "video-series": {
+      "details": "./video-series/details.json",
+      "documentation": "./video-series/documentation.md"
+    }
+  },
+  "productsOrder": [
+    "kids-educational-books",
+    "podcast",
+    "poetry-music",
+    "fiction-books",
+    "comics",
+    "games",
+    "video-series"
+  ],
+  "updatedAt": "2026-04-08T00:00:00.000Z"
+}

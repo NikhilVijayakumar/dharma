@@ -1,0 +1,204 @@
+{
+  "$schema": "../../../schemas/company-product.schema.json",
+  "companyId": "bavans-publishing",
+  "description": "Product catalog and assignments for BAVANS Publishing",
+  "products": {
+    "podcast": {
+      "details": "products/podcast/details.json",
+      "documentation": "products/podcast/documentation.md",
+      "owner": "dani",
+      "stage": "mvp",
+      "priorities": [
+        "audio-distribution",
+        "spotify-integration",
+        "apple-podcasts",
+        "youtube-video-podcast"
+      ],
+      "assignedKpis": ["activation-velocity", "retention-signal", "governance-velocity"],
+      "assignedProtocols": [
+        "human-review-required-protocol",
+        "narrative-integrity-protocol",
+        "brand-consistency-audit-protocol"
+      ],
+      "assignedBranding": "./branding",
+      "metrics": {
+        "targetCompletionRate": "20%",
+        "targetSubscribers": 500,
+        "successCriteria": "20% episode completion rate, 500+ subscribers in first quarter"
+      },
+      "developmentPlan": {
+        "currentPhase": "mvp",
+        "targetLaunchDate": null,
+        "estimatedCost": null,
+        "roiTarget": null
+      }
+    },
+    "poetry-music": {
+      "details": "products/poetry-music/details.json",
+      "documentation": "products/poetry-music/documentation.md",
+      "owner": "arya",
+      "stage": "mvp",
+      "priorities": [
+        "suno-integration",
+        "spotify-distribution",
+        "apple-music-distribution",
+        "royalty-tracking"
+      ],
+      "assignedKpis": ["activation-velocity", "retention-signal", "governance-velocity"],
+      "assignedProtocols": [
+        "human-review-required-protocol",
+        "narrative-integrity-protocol",
+        "voice-identity-consent-protocol"
+      ],
+      "assignedBranding": "./branding",
+      "metrics": {
+        "targetStreams": 1000,
+        "targetPlaylistAdds": 3,
+        "successCriteria": "1000+ streams per track, playlist inclusion on 3+ curated playlists"
+      },
+      "developmentPlan": {
+        "currentPhase": "mvp",
+        "targetLaunchDate": null,
+        "estimatedCost": null,
+        "roiTarget": null
+      }
+    },
+    "kids-educational-books": {
+      "details": "products/kids-educational-books/details.json",
+      "documentation": "products/kids-educational-books/documentation.md",
+      "owner": "sofia",
+      "stage": "mvp",
+      "priorities": [
+        "story-books-ages-5-9",
+        "story-books-ages-8-10",
+        "story-books-ages-10-13",
+        "poetry-collections"
+      ],
+      "assignedKpis": [
+        "bavans-value-gate-pass-rate",
+        "human-review-gate-pass-rate",
+        "narrative-fidelity-score"
+      ],
+      "assignedProtocols": [
+        "human-review-required-protocol",
+        "product-track-separation-protocol",
+        "bavans-education-track-governance"
+      ],
+      "assignedBranding": "./branding",
+      "metrics": {
+        "targetRating": 4.5,
+        "targetSchools": 10,
+        "successCriteria": "4.5+ star rating, adoption in 10+ schools, demonstrated learning outcomes"
+      },
+      "developmentPlan": {
+        "currentPhase": "mvp",
+        "targetLaunchDate": null,
+        "estimatedCost": null,
+        "roiTarget": null
+      }
+    },
+    "fiction-books": {
+      "details": "products/fiction-books/details.json",
+      "documentation": "products/fiction-books/documentation.md",
+      "owner": "dani",
+      "stage": "mvp",
+      "priorities": [
+        "novel-series-romance",
+        "novel-series-thriller",
+        "poetry-collections-mature",
+        "audio-narratives"
+      ],
+      "assignedKpis": [
+        "bavans-value-gate-pass-rate",
+        "human-review-gate-pass-rate",
+        "narrative-fidelity-score"
+      ],
+      "assignedProtocols": [
+        "human-review-required-protocol",
+        "product-track-separation-protocol",
+        "narrative-integrity-protocol"
+      ],
+      "assignedBranding": "./branding",
+      "metrics": {
+        "targetReviews": 500,
+        "successCriteria": "500+ reviews per novel, strong genre community engagement"
+      },
+      "developmentPlan": {
+        "currentPhase": "mvp",
+        "targetLaunchDate": null,
+        "estimatedCost": null,
+        "roiTarget": null
+      }
+    },
+    "comics": {
+      "details": "products/comics/details.json",
+      "documentation": "products/comics/documentation.md",
+      "owner": "sofia",
+      "stage": "planning",
+      "priorities": ["visual-storytelling", "character-perspective-expansion"],
+      "assignedKpis": [],
+      "assignedProtocols": ["human-review-required-protocol", "product-track-separation-protocol"],
+      "assignedBranding": "./branding",
+      "metrics": {
+        "targetMetrics": null,
+        "successCriteria": "TBD"
+      },
+      "developmentPlan": {
+        "currentPhase": "planning",
+        "targetLaunchDate": null,
+        "estimatedCost": null,
+        "roiTarget": null
+      }
+    },
+    "games": {
+      "details": "products/games/details.json",
+      "documentation": "products/games/documentation.md",
+      "owner": "julia",
+      "stage": "planning",
+      "priorities": ["interactive-story-experiences", "educational-games", "entertainment-games"],
+      "assignedKpis": [],
+      "assignedProtocols": ["human-review-required-protocol", "product-track-separation-protocol"],
+      "assignedBranding": "./branding",
+      "metrics": {
+        "targetMetrics": null,
+        "successCriteria": "TBD"
+      },
+      "developmentPlan": {
+        "currentPhase": "planning",
+        "targetLaunchDate": null,
+        "estimatedCost": null,
+        "roiTarget": null
+      }
+    },
+    "video-series": {
+      "details": "products/video-series/details.json",
+      "documentation": "products/video-series/documentation.md",
+      "owner": "dani",
+      "stage": "planning",
+      "priorities": ["streaming-platform-adaptation", "video-storytelling"],
+      "assignedKpis": [],
+      "assignedProtocols": ["human-review-required-protocol", "product-track-separation-protocol"],
+      "assignedBranding": "./branding",
+      "metrics": {
+        "targetMetrics": null,
+        "successCriteria": "TBD"
+      },
+      "developmentPlan": {
+        "currentPhase": "planning",
+        "targetLaunchDate": null,
+        "estimatedCost": null,
+        "roiTarget": null
+      }
+    }
+  },
+  "productsOrder": [
+    "kids-educational-books",
+    "podcast",
+    "poetry-music",
+    "fiction-books",
+    "comics",
+    "games",
+    "video-series"
+  ],
+  "updatedAt": "2026-04-08T00:00:00.000Z"
+}

@@ -110,17 +110,6 @@ export interface RegistryAgentRequirement {
   required: boolean
 }
 
-export interface RegistryModuleManifest {
-  id: string
-  title: string
-  route: string | null
-  enabled: boolean
-  ownership: string
-  kpis: RegistryKpiDefinition[]
-  inputs: RegistryInputDefinition[]
-  agentRequirements: RegistryAgentRequirement[]
-}
-
 export interface RegistryAgentTemplate {
   name: string
   role: string
@@ -344,7 +333,6 @@ export interface RegistrySnapshot {
   version: number
   loadedAt: string
   sourceRoot: string
-  manifests: RegistryModuleManifest[]
   onboarding: {
     company: RegistryCompanyCore
     product: RegistryProductDetails
@@ -420,4 +408,98 @@ export interface RegistryProductAssignments {
   companyId: string
   companyName?: string
   products: RegistryProductAssignment[]
+}
+
+// ============================================
+// Multi-Org Company Types (v2)
+// ============================================
+
+export interface CompanyMetadataCatalog {
+  companyId: string
+  description?: string
+  entries: Record<string, string>
+  updatedAt?: string
+}
+
+export interface CompanyProductAssignment {
+  details: string
+  documentation?: string
+  owner?: string
+  stage?: 'planning' | 'mvp' | 'growth' | 'mature' | 'deprecated'
+  priorities?: string[]
+  assignedKpis?: string[]
+  assignedProtocols?: string[]
+  assignedBranding?: string
+  metrics?: Record<string, unknown>
+  developmentPlan?: {
+    currentPhase?: string
+    targetLaunchDate?: string | null
+    estimatedCost?: number | null
+    roiTarget?: number | null
+  }
+}
+
+export interface CompanyProductCatalog {
+  companyId: string
+  description?: string
+  products: Record<string, CompanyProductAssignment>
+  productsOrder: string[]
+  updatedAt?: string
+}
+
+export interface CompanyProductDetails {
+  productId: string
+  companyId: string
+  goal: string
+  vision: string
+  problemSolved: string
+  usp: string
+  mvp: string[]
+  validation: {
+    methodology: string
+    successCriteria: string
+  }
+  contentFormats?: string[]
+  targetAudience?: string[]
+  contentTrack?: 'education' | 'fiction' | 'both'
+  ageGroups?: string[]
+  genres?: string[]
+  updatedAt?: string
+}
+
+export interface CompanyRegistry {
+  companyId: string
+  companyCore: string
+  branding?: {
+    theme?: string
+    typography?: string
+    templates?: string
+  }
+  metadata: {
+    agents: string
+    skills: string
+    protocols: string
+    kpis: string
+    'data-inputs': string
+    workflows: string
+    products: string
+  }
+  products: string
+  updatedAt?: string
+  migrationNote?: string
+}
+
+export interface CompanyLoadResult {
+  registry: CompanyRegistry
+  metadata: {
+    agents: CompanyMetadataCatalog
+    skills: CompanyMetadataCatalog
+    protocols: CompanyMetadataCatalog
+    kpis: CompanyMetadataCatalog
+    dataInputs: CompanyMetadataCatalog
+    workflows: CompanyMetadataCatalog
+    products: CompanyProductCatalog
+  }
+  products: Record<string, CompanyProductDetails>
+  validationErrors: string[]
 }
