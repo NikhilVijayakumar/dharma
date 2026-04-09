@@ -73,38 +73,48 @@ Dharma defines the foundational contracts. Applications (like Dhi) integrate Dha
 
 ## Registry Structure
 
-Dharma organizes registry data into two layers:
+Dharma organizes registry data via modular loader:
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                      SHARED POOL                                      │
-│           (agents, skills, protocols, kpis, data-inputs, workflows)     │
-└────────────────────────────────┬────────────────────────────────────┘
-                                 │
-                                 └── COMPANY ── links ──► SHARED POOL
-                                     ├── metadata.json
-                                     ├── registry.json
-                                     └── branding/
+src/
+├── schemas/
+│   ├── domain/          # Runtime domain payload contracts
+│   │   ├── compliance.ts
+│   │   ├── cron.ts
+│   │   ├── governance.ts
+│   │   ├── queue.ts
+│   │   └── settings.ts
+│   └── onboarding/
+│       └── onboarding-commit.schema.json
+│
+└── registry/
+    ├── loader/           # Modular loader (13 TS modules)
+    │   ├── index.ts      # Main exports
+    │   ├── agents.ts     # Agent loading logic
+    │   ├── skills.ts     # Skill loading logic
+    │   ├── kpis.ts       # KPI loading logic
+    │   ├── protocols.ts  # Protocol loading logic
+    │   ├── workflows.ts  # Workflow loading logic
+    │   ├── data-inputs.ts
+    │   ├── company.ts   # Company registry loading
+    │   ├── products.ts  # Product catalog loading
+    │   ├── types.ts     # Loader-specific types
+    │   ├── validation.ts
+    │   └── paths.ts
+    ├── schemas/          # JSON schema definitions
+    ├── scripts/          # Build scripts
+    ├── types.ts          # Core registry types (505+ lines)
+    ├── workflows/        # Agent workflow YAMLs
+    └── protocols/        # Protocol YAMLs/MDs
 ```
 
-### Shared Pool
+### Shared Pool Entities
 
-Generic, reusable assets shared across all companies:
+Registry entities are defined in TypeScript and loaded programmatically:
 
-- `agents/` — Agent templates
-- `skills/` — Functional capabilities
-- `protocols/` — Behavioral mandates
-- `kpis/` — Metric definitions
-- `data-inputs/` — Stream definitions
-- `workflows/` — Orchestration logic
-
-### Company
-
-Organizational units with company-specific data:
-
-- `metadata.json` — Corporate identity and values (formerly `company-core.json`)
-- `branding/` — Visual identity (inside company)
-- `registry.json` — Products definitions + links to shared pool assets
+- **Workflows** — YAML in `registry/workflows/{agent}/`
+- **Protocols** — YAML/MD in `registry/protocols/`
+- **Types** — Interfaces in `registry/types.ts`
 
 ## Architecture
 

@@ -31,24 +31,45 @@ Dharma organizes registry data into two layers:
 ## Registry Directories
 
 ```
-src/registry/
-├── agents/           # Shared pool
-├── skills/           # Shared pool
-├── protocols/        # Shared pool
-├── kpis/             # Shared pool
-├── data-inputs/      # Shared pool
-├── workflows/        # Shared pool
-├── schemas/          # JSON schema definitions
-├── scripts/          # Build scripts
-├── loader.ts         # Registry loader
-├── types.ts          # TypeScript types
+src/
+├── registry/
+│   ├── loader/            # Modular loader (13 TypeScript modules)
+│   │   ├── index.ts       # Main exports
+│   │   ├── agents.ts      # Agent loading logic
+│   │   ├── skills.ts      # Skill loading logic
+│   │   ├── kpis.ts        # KPI loading logic
+│   │   ├── protocols.ts   # Protocol loading logic
+│   │   ├── workflows.ts   # Workflow loading logic
+│   │   ├── data-inputs.ts # Data input loading logic
+│   │   ├── company.ts     # Company registry loading
+│   │   ├── products.ts    # Product catalog loading
+│   │   ├── types.ts       # Loader-specific types
+│   │   ├── validation.ts  # AJV validation utilities
+│   │   └── paths.ts       # Path resolution
+│   ├── schemas/           # JSON schema definitions
+│   ├── scripts/           # Build/validation scripts
+│   ├── types.ts           # Core registry types (505+ lines)
+│   ├── workflows/         # Agent workflow YAMLs
+│   └── protocols/         # Protocol YAMLs/MDs
 │
-└── company/          # Company-specific
-    └── {company-id}/
-        ├── metadata.json          # Company identity/values
-        ├── registry.json          # Products + asset references
-        └── branding/              # Company branding
+├── schemas/
+│   ├── domain/            # Runtime domain payload contracts
+│   └── onboarding/       # Onboarding schemas
 ```
+
+## Registry Entity Storage
+
+Registry entities (agents, skills, KPIs, data-inputs) are **defined programmatically** in TypeScript:
+
+- Type definitions in `src/registry/types.ts`
+- Loading logic in `src/registry/loader/` modules
+- YAML data in workflows/ and protocols/ directories
+
+The "Shared Pool" pattern is implemented via:
+
+- **Workflows**: YAML files in `src/registry/workflows/{agent}/`
+- **Protocols**: YAML/MD files in `src/registry/protocols/`
+- **Domain Types**: TypeScript interfaces for entities
 
 ## Responsibility Boundaries
 

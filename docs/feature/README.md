@@ -15,26 +15,31 @@ This folder documents the core logic, pipelines, and schema implementations of D
 
 These documents map to physical directories in `src/registry/`:
 
-| Module                                        | Directory                                          | Description                                         |
-| --------------------------------------------- | -------------------------------------------------- | --------------------------------------------------- |
-| [Agents](agents.md)                           | `src/registry/agents/`                             | Virtual employee templates and configurations       |
-| [KPIs](kpis.md)                               | `src/registry/kpis/`                               | Metric definitions and thresholds                   |
-| [Data Inputs](data-inputs.md)                 | `src/registry/data-inputs/`                        | Stream definitions and access policies              |
-| [Protocols & Skills](protocols-and-skills.md) | `src/registry/protocols/` & `src/registry/skills/` | Behavioral mandates and capabilities                |
-| [Workflows](workflows.md)                     | `src/registry/workflows/`                          | Orchestration logic and cross-agent interactions    |
-| [Company](company.md)                         | `src/registry/company/`                            | Company registry with products and asset references |
+| Module                                        | Directory / Location                           | Description                                         |
+| --------------------------------------------- | ---------------------------------------------- | --------------------------------------------------- |
+| [Agents](agents.md)                           | `loader/agents.ts` + `types.ts`                | Virtual employee templates and configurations       |
+| [KPIs](kpis.md)                               | `loader/kpis.ts` + `types.ts`                  | Metric definitions and thresholds                   |
+| [Data Inputs](data-inputs.md)                 | `loader/data-inputs.ts` + `types.ts`           | Stream definitions and access policies              |
+| [Protocols & Skills](protocols-and-skills.md) | `protocols/` (YAML/MD) + `loader/protocols.ts` | Behavioral mandates and capabilities                |
+| [Workflows](workflows.md)                     | `workflows/` (YAML) + `loader/workflows.ts`    | Orchestration logic and cross-agent interactions    |
+| [Company](company.md)                         | `loader/company.ts` + `company/`               | Company registry with products and asset references |
 
 ## Registry Structure
 
 ```
-SHARED POOL ─────────────────────────────────────────────────────
-(agents, skills, protocols, kpis, data-inputs, workflows)
-        │
-        └── COMPANY ── links ──► SHARED POOL
-            ├── metadata.json    # Company identity/values
-            ├── registry.json    # Products + asset references
-            └── branding/        # Company-specific branding
+src/
+├── registry/
+│   ├── loader/           # 13 TypeScript modules for loading entities
+│   ├── schemas/          # JSON schema definitions
+│   ├── scripts/          # Build scripts
+│   ├── types.ts          # Core types (500+ lines)
+│   ├── workflows/        # Agent workflow YAMLs
+│   └── protocols/        # Protocol YAMLs/MDs
+└── schemas/
+    └── domain/           # Runtime domain contracts
 ```
+
+Registry entities are **programmatically typed and loaded**, not stored as separate files in directory-based "pools".
 
 ## Quick Reference
 
