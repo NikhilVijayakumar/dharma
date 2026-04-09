@@ -140,6 +140,13 @@ export const isRegistryInitialized = (): boolean => {
  * This function normalizes the path to be relative to the registry root.
  */
 export const resolveSchemaPath = (schemaRef: string): string => {
+  // Validate that schemaRef doesn't contain dangerous patterns
+  if (schemaRef.includes('..') || schemaRef.startsWith('/')) {
+    console.warn(`Potentially dangerous schema reference: ${schemaRef}`)
+    throw new Error(
+      `Invalid schema reference: path traversal or absolute path not allowed: ${schemaRef}`
+    )
+  }
   // Strip leading "../" sequences to get path relative to registry root
   const normalized = schemaRef.replace(/^(\.\.\/)+/, '')
   return resolveRegistryPath(normalized)
