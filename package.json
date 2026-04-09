@@ -1,6 +1,6 @@
 {
   "name": "dharma",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Dharma: Domain schemas, registry definitions, and virtual employee specifications",
   "type": "module",
   "main": "./dist/index.js",
