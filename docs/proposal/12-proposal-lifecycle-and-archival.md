@@ -128,7 +128,7 @@ draft ──(draft_commit_hash)──▶ finalized ──(finalized_commit_hash)
 ## Lifecycle
 
 > Status: draft
-> Draft commit: not yet committed
+> Draft commit: `6cc5919`
 > Finalized commit: not yet finalized
 > Implementation commit (final, verified): not yet implemented
 > Archive commit: not yet archived
