@@ -3,6 +3,7 @@
 > Status: Draft — design-only, no schema/code. Conforms to `docs/raw/architecture.md` standard.
 > **Supersedes** the original Domain Shape Integration draft. A repository does not author a bespoke Domain Definition Set — it **chooses** a registered Domain System (e.g. `rust-dev-domain`, `electron-dev-domain`), the same way it would have chosen a Standard in Samgraha, but the Domain System itself is a reusable registry asset, not a per-repository bundle.
 > **Extended by Provider Config & Repo Sync (11):** a Domain System provider declares itself via `dharma-domain.toml`; a consuming repository's selection syncs that Domain System's content in full into its own `.dharma/repo.db` — see 11 for both.
+> **Section Map/Profile format pinned by [13](13-bodha-section-format-reference.md):** the format cited below is now verified against Bodha's actual files, frozen as observed, with named gaps deferred rather than assumed away.
 
 ## Purpose
 
