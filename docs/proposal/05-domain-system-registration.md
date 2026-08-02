@@ -14,7 +14,7 @@ Unlike Samgraha, where each repository registers as its own Standard and must in
 
 ### Overview
 
-A Domain System is a named, registered entry (e.g. `rust-dev-domain`, `electron-dev-domain`) that bundles three things: a Section Map (which sections a document of this domain needs, and why — following the shape of Bodha's `.bodha-structure/section`), a Section Profile per section (what data belongs in that section and how it is filled — following Bodha's `profile-default`), and the full Epic/Usecase/Task set for the domain (see Epic / Usecase / Task Model proposal). A repository registers by selecting one existing Domain System; it does not define a new one itself.
+A Domain System is a named, registered entry (e.g. `rust-dev-domain`, `electron-dev-domain`) that carries a set of **domains** — individual documents such as `vision`, `philosophy`, `architecture`, `engineering`, `qa` (a base domain set carries 16; a domain like `rust-dev-domain` extends that set and drops a few that don't apply, per `docs/raw`'s own precedent of a repository maintaining a subset of doc-types). Each domain owns its own Section Map (which sections that document needs, and why — a self-referencing tree of sections and optional subsections, following the shape of Bodha's `section-map.yaml`) and a Section Profile per section (what data belongs in that section and how it is filled — following Bodha's `profile-default`). The Domain System as a whole also owns the full Epic/Usecase/Task set for the domain (see Epic / Usecase / Task Model proposal). A repository registers by selecting one existing Domain System; it does not define a new one itself.
 
 ### Structural Approach
 
@@ -39,18 +39,23 @@ Domain Systems live in a registry parallel to the Agent System Registry. Authori
 ## Component Model
 
 ### Domain System Entry
-- **Responsibility:** Names one domain (e.g. `rust-dev-domain`) and bundles its Section Map, Section Profiles, and Epic/Usecase/Task set.
-- **Ownership:** All three sub-artifacts below.
+- **Responsibility:** Names one Domain System (e.g. `rust-dev-domain`) and bundles the Domain set, the Epic/Usecase/Task set, and (see proposal 08) its audit definitions.
+- **Ownership:** The Domain set below, plus the Epic/Usecase/Task Set.
 - **Interfaces:** Selected, not authored, by a registering repository; read by the default Agent System during shape analysis.
 
+### Domain
+- **Responsibility:** Represents one document type this Domain System carries (e.g. `vision`, `architecture`, `qa`) — the unit a Section Map and its Section Profiles are scoped to.
+- **Ownership:** Name, an optional tier/relationship position, and the Section Map + Section Profiles below.
+- **Interfaces:** A Domain System owns any number of Domains; read by any Agent System producing or reviewing a document of this type.
+
 ### Section Map
-- **Responsibility:** States which sections a document of this domain needs and why each is required, mirroring Bodha's `.bodha-structure/section` map.
-- **Ownership:** Section list with purpose/rationale per section.
-- **Interfaces:** Read by any Agent System producing or reviewing a document for a repository registered against this Domain System.
+- **Responsibility:** States which sections a document of this Domain needs and why each is required, as a self-referencing tree — subsections nest under sections — mirroring Bodha's `section-map.yaml`.
+- **Ownership:** The section tree, with purpose/rationale and a required/optional flag per entry.
+- **Interfaces:** Read by any Agent System producing or reviewing a document of this Domain for a repository registered against this Domain System.
 
 ### Section Profile
-- **Responsibility:** States what data a given section can be filled with and how, one profile per section, mirroring Bodha's `profile-default`.
-- **Ownership:** Fill rules per section.
+- **Responsibility:** States what data a given section (or subsection) can be filled with and how, one profile per section, mirroring Bodha's `profile-default`.
+- **Ownership:** Fill rules per section, inheriting a default profile unless overridden.
 - **Interfaces:** Read by Documentation-concern Agent Systems when producing a proposed solution for a documentation Task.
 
 ### Epic/Usecase/Task Set
@@ -61,8 +66,9 @@ Domain Systems live in a registry parallel to the Agent System Registry. Authori
 ### Component Diagram
 
 ```text
-Domain System Entry ──owns──▶ Section Map
-                     ──owns──▶ Section Profile (one per section)
+Domain System Entry ──owns──▶ Domain (× N, e.g. vision, architecture, qa, ...)
+                                  ──owns──▶ Section Map (self-referencing tree)
+                                  ──owns──▶ Section Profile (one per section)
                      ──owns──▶ Epic/Usecase/Task Set
                                           │
                      Repository ──selects──┘ (read-only inheritance)
@@ -74,7 +80,7 @@ Domain System Entry ──owns──▶ Section Map
 
 **Repository → Domain System Registry**
 - **Pattern:** Synchronous selection, at registration time.
-- **Contract:** Repository submits a chosen Domain System name; Registry returns the bound Section Map, Section Profiles, and Epic/Usecase/Task set, or an error if the name is unregistered.
+- **Contract:** Repository submits a chosen Domain System name; Registry returns the bound Domain set (each with its Section Map and Section Profiles) and Epic/Usecase/Task set, or an error if the name is unregistered.
 
 **Agent-Management Agent System → Domain System Registry**
 - **Pattern:** Synchronous write, gated to Agent-Management only.
@@ -84,7 +90,7 @@ Domain System Entry ──owns──▶ Section Map
 
 ```text
 Repo → Domain System Registry : select(domainSystemName)
-Domain System Registry → Repo : sectionMap, sectionProfiles, epicUsecaseTaskSet | error(unregistered)
+Domain System Registry → Repo : domainSet (sectionMaps + sectionProfiles per domain), epicUsecaseTaskSet | error(unregistered)
 Agent-Management Agent System → Domain System Registry : write(domainSystemEntry)
 ```
 
@@ -101,7 +107,7 @@ Agent-Management Agent System → Domain System Registry : write(domainSystemEnt
 ### Data Flow Diagram
 
 ```text
-Repo ──selects(name)──▶ Domain System Registry ──▶ Section Map + Section Profiles + Epic/Usecase/Task Set
+Repo ──selects(name)──▶ Domain System Registry ──▶ Domain set (Section Maps + Section Profiles) + Epic/Usecase/Task Set
                                                           │
                                                           ▼
                                               Repo Registration Record (bound)
@@ -111,7 +117,7 @@ Repo ──selects(name)──▶ Domain System Registry ──▶ Section Map +
 
 | Data Entity | Owning Component |
 |---|---|
-| Section Map, Section Profiles, Epic/Usecase/Task set | Domain System Registry (authored by Agent-Management Agent System) |
+| Domain set, Section Maps, Section Profiles, Epic/Usecase/Task set | Domain System Registry (authored by Agent-Management Agent System) |
 | Domain System selection | Repo Registration Record |
 
 ## Security
@@ -141,6 +147,13 @@ Repo ──selects(name)──▶ Domain System Registry ──▶ Section Map +
 - **Alternatives Considered:** Design a Dharma-specific shape format.
 - **Rejection Reason:** No architectural benefit was identified over the existing, working Bodha format; reinventing it would fragment tooling.
 - **Architectural Goal:** Reuse over reinvention (carried over from the original Domain Shape Integration proposal).
+
+### Domain as Its Own Tier, Not a Flat Section Map Per System
+- **Context:** A Domain System doesn't carry one document — it carries many (e.g. `vision`, `philosophy`, `architecture`, `qa`, and others), each needing its own Section Map, the same way this very proposal set spans `docs/raw/architecture.md`, `docs/raw/qa.md`, and others as separate documents.
+- **Decision:** `domain` is its own entity between the Domain System and its Section Map/Section Profiles — a Domain System owns any number of Domains, each scoped to one document type.
+- **Alternatives Considered:** One Section Map per Domain System, covering every document type in a single flat tree.
+- **Rejection Reason:** A single flat tree cannot express that `rust-dev-domain` extends a base document set but drops a few types that don't apply to it — that's a per-document-type decision, not a per-system one.
+- **Architectural Goal:** A Domain System can extend or narrow a base document set per Domain, without forcing every Domain System to define every document type from scratch.
 
 ## Constraints
 

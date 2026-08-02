@@ -37,8 +37,8 @@ Usecase ── Usecase ── Usecase        Usecase  (user-facing capability)
 ## Component Model
 
 ### Epic
-- **Responsibility:** States one domain-wide objective the Domain System exists to satisfy (e.g., for `rust-dev-domain`: "produce a reviewable crate architecture").
-- **Ownership:** Name, objective statement, ordered list of Usecases that realize it.
+- **Responsibility:** States one domain-wide objective the Domain System exists to satisfy (e.g., for `rust-dev-domain`: "produce a reviewable crate architecture"). An Epic may itself contain another Epic, for objectives that decompose into sub-objectives before reaching Usecases.
+- **Ownership:** Name, objective statement, an optional parent Epic reference, ordered list of Usecases that realize it.
 - **Interfaces:** Read by the Domain System registry when a repository registers; read by the default Agent System during shape analysis (see MCP Registration & Bootstrap proposal).
 
 ### Usecase
@@ -48,8 +48,8 @@ Usecase ── Usecase ── Usecase        Usecase  (user-facing capability)
 
 ### Task
 - **Responsibility:** Executable unit of work: explicit input, explicit output, an ordered Step Sequence, and an Acceptance Criteria Set spanning happy path, corner case, and edge case.
-- **Ownership:** Input Contract, Output Contract, Step Sequence, Acceptance Criteria Set, reference to parent Usecase.
-- **Interfaces:** Assigned to an initiating Agent by the Task Runtime; validated by the Completion Validator (see Proposal & Execution Protocol proposal) against its Acceptance Criteria Set.
+- **Ownership:** Input Contract, Output Contract, Step Sequence, Acceptance Criteria Set, reference to parent Usecase, an optional template reference the Domain System suggests as a starting point.
+- **Interfaces:** Assigned to an initiating Agent by the Task Runtime; validated by the Completion Validator (see Proposal & Execution Protocol proposal) against its Acceptance Criteria Set. An Agent may substitute one of its own Skill's Templates (see Skill Model proposal) for the Task's suggested template when it judges that a better fit.
 
 ### Component Diagram
 

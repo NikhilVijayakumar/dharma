@@ -24,7 +24,7 @@ root_dir = "${DHARMA_DOCS_DIR}"
 # The doc-type standards this repository maintains under docs/raw/ — see
 # docs/raw/crates.md for why "crates" is its own type, not folded into
 # "architecture".
-domain = ["architecture", "build", "engineering", "implementation", "qa", "crates"]
+domain = ["architecture", "build", "engineering", "implementation", "qa", "crates", "proposal"]
 
 [repository.implementation]
 # The Cargo workspace root — resolves to "crates" via env.
