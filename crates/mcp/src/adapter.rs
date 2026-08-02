@@ -646,19 +646,19 @@ impl McpAdapter {
             .ok_or_else(|| anyhow::anyhow!("run_skill requires repo_path"))?;
         let skill_ref = req.require_str("skill_ref")?;
         let input = req.get_value("input")?.unwrap_or(Value::Null);
-        let task_instance_id = req.get_i64("task_instance_id")?;
+        let task_instance_id = req.require_i64("task_instance_id")?;
 
-        let (skill_id, skill_name, responsibility, script_ref, prompt) = {
+        let (skill_id, skill_name, responsibility, is_analysis_only, script_ref, prompt) = {
             let conn = self.mcp_db.conn();
             let conn = conn.lock().unwrap();
             let mut stmt = conn.prepare(
-                "SELECT id, name, responsibility FROM skill WHERE id = ?1 OR name = ?2 ORDER BY id LIMIT 1",
+                "SELECT id, name, responsibility, is_analysis_only FROM skill WHERE id = ?1 OR name = ?2 ORDER BY id LIMIT 1",
             )?;
             let mut rows = stmt.query_map(
                 rusqlite::params![skill_ref.parse::<i64>().unwrap_or(0), skill_ref],
-                |r| Ok((r.get::<_, i64>(0)?, r.get::<_, String>(1)?, r.get::<_, String>(2)?)),
+                |r| Ok((r.get::<_, i64>(0)?, r.get::<_, String>(1)?, r.get::<_, String>(2)?, r.get::<_, bool>(3)?)),
             )?;
-            let (skill_id, skill_name, responsibility) = match rows.next() {
+            let (skill_id, skill_name, responsibility, is_analysis_only) = match rows.next() {
                 Some(Ok(row)) => row,
                 _ => return Err(anyhow::anyhow!("skill '{skill_ref}' not found")),
             };
@@ -676,8 +676,16 @@ impl McpAdapter {
                     |r| r.get(0),
                 )
                 .ok();
-            (skill_id, skill_name, responsibility, script_ref, prompt)
+            (skill_id, skill_name, responsibility, is_analysis_only, script_ref, prompt)
         };
+
+        // proposal 07 Hard Constraint: effect-capable skills are inert until
+        // the instance's Execution Loop begins — enforced here, before a
+        // script is ever spawned, not left to the caller's good faith.
+        let repo = self.open_repo(req)?;
+        let instance = get_task_instance(&repo, TaskInstanceId(task_instance_id))?
+            .ok_or_else(|| anyhow::anyhow!("task instance {task_instance_id} not found"))?;
+        check_skill_invocation_allowed(&instance.status, is_analysis_only)?;
 
         let script_path = script_ref.map(PathBuf::from);
         let script_path = match script_path {
@@ -1419,5 +1427,103 @@ mod tests {
     #[test]
     fn json_parse_helper() {
         assert_eq!(json_parse("{\"a\":1}")["a"], 1);
+    }
+
+    #[test]
+    fn run_skill_refuses_effect_capable_skill_before_execution_loop() {
+        let a = adapter();
+        call(
+            &a,
+            "register_agent_system",
+            &[("name", json!("rust-dev")), ("concern", json!("rust-development"))],
+            None,
+        );
+        let agent_system_id = {
+            let conn = a.mcp_db.conn();
+            let conn = conn.lock().unwrap();
+            conn.query_row(
+                "SELECT id FROM agent_system_registry WHERE name = 'rust-dev'",
+                [],
+                |r| r.get::<_, i64>(0),
+            )
+            .unwrap()
+        };
+        let content_asset_id = {
+            let conn = a.mcp_db.conn();
+            let conn = conn.lock().unwrap();
+            conn.execute(
+                "INSERT INTO content_asset (source_system, asset_kind, file_path, content_text, content_hash)
+                 VALUES ('test', 'yaml', 'agent.yaml', '', 'h')",
+                [],
+            )
+            .unwrap();
+            conn.last_insert_rowid()
+        };
+        let bundle = r#"
+agents:
+  - name: Builder
+    role: Builds the crate.
+    goals:
+      - order: 1
+        goal: Compile cleanly.
+        backstory: Experienced Rust engineer.
+    skills:
+      - name: cargo-build
+        responsibility: Run cargo build.
+        is_analysis_only: false
+        invocation_input: { "type": "object" }
+        invocation_output: { "type": "object" }
+        prompt: "Build the crate."
+        script_ref: "scripts/build.py"
+        examples:
+          - input: {}
+            output: {}
+"#;
+        services::content::import_agent_bundle(&a.mcp_db, agent_system_id, content_asset_id, bundle).unwrap();
+        let agent_id = {
+            let conn = a.mcp_db.conn();
+            let conn = conn.lock().unwrap();
+            conn.query_row("SELECT id FROM agent WHERE name = 'Builder'", [], |r| r.get::<_, i64>(0))
+                .unwrap()
+        };
+
+        let root = std::env::temp_dir().join(format!("dharma-mcp-test-{}", uuid::Uuid::new_v4()));
+        std::fs::create_dir_all(root.join(".dharma")).unwrap();
+        let root_str = root.to_string_lossy().to_string();
+        let repo = ::registry::RepoDb::open_at(&root.join(".dharma").join("repo.db")).unwrap();
+        let instance = services::create_task_instance(&repo, 1, agent_system_id, agent_id).unwrap();
+        assert_eq!(instance.status, "proposing");
+
+        // still proposing -- effect-capable skill (bound script) must be refused
+        let msg = call_err(
+            &a,
+            "run_skill",
+            &[
+                ("skill_ref", json!("cargo-build")),
+                ("task_instance_id", json!(instance.id.0)),
+            ],
+            Some(&root_str),
+        );
+        assert!(msg.contains("inert until the Execution Loop"), "{msg}");
+
+        // move the instance all the way to 'executing'
+        let rev = services::draft_proposal(&repo, instance.id, agent_system_id, agent_id, "{}").unwrap();
+        services::approve_proposal(&repo, instance.id, rev.id, "alice").unwrap();
+        services::begin_execution(&repo, instance.id, agent_system_id, agent_id).unwrap();
+
+        // now the gate passes -- fails afterward only because the script file doesn't exist on disk
+        let msg = call_err(
+            &a,
+            "run_skill",
+            &[
+                ("skill_ref", json!("cargo-build")),
+                ("task_instance_id", json!(instance.id.0)),
+            ],
+            Some(&root_str),
+        );
+        assert!(msg.contains("does not exist"), "{msg}");
+        assert!(!msg.contains("inert until the Execution Loop"), "{msg}");
+
+        let _ = std::fs::remove_dir_all(&root);
     }
 }

@@ -458,6 +458,23 @@ pub fn begin_execution(
         .ok_or_else(|| anyhow::anyhow!("execution state {id} not found after insert"))
 }
 
+/// Gate a Skill invocation against the Task Instance it's being invoked
+/// within (proposal 07's Hard Constraint: "Proposal Loop Skills must be
+/// analysis-only — effect-capable Skills are inert until the Execution
+/// Loop"). An analysis-only Skill (`is_analysis_only`) may run in any
+/// status; an effect-capable Skill (a bound script or template) may only
+/// run while the instance is `executing`. Called by both `run_skill`
+/// entry points (CLI and MCP) before a script is ever spawned.
+pub fn check_skill_invocation_allowed(status: &str, is_analysis_only: bool) -> Result<()> {
+    if is_analysis_only || status == "executing" {
+        return Ok(());
+    }
+    bail!(
+        "cannot run effect-capable skill for a task instance with status '{status}': \
+         effect-capable skills are inert until the Execution Loop ('executing')"
+    );
+}
+
 /// Update the Execution Loop's current position in place (the append-only
 /// history lives in `handoff_log`). Returns the updated state.
 pub fn advance_execution(
@@ -935,5 +952,21 @@ mod tests {
         let ti = create_task_instance(&repo, 1, 1, 1).unwrap();
         let err = rework_task_instance(&repo, ti.id, 2, 2);
         assert!(err.is_err()); // not 'failed' yet
+    }
+
+    #[test]
+    fn analysis_only_skill_runs_in_any_status() {
+        for status in ["proposing", "approved", "executing", "complete", "failed"] {
+            assert!(check_skill_invocation_allowed(status, true).is_ok());
+        }
+    }
+
+    #[test]
+    fn effect_capable_skill_only_runs_while_executing() {
+        assert!(check_skill_invocation_allowed("executing", false).is_ok());
+        for status in ["proposing", "approved", "complete", "failed"] {
+            let err = check_skill_invocation_allowed(status, false);
+            assert!(err.is_err(), "expected '{status}' to reject an effect-capable skill");
+        }
     }
 }

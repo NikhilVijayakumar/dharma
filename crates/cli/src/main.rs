@@ -170,12 +170,16 @@ enum Command {
         #[arg(long)]
         reason: String,
     },
-    /// Run a skill (scripted or analysis-only).
+    /// Run a skill (scripted or analysis-only). An effect-capable skill
+    /// (bound script/template) is refused unless the Task Instance is
+    /// 'executing' (proposal 07).
     RunSkill {
         #[arg(long)]
         root: String,
         #[arg(long)]
         skill_ref: String,
+        #[arg(long)]
+        task_instance: i64,
         #[arg(long)]
         input: Option<String>,
     },
@@ -486,10 +490,14 @@ fn run(cli: Cli, mcp: &McpDb) -> Result<()> {
             )?;
             println!("handoff_id={} hop={} to_agent={}", hop.id, hop.hop_order, hop.to_agent_id);
         }
-        Command::RunSkill { root, skill_ref, input } => {
+        Command::RunSkill { root, skill_ref, task_instance, input } => {
             let input_value = input.map(|s| serde_json::from_str(&s)).transpose()?.unwrap_or(serde_json::Value::Null);
             let root_path = Path::new(&root);
-            let (skill_id, skill_name, script_ref, prompt) = skill_lookup(mcp, &skill_ref)?;
+            let (skill_id, skill_name, is_analysis_only, script_ref, prompt) = skill_lookup(mcp, &skill_ref)?;
+            let repo = open_repo(&root)?;
+            let instance = get_task_instance(&repo, TaskInstanceId(task_instance))?
+                .ok_or_else(|| anyhow::anyhow!("task instance {task_instance} not found"))?;
+            check_skill_invocation_allowed(&instance.status, is_analysis_only)?;
             let script_path = script_ref.map(|s| {
                 let p = PathBuf::from(s);
                 if p.is_absolute() { p } else { root_path.join(p) }
@@ -765,17 +773,17 @@ fn resolve_agent_by_concern(mcp: &McpDb, concern: &str) -> Result<(i64, i64)> {
     Ok((system.id.0, agent_id))
 }
 
-fn skill_lookup(mcp: &McpDb, skill_ref: &str) -> Result<(i64, String, Option<String>, Option<String>)> {
+fn skill_lookup(mcp: &McpDb, skill_ref: &str) -> Result<(i64, String, bool, Option<String>, Option<String>)> {
     let conn = mcp.conn();
     let conn = conn.lock().unwrap();
     let mut stmt = conn.prepare(
-        "SELECT id, name FROM skill WHERE id = ?1 OR name = ?2 ORDER BY id LIMIT 1",
+        "SELECT id, name, is_analysis_only FROM skill WHERE id = ?1 OR name = ?2 ORDER BY id LIMIT 1",
     )?;
     let mut rows = stmt.query_map(
         rusqlite::params![skill_ref.parse::<i64>().unwrap_or(0), skill_ref],
-        |r| Ok((r.get::<_, i64>(0)?, r.get::<_, String>(1)?)),
+        |r| Ok((r.get::<_, i64>(0)?, r.get::<_, String>(1)?, r.get::<_, bool>(2)?)),
     )?;
-    let (skill_id, skill_name) = match rows.next() {
+    let (skill_id, skill_name, is_analysis_only) = match rows.next() {
         Some(Ok(row)) => row,
         _ => bail!("skill '{skill_ref}' not found"),
     };
@@ -793,7 +801,7 @@ fn skill_lookup(mcp: &McpDb, skill_ref: &str) -> Result<(i64, String, Option<Str
             |r| r.get(0),
         )
         .ok();
-    Ok((skill_id, skill_name, script, prompt))
+    Ok((skill_id, skill_name, is_analysis_only, script, prompt))
 }
 
 fn resolve_domain(mcp: &McpDb, uuid: &str, domain_name: &str) -> Result<(i64, String)> {
