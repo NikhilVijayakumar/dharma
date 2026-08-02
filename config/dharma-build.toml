@@ -1,0 +1,50 @@
+# Example — proposal state, not yet loaded by any runtime.
+# Dharma's OWN self-tooling config: building/testing the dharma workspace and
+# keeping its docs/raw compliant. Has no MCP protocol role — see
+# docs/proposal/11-provider-config-and-repo-sync.md, "Dharma Build Config".
+# Lives at the dharma repository's own root, alongside dharma-build.toml itself.
+
+[repository]
+id = "dharma"
+name = "dharma"
+uuid = "00000000-0000-0000-0000-000000000000"  # replace with a real uuid
+
+[repository.ignore]
+patterns = [
+    "**/node_modules/**",
+    "**/target/**",
+    "**/.git/**",
+    "**/archive/**",
+]
+
+[repository.documentation]
+# Absolute path resolved from DHARMA_DOCS_DIR (see env/dharma-build.env.example)
+# — falls back to <repo>/docs if unset.
+root_dir = "${DHARMA_DOCS_DIR}"
+# The doc-type standards this repository maintains under docs/raw/ — see
+# docs/raw/crates.md for why "crates" is its own type, not folded into
+# "architecture".
+domain = ["architecture", "build", "engineering", "implementation", "qa", "crates"]
+
+[repository.implementation]
+# The Cargo workspace root — resolves to "crates" via env.
+dir = "${DHARMA_IMPLEMENTATION_DIR}"
+
+[pipelines.build]
+command = ["cargo", "build", "--release", "--workspace"]
+working_directory = "${PROJECT_ROOT}"
+description = "Build every crate in the workspace"
+produces = ["release binaries: cli, mcp"]
+consumes = ["source code", "dependencies"]
+
+[pipelines.test]
+command = ["cargo", "test", "--workspace"]
+working_directory = "${PROJECT_ROOT}"
+description = "Run unit + integration tests across the workspace"
+produces = ["test results"]
+consumes = ["source code"]
+
+[report]
+# Base dir for generated reports. Falls back to <repo>/docs/report if
+# DHARMA_REPORT_DIR is unset.
+dir = "${DHARMA_REPORT_DIR}"

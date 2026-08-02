@@ -1,0 +1,35 @@
+# Example — proposal state, not yet loaded by any runtime.
+# Config for a repository that PROVIDES a Domain System to Dharma's MCP (the
+# role Kriti plays for Samgraha's rust_dev domain) — see docs/proposal/
+# 05-domain-system-registration.md and docs/proposal/11-provider-config-and-
+# repo-sync.md, "Domain System Provider Config". Lives at this provider
+# repository's own root. This repository never receives a `.dharma/`
+# directory itself — that only exists in a CONSUMING repository
+# (dharma-repo.toml).
+
+[domain_system]
+name = "rust-dev-domain"
+version = "0.1.0"
+description = "Rust development domain: crate architecture, trait design, engineering standard for Rust workspaces"
+
+[domain_system.content]
+# Where this provider's domain/section/epic/usecase/task source files live —
+# walked by Dharma's capture flow and recorded into content_asset (see
+# schema/mcp/02-content_asset.sql). Relative to this repository's root.
+root_dir = "${DHARMA_DOMAIN_CONTENT_DIR}"
+# The domain's Section Map file within root_dir (mirrors Bodha's
+# .bodha-structure/section convention — see docs/proposal/05).
+section_map = "section-map.yaml"
+
+[domain_system.mcp]
+# Where MCP's own data directory lives, so the capture flow knows where to
+# register this Domain System. Same variable a consuming repo's
+# dharma-repo.toml uses to find the same MCP instance.
+mcp_dir = "${DHARMA_MCP_DIR}"
+
+[repository.ignore]
+patterns = [
+    "**/node_modules/**",
+    "**/.git/**",
+    "**/target/**",
+]

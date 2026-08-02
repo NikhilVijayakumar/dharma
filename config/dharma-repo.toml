@@ -1,0 +1,67 @@
+# Example — proposal state, not yet loaded by any runtime.
+# Config for a CONSUMING repository — an ordinary project that registers with
+# Dharma's MCP, selects a Domain System, and receives synced Domain/Agent
+# content into its own .dharma/ directory. See docs/proposal/06-mcp-
+# registration-bootstrap.md and docs/proposal/11-provider-config-and-repo-
+# sync.md, "Consuming Repo Config". Lives at this repository's own root —
+# .dharma/ itself holds only generated artifacts (repo.db, the two
+# summaries), never this file.
+#
+# This file SELECTS a Domain System by name only — it never lists specific
+# Agent Systems directly (docs/proposal/06's Rationale: capability
+# resolution is analysis, not direct binding). Which Agent Systems actually
+# get synced is decided by the Default/Bootstrap Agent System and a human
+# reviewer, recorded in mcp.db's capability_manifest.
+
+[repository]
+id = "my-service"
+name = "My Service"
+uuid = "00000000-0000-0000-0000-000000000000"  # replace with a real uuid
+
+[repository.domain]
+# Must match a name already registered in mcp.db's domain_system_registry
+# (see dharma-domain.toml) — never inline domain shape content.
+select = "rust-dev-domain"
+# Optional pin; if set, registration fails on a version mismatch instead of
+# silently taking whatever is currently registered (see docs/proposal/02's
+# Threat Model, "Silent hierarchy drift").
+# version = "0.1.0"
+
+[repository.dharma]
+# Where this repository's .dharma/ directory lives — repo.db and the two
+# generated summaries. Falls back to <repo>/.dharma if unset.
+dir = "${DHARMA_DIR}"
+mcp_dir = "${DHARMA_MCP_DIR}"
+
+# Optional directory sections — each resolves into repo_config's matching
+# column (docs_dir / implementation_dir / tests_dir / scripts_dir) so
+# "where does this repo keep X" is answerable from repo.db alone.
+
+[repository.documentation]
+# Where this repository's documentation lives — repo_config.docs_dir.
+root_dir = "${DHARMA_DOCS_DIR}"
+
+[repository.implementation]
+# Where this repository's implementation source lives — repo_config.implementation_dir.
+dir = "${DHARMA_IMPLEMENTATION_DIR}"
+
+[repository.tests]
+# Where this repository's tests live — repo_config.tests_dir.
+dir = "${DHARMA_TESTS_DIR}"
+
+[repository.scripts]
+# Where this repository's standalone scripts live — repo_config.scripts_dir.
+dir = "${DHARMA_SCRIPTS_DIR}"
+
+[repository.ignore]
+patterns = [
+    "**/node_modules/**",
+    "**/.git/**",
+    "**/target/**",
+    "**/.dharma/**",
+]
+
+[report]
+# Where domain-summary.md / agent-summary.md land. Falls back to
+# <repo>/.dharma if unset — see docs/proposal/11's Component Model.
+dir = "${DHARMA_REPORT_DIR}"

@@ -1,0 +1,40 @@
+# Example — proposal state, not yet loaded by any runtime.
+# Config for a repository that PROVIDES an Agent System to Dharma's MCP — see
+# docs/proposal/04-agent-system-registry.md and docs/proposal/11-provider-
+# config-and-repo-sync.md, "Agent System Provider Config". Lives at this
+# provider repository's own root. `is_privileged` here is a REQUEST, not a
+# grant — the Agent-Management Agent System reviews and sets the actual
+# agent_system_registry.is_privileged flag; this file cannot set it directly
+# (docs/proposal/11, Threat Model).
+
+[agent_system]
+name = "rust-development"
+concern = "rust-development"
+description = "Agents and skills for Rust crate development, review, and QA"
+is_privileged_request = false
+
+[agent_system.content]
+# Where this provider's agent/skill source files live — agent YAML
+# definitions, skill prompt/script/example files. Walked by Dharma's capture
+# flow into content_asset (schema/mcp/02-content_asset.sql).
+root_dir = "${DHARMA_AGENT_CONTENT_DIR}"
+
+[agent_system.mcp]
+mcp_dir = "${DHARMA_MCP_DIR}"
+
+[repository.ignore]
+patterns = [
+    "**/node_modules/**",
+    "**/.git/**",
+    "**/target/**",
+]
+
+# --- Additional example: a second Agent System provider in the same file
+# shape, showing a non-dev, cross-cutting concern (see docs/proposal/04's
+# point that Agent Systems aren't limited to technology stacks).
+#
+# [agent_system]
+# name = "story-telling"
+# concern = "story-telling"
+# description = "Agents and skills for narrative writing, poem writing, and prose editing"
+# is_privileged_request = false

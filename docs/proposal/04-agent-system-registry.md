@@ -2,6 +2,7 @@
 
 > Status: Draft — design-only, no schema/code. Conforms to `docs/raw/architecture.md` standard.
 > **Supersedes** the fixed five-group taxonomy in the original Agent-Group Taxonomy draft. Agent Systems are pluggable and registrable, parallel in kind to Domain Systems — not a closed set of five built-in groups.
+> **Extended by Provider Config & Repo Sync (11):** an Agent System provider declares itself via `dharma-agent.toml`; only the subset a repository's Capability Manifest approves is synced (filtered, not full) into its `.dharma/repo.db` — see 11 for both.
 
 ## Purpose
 

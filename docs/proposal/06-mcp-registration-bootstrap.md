@@ -2,6 +2,7 @@
 
 > Status: Draft — design-only, no schema/code. Conforms to `docs/raw/architecture.md` standard.
 > **New in this revision.** Establishes MCP as the first thing that must exist, and defines the registration sequence: create MCP → register repository → choose a Domain System → default Agent System resolves capability. This document has priority over any conflicting registration flow implied by earlier proposals.
+> **Extended by Provider Config & Repo Sync (11):** the repository-side of step 2 is `dharma-repo.toml`; step 6's approval triggers a sync that copies the Domain System in full and the approved Agent Systems filtered into the repository's own `.dharma/` directory. See 11 for the config surface and sync/summary detail this document doesn't itself specify.
 
 ## Purpose
 
@@ -38,6 +39,10 @@ The sequence is strictly ordered and each step is a precondition for the next: M
         │
         ▼
 6. Human approval ──▶ Repo Registration Record finalized
+        │
+        ▼
+7. Sync: full Domain System copy + filtered Agent System copy → repository's .dharma/
+   (see Provider Config & Repo Sync, 11)
 ```
 
 ## Component Model

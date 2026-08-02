@@ -3,6 +3,7 @@
 > Status: Draft — schema is a concrete reference copy, not yet loaded by any runtime (see `schema/README.md`); crate boundaries are structural design only, no implementation code. Conforms to `docs/raw/architecture.md` standard, including its optional Crate Architecture / Trait Design sections. Per-crate documentation follows the `docs/raw/crates.md` standard and lives under `docs/raw/crates/`.
 > **Revised:** the schema now models Dharma as pure MCP *infrastructure* — it registers, captures, and serves Domain Systems and Agent Systems supplied by external providers, it does not author them. Adds the capture ledger, Domain content model (domains, Section Maps, Section Profiles, YAML round-trip templates, seeders), the Skill asset model (prompt/script/example/template), and the audit subsystem (deterministic + per-model semantic, override/cancel, evidence, weights, report templates). See "Role of Dharma" below.
 > **Gates implementation.** This document, and the reference schema under `schema/`, must be reviewed and fixed before any of 01-07 are implemented. A wrong table shape is cheap to fix now and expensive to fix once repositories, Domain Systems, and Task Instances have real data in it.
+> **See also Provider Config & Repo Sync (11):** the `dharma-domain.toml`/`dharma-agent.toml`/`dharma-repo.toml`/`dharma-build.toml` config surface, and the full-domain/filtered-agent sync semantics for `synced_content` (repo/07) this document's schema already carries.
 
 ## Role of Dharma
 
@@ -10,7 +11,7 @@ Dharma is the MCP server layer. It defines the *storage and serving* shape — n
 
 1. **Registers** them (`domain_system_registry`, `agent_system_registry`).
 2. **Captures** their files — domains, Section Maps, Section Profiles, agent/task/skill YAML, prompts, scripts, templates, seeders, audit definitions — into Dharma's own data directory (the "MCP location"), recording every captured file in the `content_asset` ledger.
-3. **Serves** the captured content to any registered repository: on registration a repo is matched to a Domain System and the applicable Agent Systems, and the required content (scripts, skills, agents, prompts, examples, templates, seeder) is **synced** into that repo's own `repo.db`.
+3. **Serves** the captured content to any registered repository: on registration a repo is matched to a Domain System and the applicable Agent Systems, and the required content (scripts, skills, agents, prompts, examples, templates, seeders, audit definitions) is **synced** into that repo's own `repo.db`.
 4. **Caches analysis**: once a (Domain System, capability set) resolution or audit has run, the result is kept in `mcp.db` (`analysis_cache`) so a subsequently registered repo gets it instantly instead of re-running.
 
 Dharma never invents a domain, an agent, a skill, or a section profile. Every such row in `mcp.db` traces to a captured provider file via `content_asset` or a `yaml_template`/seeder declaration.
@@ -138,10 +139,10 @@ Task content (shape per Bodha crew `task.yaml`): `name`, `description`, `expecte
 A Skill is captured as a YAML bundle holding up to four assets:
 - **Prompt** — mandatory, a Markdown (`.md`) file.
 - **Script** — the deterministic execution path; Python (`.py`) for now, other languages later.
-- **Example** — expected input + expected output, plus `do`s, `don't`s, best practices, common mistakes.
+- **Example** — mandatory, at least one worked example: expected input + expected output, plus `do`s, `don't`s, best practices, common mistakes.
 - **Template** — optional; like tasks, a Skill may provide a template an Agent can use to generate content for a task in hand.
 
-`skill`, `skill_prompt`, `skill_script`, `skill_example`, and `skill_template` tables store the parsed shape; the underlying `.md`/`.py`/`.yaml` files are copied into the MCP location and recorded in `content_asset`. A Skill without a prompt row is rejected at registration (`schemas` enforces the "prompt mandatory" rule).
+`skill`, `skill_prompt`, `skill_script`, `skill_example`, and `skill_template` tables store the parsed shape; the underlying `.md`/`.py`/`.yaml` files are copied into the MCP location and recorded in `content_asset`. A Skill without a prompt row, or without at least one `skill_example` row, is rejected at registration (`schemas` enforces both rules, per proposal 03).
 
 ## Audit Subsystem
 
@@ -171,7 +172,7 @@ On repository registration (proposal 06):
 
 1. `repo_registration` row is created in `mcp.db` (global registration record, kept forever).
 2. `services` resolves the selected Domain System and the applicable Agent Systems (Default/Bootstrap Agent System logic); the resolution is stored in `analysis_cache` and reused for later repos.
-3. The required content — the Domain System's domains/section maps/profiles, the applicable Agents, Skills, scripts, prompts, examples, templates, and the seeder scripts (from the Domain System and from the generic system) — is **copied** into the repo's own `repo.db` (`synced_content`) and, where the provider declares files, into the repo's workspace.
+3. The required content — the Domain System's domains/section maps/profiles, its audit definitions, the applicable Agents, Skills, scripts, prompts, examples, templates, and the seeder scripts (from the Domain System and from the generic system) — is **copied** into the repo's own `repo.db` (`synced_content`), each row tagged with its owning `domain_system_id`/`agent_system_id`, and every row's bytes are also written to a real file under the repo's own `.dharma/assets/` — never into the repo's workspace (see Provider Config & Repo Sync, 11, "Local Asset Materialization").
 4. The seeder script fills the repo's `repo.db` rows from the copied content.
 5. All audit executions and Proposal/Execution runtime state then live in `repo.db`; nothing execution-scoped is written back to `mcp.db` except the reusable analysis cache and the registration record.
 
@@ -303,7 +304,7 @@ services ──payload──▶ schemas (validate JSON/YAML) ──▶ registry 
 - **`schema/` is the canonical reference copy** (source: `schema/README.md`) — the `registry` crate's actual migrations must match it; divergence is a defect, not an acceptable variance.
 - **The `repo.db` → `mcp.db` logical reference is validated by `registry` before commit** (source: Threat Model above) — no `repo.db` write may reference an `mcp.db` row (`task`, `agent_system_registry`, `agent`, `synced_content.mcp_row_id`) that doesn't exist. No other cross-database reference exists in this schema; every reference within `mcp.db` is a real `FOREIGN KEY`.
 - **Every content row traces to a captured file** (source: "Dharma Is Infrastructure, Not an Author") — no `domain`/`section`/`section_profile`/`epic`/`usecase`/`task`/`agent`/`skill` row may exist without a `content_asset` reference; the `schemas` crate enforces this at capture time.
-- **A Skill must have a prompt** (source: Agent System Content Model) — `skill_prompt` (the mandatory `.md`) is required before a Skill may be registered; `skill_script`/`skill_example`/`skill_template` are optional.
+- **A Skill must have a prompt and at least one worked example** (source: Agent System Content Model, proposal 03) — `skill_prompt` (the mandatory `.md`) and at least one `skill_example` row are required before a Skill may be registered; `skill_script`/`skill_template` are optional.
 - **Same-model-same-commit audit de-duplication** (source: Threat Model above) — an `audit_run` for `(commit_hash, domain, kind)` and model must not double-score; a second identical run is rejected or cancelled via `audit_override`.
 
 ### Soft Constraints

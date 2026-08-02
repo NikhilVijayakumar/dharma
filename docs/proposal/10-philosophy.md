@@ -82,5 +82,5 @@ Architecture (docs/proposal/08 — structure realizes the principles)
 ## Related
 
 - [Proposal 09 — Vision](09-vision.md) — the pivot and Dharma's role; Philosophy states the principles under which the vision's platform operates.
-- [Proposal 00 — Overview](00-overview.md) — the index that tracked this document as a missing prerequisite.
+- [Proposal 00 — Overview](00-overview.md) — the index, which now lists this document as resolved (it previously tracked it as a missing prerequisite).
 - `docs/raw/architecture.md` — the Architecture standard that requires Philosophy as a cross-reference (Security, Rationale) and declares "Architecture is guided by Philosophy".

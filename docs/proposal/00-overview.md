@@ -16,6 +16,7 @@
 | 08 | [Schema & Crate Architecture](08-schema-and-crate-architecture.md) | Concrete SQLite schema for 01-07, grouped by physical database — `mcp.db` (global registries + content) and `repo.db` (per-repo runtime state), see `schema/` — + six-crate Rust workspace (`common`/`schemas`/`registry`/`services`/`cli`/`mcp`); per-crate docs follow [docs/raw/crates.md](../raw/crates.md) |
 | 09 | [Vision](09-vision.md) | The pivot (Electron app → agent platform) and Dharma's role as MCP infrastructure; sources the "(source: Vision)" constraints in 01-08 |
 | 10 | [Philosophy](10-philosophy.md) | The principles under which agents act with real effect — human authorization as a structural gate, verifiable restraint, no self-certification, least privilege, traceability, open registries; guides Architecture and Security |
+| 11 | [Provider Config & Repo Sync](11-provider-config-and-repo-sync.md) | Four TOML roles (`dharma-build`/`dharma-domain`/`dharma-agent`/`dharma-repo`); full Domain System copy + filtered Agent System copy into a consuming repo's `.dharma/repo.db`, every row also materialized to a real file under `.dharma/assets/` so execution never reaches outside the repo; `repo_config` caches resolved toml values; generated `domain-summary.md`/`agent-summary.md` with a Missing Coverage check |
 
 ## Build Order
 
@@ -24,6 +25,7 @@ Schema is expensive to fix once data exists against it. Build order is therefore
 1. **Review and fix 08 and `schema/` first**, before writing any implementation code. Treat the schema as the gate — a wrong table shape caught now costs an edit; caught after repositories and Task Instances hold real rows, it costs a migration.
 2. Implement the `registry` crate against the reviewed `schema/`.
 3. Only then implement 01-07's behavior in `services`, `cli`, and `mcp`.
+4. Config parsing (`dharma-build.toml`/`dharma-domain.toml`/`dharma-agent.toml`/`dharma-repo.toml`, see [11](11-provider-config-and-repo-sync.md) and `config/`) and the sync/summary flow can be implemented alongside 3 — they consume the same `services` operations, not a separate schema.
 
 ## Supersession Note
 
@@ -43,5 +45,5 @@ These proposals are structural (architecture-level) only, per `docs/raw/architec
 
 - The MCP transport/tool surface itself (tool names, request/response shapes) — 08 defines the `mcp` crate's role, not its wire-level tool contract.
 - Engineering, Build, Implementation, and QA documentation for any of the above — those follow their own `docs/raw` standards once the architecture here is settled.
-- **Vision(09) and Philosophy(10) exist.** `docs/raw/architecture.md` expects Architecture to cross-reference Vision(01) and Security to reference Philosophy(02). The Vision document ([09](09-vision.md)) supplies the pivot decision and the "(source: Vision)" constraints cited in 01-08; the Philosophy document ([10](10-philosophy.md)) supplies the principles the threat models in 04, 06, 07, and 08 rest on. Both were written before these proposals were treated as final.
+- **Vision(09) and Philosophy(10) resolve the raw-standard cross-references.** `docs/raw/architecture.md` expects Architecture to cross-reference Vision(01) and Security to reference Philosophy(02). The Vision document ([09](09-vision.md)) supplies the pivot decision and the "(source: Vision)" constraints cited in 01-08; the Philosophy document ([10](10-philosophy.md)) supplies the principles the threat models in 04, 06, 07, and 08 rest on. Both are drafted; neither is treated as final until this proposal set is approved.
 - **Bodha's `.bodha-structure/section` and `profile-default` are cited but not vendored or linked as an External Context doc** (05). The Section Map / Section Profile shape in this proposal set assumes that structure is stable and reusable as-is; that assumption is unverified against Bodha's own docs and should become an explicit External Context reference before implementation.

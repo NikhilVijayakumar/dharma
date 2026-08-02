@@ -77,6 +77,6 @@ Architecture (docs/proposal/08) — storage and crate shape, sourced by Vision
 
 ## Related
 
-- [Proposal 00 — Overview](00-overview.md) — the index that flags this document as a missing prerequisite.
+- [Proposal 00 — Overview](00-overview.md) — the index, which now lists this document as resolved (it previously flagged it as a missing prerequisite).
 - [Proposal 08 — Schema & Crate Architecture](08-schema-and-crate-architecture.md) — the concrete realization of this vision; "Dharma Is Infrastructure, Not an Author" restates Principle 1 in architectural terms.
 - `docs/raw/architecture.md` — the Architecture standard that requires this Vision as a cross-reference.
