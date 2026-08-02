@@ -15,6 +15,7 @@
 | 07 | [Proposal & Execution Protocol](07-proposal-execution-protocol.md) | Mandatory Propose → Review → Approve gate, then handoff-chain execution |
 | 08 | [Schema & Crate Architecture](08-schema-and-crate-architecture.md) | Concrete SQLite schema for 01-07, grouped by physical database — `mcp.db` (global registries + content) and `repo.db` (per-repo runtime state), see `schema/` — + six-crate Rust workspace (`common`/`schemas`/`registry`/`services`/`cli`/`mcp`); per-crate docs follow [docs/raw/crates.md](../raw/crates.md) |
 | 09 | [Vision](09-vision.md) | The pivot (Electron app → agent platform) and Dharma's role as MCP infrastructure; sources the "(source: Vision)" constraints in 01-08 |
+| 10 | [Philosophy](10-philosophy.md) | The principles under which agents act with real effect — human authorization as a structural gate, verifiable restraint, no self-certification, least privilege, traceability, open registries; guides Architecture and Security |
 
 ## Build Order
 
@@ -42,5 +43,5 @@ These proposals are structural (architecture-level) only, per `docs/raw/architec
 
 - The MCP transport/tool surface itself (tool names, request/response shapes) — 08 defines the `mcp` crate's role, not its wire-level tool contract.
 - Engineering, Build, Implementation, and QA documentation for any of the above — those follow their own `docs/raw` standards once the architecture here is settled.
-- **Vision(09) exists; Philosophy(02) does not.** `docs/raw/architecture.md` expects Architecture to cross-reference Vision(01) and Security to reference Philosophy(02). The Vision document ([09](09-vision.md)) now supplies the pivot decision and the "(source: Vision)" constraints cited in 01-08. A Philosophy document (tier-1, feeding Security and Architecture) is still missing and should be written before treating these proposals as final.
+- **Vision(09) and Philosophy(10) exist.** `docs/raw/architecture.md` expects Architecture to cross-reference Vision(01) and Security to reference Philosophy(02). The Vision document ([09](09-vision.md)) supplies the pivot decision and the "(source: Vision)" constraints cited in 01-08; the Philosophy document ([10](10-philosophy.md)) supplies the principles the threat models in 04, 06, 07, and 08 rest on. Both were written before these proposals were treated as final.
 - **Bodha's `.bodha-structure/section` and `profile-default` are cited but not vendored or linked as an External Context doc** (05). The Section Map / Section Profile shape in this proposal set assumes that structure is stable and reusable as-is; that assumption is unverified against Bodha's own docs and should become an explicit External Context reference before implementation.
