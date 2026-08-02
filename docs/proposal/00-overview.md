@@ -1,6 +1,6 @@
 # Dharma Agent Platform — Proposal Set Overview
 
-> Status: Draft — design-only, no schema/code. Index for `docs/proposal/`.
+> Status: Draft. 01-07 are design-only (no schema/code); 08 introduces the concrete reference schema (`schema/`) and crate boundaries that gate implementation. Index for `docs/proposal/`.
 
 ## Reading Order
 
@@ -13,6 +13,15 @@
 | 05 | [Domain System Registration](05-domain-system-registration.md) | Domain System (e.g. `rust-dev-domain`, `electron-dev-domain`): Section Map + Section Profiles + Epic/Usecase/Task set, selected not authored |
 | 06 | [MCP Registration & Bootstrap](06-mcp-registration-bootstrap.md) | Ordered sequence: MCP exists → repo registers → repo selects Domain System → default Agent System resolves capability |
 | 07 | [Proposal & Execution Protocol](07-proposal-execution-protocol.md) | Mandatory Propose → Review → Approve gate, then handoff-chain execution |
+| 08 | [Schema & Crate Architecture](08-schema-and-crate-architecture.md) | Concrete SQLite schema for 01-07, grouped by physical database — `mcp.db` (global registries + content) and `repo.db` (per-repo runtime state), see `schema/` — + six-crate Rust workspace (`common`/`schemas`/`registry`/`services`/`cli`/`mcp`); per-crate docs follow [docs/raw/crates.md](../raw/crates.md) |
+
+## Build Order
+
+Schema is expensive to fix once data exists against it. Build order is therefore:
+
+1. **Review and fix 08 and `schema/` first**, before writing any implementation code. Treat the schema as the gate — a wrong table shape caught now costs an edit; caught after repositories and Task Instances hold real rows, it costs a migration.
+2. Implement the `registry` crate against the reviewed `schema/`.
+3. Only then implement 01-07's behavior in `services`, `cli`, and `mcp`.
 
 ## Supersession Note
 
@@ -30,8 +39,7 @@ Corrections applied, in summary:
 
 These proposals are structural (architecture-level) only, per `docs/raw/architecture.md`. Not yet addressed, and intentionally out of scope until these are approved:
 
-- Concrete schema/storage for any registry (Domain System Registry, Agent System Registry, Repo Registration Record).
-- The MCP transport/tool surface itself (tool names, request/response shapes).
+- The MCP transport/tool surface itself (tool names, request/response shapes) — 08 defines the `mcp` crate's role, not its wire-level tool contract.
 - Engineering, Build, Implementation, and QA documentation for any of the above — those follow their own `docs/raw` standards once the architecture here is settled.
 - **No Vision or Philosophy document exists yet.** `docs/raw/architecture.md` expects Architecture to cross-reference Vision(01) and Security to reference Philosophy(02). 01's Traceability diagram and its "(source: Vision)" constraint citation are placeholders for the pivot decision (Electron app → agent platform) recorded in conversation, not a real Vision doc. Write Vision and Philosophy before treating these proposals as final.
 - **Bodha's `.bodha-structure/section` and `profile-default` are cited but not vendored or linked as an External Context doc** (05). The Section Map / Section Profile shape in this proposal set assumes that structure is stable and reusable as-is; that assumption is unverified against Bodha's own docs and should become an explicit External Context reference before implementation.
