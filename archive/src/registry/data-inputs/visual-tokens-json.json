@@ -1,0 +1,33 @@
+{
+  "uid": "visual-tokens-json",
+  "name": "Visual-Identity-System (VIS)",
+  "description": "The foundational design-tokens governing 'Semantic-Colors', 'Spatial-Scales', and 'Type-Hierarchies' for agentic UI generation.",
+  "schemaType": "Identity-Protocol",
+  "requiredFields": [
+    "token_uid",
+    "timestamp_iso8601",
+    "token_category",
+    "raw_value",
+    "alias_mapping",
+    "theme_variant_context",
+    "accessibility_pass_flag"
+  ],
+  "sampleSource": "design/tokens-vault/v4-core-styles",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "token_categories": {
+          "COLOR": "Primary / Secondary / Status (Success/Alert)",
+          "SPACING": "Padding / Margin / Grid-Gutter",
+          "TYPOGRAPHY": "Font-Family / Weight / Line-Height",
+          "ELEVATION": "Shadows / Z-Index-Layers"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

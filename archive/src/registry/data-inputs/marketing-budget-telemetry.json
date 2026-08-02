@@ -1,0 +1,33 @@
+{
+  "uid": "marketing-budget-telemetry",
+  "name": "Growth-Yield-Telemetry (GYT)",
+  "description": "High-frequency telemetry mapping 'Capital-Outflow' against 'Attribution-Vectors' and 'Customer-Acquisition-Velocity'.",
+  "schemaType": "Telemetry-Protocol",
+  "requiredFields": [
+    "timestamp_iso8601",
+    "channel_id",
+    "spend_velocity_per_min",
+    "attribution_logic_hash",
+    "conversion_yield_vector",
+    "cac_efficiency_score",
+    "agent_intervention_flag"
+  ],
+  "sampleSource": "growth/telemetry-vault/real-time-spend",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "efficiency_metrics": {
+          "CAC": "Customer Acquisition Cost (Actual vs. Target)",
+          "LTV_PREDICTION": "Projected Lifetime Value of Cohort",
+          "ROAS": "Return on Ad Spend (Real-time)",
+          "BRAND_TAX": "Cost of maintaining Brand-Protocol-Md alignment"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

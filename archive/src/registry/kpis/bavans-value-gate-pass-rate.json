@@ -1,0 +1,36 @@
+{
+  "uid": "bavans-value-gate-pass-rate",
+  "name": "BAVANS Value Gate Pass Rate",
+  "description": "Percentage of creative outputs that pass at least 3 of the 6 BAVANS value checks with no violations.",
+  "unit": "%",
+  "target": ">= 99%",
+  "value": "value_gate_pass_count / total_creative_output_count * 100",
+  "formula": "value_gate_pass_count / total_creative_output_count * 100",
+  "goalMapping": "Enforces creative-control-layer integrity for Belief, Art, Vision, Aesthetic, Narrative, and Story.",
+  "frequency_of_check": "weekly",
+  "responsible_agent_role": "Chief Executive Officer (CEO) — Strategic Alignment",
+  "thresholds": {
+    "critical": "< 92%",
+    "warning": ">= 92% and < 99%",
+    "optimal": ">= 99%"
+  },
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Batch weekly",
+    "shorthand": "BVGPR"
+  },
+  "escalation_policy": {
+    "on_critical": "Block publication pipeline and trigger human-in-loop governance review.",
+    "on_warning": "Trigger corrective narrative review and mandatory sign-off before release."
+  },
+  "dependencies": {
+    "data_inputs": [
+      "content-approval-ledger",
+      "idea-origin-ledger"
+    ],
+    "dependent_kpis": [
+      "human-review-gate-pass-rate",
+      "idea-origin-traceability-rate"
+    ]
+  }
+}

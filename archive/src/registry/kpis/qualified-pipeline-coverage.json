@@ -1,0 +1,19 @@
+{
+  "uid": "qualified-pipeline-coverage",
+  "name": "Qualified-Pipeline-Coverage (QPC)",
+  "description": "The ratio of 'Risk-Adjusted-Pipeline-Value' to 'Period-Revenue-Target', filtered by 'Evidence-Fidelity' and 'Ideal-Customer-Profile (ICP)' alignment.",
+  "unit": "x (Coverage-Multiplier)",
+  "target": "3.5x - 4.0x",
+  "value": "Calculated via (Sum of Weighted-Opportunities / Current-Quarter-Target)",
+  "goalMapping": "Verifies that 'Demand-Generation-Logic' is sufficient to hit 'Growth-Sprints' without over-leveraging 'Operational-Burn'.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Weekly-Snapshot / Real-Time-Drift",
+    "shorthand": "Growth-Buffer"
+  },
+  "thresholds": {
+    "critical": "< 2.5x (Triggers 'Aggressive-Sourcing-Pivot' and 'Dani-Growth-Overdrive')",
+    "warning": "2.5x - 3.2x (Triggers 'Lead-Quality-Hardening' and 'Conversion-Optimization')",
+    "optimal": "3.5x - 4.5x"
+  }
+}

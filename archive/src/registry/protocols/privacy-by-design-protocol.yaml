@@ -1,0 +1,34 @@
+id: privacy-by-design-protocol
+title: "Global Privacy-by-Design & Data-Sovereignty"
+description: "Stateless governance standard for the automated protection, minimization, and anonymization of sensitive information."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Data-Minimization-Mandate: Agents are prohibited from collecting or storing more data than the 'Absolute-Minimum' required for the current Work-Order."
+  - rule_2: "Automatic-Anonymization-Gate: All PII (Personally Identifiable Information) must be 'Hashed' or 'Masked' before being passed to the /context/ or shared with non-specialized agents."
+  - rule_3: "The 'Purpose-Binding' Rule: Data collected for one specific intent (e.g., Fiscal-Audit) cannot be repurposed for another (e.g., Marketing-Targeting) without a 'Director-Waiver'."
+  - rule_4: "Encryption-at-Rest-and-Transit: Julia (Tech) must verify that all data-nodes utilize 'End-to-End-Encryption' (E2EE) with keys stored in the 'Hardware-Security-Module' (HSM)."
+  - rule_5: "Right-to-Erasure-Automation: Every data-point must have a 'TTL-Hash' (Time-To-Live). Once the strategic utility expires, the data is 'Cryptographically-Shredded'."
+
+logic_sequence:
+  step_1: "Inbound-Data-Classification: Identify 'Public', 'Internal', 'Confidential', and 'Restricted' data-vectors."
+  step_2: "Privacy-Impact-Assessment (PIA): Run a sub-routine to check if the proposed logic violates GDPR, CCPA, or the 'Director-Privacy-Baseline'."
+  step_3: "Apply Privacy-Filters: Execute 'Differential-Privacy' algorithms to ensure that aggregate insights don't reveal individual identities."
+  step_4: "IF PRIVACY-VERIFIED: Proceed with task execution and log the 'Compliance-Signature' in the Legal-Vault."
+  step_5: "IF PRIVACY-BREACH: Intercept the data-flow, trigger the 'Incident-Escalation-Protocol', and notify Eva (Compliance)."
+
+escalation_triggers:
+  - "Condition: Detection of 'De-anonymization' attempts—where multiple data points are combined to reveal a restricted identity."
+  - "Condition: A 3rd-party API request asks for 'Full-Database-Access' rather than a 'Scoped-Token'."
+  - "Condition: Data 'Residency-Violation'—transferring sensitive data to a jurisdiction that violates the 'Governance-Hard-Rules'."
+
+dependencies:
+  required_skills:
+    - risk-modeling
+    - execution-governance
+  required_kpis:
+    - mean-time-to-repair (MTTR-Privacy)
+    - brand-fidelity-index

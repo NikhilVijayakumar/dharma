@@ -1,0 +1,61 @@
+id: crisis-stabilization-mode
+agent_id: elina
+trigger: CRISIS_ACTIVATED (Direct Invoke by Nora/Fiscal, Eva/Compliance, or Elina/Ops)
+logic_sequence:
+  phase_1_queue_triage:
+    step_1: >-
+      Slot-Lockdown: Immediately isolate Slots 9 and 10 for 'High-Priority Recovery' tasks only
+      (Finance/Compliance/Director).
+    step_2: >-
+      Non-Essential Suspension: Purge or pause all 'Growth' (Dani) or 'Exploration' (Sofia) tasks currently in the
+      queue.
+    step_3: >-
+      Resource Re-routing: Allocate 100% of the internal bus bandwidth to 'Safety-Critical' inter-agent communication
+      (IPC).
+  phase_2_latency_enforcement:
+    step_4: >-
+      Active Latency Guardrail: Monitor execution times for every active process; execute 'Hard-Kill' on any task
+      exceeding 50ms.
+    step_5: "Compute Throttling: Enforce 'Thin-Client' mode for all sub-agents, stripping away non-essential metadata and logs."
+    step_6: >-
+      Verify 'Handoff-Integrity': Ensure that 'Crisis-Tasks' are being passed between Arya, Nora, and Eva with zero
+      drop-off.
+  phase_3_forensic_visibility:
+    step_7: >-
+      Generate 'Crisis Throughput Map': Visualize the health of the 10-slot queue, showing which 'Vital Organs' are
+      still operational.
+    step_8: >-
+      Analyze 'SLA-Breach-Risk': Predict which critical project milestones are at risk of a timeout due to the crisis
+      constraints.
+    step_9: "Director Sync: Push the 'Throughput Map' to Mira’s Slot-10 for the Director’s high-fidelity workspace view."
+  phase_4_post_crisis_reset:
+    step_10: "Monitor 'System Cool-Down': Observe IPC latency for a return to <16ms baseline stability."
+    step_11: >-
+      Gradual Slot-Release: Re-open Slots 1-8 for 'Standard' tasks only after a verified 3-way stability handshake
+      (Arya/Nora/Eva).
+    step_12: >-
+      Archive Incident: Log the 'Crisis Throughput Map' and all 'Hard-Killed' processes for Julia’s post-mortem
+      analysis.
+dependencies:
+  required_skills:
+    - execution-governance
+    - queue-health-management
+    - handoff-integrity-audit
+  required_kpis:
+    - sla-breach-count
+    - queue-throughput-velocity
+  data_inputs:
+    - queue-telemetry-feed
+    - system-latency-logs
+    - fiscal-policy-md
+  protocols:
+    - crisis-lockdown-protocol
+    - latency-guardrail-protocol
+    - emergency-queue-priority-protocol
+error_handling:
+  on_queue_deadlock: If Slot-9 and Slot-10 become jammed, invoke 'Safe-State-Hibernation' and alert the Director via an external webhook.
+  on_latency_spillover: If the 50ms guardrail fails to stabilize the system, trigger a 'Total-Process-Reset' for all non-governance agents.
+expected_output: >
+  A Crisis Throughput Package containing: 1. Status: [TRIAGE-ACTIVE / STABILIZED / RECOVERING] 2. Throughput Map:
+  Real-time visual of queue slot availability. 3. Kill-Log: List of tasks terminated by the Latency Guardrail. 4.
+  Rationale: Forensic evidence of the bottleneck that triggered the stabilization.

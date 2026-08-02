@@ -1,0 +1,33 @@
+{
+  "uid": "vault-context-index",
+  "name": "Semantic-Memory-Index (SMI)",
+  "description": "The master-index for 'Cross-Slot-Context', 'Vector-Embeddings', and 'Historical-Decision-Logic' within the 10-slot array.",
+  "schemaType": "Knowledge-Protocol",
+  "requiredFields": [
+    "context_uid",
+    "timestamp_iso8601",
+    "embedding_model_ref",
+    "slot_relevance_vector",
+    "knowledge_graph_link",
+    "retrieval_confidence_score",
+    "ttl_policy_status"
+  ],
+  "sampleSource": "orchestration/knowledge-vault/v4-context-map",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "context_layers": {
+          "STRATEGIC": "High-Level Goals / Brand-Protocols-Md",
+          "OPERATIONAL": "SOPs / Execution-Logs",
+          "TECHNICAL": "Schema-Sql / API-Manifests",
+          "EPHEMERAL": "Session-Data / Immediate-Intents"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "registry/workflow.schema.json",
+  "title": "WorkflowDefinition",
+  "version": "2.0.0",
+  "description": "Multi-Agent Workflow with Logic Sequencing, Preconditions, Postconditions, and Error Handling",
+  "type": "object",
+  "required": ["id", "agent_id", "trigger", "dependencies", "expected_output"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Unique workflow identifier (kebab-case)"
+    },
+    "agent_id": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Primary agent responsible for orchestrating this workflow"
+    },
+    "trigger": {
+      "type": "string",
+      "minLength": 6,
+      "description": "Event or condition that initiates the workflow (human-readable)"
+    },
+    "pre_conditions": {
+      "type": "array",
+      "description": "Prerequisites that must be met before workflow starts",
+      "items": {
+        "type": "object",
+        "required": ["condition", "description"],
+        "properties": {
+          "condition": { "type": "string", "description": "Condition identifier or field name" },
+          "description": { "type": "string", "description": "Human-readable description of the prerequisite" },
+          "source": { "type": "string", "enum": ["kpi", "data-input", "agent-state", "vault", "git"], "description": "Where the condition data comes from" },
+          "validation_rule": { "type": "string", "description": "Optional validation logic (e.g., '> 90%', 'exists', 'non-null')" }
+        }
+      }
+    },
+    "logic_sequence": {
+      "type": "object",
+      "description": "Structured multi-phase execution logic",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "description": "A phase containing sequential steps",
+        "additionalProperties": { "type": "string" }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 0,
+      "deprecated": true,
+      "description": "DEPRECATED: Use logic_sequence instead. Kept for backward compatibility.",
+      "items": { "type": "string", "minLength": 6 }
+    },
+    "post_conditions": {
+      "type": "array",
+      "description": "Expected state or KPI updates after successful workflow execution",
+      "items": {
+        "type": "object",
+        "required": ["effect", "description"],
+        "properties": {
+          "effect": { "type": "string", "description": "What happens after success (e.g., 'update-kpi', 'commit-vault', 'signal-agent')" },
+          "description": { "type": "string" },
+          "target": { "type": "string", "description": "Which KPI, vault, or agent to update" },
+          "update_formula": { "type": "string", "description": "How to update the target (e.g., 'increment', 'set', 'append')" }
+        }
+      }
+    },
+    "dependencies": {
+      "type": "object",
+      "required": ["required_skills", "required_kpis"],
+      "properties": {
+        "required_skills": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "uniqueItems": true,
+          "description": "Skills this workflow depends on"
+        },
+        "required_kpis": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "uniqueItems": true,
+          "description": "KPIs that must be monitored during execution"
+        },
+        "data_inputs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "uniqueItems": true,
+          "description": "Data input sources required"
+        },
+        "required_agents": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "uniqueItems": true,
+          "description": "Other agents involved in this workflow (peer handoff). Must be approved in onboarding/registry before execution."
+        },
+        "protocols": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "uniqueItems": true,
+          "description": "Governance protocols that apply to this workflow"
+        }
+      },
+      "additionalProperties": false
+    },
+    "collaborators": {
+      "type": "array",
+      "description": "Role-oriented collaborators participating in a global workflow.",
+      "items": {
+        "type": "object",
+        "required": ["agent_id", "role", "responsibility"],
+        "properties": {
+          "agent_id": { "type": "string", "minLength": 2 },
+          "role": { "type": "string", "minLength": 2 },
+          "responsibility": { "type": "string", "minLength": 8 },
+          "required": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "handoff_rules": {
+      "type": "object",
+      "description": "Explicit transfer points and context packet requirements for inter-agent handshakes.",
+      "properties": {
+        "transfer_points": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "from_agent", "to_agent", "condition", "context_packet_required_fields"],
+            "properties": {
+              "id": { "type": "string", "minLength": 2 },
+              "from_agent": { "type": "string", "minLength": 2 },
+              "to_agent": { "type": "string", "minLength": 2 },
+              "condition": { "type": "string", "minLength": 6 },
+              "context_packet_required_fields": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "string", "minLength": 2 },
+                "uniqueItems": true
+              },
+              "rfi_allowed": { "type": "boolean" },
+              "director_approval_required": { "type": "boolean" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "milestone_approval_roles": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "workflow_mode": {
+      "type": "string",
+      "enum": ["single-agent", "global-collaborative"],
+      "description": "Execution mode. global-collaborative enables cross-role handshake semantics."
+    },
+    "error_handling": {
+      "type": "object",
+      "description": "Escalation and recovery strategies",
+      "additionalProperties": {
+        "type": "string",
+        "description": "Recovery action or escalation to take"
+      }
+    },
+    "output_format": {
+      "type": "object",
+      "description": "Schema for the workflow output",
+      "properties": {
+        "format": { "type": "string", "enum": ["json", "markdown", "yaml", "artifact-hash"], "description": "Output format type" },
+        "required_fields": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Mandatory fields in the output"
+        },
+        "example": { "type": "string", "description": "Example output structure" }
+      }
+    },
+    "expected_output": {
+      "type": "string",
+      "minLength": 8,
+      "description": "Human-readable description of expected results"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "version": { "type": "string", "description": "Workflow version" },
+        "created_date": { "type": "string", "format": "date-time" },
+        "last_modified": { "type": "string", "format": "date-time" },
+        "status": { "type": "string", "enum": ["draft", "active", "deprecated"], "description": "Workflow lifecycle status" },
+        "estimated_duration": { "type": "string", "description": "Estimated execution time (e.g., '30 minutes', '2 hours')" }
+      }
+    },
+    "extraction_targets": {
+      "type": "array",
+      "description": "Optional source-to-registry extraction mapping for multi-framework harmonization.",
+      "items": {
+        "type": "object",
+        "required": ["source_framework", "target_registry_section", "extracted_attributes"],
+        "properties": {
+          "source_framework": { "type": "string", "enum": ["goose", "nemoclaw", "openclaw", "custom"] },
+          "target_registry_section": { "type": "string", "enum": ["workflows", "protocols", "skills", "data-inputs", "modules", "kpis"] },
+          "extracted_attributes": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 2 },
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "recovery_protocols": {
+      "type": "array",
+      "description": "Optional structured recovery strategy map inspired by Goose execution safeguards.",
+      "items": {
+        "type": "object",
+        "required": ["id", "activation", "strategy"],
+        "properties": {
+          "id": { "type": "string", "minLength": 2 },
+          "activation": { "type": "string", "minLength": 4 },
+          "strategy": { "type": "string", "minLength": 4 },
+          "max_retries": { "type": "integer", "minimum": 0 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "hybrid_content": {
+      "type": "object",
+      "description": "Hybrid envelope supporting structured records and unstructured markdown sidecar content.",
+      "properties": {
+        "structured_payload": {
+          "oneOf": [
+            { "type": "object" },
+            { "type": "array" },
+            { "type": "string" },
+            { "type": "number" },
+            { "type": "boolean" },
+            { "type": "null" }
+          ]
+        },
+        "unstructured_markdown": { "type": "string" },
+        "source_format": { "type": "string", "enum": ["json", "yaml", "markdown", "mixed"] },
+        "projection_target": { "type": "string", "enum": ["git", "sqlite", "vault", "memory-cache", "hybrid"] },
+        "data_classification": { "type": "string", "enum": ["T1", "T2", "T3", "T4", "public", "internal", "confidential", "restricted"] },
+        "sync_status": { "type": "string", "enum": ["PENDING", "COMMITTED", "REJECTED", "STALE"] },
+        "canonical_source": { "type": "string", "enum": ["git", "vault", "registry"] },
+        "ingest_timestamp": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

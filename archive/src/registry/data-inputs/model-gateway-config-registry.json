@@ -1,0 +1,96 @@
+{
+  "uid": "model-gateway-config-registry",
+  "name": "Model Gateway Config Registry",
+  "description": "Registry of provider fallback, cooldown, retry, timeout, and environment-bound model configuration fields extracted from Goose and OpenCLAW patterns.",
+  "schemaType": "model-config",
+  "source_type": "vault-context",
+  "source_location": "config/model-gateway",
+  "requiredFields": [
+    "provider",
+    "model",
+    "base_url",
+    "api_key_env",
+    "fallback_order",
+    "cooldown_strategy",
+    "retry_config",
+    "timeout_ms"
+  ],
+  "validation_rules": {
+    "provider": "enum(lmstudio,openrouter,gemini,custom)",
+    "fallback_order": "non-empty-array",
+    "timeout_ms": "positive-number",
+    "retry_config.max_retries": "integer>=0"
+  },
+  "sampleSource": "settings/model-gateway-service",
+  "update_frequency": "on-demand",
+  "responsible_agent": "julia_van_der_meer",
+  "privacy_classification": "confidential",
+  "retention_policy": "1 year",
+  "model_config": {
+    "provider_env_overrides": [
+      "DHI_MODEL_GATEWAY_FALLBACK_ORDER",
+      "DHI_LM_STUDIO_BASE_URL",
+      "DHI_LM_STUDIO_MODEL",
+      "DHI_OPENROUTER_BASE_URL",
+      "DHI_OPENROUTER_MODEL",
+      "DHI_OPENROUTER_API_KEY",
+      "DHI_GEMINI_BASE_URL",
+      "DHI_GEMINI_MODEL",
+      "DHI_GEMINI_API_KEY",
+      "GOOSE_RECIPE_RETRY_TIMEOUT_SECONDS",
+      "GOOSE_RECIPE_ON_FAILURE_TIMEOUT_SECONDS",
+      "GOOSE_MAX_ACTIVE_AGENTS"
+    ],
+    "default_retry": {
+      "max_retries": 3,
+      "initial_interval_ms": 1000,
+      "backoff_multiplier": 2,
+      "max_interval_ms": 30000
+    },
+    "cooldown_defaults_ms": {
+      "rate_limit": 45000,
+      "overloaded": 45000,
+      "network": 30000,
+      "auth": 300000,
+      "auth_permanent": 300000,
+      "model_not_found": 600000,
+      "billing": 300000
+    },
+    "model_context_windows": {
+      "default_context_window": 32000,
+      "providers": {
+        "lmstudio": {
+          "contextWindow": 32000,
+          "reservedOutputTokens": 2048,
+          "highWaterMarkRatio": 0.8
+        },
+        "openrouter": {
+          "contextWindow": 128000,
+          "reservedOutputTokens": 4096,
+          "highWaterMarkRatio": 0.8
+        },
+        "gemini": {
+          "contextWindow": 1000000,
+          "reservedOutputTokens": 8192,
+          "highWaterMarkRatio": 0.8
+        }
+      },
+      "model_overrides": {
+        "openrouter": {
+          "openai/gpt-4o-mini": {
+            "contextWindow": 128000,
+            "reservedOutputTokens": 4096,
+            "highWaterMarkRatio": 0.8
+          }
+        },
+        "gemini": {
+          "gemini-1.5-flash": {
+            "contextWindow": 1000000,
+            "reservedOutputTokens": 8192,
+            "highWaterMarkRatio": 0.75
+          }
+        }
+      }
+    }
+  }
+}

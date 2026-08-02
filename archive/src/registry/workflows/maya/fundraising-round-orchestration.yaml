@@ -1,0 +1,65 @@
+id: fundraising-round-orchestration
+agent_id: maya
+trigger: "Director Signal: 'Fundraising Open' / Major Strategic Milestone Reached"
+logic_sequence:
+  phase_1_strategic_synthesis:
+    step_1: >-
+      Aggregate 10-Agent Telemetry: Pull 'Growth-Velocity' from Dani, 'System-Uptime' from Julia, and
+      'Compliance-Fidelity' from Eva.
+    step_2: >-
+      Generate 'Strategic-Impact-Report': Prove that the team has met the 'Milestone-Success-Criteria' defined in the
+      Git-history.
+    step_3: "Initialize 'Funding-Proposal' (Markdown): Scaffold the narrative in the /governance/fundraising/ staged directory."
+  phase_2_valuation_&_audit_handshake:
+    step_4: >-
+      Request 'Valuation Handshake' (Nora): Align the proposed round-size with current 'Burn-Rate' and
+      'Projected-Runway-Extension'.
+    step_5: >-
+      Request 'Audit Handshake' (Eva): Verify the 'Due-Diligence-Vault' is 100% complete and compliant with SEC/local
+      regulations.
+    step_6: >-
+      IF Handshake Fails: Re-calibrate the 'Target-Raise' or the 'Equity-Allocation' to meet the internal
+      Governance-Safe-Gate.
+  phase_3_director_arbitration:
+    step_7: >-
+      Generate 'Fundraising-Simulation': Predict the 'Equity-Dilution' vs. 'Growth-Acceleration' trade-offs for the
+      Director.
+    step_8: >-
+      Present 'Funding Proposal': Deliver the brief to the Director: 'I recommend opening a $2M Seed Extension based on
+      40% Q3 Growth-Velocity'.
+    step_9: >-
+      Await Director Approval: The system remains in 'Standard-Ops' until a Director-signed 'Fundraising-Auth' hash is
+      detected.
+  phase_4_pipeline_activation:
+    step_10: "Trigger 'Due-Diligence-Automation': Upon approval, open the secure 'Data-Room' for pre-vetted investor leads."
+    step_11: >-
+      Active CRM Sync: Push the new 'Round-Status' to the Investor Pipeline and begin tracking
+      'Investor-Stage-Conversion' KPIs.
+    step_12: "Governance Log: Commit the approved 'Funding-Proposal.md' to the Git-tracked /vault/governance/history/."
+dependencies:
+  required_skills:
+    - investor-pipeline-prioritization
+    - financial-forecasting
+    - strategic-alignment
+  required_kpis:
+    - investor-stage-conversion
+    - runway-coverage-months
+  data_inputs:
+    - strategic-milestones-json
+    - growth-opex-ledger
+    - vault-audit-trail
+  protocols:
+    - fundraising-readiness-protocol
+    - due-diligence-automation-protocol
+    - git-governance-handshake-protocol
+error_handling:
+  on_valuation_clash: >-
+    If Nora identifies a 'Valuation-Gap', Maya must trigger a 'Unit-Economic-Audit' before re-submitting to the
+    Director.
+  on_investor_leak: >-
+    If unauthorized access to the Data-Room is detected, Eva (Compliance) invokes 'Lockdown-Mode' and Maya notifies the
+    Director.
+expected_output: >
+  A validated Fundraising Activation Package containing: 1. Status: [ROUND-OPEN / STAGED / AUDIT-REQUIRED] 2. Valuation
+  Rationale: Mathematical proof of the proposed price-per-share or cap. 3. Strategic Impact: Summary of the 10-agent
+  velocity that justifies the raise. 4. Traceable Reference: The 'Fundraising-Auth-Hash' for the secure Data-Room.

@@ -1,0 +1,66 @@
+id: friction-resolution-mode
+agent_id: lina
+trigger: Detected Conflict between Agent Protocols / Cross-Module Friction > 25%
+logic_sequence:
+  phase_1_conflict_forensics:
+    step_1: >-
+      Intercept Conflict Log: Pull the 'Handoff-Rejection-Data' from Elina (Ops) to identify the specific agent pair in
+      deadlock.
+    step_2: >-
+      Cohesion Scoring: Run a 'Cross-Module-Cohesion' analysis to see if the conflict is 'Technical' (Schema) or
+      'Behavioral' (Goal-Clash).
+    step_3: >-
+      Initialize 'Mediation-Brief' (Local/Secure): Document the 'Thesis' (Agent A's Goal) vs. the 'Antithesis' (Agent
+      B's Constraint).
+  phase_2_strategic_recalibration:
+    step_4: >-
+      Root Cause ID: Determine if the friction stems from 'Role-Ambiguity' (overlapping duties) or a 'Protocol-Clash'
+      (opposing rules).
+    step_5: >-
+      Draft 'Mediated-Resolution': Adjust the 'Backstory' or 'Weighting-Logic' of the agents involved to favor the
+      current 'Strategic-Milestone'.
+    step_6: >-
+      IF Conflict is High-Liability: Pause the recalibration and trigger 'Human-in-Loop Risk Resolution' for Director
+      arbitration.
+  phase_3_director_validation_gate:
+    step_7: "Generate 'Alignment-Projection': Show how the proposed recalibration will restore 'Queue-Throughput-Velocity'."
+    step_8: >-
+      Present 'Resolution Package': Deliver the fix to the Director: 'I have re-calibrated Dani’s goal to prevent Eva’s
+      blocks while maintaining 90% compliance'.
+    step_9: >-
+      Await Director Choice: The agents continue in 'Throttled-Mode' until a Director-signed 'Calibration-Hash' is
+      received.
+  phase_4_constitutional_update:
+    step_10: >-
+      Commit Calibration: Update the Git-tracked 'agent-profiles.yaml' and individual .md skill files to reflect the new
+      boundaries.
+    step_11: >-
+      System-Wide Propagation: Trigger a 'Protocol-Reload' for the 10-slot array to ensure all agents recognize the
+      updated hierarchy.
+    step_12: >-
+      Post-Resolution Monitoring: Track the 'Cross-Functional-Alignment-Index' for 100 cycles to confirm the friction
+      has dissipated.
+dependencies:
+  required_skills:
+    - talent-evaluation
+    - execution-governance
+    - cross-module-cohesion
+  required_kpis:
+    - cross-functional-alignment-index
+  data_inputs:
+    - handoff-integrity-log
+    - agent-profiles-yaml
+    - strategic-milestones-json
+  protocols:
+    - behavioral-mediation-protocol
+    - git-governance-handshake-protocol
+    - protocol-recalibration-gate
+error_handling:
+  on_resolution_loop: >-
+    If a fix creates a new conflict with a third agent (e.g., Nora), Lina invokes 'Static-Lockdown' and requests a
+    manual 'Role-Audit'.
+  on_director_veto: If the Director rejects the mediation, Lina reverts to 'Safety-Default' (Compliance-First) and logs the decision.
+expected_output: >
+  A Decision-Ready Resolution Brief containing: 1. Status: [RESOLVED / MEDIATED / ESCALATED] 2. Conflict Identification:
+  Precise breakdown of the goal-clash (e.g., Growth vs. Privacy). 3. Calibration Delta: Specific changes made to agent
+  'Backstories' or 'Goals'. 4. Traceable Reference: The Git-Commit hash of the updated 'agent-profiles.yaml'.

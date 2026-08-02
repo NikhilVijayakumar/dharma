@@ -1,0 +1,34 @@
+id: onboarding-sequencing-protocol
+title: "Global Onboarding & Context-Hydration"
+description: "Stateless governance standard for the secure and logical integration of new entities into the Sangama Directive ecosystem."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Identity-Verification-First: No entity receives 'Task-Access' until Lina Kovic (HR) and Eva (Compliance) verify 'Identity-Hash' and 'Legal-Standing'."
+  - rule_2: "The 'Context-Injection' Mandate: Every new onboard must complete a 'Strategic-Vision-Sync'—a mandatory read of the /governance/core-strategy.md."
+  - rule_3: "Principle of Least Privilege (PoLP): Initial access is set to [READ-ONLY] and [SANDBOX-ONLY] until the first 'Milestone-Verification' is passed."
+  - rule_4: "Recursive-Protocol-Inheritance: The new entity must acknowledge and 'Sign' all global protocols (DHP, DIEP, EGP) before the /context/ directory is shared."
+  - rule_5: "Shadowing-Period: Every new agent/entity must be assigned a 'Mentor-Slot' (an existing agent) for the first 72 hours of 'Operational-Live-Status'."
+
+logic_sequence:
+  step_1: "Initiate Onboarding-Packet: Generate a unique 'Entity-UUID' and define the 'Role-Scope' (e.g., Marketing, Dev, Ops)."
+  step_2: "Provision-Vault-Access: Create encrypted sub-directories for the new entity under Nora’s 'Fiscal-Oversight' and Julia’s 'Security-Shell'."
+  step_3: "Execute 'Knowledge-Transfer' (KT): Push the relevant /governance/ and /protocols/ to the new entity’s active memory."
+  step_4: "IF CALIBRATION-PASS: Upgrade status to [ACTIVE-EXECUTION] and alert the Director (Slot-10)."
+  step_5: "IF CALIBRATION-FAIL: Revoke all temporary tokens and generate an 'Onboarding-Friction-Report' for Lina Kovic."
+
+escalation_triggers:
+  - "Condition: An onboarded entity attempts to access a 'Restricted-Vault' outside their 'Role-Scope'."
+  - "Condition: Failure to pass the 'Strategic-Alignment-Quiz' after 3 attempts."
+  - "Condition: Detection of a 'Governance-Protocol' violation during the 72-hour Shadowing-Period."
+
+dependencies:
+  required_skills:
+    - talent-calibration
+    - execution-governance
+  required_kpis:
+    - mean-time-to-productivity (MTTP)
+    - brand-fidelity-index

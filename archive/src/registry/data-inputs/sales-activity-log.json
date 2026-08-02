@@ -1,0 +1,33 @@
+{
+  "uid": "sales-activity-log",
+  "name": "Revenue-Velocity-Stream (RVS)",
+  "description": "A high-fidelity event-stream mapping 'Outreach-Tactics' against 'Prospect-Sentiment' and 'Pipeline-Acceleration-Deltas'.",
+  "schemaType": "Growth-Protocol",
+  "requiredFields": [
+    "event_id",
+    "timestamp_iso8601",
+    "target_account_uid",
+    "interaction_medium",
+    "persuasion_vector_used",
+    "prospect_resistance_score",
+    "deal_value_estimated"
+  ],
+  "sampleSource": "growth/sales-ops/v4-activity-stream",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "activity_vectors": {
+          "QUALIFICATION": "ICP-Alignment / Budget-Verification",
+          "NURTURING": "Value-Proposition-Reinforcement",
+          "CLOSING": "Objection-Handling / Contract-Finalization",
+          "EXPANSION": "Upsell-Intelligence / Cross-Slot-Utility"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

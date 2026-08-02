@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/product-standalone.schema.json",
+  "productId": "video-series",
+  "companyId": "bavans-publishing",
+  "goal": "Adapt stories into video and series format for maximum reach",
+  "vision": "Stories scale from page to screen, reaching global audiences",
+  "problemSolved": "Written content limited by literacy; video reaches billions",
+  "usp": "High-quality video adaptation of stories for streaming platforms",
+  "mvp": [],
+  "validation": {
+    "methodology": "Viewership metrics, subscriber conversion, platform ratings",
+    "successCriteria": "TBD"
+  },
+  "contentFormats": ["video", "series"],
+  "targetAudience": ["general", "children", "adults"],
+  "contentTrack": "both",
+  "updatedAt": "2026-04-08T00:00:00.000Z"
+}

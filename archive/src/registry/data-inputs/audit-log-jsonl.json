@@ -1,0 +1,32 @@
+{
+  "uid": "audit-log-jsonl",
+  "name": "Forensic-Audit-Stream (FAS)",
+  "description": "High-fidelity, JSONL-formatted stream of all 'Agentic-Events', 'Decision-Nodes', and 'Logic-Transitions' across the 10-slot array.",
+  "schemaType": "Log-Protocol",
+  "requiredFields": [
+    "event_id",
+    "timestamp_iso8601",
+    "origin_slot",
+    "intent_vector",
+    "action_payload",
+    "compliance_hash",
+    "token_usage_ref"
+  ],
+  "sampleSource": "governance/audit-vault/real-time-stream",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "event_categories": {
+          "COGNITIVE": "Reasoning-Steps / Thought-Chains",
+          "EXECUTIVE": "API-Calls / External-Actions",
+          "GOVERNANCE": "Policy-Checks / Interventions"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

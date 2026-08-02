@@ -1,0 +1,19 @@
+{
+  "uid": "compliance-pass-rate",
+  "name": "Compliance-Pass-Rate (CPR)",
+  "description": "Percentage of agent work-orders that clear all 'Mandatory-Policy-Gates' (Security, Legal, Brand, Accessibility) on the initial execution attempt.",
+  "unit": "% (First-Pass-Yield)",
+  "target": "> 95.00",
+  "value": "Calculated via APV-Skill (Initial-Pass / Total-Submissions)",
+  "goalMapping": "Minimizes 'Logic-Churn' and ensures the system operates within 'Legal-Safe-Harbor' parameters.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Transaction / Real-Time",
+    "shorthand": "First-Pass-Success"
+  },
+  "thresholds": {
+    "critical": "< 85% (Triggers 'Protocol-Drift-Investigation' via Eva/Compliance)",
+    "warning": "85% - 94% (Triggers 'Instruction-Refinement' for underperforming agents)",
+    "optimal": "> 98%"
+  }
+}

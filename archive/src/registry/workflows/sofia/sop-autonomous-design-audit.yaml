@@ -1,0 +1,57 @@
+id: sop-autonomous-design-audit
+agent_id: sofia
+trigger: Standard Operating / Julia (CTO) Pushes a UI-Update or Frontend-Commit
+logic_sequence:
+  phase_1_visual_telemetry_scan:
+    step_1: "Initialize VisualAuditService: Analyze the new UI components against 'visual_tokens.json' (Color/Typography/Grid)."
+    step_2: >-
+      Element Mapping: Identify all interactive nodes (buttons, inputs, links) to verify 'Fitts-Law' compliance and
+      click-target sizing.
+    step_3: "Initialize 'Style-Hash': Compare the new assets against the 'Brand-Style-Guide.json' to detect visual drift."
+  phase_2_accessibility_gate:
+    step_4: >-
+      Automated WCAG-Check: Perform real-time contrast-ratio analysis and verify 'ARIA-Label' integrity for
+      screen-readers.
+    step_5: >-
+      Interaction-Quality-Mapping: Simulate user-flow through the new components to detect 'Layout-Shift' or
+      'Dead-Ends'.
+    step_6: >-
+      Constraint Check (Eva): Ensure that any new UI element doesn't violate 'Compliance-Warning' visibility
+      requirements.
+  phase_3_automated_remediation_&_verification:
+    step_7: >-
+      IF 'FAIL': Invoke 'Self-Healing'. Generate a 'Style-Correction-Manifest' (e.g., specific HEX/CSS adjustments) and
+      push it back to Julia for immediate re-scaffolding.
+    step_8: "IF 'PASS': Finalize the 'Design-Quality-Hash' and authorize the UI for production deployment."
+    step_9: "Update 'UX Health Score': Aggregate the audit results into Arya’s (CEO) Synthesis layer for high-level reporting."
+  phase_4_governance_logging:
+    step_10: "Log Conformance: Record the audit results in the git-ignored /local/design/design-quality-log.md."
+    step_11: >-
+      Verify 'Token-Compliance': Calculate the 'Visual-Efficiency-Score' to ensure the UI isn't consuming excess
+      compute/render tokens.
+    step_12: "Status Report: Deliver the [DESIGN-VALIDATED] signal to Mira (Conductor) to move the task to 'Final-QA'."
+dependencies:
+  required_skills:
+    - visual-audit
+    - interaction-quality-mapping
+    - execution-governance
+  required_kpis:
+    - accessibility-conformance-rate
+    - token-compliance-score
+  data_inputs:
+    - visual-tokens-json
+    - brand-style-guide-json
+    - frontend-commit-manifest
+  protocols:
+    - visual-arbitration-protocol
+    - wcag-compliance-gate
+    - low-risk-execution-gate
+error_handling:
+  on_critical_failure: If the UI causes a >20% drop in Accessibility, Sofia triggers an 'Immediate-Rollback' and alerts the Director.
+  on_style_clash: >-
+    If Julia’s code conflicts with the 'Self-Healing' patch, Sofia freezes the slot and requests
+    'Human-in-Loop-Creative-Direction'.
+expected_output: >
+  A validated Design Audit Report containing: 1. Status: [PASS / HEALED / REJECTED] 2. Accessibility Score: Breakdown of
+  WCAG compliance (A, AA, AAA). 3. Corrective Actions: Details of any 'Style-Corrections' auto-applied. 4. Traceable
+  Reference: The 'Design-Quality-Hash' logged in the Governance Lab.

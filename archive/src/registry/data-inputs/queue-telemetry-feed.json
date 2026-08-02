@@ -1,0 +1,14 @@
+{
+  "uid": "queue-telemetry-feed",
+  "name": "Queue Telemetry Feed",
+  "description": "Generated data input for registry reference normalization: queue-telemetry-feed.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/elina/crisis-stabilization-mode",
+  "privacyClassification": "internal"
+}

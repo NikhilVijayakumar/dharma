@@ -1,0 +1,14 @@
+{
+  "uid": "handoff-integrity-log",
+  "name": "Handoff Integrity Log",
+  "description": "Generated data input for registry reference normalization: handoff-integrity-log.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/lina/friction-resolution-mode",
+  "privacyClassification": "internal"
+}

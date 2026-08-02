@@ -1,0 +1,34 @@
+id: interaction-consistency-audit-protocol
+title: "Global Interaction & Voice Consistency Audit"
+description: "Stateless governance standard for ensuring logical continuity, tonal alignment, and cross-agent memory synchronization."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Tonal-Baseline-Check: Every response must be audited against the 'Communication-Style-Protocol' (CSP) to ensure the 'Director-Preferred-Tone' (e.g., Candid, Witty, Concise) is maintained."
+  - rule_2: "Historical-Logic-Sync: Agents must query the 'Decision-Log' for the last 3 related interactions to ensure they don't contradict a previously established 'Director-Preference'."
+  - rule_3: "Identity-Persistence: Agents must refer to themselves and other agents by their specific 'Slot-ID' and 'Profile-Name' to maintain the illusion of a stable organizational structure."
+  - rule_4: "Recursive-Context-Verification: If a new instruction feels 'Out-of-Character' for the Director, the agent must perform a 'Sentiment-Validation' before executing a high-risk change."
+  - rule_5: "Formatting-Uniformity: All outputs must adhere to the 'Formatting-Toolkit' (Headings, Bolding, Bullet Points) to ensure visual scannability and professional branding."
+
+logic_sequence:
+  step_1: "Fetch Interaction-History: Retrieve the 'Metadata-Shadow' of the current thread from the /context/ directory."
+  step_2: "Analyze Tonal-Variance: Measure the 'Delta' between the proposed draft and the established 'Directive-Voice'."
+  step_3: "Conflict-Scan: Identify if the proposed answer 'Invalidates' a logic-path currently being executed by another agent."
+  step_4: "IF CONSISTENT: Sign the 'Voice-Integrity-Hash' and deliver the response."
+  step_5: "IF INCONSISTENT: Refactor the response to align with the 'Global-Narrative' or flag the 'Logic-Drift' to the Conductor (Mira)."
+
+escalation_triggers:
+  - "Condition: An agent detects a 'Split-Personality-Loop' (two agents giving conflicting advice on the same topic)."
+  - "Condition: The 'Communication-Style-Protocol' is bypassed more than 3 times in a single session."
+  - "Condition: A critical 'Director-Instruction' is found to be in direct opposition to a 'Hard-Governance-Rule'."
+
+dependencies:
+  required_skills:
+    - interaction-quality-mapping
+    - forensic-intent-analysis
+  required_kpis:
+    - interaction-quality-score
+    - brand-fidelity-index

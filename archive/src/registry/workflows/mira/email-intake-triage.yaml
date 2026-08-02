@@ -1,0 +1,69 @@
+id: email-intake-triage
+name: Email Intake & Triage
+description: >
+  Heartbeat-triggered workflow that fetches unread emails from configured Director mailboxes,
+  applies the spam pre-filter, classifies via the email-triage-classifier skill, and presents
+  a triage summary to the Director for selective action.
+version: 1.0.0
+
+trigger:
+  type: cron
+  job_id_pattern: "EMAIL_HEARTBEAT_<accountId>"
+  schedule: configurable  # once_daily or twice_daily per account
+
+owner: mira
+
+steps:
+  - id: fetch_unread
+    action: imap_fetch
+    description: >
+      Read lastReadUID from email_read_cursors for the account.
+      IMAP FETCH all messages with UID > lastReadUID.
+    output: raw_emails[]
+
+  - id: spam_filter
+    action: skill
+    skill: spam-newsletter-filter
+    input: raw_emails[]
+    description: >
+      Rule-based pre-filter using List-Unsubscribe headers and domain blocklist.
+      Auto-archives matches. Passes remaining to triage.
+    output:
+      archived: spam_emails[]
+      passed: clean_emails[]
+
+  - id: classify
+    action: skill
+    skill: email-triage-classifier
+    input: clean_emails[]
+    description: >
+      LLM-assisted classification by department and priority.
+    output: action_items[]
+
+  - id: persist_items
+    action: db_write
+    table: email_action_items
+    input: action_items[]
+    description: >
+      Store classified ActionItems in SQLite with UNIQUE(accountId, emailUid) dedup.
+
+  - id: update_cursor
+    action: db_write
+    table: email_read_cursors
+    description: >
+      Update lastReadUID to highest UID in batch. Update lastCheckTimestamp.
+
+  - id: present_summary
+    action: notification
+    target: director
+    description: >
+      Mira presents triage summary via internal chat notification.
+      Director sees batch breakdown by priority and department.
+
+protocols:
+  - clear-desk-protocol
+
+recovery:
+  interrupted: re-enqueue on restart
+  missed: fire immediately on boot
+  deduplication: lastReadUID cursor + emailUid UNIQUE constraint

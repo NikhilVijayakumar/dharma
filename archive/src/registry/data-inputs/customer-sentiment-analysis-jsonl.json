@@ -1,0 +1,14 @@
+{
+  "uid": "customer-sentiment-analysis-jsonl",
+  "name": "Customer Sentiment Analysis Jsonl",
+  "description": "Generated data input for registry reference normalization: customer-sentiment-analysis-jsonl.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/dani/human-in-loop-narrative-pivot",
+  "privacyClassification": "internal"
+}

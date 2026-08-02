@@ -1,0 +1,19 @@
+{
+  "uid": "runway-coverage-months",
+  "name": "Runway-Coverage (RC)",
+  "description": "Calculates the 'Time-to-Exhaustion' (TTE) of liquid capital based on 'Dynamic-Agent-Burn' and 'Forecasted-Inflow-Velocity'.",
+  "unit": "Months",
+  "target": "> 18.0",
+  "value": "Calculated via (Liquid-Assets / [Fixed-Burn + Variable-Compute-Burn])",
+  "goalMapping": "Guarantees 'Strategic-Continuity' and triggers 'Capital-Preservation-Protocols' during market volatility.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Real-Time-Settlement / Weekly-Forecast-Update",
+    "shorthand": "Survival-Clock"
+  },
+  "thresholds": {
+    "critical": "< 6.0 Months (Triggers 'Immediate-Pivot-Mode' and 'Non-Essential-Slot-Freeze')",
+    "warning": "6.0 - 12.0 Months (Triggers 'Fundraising-Overdrive' and 'Burn-Rate-Optimization')",
+    "optimal": "18.0 - 24.0 Months"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "uid": "security-protocols-md",
+  "name": "Security Protocols Md",
+  "description": "Generated data input for registry reference normalization: security-protocols-md.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/eva/crisis-lockdown-mode",
+  "privacyClassification": "internal"
+}

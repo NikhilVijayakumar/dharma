@@ -1,0 +1,19 @@
+{
+  "uid": "routing-accuracy-score",
+  "name": "Routing-Accuracy-Score (RAS)",
+  "description": "Measures the percentage of 'Work-Orders' successfully accepted and processed by the first-assigned agent without a 'Wrong-Destination' rejection.",
+  "unit": "% (Initial-Hit-Rate)",
+  "target": "> 96.00",
+  "value": "Calculated via 'Mira-Bus-Logic' (Successful-First-Assignments / Total-Assignments)",
+  "goalMapping": "Minimizes 'Task-Redundancy' and optimizes 'Cognitive-Throughput' by reducing inter-agent misdirection.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Task-Ingestion / Real-Time",
+    "shorthand": "Targeting-Precision"
+  },
+  "thresholds": {
+    "critical": "< 88% (Triggers 'Mira-Orchestration-Reset' and 'Intent-Classifier-Retraining')",
+    "warning": "88% - 94% (Triggers 'Metadata-Tagging-Audit' for incoming Work-Orders)",
+    "optimal": "> 98.0%"
+  }
+}

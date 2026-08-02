@@ -1,0 +1,19 @@
+{
+  "uid": "cross-functional-alignment-index",
+  "name": "Cross-Functional-Alignment-Index (CFAI)",
+  "description": "Measures the synchronization of 'Dependency-Chains' across the 10-agent array to ensure zero 'Strategic-Overlap' or 'Logic-Collision'.",
+  "unit": "% (Sync-Ratio)",
+  "target": "> 96.00",
+  "value": "Calculated via QPP-Collision-Audit (Synchronized-Tasks / Total-Work-Orders)",
+  "goalMapping": "Enforces 'Operational-Cohesion' and prevents 'Resource-Contention' between agents.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Weekly-Audit / Per-Project-Milestone",
+    "shorthand": "Agent-Sync-Score"
+  },
+  "thresholds": {
+    "critical": "< 80% (Triggers 'Global-Intent-Re-alignment' via Mira/Conductor)",
+    "warning": "80% - 92% (Triggers 'Dependency-Mapping-Update' in SHRP-2)",
+    "optimal": "> 98%"
+  }
+}

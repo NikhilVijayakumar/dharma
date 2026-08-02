@@ -1,0 +1,14 @@
+{
+  "uid": "frontend-commit-manifest",
+  "name": "Frontend Commit Manifest",
+  "description": "Generated data input for registry reference normalization: frontend-commit-manifest.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/sofia/sop-autonomous-design-audit",
+  "privacyClassification": "internal"
+}

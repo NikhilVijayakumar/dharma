@@ -1,0 +1,34 @@
+id: git-governance-handshake-protocol
+title: "Global Git-Governance & Strategy-to-Code Sync"
+description: "Stateless governance standard for validating that technical pull requests align with active legal, fiscal, and strategic mandates."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Policy-ID-Binding: Every Pull Request (PR) must be tagged with a 'Governance-Policy-ID' (e.g., GP-FISCAL-04) that justifies the resource expenditure."
+  - rule_2: "Cross-Slot-Verification: A 'Merge-Lock' is active until at least one non-tech agent (Eva for Compliance or Nora for Finance) 'Signs-Off' on the logic's impact."
+  - rule_3: "License-Compliance-Gate: Julia (Tech) cannot merge code that introduces 3rd-party dependencies without Eva’s 'Open-Source-License-Audit'."
+  - rule_4: "Strategic-Drift-Scan: PR descriptions must be processed through the 'Forensic-Intent-Analysis' to ensure they don't contradict the 'Strategic-Vision.md'."
+  - rule_5: "Immutable-Audit-Mirror: Upon a successful Merge, the 'PR-Metadata' (Who, Why, Cost, Impact) is mirrored to the /governance/audit/technical-ledger.md."
+
+logic_sequence:
+  step_1: "PR-Detection: Intercept the 'Open-Pull-Request' signal from the Git-Node."
+  step_2: "Governance-Check: Query the Governance Lab to see if the 'Work-Order-UUID' is still in an [APPROVED] state."
+  step_3: "Impact-Simulation: Estimate the 'Token-Cost' and 'Maintenance-Debt' of the proposed code change."
+  step_4: "IF HANDSHAKE-COMPLETE: Remove the 'Merge-Blocker' and issue a 'Governance-Approval-Token' to the Git provider."
+  step_5: "IF HANDSHAKE-FAIL: Close the PR with a 'Strategic-Misalignment-Notice' and route back to the Conductor (Mira) for re-planning."
+
+escalation_triggers:
+  - "Condition: An agent attempts to merge a 'Breaking-Change' that bypasses the 'Downward-Compatibility' rule."
+  - "Condition: The code change involves 'Financial-Logic' but hasn't been audited by Nora (Finance)."
+  - "Condition: A PR remains open for >48 hours without a 'Governance-Signature', indicating a 'Logic-Stall'."
+
+dependencies:
+  required_skills:
+    - forensic-intent-analysis
+    - execution-governance
+  required_kpis:
+    - mean-time-to-repair (MTTR-Tech)
+    - decision-cycle-time

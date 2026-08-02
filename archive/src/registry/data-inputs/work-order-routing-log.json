@@ -1,0 +1,34 @@
+{
+  "uid": "work-order-routing-log",
+  "name": "Chain-of-Custody-Log (CCL)",
+  "description": "A high-fidelity event-stream tracking 'Mission-State-Transitions', 'Context-Handoff-Efficiency', and 'Agent-Accountability'.",
+  "schemaType": "Orchestration-Protocol",
+  "requiredFields": [
+    "work_order_uid",
+    "timestamp_iso8601",
+    "transition_vector_path",
+    "handoff_latency_ms",
+    "context_validation_hash",
+    "current_resolution_state",
+    "governance_checkpoint_id"
+  ],
+  "sampleSource": "ops/routing-vault/v5-execution-stream",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "mission_states": {
+          "INITIATED": "Intent-Mapped / Task-Born",
+          "IN_TRANSIT": "Agent-to-Agent-Handoff (Context-Loading)",
+          "ACTIVE": "Slot-Execution-in-Progress",
+          "STALLED": "Dependency-Block / Human-Intervention",
+          "COMPLETED": "Verification-Successful / Closed"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

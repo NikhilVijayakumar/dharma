@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/product-standalone.schema.json",
+  "productId": "games",
+  "companyId": "bavans-publishing",
+  "goal": "Create interactive story-based experiences that extend content engagement",
+  "vision": "Players become part of the stories they love",
+  "problemSolved": "Passive consumption limits engagement; interactive experiences deepen connection",
+  "usp": "Story-based educational and entertainment games that maintain narrative integrity",
+  "mvp": [],
+  "validation": {
+    "methodology": "Game engagement metrics, retention rates, user reviews",
+    "successCriteria": "TBD"
+  },
+  "contentFormats": ["game", "interactive"],
+  "targetAudience": ["children", "adults"],
+  "contentTrack": "both",
+  "updatedAt": "2026-04-08T00:00:00.000Z"
+}

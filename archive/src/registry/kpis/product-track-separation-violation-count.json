@@ -1,0 +1,35 @@
+{
+  "uid": "product-track-separation-violation-count",
+  "name": "Product Track Separation Violation Count",
+  "description": "Counts detected violations where children's education and mature fiction content tracks are mixed without approved exception.",
+  "unit": "count",
+  "target": "= 0",
+  "value": "sum(track_separation_violations)",
+  "formula": "sum(track_separation_violations)",
+  "goalMapping": "Protects audience safety and trust by enforcing strict domain separation boundaries.",
+  "frequency_of_check": "daily",
+  "responsible_agent_role": "Chief Compliance Officer (CCO) — Governance & Audit",
+  "thresholds": {
+    "critical": "> 0",
+    "warning": "= 0 with pending exception requests",
+    "optimal": "0"
+  },
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Event-based",
+    "shorthand": "PTSVC"
+  },
+  "escalation_policy": {
+    "on_critical": "Immediately block affected workflows and route to human-in-loop risk resolution.",
+    "on_warning": "Run compliance audit and require explicit director-level exception handling."
+  },
+  "dependencies": {
+    "data_inputs": [
+      "compliance-audit-trail",
+      "agent-task-logs"
+    ],
+    "dependent_kpis": [
+      "policy-alignment-index"
+    ]
+  }
+}

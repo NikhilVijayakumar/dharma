@@ -1,0 +1,34 @@
+id: crisis-fiscal-freeze-protocol
+title: "Global Crisis Fiscal & Resource Freeze"
+description: "Stateless emergency standard for the immediate suspension of non-critical OpEx and CapEx during financial or operational volatility."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Immediate-Suspension: Upon trigger, all 'Tier-3' (Experimental) and 'Tier-2' (Growth) work-orders are paused mid-execution."
+  - rule_3: "Essential-Only-Logic: Only agents in 'Tier-1' slots (Core Tech/Security/Governance) may request tokens, throttled to a 20% 'Survival-Limit'."
+  - rule_3: "Vendor-Lockdown: All automated 'Top-ups' for external API credits or SaaS seats are disabled to prevent 'Silent-Drain'."
+  - rule_4: "Director-Sovereignty-Shift: All 'Agent-Sovereignty-Limits' are revoked. 100% of fiscal authority reverts to Slot-10 (Director)."
+  - rule_5: "Immutable-Snapshot: The system must generate a 'Pre-Freeze-Ledger' to ensure no transaction data is lost during the shutdown sequence."
+
+logic_sequence:
+  step_1: "Trigger-Validation: Verify the 'Crisis-Signal-Hash' from Nora (Finance) or the 'Global-Market-Sensor'."
+  step_2: "Broadcast-Freeze: Send an 'Interrupt-Signal' to all 10 agent slots with a 'Freeze-Rationale' brief."
+  step_3: "Execute-Kill-Switch: Terminate all active non-critical 'Task-Nodes' and release 'Encumbered-Funds' back to the Reserve-Vault."
+  step_4: "IF SURVIVAL-MODE-ACTIVE: Transition the system to 'Low-Compute-State' (Minimal context, short-burst logic only)."
+  step_5: "Log-Crisis-Entry: Create a 'Crisis-UUID' in the /governance/emergency/ directory for future forensic audit."
+
+escalation_triggers:
+  - "Condition: Runway-Coverage drops below the 3-month 'Hard-Floor'."
+  - "Condition: Undetected 'Anomalous-Burn' exceeds $2,000 in a single hour."
+  - "Condition: A 'Force-Majeure' event is flagged by the Strategic-Vision.md sensors."
+
+dependencies:
+  required_skills:
+    - budget-allocation
+    - risk-modeling
+  required_kpis:
+    - runway-coverage-months
+    - burn-variance-ratio

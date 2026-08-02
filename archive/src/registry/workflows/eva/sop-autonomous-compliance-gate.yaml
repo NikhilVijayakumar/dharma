@@ -1,0 +1,60 @@
+id: sop-autonomous-compliance-gate
+agent_id: eva
+trigger: Agent Task Completion / Git-Proposal Submission / API-Call Initialization
+logic_sequence:
+  phase_1_intercept_&_interrogate:
+    step_1: >-
+      Intercept Output: Use the 'ComplianceScanService' to hold any outbound agent data before it reaches Mira (Routing)
+      or the Director.
+    step_2: >-
+      Deep-Scan Heuristics: Check for PII (Personally Identifiable Information), unauthorized 'Fiscal-Commitments'
+      (Nora), and 'Brand-Tone-Violations' (Dani).
+    step_3: "Initialize 'Compliance-Score': Rank the output's adherence to the 'Security-Baseline.md' on a scale of 0-100."
+  phase_2_automated_disposition:
+    step_4: >-
+      IF SCORE >= 95 (PASS): Attach a unique 'Eva-Auth-Hash' and release the task to the next slot in Elina’s 10-slot
+      queue.
+    step_5: >-
+      IF SCORE < 95 (FAIL): Trigger 'Self-Healing-Feedback'. Return the task to the originating agent with a
+      'Policy-Violation-Manifest'.
+    step_6: >-
+      Constraint Injection: Force the failing agent to re-generate the output using specific 'Safe-State-Templates'
+      defined in the Governance Lab.
+  phase_3_audit_&_logging:
+    step_7: "Log Transaction: Record the pass/fail event in the git-ignored '/vault/compliance-audit-trail.log'."
+    step_8: >-
+      Trend Analysis: If an agent (e.g., Dani) fails the gate >3 times on the same task, escalate to
+      'Human-in-Loop-Risk-Resolution'.
+    step_9: >-
+      Verify 'Traceability': Ensure every 'Auth-Hash' is linked to a specific Director-approved protocol in the
+      Git-history.
+  phase_4_systemic_hardening:
+    step_10: >-
+      Sync with Nora: If the task involved a financial quote, confirm the number matches the current
+      'Budget-Availability-Token'.
+    step_11: "Sync with Sofia: Ensure the output doesn't contradict the 'Visual-Identity-Protocol' for public-facing messages."
+dependencies:
+  required_skills:
+    - security-audit
+    - governance-enforcement
+    - regulatory-mapping
+  required_kpis:
+    - control-pass-rate
+    - audit-trail-completeness-score
+  data_inputs:
+    - security-baseline-md
+    - compliance-policy-md
+    - pii-regex-library
+  protocols:
+    - autonomous-gate-protocol
+    - self-healing-compliance-loop
+    - auth-hash-generation-protocol
+error_handling:
+  on_gate_bypass: >-
+    If a task reaches a 'Commit' state without an Eva-Auth-Hash, Julia (CTO) must auto-revert the repository and notify
+    the Director.
+  on_service_timeout: If ComplianceScanService hangs, Elina (Ops) invokes 'Crisis-Lockdown-Mode' immediately.
+expected_output: >
+  A validated Compliance Gate Disposition containing: 1. Status: [PASS-RELEASED / FAIL-SELF-HEALING / ESCALATED] 2.
+  Compliance Score: [Numerical %] 3. Violation Manifest: (If Fail) Specific clauses from the Policy that were breached.
+  4. Auth-Hash: The cryptographically secure signature for the released task.

@@ -1,0 +1,32 @@
+{
+  "uid": "voice-identity-consent-registry",
+  "name": "Voice Identity Consent Registry",
+  "description": "Consent registry for voice and identity usage boundaries, approvals, and expiry controls.",
+  "schemaType": "identity-protocol",
+  "sourceType": "vault",
+  "sourceLocation": "governance/vault/voice-identity-consent-registry",
+  "requiredFields": [
+    "consent_id",
+    "identity_owner",
+    "voice_profile_id",
+    "usage_scope",
+    "approved_by",
+    "approved_at",
+    "expires_at",
+    "cross_track_allowed",
+    "revocation_status"
+  ],
+  "sampleSource": "governance/vault/voice-identity-consent-registry/active",
+  "updateFrequency": "on-demand",
+  "responsibleAgent": "eva",
+  "privacyClassification": "restricted",
+  "retentionPolicy": "indefinite",
+  "dependencies": {
+    "dependent_kpis": [
+      "policy-alignment-index"
+    ],
+    "dependent_workflows": [
+      "creative-content-approval-gate"
+    ]
+  }
+}

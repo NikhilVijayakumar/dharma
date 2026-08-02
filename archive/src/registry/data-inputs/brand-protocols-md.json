@@ -1,0 +1,32 @@
+{
+  "uid": "brand-protocols-md",
+  "name": "Brand-Identity-Manifest (BIM)",
+  "description": "The definitive 'Voice-and-Values' engine used to calculate Narrative-Fidelity-Scores across all agentic outputs.",
+  "schemaType": "Identity-Protocol",
+  "requiredFields": [
+    "timestamp",
+    "version_tag",
+    "core_archetype",
+    "tonal_weights",
+    "lexicon_blacklist",
+    "visual_logic_constraints"
+  ],
+  "sampleSource": "governance/brand-vault/v3-expansion",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "tonal_weights": {
+          "authority": "0.0 - 1.0",
+          "empathy": "0.0 - 1.0",
+          "wit": "0.0 - 1.0",
+          "transparency": "0.0 - 1.0"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

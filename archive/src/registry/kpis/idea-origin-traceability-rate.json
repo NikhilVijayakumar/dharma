@@ -1,0 +1,35 @@
+{
+  "uid": "idea-origin-traceability-rate",
+  "name": "Idea Origin Traceability Rate",
+  "description": "Measures the percentage of published or staged outputs with complete origin tracking for human-created and AI-assisted components.",
+  "unit": "%",
+  "target": ">= 99%",
+  "value": "traceable_output_count / total_output_count * 100",
+  "formula": "traceable_output_count / total_output_count * 100",
+  "goalMapping": "Preserves intellectual ownership and auditability across creative and operational workflows.",
+  "frequency_of_check": "weekly",
+  "responsible_agent_role": "Chief Executive Officer (CEO) — Strategic Alignment",
+  "thresholds": {
+    "critical": "< 92%",
+    "warning": ">= 92% and < 99%",
+    "optimal": ">= 99%"
+  },
+  "metadata": {
+    "priority": "High (Tier-2)",
+    "sampling_frequency": "Batch weekly",
+    "shorthand": "IOTR"
+  },
+  "escalation_policy": {
+    "on_critical": "Suspend release readiness for affected output sets and trigger audit remediation workflow.",
+    "on_warning": "Increase sampling depth and assign corrective actions to owning agent."
+  },
+  "dependencies": {
+    "data_inputs": [
+      "audit-log-jsonl",
+      "agent-task-logs"
+    ],
+    "dependent_kpis": [
+      "audit-trail-completeness-score"
+    ]
+  }
+}

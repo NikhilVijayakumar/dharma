@@ -1,0 +1,71 @@
+{
+  "uid": "channel-management-config-registry",
+  "name": "Channel Management Config Registry",
+  "description": "Configuration source for outbound channel integrations, destination allowlists, retry policy, and governance mode used by agent communication workflows.",
+  "schemaType": "intelligence-protocol",
+  "source_type": "environment",
+  "source_location": "config/channel-management",
+  "requiredFields": [
+    "channel_provider",
+    "transmission_mode",
+    "default_destination",
+    "allowed_destinations",
+    "retry_policy",
+    "timeout_policy",
+    "credential_env_key"
+  ],
+  "validation_rules": {
+    "channel_provider": "enum(telegram,google_workspace,zapier_mcp,custom)",
+    "transmission_mode": "enum(notify-only,interactive,governance-only)",
+    "allowed_destinations": "non-empty-array",
+    "retry_policy.max_retries": "integer>=0",
+    "timeout_policy.send_timeout_ms": "positive-number"
+  },
+  "sampleSource": "openclaw/nemoclaw-channel-bridge",
+  "update_frequency": "on-demand",
+  "responsible_agent": "mira_the_conductor",
+  "privacy_classification": "confidential",
+  "retention_policy": "1 year",
+  "channel_config": {
+    "provider": "telegram",
+    "supported_providers": [
+      "telegram",
+      "google_workspace",
+      "zapier_mcp",
+      "custom"
+    ],
+    "required_env_vars": [
+      "TELEGRAM_BOT_TOKEN"
+    ],
+    "optional_env_vars": [
+      "ALLOWED_CHAT_IDS",
+      "TELEGRAM_DEFAULT_CHAT_ID"
+    ],
+    "google_workspace_env_vars": [
+      "GOOGLE_ADMIN_EMAIL",
+      "GOOGLE_WORKSPACE_CLIENT_ID",
+      "GOOGLE_WORKSPACE_CLIENT_SECRET",
+      "GOOGLE_WORKSPACE_REFRESH_TOKEN"
+    ],
+    "zapier_mcp_env_vars": [
+      "ZAPIER_WEBHOOK_URL",
+      "ZAPIER_WEBHOOK_SECRET",
+      "MCP_GOOGLE_CONNECTOR_URL"
+    ],
+    "transmission_modes": [
+      "notify-only",
+      "interactive",
+      "governance-only"
+    ],
+    "retry_defaults": {
+      "max_retries": 3,
+      "initial_interval_ms": 1000,
+      "backoff_multiplier": 2,
+      "max_interval_ms": 30000
+    },
+    "timeout_defaults": {
+      "send_timeout_ms": 10000,
+      "ack_timeout_ms": 20000
+    }
+  }
+}

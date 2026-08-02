@@ -1,0 +1,67 @@
+id: google-ecosystem-ingestion-protocol
+title: Google Ecosystem Intake and Decision Intelligence Protocol
+description: Governs ingestion from dedicated admin email and meeting transcripts via Gmail API, Zapier, MCP, and approved fallback channels.
+tags:
+  - google
+  - gmail
+  - zapier
+  - mcp
+  - transcription
+  - governance
+
+rules:
+  - "All ingestion for this pipeline must originate from the dedicated admin mailbox configured by GOOGLE_ADMIN_EMAIL."
+  - "Webhook and connector authentication must be validated before parsing full payload bodies."
+  - "Incoming records must be normalized into a single contract with deterministic source metadata and trace id."
+  - "Meeting transcription records must include participant attribution and confidence metadata when available."
+  - "Every normalized record must be enriched with decision_signals and a policy_impact_signal classification."
+  - "If policy_impact_signal is confirmed_change, workflow must trigger governance policy staging before any autonomous rollout."
+  - "Telegram is an approved fallback ingress or notification channel only when allowlists and bot credentials are valid."
+  - "All actions must emit audit trail artifacts including record_id, connector, processing_agent, and decision outcome."
+
+ingress_policies:
+  allowed_connectors:
+    - gmail_api
+    - zapier_webhook
+    - mcp_server
+    - telegram_bridge
+  required_env_vars:
+    - GOOGLE_ADMIN_EMAIL
+    - GOOGLE_WORKSPACE_CLIENT_ID
+    - GOOGLE_WORKSPACE_CLIENT_SECRET
+    - GOOGLE_WORKSPACE_REFRESH_TOKEN
+  optional_env_vars:
+    - ZAPIER_WEBHOOK_URL
+    - ZAPIER_WEBHOOK_SECRET
+    - MCP_GOOGLE_CONNECTOR_URL
+    - TELEGRAM_BOT_TOKEN
+    - ALLOWED_CHAT_IDS
+  authentication_requirements:
+    - oauth-token-validation
+    - webhook-secret-validation
+    - connector-allowlist-validation
+  default_confidence_thresholds:
+    transcript_confidence_min: 0.7
+    decision_signal_confidence_min: 0.65
+
+policy_sync_requirements:
+  decision_states:
+    - no_change
+    - possible_change
+    - confirmed_change
+  on_possible_change:
+    - stage-policy-rfi
+    - require-compliance-review
+  on_confirmed_change:
+    - invoke-governance-policy-update-workflow
+    - require-director-approval-for-commit
+
+dependencies:
+  required_skills:
+    - automated-policy-validation
+    - multi-agent-sync-orchestration
+    - governance-enforcement
+  required_kpis:
+    - audit-trail-completeness-score
+    - handshake-success-rate
+    - decision-cycle-time

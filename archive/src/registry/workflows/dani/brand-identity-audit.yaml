@@ -1,0 +1,56 @@
+id: brand-identity-audit
+agent_id: dani
+trigger: Visual Token Update (Sofia) OR Director-Initiated 'Brand Refresh'
+logic_sequence:
+  phase_1_visual_conformance:
+    step_1: >-
+      Execute 'VisualAuditService': Scan all active campaign assets (ads, landing pages, emails) against Sofia’s new
+      visual_tokens.json.
+    step_2: "Identify 'Token Mismatch': Flag assets using deprecated hex codes, typography, or spacing scales."
+    step_3: "Sync with Julia: Ensure the Technical Frontend matches the Marketing Narrative to prevent 'Visual Drift'."
+  phase_2_conversion_forensics:
+    step_4: >-
+      Correlation Analysis: Calculate the 'brand-conversion-correlation'—monitoring if visual shifts impact Lead Quality
+      or CTA click-through rates.
+    step_5: >-
+      Performance Benchmarking: Compare 'launch-to-liquidity-delta' pre- and post-token update to ensure no revenue
+      friction was introduced.
+    step_6: "Lead Scoring Audit: Verify that 'qualified-pipeline-coverage' remains stable despite aesthetic changes."
+  phase_3_sentiment_monitoring:
+    step_7: >-
+      Sentiment Scan: Pull 'customer-feedback-stream' from the Vault to detect 'sentiment-polarity-shifts' (Negative vs.
+      Positive reaction to the new brand).
+    step_8: >-
+      Feedback Synthesis: Cross-reference user complaints with Sofia’s 'Interaction Quality Mapping' to isolate UX vs.
+      Brand issues.
+  phase_4_governance_feedback:
+    step_9: "Draft 'Brand Impact Report' (Local/Ignored): Detail the aesthetic conformance and conversion delta."
+    step_10: >-
+      Governance Proposal: If data indicates a performance drop, propose a 'Brand-Protocol' roll-back or adjustment in
+      the Governance Lab.
+    step_11: "Handshake: Request Sofia’s validation on the proposal before presenting to the Director."
+dependencies:
+  required_skills:
+    - market-narrative-design
+    - narrative-fidelity-mapping
+    - sentiment-trend-forecasting
+    - campaign-architecture
+  required_kpis:
+    - qualified-pipeline-coverage
+    - launch-to-liquidity-delta
+    - brand-conversion-correlation
+  data_inputs:
+    - visual-tokens-json
+    - customer-feedback-stream
+    - product-usage-events
+  protocols:
+    - brand-consistency-audit-protocol
+    - narrative-integrity-protocol
+    - visual-token-governance-protocol
+error_handling:
+  on_conversion_drop: If Lead Quality drops >15%, trigger 'Self-Healing-Copy-Optimization' and alert the Director immediately.
+  on_token_conflict: If Julia’s code cannot support Sofia’s tokens, pause the audit and flag as a 'Technical Impediment'.
+expected_output: >
+  A validated Brand Identity Audit Package containing: 1. Conformance Score: [% of assets aligned with new tokens] 2.
+  Conversion Impact: [Delta in lead quality/velocity] 3. Sentiment Analysis: [User polarity shift summary] 4. Status:
+  [Compliant / Drift Detected / Revision

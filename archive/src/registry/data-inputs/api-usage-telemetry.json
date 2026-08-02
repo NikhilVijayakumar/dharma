@@ -1,0 +1,14 @@
+{
+  "uid": "api-usage-telemetry",
+  "name": "Api Usage Telemetry",
+  "description": "Generated data input for registry reference normalization: api-usage-telemetry.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/arya/autonomous-optimization",
+  "privacyClassification": "internal"
+}

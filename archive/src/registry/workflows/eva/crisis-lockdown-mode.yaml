@@ -1,0 +1,65 @@
+id: crisis-lockdown-mode
+agent_id: eva
+trigger: CRISIS_ACTIVATED / Detected Security Breach / Critical Budget Overrun
+logic_sequence:
+  phase_1_immediate_containment:
+    step_1: >-
+      Invoke 'Crisis-Lockdown-Protocol': Sever all external API connections and suspend outbound messaging (Dani/Elara)
+      to prevent data exfiltration.
+    step_2: >-
+      Hard-Fence the Vault: Transition the Governance & Fiscal directories to 'Read-Only' for all non-Director
+      identities.
+    step_3: >-
+      Lock the Governance Lab: Programmatically block any 'git-transaction-scaffolding' or protocol edits during the
+      lockdown period.
+  phase_2_forensic_isolation:
+    step_4: >-
+      Queue-Forensics: Scan Elina’s 10-slot array to identify the specific 'Poison Task' or agent-interaction that
+      triggered the drift.
+    step_5: >-
+      Identity-Audit: Verify the 'Digital Signature' of every active process to ensure no unauthorized lateral movement
+      between agents.
+    step_6: >-
+      Sync with Julia (CTO): Pull 'System-Health-Snapshots' to determine if the breach is at the logic layer or the
+      infrastructure layer.
+  phase_3_strategic_recovery_modeling:
+    step_7: "Generate 'Security Integrity Report': Map the extent of the variance and the safety of the 'Audit-Trail'."
+    step_8: >-
+      Draft 'Recovery Options': Provide a 'Hard-Reset to Last-Known-Good-State' or a 'Surgical-Patch' of the offending
+      logic.
+    step_9: >-
+      Director Decision Gate: Present the forensic brief to Mira’s Slot-10; system remains in 'Static-Lockdown' until
+      Director-Auth is received.
+  phase_4_controlled_restoration:
+    step_10: "Gradual Re-entry: Once authorized, restore API connectivity in a 'Sandboxed' state for 50 cycles of monitoring."
+    step_11: >-
+      Post-Incident Hardening: Update Eva’s 'Security-Baseline' to permanently recognize and block the specific pattern
+      of this breach.
+    step_12: >-
+      Audit-Trail Closure: Document the lockdown duration, the root cause, and the Director's recovery choice in the
+      Git-tracked ledger.
+dependencies:
+  required_skills:
+    - security-audit
+    - governance-enforcement
+    - regulatory-mapping
+  required_kpis:
+    - control-pass-rate
+    - audit-trail-completeness-score
+  data_inputs:
+    - vault-audit-trail
+    - queue-telemetry-feed
+    - security-protocols-md
+  protocols:
+    - crisis-lockdown-protocol
+    - sandboxed-restoration-protocol
+    - governance-lab-lockout-logic
+error_handling:
+  on_compromised_auth: >-
+    If the Director’s signature is suspected of compromise, Eva invokes 'Safe-State-Hibernation' and waits for a
+    physical/external reset.
+  on_forensic_failure: If the source cannot be found, maintain lockdown and elevate to Julia for 'Deep-Memory-Dump' analysis.
+expected_output: >
+  A Security Integrity Package containing: 1. Status: [STATIC-LOCKDOWN / RECOVERING / HARDENED] 2. Forensic Summary:
+  Identification of the breach source (Agent/Task/API). 3. Integrity Map: Proof that the Governance Lab and Fiscal Vault
+  remained unpolluted. 4. Recovery Path: Director-approved steps taken to restore operations.

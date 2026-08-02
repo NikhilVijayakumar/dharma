@@ -1,0 +1,14 @@
+{
+  "uid": "growth-opex-ledger",
+  "name": "Growth Opex Ledger",
+  "description": "Generated data input for registry reference normalization: growth-opex-ledger.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/lina/agentic-expansion-governance",
+  "privacyClassification": "internal"
+}

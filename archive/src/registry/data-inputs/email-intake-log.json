@@ -1,0 +1,31 @@
+{
+  "id": "email-intake-log",
+  "title": "Email Intake Log",
+  "description": "Raw email metadata captured per heartbeat batch cycle. Stores sender, subject, received timestamp, account source, batch ID, and initial classification results for audit and triage replay.",
+  "type": "operational",
+  "format": "sqlite-table",
+  "table_name": "email_intake_log",
+  "retention_policy": "90_days",
+  "access_level": "internal",
+  "owner_agent": "mira",
+  "schema": {
+    "columns": [
+      { "name": "id", "type": "TEXT", "primary_key": true },
+      { "name": "account_id", "type": "TEXT", "not_null": true },
+      { "name": "email_uid", "type": "INTEGER", "not_null": true },
+      { "name": "sender", "type": "TEXT", "not_null": true },
+      { "name": "sender_domain", "type": "TEXT" },
+      { "name": "subject", "type": "TEXT" },
+      { "name": "received_at", "type": "TEXT", "not_null": true },
+      { "name": "body_preview", "type": "TEXT" },
+      { "name": "batch_id", "type": "TEXT", "not_null": true },
+      { "name": "is_spam", "type": "INTEGER", "default": 0 },
+      { "name": "classification_department", "type": "TEXT" },
+      { "name": "classification_priority", "type": "TEXT" },
+      { "name": "ingested_at", "type": "TEXT", "not_null": true }
+    ],
+    "unique_constraints": [
+      ["account_id", "email_uid"]
+    ]
+  }
+}

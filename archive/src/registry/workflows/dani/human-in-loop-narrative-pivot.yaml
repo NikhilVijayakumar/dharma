@@ -1,0 +1,59 @@
+id: human-in-loop-narrative-pivot
+agent_id: dani
+trigger: High-Complexity Market Shift / Competitor Move / Sentiment Inversion
+logic_sequence:
+  phase_1_market_forensics:
+    step_1: >-
+      Execute 'Sentiment-Inversion-Scan': Analyze customer-sentiment-analysis.jsonl and competitor-move-logs for trend
+      shifts.
+    step_2: >-
+      Identify 'Narrative Friction': Detect where the current 'Brand-Protocol.md' is clashing with new market
+      expectations.
+    step_3: >-
+      Initialize 'Pivot-Draft': Scaffold a new Narrative in the /local/proposals/ directory to avoid live-system
+      pollution.
+  phase_2_feasibility_handshake:
+    step_4: >-
+      Request 'Technical Reality Check' (Julia): Verify if the proposed pivot requires features currently outside the
+      tech roadmap.
+    step_5: "Request 'Budget-Impact-Audit' (Nora): Confirm the cost of re-tooling active ad campaigns and creative assets."
+    step_6: >-
+      Request 'Compliance Review' (Eva): Ensure the new narrative doesn't cross into 'Unverifiable Claims' or legal
+      risk.
+  phase_3_director_strategy_session:
+    step_7: >-
+      Generate 'Impact Simulation': Model the 'Launch-to-Liquidity-Delta' if the pivot is executed vs. if we stay the
+      course.
+    step_8: >-
+      Present 'Strategic Pivot Package': Provide the Director with the Markdown proposal, the Handshake tokens, and the
+      Git-hash.
+    step_9: "Await Director Approval: The system pauses marketing updates until a 'HIL-AUTH' signature is received."
+  phase_4_narrative_deployment:
+    step_10: "Invoke 'GitGovernorService': Move the new Narrative from Local to the Git-tracked 'brand-protocols.md'."
+    step_11: "Global Brand Sync: Force a notification to Sofia (Design) and Elara (Customer) to align visual and support tones."
+    step_12: "Commit Audit: Log the reason for the pivot and the Director’s approval in the permanent project ledger."
+dependencies:
+  required_skills:
+    - market-narrative-design
+    - narrative-fidelity-mapping
+    - strategic-alignment
+  required_kpis:
+    - qualified-pipeline-coverage
+    - launch-to-liquidity-delta
+  data_inputs:
+    - customer-sentiment-analysis-jsonl
+    - brand-protocols-md
+    - competitor-intelligence-feed
+  protocols:
+    - narrative-integrity-protocol
+    - market-pivot-governance-protocol
+    - git-governance-handshake-protocol
+error_handling:
+  on_technical_veto: >-
+    If Julia flags the pivot as 'Vaporware', Dani must adjust the narrative to match current build capabilities before
+    re-submitting.
+  on_budget_exhaustion: If Nora denies the pivot cost, Dani must propose a 'Zero-Cost' messaging shift (Organic channels only).
+expected_output: >
+  A Director-Ready Strategic Pivot Package containing: 1. Status: [PENDING DIRECTOR APPROVAL] 2. The Pivot:
+  Ready-to-commit Markdown for 'brand-protocols.md'. 3. Rationale: Forensic data on the market shift or competitor move.
+  4. Handshake Status: Verified signatures from Julia, Nora, and Eva.

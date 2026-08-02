@@ -1,0 +1,49 @@
+id: autonomous-optimization
+agent_id: arya
+trigger: Stability Mode / Performance Drift (>10% deviation in kpi/registry.json)
+logic_sequence:
+  phase_1_intelligence_gathering:
+    step_1: "Execute 'Drift-Detection-Logic': Compare active telemetry (Mira/Julia) against kpi/registry.json."
+    step_2: "Identify 'Root Cause Agent': Isolate the specific module or agent causing the performance dip."
+    step_3: "Initialize 'Optimization-Snapshot': Capture a local, timestamped state of the drift for post-recovery comparison."
+  phase_2_governance_gate:
+    step_4: "Request 'Fiscal Handshake' (Nora): Validate API/Token budget for the proposed correction."
+    step_5: "Request 'Technical Sanity Check' (Julia): Ensure correction logic respects clean-architecture-gate."
+    step_6: "Request 'Compliance Audit' (Eva): Verify the optimization doesn't violate PII or Privacy-by-Design."
+    step_7: "IF ANY HANDSHAKE FAILS: Execute 'Auto-Pivot' (re-calculate) or 'Escalate' to Director via Slot-10."
+  phase_3_atomic_execution:
+    step_8: "Issue 'Atomic Work Orders' via Mira: Ensure tasks are bundled so they either all succeed or all fail."
+    step_9: "Monitor via 'Self-Healing-Goose-Protocol': Allow 3 recursive retries for sub-agent skill failures."
+    step_10: "Verify Recovery: Compare post-execution telemetry against the Phase 1 'Optimization-Snapshot'."
+  phase_4_governance_closure:
+    step_11: "Generate 'Local Strategic Memo' (Git-Ignored): Document status, rationale, and delta impact."
+    step_12: "IF Protocol Update Required: Prepare a 'Governance Proposal' for the /decisions/ directory."
+    step_13: "Finalize: Deliver 'Executive Summary' to the Director's workspace with Handshake ID verification."
+dependencies:
+  required_skills:
+    - strategic-alignment
+    - drift-detection-logic
+    - self-healing-orchestration
+    - cross-module-cohesion
+    - git-transaction-scaffolding
+  required_kpis:
+    - strategic-milestone-attainment-rate
+    - autonomous-resolution-rate
+    - governance-velocity-delta
+  data_inputs:
+    - kpi-registry-json
+    - queue-bottleneck-telemetry
+    - api-usage-telemetry
+  protocols:
+    - aop-1:autonomous-optimization-protocol
+    - triad-handshake-protocol
+    - operational-integrity-protocol
+    - git-governance-handshake-protocol
+error_handling:
+  on_conflict: "Invoke 'Conflict-Resolution-Protocol': Freeze optimization and alert Director if Nora, Julia, or Eva disagree."
+  on_recovery_failure: If 10% drift persists post-execution, trigger 'Crisis-Support-Mode' and suspend the specific agent.
+  on_timeout: Log as 'Optimization Stall' and re-route via Mira's Slot-10 (High-Priority Emergency).
+expected_output: >
+  A validated execution package delivered with: 1. Status: [Optimized / Partially Resolved / Escalated] 2. Rationale:
+  Forensic breakdown of why the drift occurred and the logic of the fix. 3. Digital Handshake Tokens: Verification IDs
+  from Nora, Julia, and Eva. 4. Delta Report: Numerical proof of performance improvement vs. the snapshot.

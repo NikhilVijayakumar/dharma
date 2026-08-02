@@ -1,0 +1,19 @@
+{
+  "uid": "governance-velocity",
+  "name": "Governance-Velocity (GV)",
+  "description": "Measures the latency between 'Policy-Requirement-Identification' and 'Protocol-Deployment-and-Agent-Sync'.",
+  "unit": "Hours (Cycle-Time)",
+  "target": "< 4.0",
+  "value": "Calculated via 'Requirement-Log' vs. 'Protocol-Library-Update-Hash'",
+  "goalMapping": "Optimizes 'Regulatory-Agility' and ensures the 'Self-Healing-Organization' stays ahead of external risks.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Policy-Change / Weekly-System-Evolution-Audit",
+    "shorthand": "Policy-Speed"
+  },
+  "thresholds": {
+    "critical": "> 24.0h (Triggers 'Governance-Bottleneck-Bypass' via Slot-10/Director)",
+    "warning": "4.0h - 24.0h (Triggers 'Eva-Compliance-Logic-Audit')",
+    "optimal": "< 1.0h"
+  }
+}

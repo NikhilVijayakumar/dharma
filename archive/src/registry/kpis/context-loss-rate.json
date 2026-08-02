@@ -1,0 +1,19 @@
+{
+  "uid": "context-loss-rate",
+  "name": "Context-Loss-Rate (CLR)",
+  "description": "Measures the frequency of 'Semantic-Dropouts' where agents fail to reference active 'Global-Constraints' or 'Session-History' in multi-step workflows.",
+  "unit": "% (Error-Rate)",
+  "target": "< 2.00",
+  "value": "Calculated via 'Intent-Verification-Skill' (Constraint-Match / Step-Count)",
+  "goalMapping": "Enforces 'Thread-Integrity' and prevents 'Logic-Fracturing' in complex, multi-agent work-orders.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Step / Real-Time-Inference",
+    "shorthand": "Memory-Stability"
+  },
+  "thresholds": {
+    "critical": "> 5% (Triggers 'Thread-Reset' and 'Context-Hardening' via Mira)",
+    "warning": "2% - 5% (Triggers 'Context-Compression' and 'Vector-Search' refresh)",
+    "optimal": "< 1%"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "uid": "cultural-manifesto-md",
+  "name": "Cultural Manifesto Md",
+  "description": "Generated data input for registry reference normalization: cultural-manifesto-md.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/lina/human-in-loop-talent-pivot",
+  "privacyClassification": "internal"
+}

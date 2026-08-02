@@ -1,0 +1,14 @@
+{
+  "uid": "vault-ingest-service",
+  "name": "Vault Ingest Service",
+  "description": "Generated data input for registry reference normalization: vault-ingest-service.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/mira/contextual-self-healing",
+  "privacyClassification": "internal"
+}

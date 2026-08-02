@@ -1,0 +1,19 @@
+{
+  "uid": "crisis-recovery-speed",
+  "name": "Crisis-Recovery-Speed (CRS)",
+  "description": "Measures the duration from 'Crisis-Event-Detection' to 'Full-State-Restoration' (Green-Pulse) via automated failover and self-healing protocols.",
+  "unit": "Minutes",
+  "target": "< 15.0",
+  "value": "Calculated via SMGP-Log (Restoration-Timestamp - Detection-Timestamp)",
+  "goalMapping": "Measures 'Antifragility' and minimizes 'Cost-of-Outage' to maintain 'Investor-Readiness' status.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Crisis-Event",
+    "shorthand": "Recovery-Velocity"
+  },
+  "thresholds": {
+    "critical": "> 60 mins (Triggers 'External-Technical-Audit' and 'Director-Post-Mortem')",
+    "warning": "15 - 60 mins (Triggers 'Stability-Protocol-Hardening' by Julia/Tech)",
+    "optimal": "< 5 mins"
+  }
+}

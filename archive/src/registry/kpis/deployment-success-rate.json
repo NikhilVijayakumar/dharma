@@ -1,0 +1,19 @@
+{
+  "uid": "deployment-success-rate",
+  "name": "Deployment-Success-Rate (DSR)",
+  "description": "The percentage of 'Production-Pushes' that achieve 'Post-Deployment-Stability' without a 'Rollback-Event' or 'Critical-Emergency-Hotfix' within a 24-hour window.",
+  "unit": "% (Stability-Ratio)",
+  "target": "> 99.00",
+  "value": "Calculated via 'SHCP-Deployment-Logs' (Stable-Releases / Total-Releases)",
+  "goalMapping": "Measures the reliability of the 'Agentic-DevOps' pipeline and prevents 'Execution-Regression'.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Deployment",
+    "shorthand": "Push-Stability"
+  },
+  "thresholds": {
+    "critical": "< 90% (Triggers 'Deployment-Freeze' and 'Pipeline-Integrity-Audit' by Julia)",
+    "warning": "90% - 98% (Triggers 'Pre-Flight-Simulation' hardening)",
+    "optimal": "> 99.9%"
+  }
+}

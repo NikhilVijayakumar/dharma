@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../schemas/metadata-agents.schema.json",
+  "companyId": "bavans-publishing",
+  "description": "Agent references for BAVANS Publishing company",
+  "entries": {
+    "arya": "agents/arya.yaml",
+    "dani": "agents/dani.yaml",
+    "elina": "agents/elina.yaml",
+    "eva": "agents/eva.yaml",
+    "julia": "agents/julia.yaml",
+    "lina": "agents/lina.yaml",
+    "maya": "agents/maya.yaml",
+    "mira": "agents/mira.yaml",
+    "nora": "agents/nora.yaml",
+    "sofia": "agents/sofia.yaml"
+  },
+  "updatedAt": "2026-04-08T00:00:00.000Z"
+}

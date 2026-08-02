@@ -1,0 +1,67 @@
+id: contextual-self-healing
+agent_id: mira
+trigger: Agent triggers 'Missing Context' error (Goose Protocol / Slot-Stall)
+logic_sequence:
+  phase_1_gap_forensics:
+    step_1: >-
+      Intercept Error: Capture the 'Context-Void' signal from the failing agent (e.g., 'Cannot proceed: Missing Nora’s
+      Q1 Budget').
+    step_2: >-
+      Gap Analysis: Identify the specific missing variable—is it a 'Historical Document', 'Real-time Telemetry', or a
+      'Director Preference'?
+    step_3: >-
+      Initialize 'Context-Repair-Manifest': Map the original Work Order against the 'System-Architecture.md' to see
+      where the data-chain broke.
+  phase_2_vault_retrieval:
+    step_4: >-
+      Query VaultIngestService: Perform a semantic search across Nora’s ledgers, Julia’s code-logs, and Eva’s compliance
+      reports for the missing data.
+    step_5: >-
+      Metadata Extraction: If the exact file is found, extract only the high-relevance 'Knowledge-Chunks' to avoid
+      'Token-Bloat' in the re-scaffold.
+    step_6: "IF Data is Non-Existent: Flag as a 'Systemic-Blind-Spot' and bypass to Phase 4 (Director Escalation)."
+  phase_3_work-order-re-scaffolding:
+    step_7: >-
+      Inject Missing Context: Re-write the 'Context-Block' of the original Work Order with the newly retrieved
+      data-points.
+    step_8: >-
+      Verification Handshake: Run a 'Logic-Simulation' to ensure the new context actually resolves the agent's
+      'Goose-Protocol' block.
+    step_9: >-
+      Re-submit to Agent: Push the repaired task back into the original Slot (e.g., Slot-4 for Dani) for immediate
+      execution.
+  phase_4_governance_escalation:
+    step_10: >-
+      Data Inquiry: If re-submission fails a second time, elevate the request to the Director’s Slot-10 as a
+      'High-Priority Data Inquiry'.
+    step_11: >-
+      Log Resolution: Save the 'Context-Patch' to the local /governance/context-history.md to prevent future gaps for
+      the same task type.
+    step_12: "Post-Mortem: Report the 'Decision-Cycle-Time' delta to Arya (CEO) to track system-wide intelligence gains."
+dependencies:
+  required_skills:
+    - routing-precision
+    - handoff-integrity
+    - cross-module-cohesion
+  required_kpis:
+    - decision-cycle-time
+    - routing-accuracy-score
+  data_inputs:
+    - vault-ingest-service
+    - system-architecture-md
+    - agent-telemetry-feed
+  protocols:
+    - goose-context-repair-protocol
+    - vault-retrieval-protocol
+    - escalation-logic-gate
+error_handling:
+  on_recursive_loop: >-
+    If Mira detects a 'Circular-Context-Dependency', she freezes both involved agents and triggers a 'Logic-Clash' audit
+    for Lina (HR).
+  on_security_redaction: >-
+    If the requested data is marked 'Director-Eyes-Only' by Eva, Mira denies retrieval and forces a Director-Auth
+    request.
+expected_output: >
+  A validated Context-Healing Report containing: 1. Status: [HEALED / RE-SUBMITTED / ESCALATED] 2. Data Gap:
+  Identification of the missing variable (e.g., Nora's Budget). 3. Retrieval Source: The specific Vault-ID where the
+  truth was found. 4. Traceable Reference: The 'Context-Hash' for the repaired Work Order.

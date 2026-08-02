@@ -1,0 +1,62 @@
+id: sop-autonomous-pipeline-management
+agent_id: maya
+trigger: Standard Operating / Runway-Coverage-Months < 12
+logic_sequence:
+  phase_1_traction_harvesting:
+    step_1: >-
+      Signal Scan: Aggregate 'Sales-Activity-Logs' from Dani and 'Product-Usage-Events' from Julia to identify new
+      'Growth-Inflection' points.
+    step_2: >-
+      Traction-Deck Hardening: Auto-update the local 'Investor-Traction-Deck' (Markdown/Staged) with 100% verified
+      telemetry hashes.
+    step_3: "Initialize 'Liquidity-Delta': Calculate the gap between 'Current-Runway' and the 'Series-A-Target-Milestone'."
+  phase_2_pipeline_re-prioritization:
+    step_4: >-
+      Role-Fit Filter: Re-rank the Investor Pipeline (CRM) based on 'Capital-Quality' (e.g., VCs who lead rounds vs.
+      followers) and historical 'Niche-Alignment'.
+    step_5: >-
+      Efficiency Pivot: If MoM growth < 10%, invoke 'Self-Healing-Narrative' to shift the pitch focus from
+      'Scale-at-all-costs' to 'Unit-Economic-Profitability'.
+    step_6: >-
+      IF 'Investor-Sentiment' < 40%: Flag the pipeline as 'High-Friction' and trigger a 'Human-in-Loop-Equity-Pivot' for
+      the Director.
+  phase_3_fiscal-strategic_sync:
+    step_7: "Liquidity Forecasting: Generate a 12-month 'Probabilistic-Cash-Flow' model in collaboration with Nora (Finance)."
+    step_8: >-
+      Verification Gate (Eva): Ensure all 'Traction-Signals' shared in the updated deck comply with
+      'Truth-in-Advertising' and SEC guidelines.
+    step_9: "Verify 'Strategic-North-Star': Confirm the narrative shift doesn't contradict the primary 'Project-Thesis.md'."
+  phase_4_readiness_reporting:
+    step_10: >-
+      Publish 'Liquidity-Forecast': Deliver the 12-month survival map and traction-summary to Arya (CEO) and Nora
+      (Finance).
+    step_11: >-
+      Sync 'Investor-Vault': Commit the updated 'Fundraising-Narrative.md' to the git-ignored
+      /local/governance/investor-vault/.
+    step_12: "Closure: Mark the Pipeline [PITCH-READY] and update the 'Fundraising-Probability-Score' in the Director’s Slot-10."
+dependencies:
+  required_skills:
+    - investor-pipeline-prioritization
+    - financial-forecasting
+    - strategic-alignment
+  required_kpis:
+    - investor-stage-conversion
+    - runway-coverage-months
+  data_inputs:
+    - sales-activity-log
+    - product-usage-events
+    - growth-opex-ledger
+  protocols:
+    - traction-synthesis-protocol
+    - narrative-self-healing-protocol
+    - investor-prioritization-gate
+error_handling:
+  on_traction_flatline: If no positive signals are found, Maya invokes 'Austerity-Modeling' and suggests immediate OpEx cuts to Nora.
+  on_narrative-clash: >-
+    If the 'Efficiency-Pivot' conflicts with Arya’s 'Growth-Vision', Maya pauses the auto-update and requests a
+    'Strategic-Clarity' session.
+expected_output: >
+  A validated Pipeline Status Package containing: 1. Status: [PITCH-READY / NARRATIVE-PIVOTED / RISK-FLAGGED] 2.
+  Liquidity Forecast: Probability-weighted cash-flow map for the next 12 months. 3. Traction Delta: Identification of
+  the specific telemetry that justifies the new valuation/narrative. 4. Traceable Reference: The
+  'Investor-Readiness-Score' entry in the local governance log.

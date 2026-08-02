@@ -1,0 +1,34 @@
+id: error-reporting-standard
+title: "Global Error-Reporting & Forensic-Contract"
+description: "Common failure reporting contract for all agent workflows to ensure rapid MTTR (Mean Time To Repair)."
+tags:
+  - reliability
+  - observability
+  - governance
+
+rules:
+  - rule_1: "Tri-Vector-Reporting: Every error must define (1) Failure-Scope, (2) Strategic-Impact, and (3) Probable-Root-Cause (PRC)."
+  - rule_2: "Owner-Action-ETA: Recovery actions must be assigned to a specific Agent-Slot with a 'Hard-Time-Limit' (ETA) for resolution."
+  - rule_3: "Artifact-Integrity: Attach the specific 'Transaction-UUID' and 'Context-Snapshot' required to reproduce the error in a sandbox."
+  - rule_4: "SLA-Boundary-Escalation: If the error impacts 'Core-Uptime' or 'Financial-Accuracy' (Governance Boundaries), immediate escalation to Slot-10 is mandatory."
+  - rule_5: "Zero-Vagueness-Policy: Use of terms like 'Unknown' or 'System-Error' is prohibited; agents must provide a 'Best-Logic-Guess' with a Confidence-Score."
+
+logic_sequence:
+  step_1: "Intercept-Failure: Detect the exception at the 'Task-Node' level before it propagates."
+  step_2: "Impact-Assessment: Query Nora (Finance) and Julia (Tech) to see if this error affects 'Burn-Rate' or 'System-Latency'."
+  step_3: "Generate Forensic-Brief: Assemble the ERS-Manifest using the Communication-Style-Protocol (CSP)."
+  step_4: "IF RECOVERABLE: Initiate 'Self-Healing-Subroutine' and log the 'Auto-Fix-Hash' in the Audit-Trail."
+  step_5: "IF UNRECOVERABLE: Trigger the 'Conflict-Resolution-Protocol' or escalate to the Director with a 'Binary-Choice-Recovery' path."
+
+escalation_triggers:
+  - "Condition: An error persists for >3 'Retry-Attempts' without a change in the Root-Cause."
+  - "Condition: The error involves a 'Compliance-Gate' breach or 'Privacy-Leak' risk."
+  - "Condition: Recovery actions exceed the 'Operational-Budget-Limit'."
+
+dependencies:
+  required_skills:
+    - forensic-intent-analysis
+    - risk-modeling
+  required_kpis:
+    - mean-time-to-repair (MTTR-Logic)
+    - decision-cycle-time

@@ -1,0 +1,34 @@
+id: investor-readiness-protocol
+title: "Global Investor-Readiness & Data-Room Integrity"
+description: "Stateless governance standard for maintaining real-time auditability and institutional-grade reporting."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Continuous-Audit-State: All material decisions (Strategic-Vision.md changes, Cap-Table moves, major Pivot-Nodes) must be timestamped and cryptographically linked."
+  - rule_2: "Metric-Standardization: Every KPI (CAC, LTV, Burn-Rate, Churn) must use 'Venture-Standard-Definitions' to ensure transparency for external auditors."
+  - rule_3: "The 'Clean-Room' Mandate: All proprietary IP (Julia's code) and contracts (Eva's legal docs) must be stored with 'Clean-Chain-of-Title' documentation."
+  - rule_4: "Fiscal-Transparency-Gate: Nora (Finance) must maintain a 'Pro-Forma' model that updates automatically based on the last 30 days of actual 'Burn-Telemetry'."
+  - rule_5: "Redacted-Snapshot-Logic: The system must be capable of generating a 'Tiered-Access-Data-Room'—hiding sensitive PII while showing aggregate growth logic."
+
+logic_sequence:
+  step_1: "Inquiry-Classification: Is the request for 'General-Traction' (Dani), 'Technical-Deep-Dive' (Julia), or 'Financial-Audit' (Nora)?"
+  step_2: "Trigger 'Data-Room-Hydration': Assemble the relevant 'Artifact-UUIDs' from across the 10-agent slots."
+  step_3: "Compliance-Scrub: Trigger Eva (Compliance) to run a 'Risk-Forensic-Scan' to ensure no outstanding 'Red-Flags' are visible without context."
+  step_4: "IF AUDIT-PASS: Generate a 'Secure-Investor-Brief' using the Communication-Style-Protocol (CSP)."
+  step_5: "IF GAPS-DETECTED: Flag the 'Information-Deficit' to the Director (Slot-10) and suggest immediate 'Rectification-Work-Orders'."
+
+escalation_triggers:
+  - "Condition: Detection of a 'Material-Discrepancy' between internal telemetry and external reports."
+  - "Condition: The 'Cap-Table' contains 'Unallocated-Options' or 'Phantom-Shares' without a clear board resolution."
+  - "Condition: IP-Integrity check fails (e.g., missing contributor license agreements for open-source modules)."
+
+dependencies:
+  required_skills:
+    - risk-modeling
+    - forensic-intent-analysis
+  required_kpis:
+    - investor-readiness-score (IRS)
+    - brand-fidelity-index

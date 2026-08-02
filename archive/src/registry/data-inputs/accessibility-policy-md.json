@@ -1,0 +1,30 @@
+{
+  "uid": "accessibility-policy-md",
+  "name": "Accessibility-Policy-Manifest (APM)",
+  "description": "Structured policy-engine for enforcing WCAG 2.2+ standards and 'Inclusive-Design-Logic' across all agent-generated assets.",
+  "schemaType": "Document-Protocol",
+  "requiredFields": [
+    "timestamp",
+    "policy_version",
+    "compliance_tier",
+    "accessibility_vector_payload",
+    "validation_signature"
+  ],
+  "sampleSource": "governance/protocol-vault/accessibility-v2",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "compliance_tiers": {
+          "Level-A": "Essential-Access",
+          "Level-AA": "Standard-Global-Compliance",
+          "Level-AAA": "Maximum-Inclusion-Target"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

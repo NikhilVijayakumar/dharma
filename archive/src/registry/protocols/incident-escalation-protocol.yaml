@@ -1,0 +1,34 @@
+id: incident-escalation-protocol
+title: "Global Incident-Response & Tiered Escalation"
+description: "Stateless governance standard for the rapid categorization and routing of operational, fiscal, or security anomalies."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Severity-Matrix-Adherence: Every incident must be categorized into Tier-1 (Critical/SLA-Breach), Tier-2 (High/Performance-Degradation), or Tier-3 (Low/Minor-Bug)."
+  - rule_2: "The 'Golden-Hour' Constraint: Tier-1 incidents must reach the Director (Slot-10) and Conductor (Mira) within 300 seconds of detection."
+  - rule_3: "Active-War-Room-Mode: Detection of a Tier-1 event automatically opens a 'Shared-Context-Window' between Tech, Compliance, and Finance."
+  - rule_4: "Suppression-Logic: Recurring non-critical alerts must be 'Aggregated' to prevent 'Alert-Fatigue' and preserve the Director’s cognitive bandwidth."
+  - rule_5: "Immutable-Incident-Log: Every escalation must generate a 'Post-Mortem-Template' that remains [OPEN] until a 'Root-Cause-Fix-Hash' is verified."
+
+logic_sequence:
+  step_1: "Anomalous-Signal-Detection: Identify a breach of 'Governance-Hard-Limits' (e.g., spend spike, security hit, or logic-loop)."
+  step_2: "Calculate 'Blast-Radius': Determine which agents and assets are impacted by the incident."
+  step_3: "Check 'Auto-Mitigation' Status: Attempt a 30-second 'Self-Healing' cycle (e.g., restart node, roll back commit) before escalating."
+  step_4: "IF AUTO-FIX-FAIL: Trigger the 'Communication-Style-Protocol' (CSP) to send a 'Critical-Brief' to the Director."
+  step_5: "IF RESOLVED: Close the 'Incident-UUID' and update the 'Strategic-Risk-Registry'."
+
+escalation_triggers:
+  - "Condition: A 'Tier-2' incident remains unresolved for >4 hours."
+  - "Condition: An incident involves 'Unauthorized-Capital-Outflow' of any amount."
+  - "Condition: The 'Conductor' (Mira) is unresponsive or stuck in a 'Decision-Deadlock'."
+
+dependencies:
+  required_skills:
+    - forensic-intent-analysis
+    - risk-modeling
+  required_kpis:
+    - mean-time-to-repair (MTTR-Incident)
+    - decision-cycle-time

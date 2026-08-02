@@ -1,0 +1,14 @@
+{
+  "uid": "system-latency-logs",
+  "name": "System Latency Logs",
+  "description": "Generated data input for registry reference normalization: system-latency-logs.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/elina/crisis-stabilization-mode",
+  "privacyClassification": "internal"
+}

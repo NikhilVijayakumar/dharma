@@ -1,0 +1,34 @@
+id: ephemeral-report-generation-protocol
+title: "Global Ephemeral Reporting & Narrative-Pruning"
+description: "Stateless governance standard for creating high-impact, short-lived narrative reports that minimize cognitive noise."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "The 'Executive-Constraint': No ephemeral report may exceed 500 tokens. If the topic is more complex, it must be broken into 'Modular-Briefs'."
+  - rule_2: "Mandatory-Wisdom-Extraction: Before a report is purged, the agent must commit any 'New-Knowledge' (e.g., 'Competitor X changed their pricing') to the long-term /governance/intelligence/ vault."
+  - rule_3: "Active-Context-Only: Reports must only include data-points that have changed since the last 'Stable-State-Sync'. Static information is strictly prohibited."
+  - rule_4: "Disposable-Formatting: Use Markdown-Headers and Bullet-Points exclusively. Avoid complex styling that increases 'Generation-Latency'."
+  - rule_5: "TTL-Enforcement: Reports are automatically flagged for 'Archive-or-Delete' 24 hours after being read by the Director (Slot-10)."
+
+logic_sequence:
+  step_1: "Define 'Report-Trigger': Identify the event (e.g., Task-Completion, KPI-Anomaly, or Director-Query) that necessitates a narrative."
+  step_2: "Synthesize Narrative: Apply the 'Communication-Style-Protocol' (CSP) to ensure the 'Intent' and 'Action-Item' are in the first 2 lines."
+  step_3: "Scan for 'Static-Noise': Filter out any redundant background information already present in the Strategic-Vision.md."
+  step_4: "IF READ-BY-DIRECTOR: Trigger the 'Wisdom-Extraction-Loop' to save the strategic takeaways."
+  step_5: "IF TTL-EXPIRED: Securely erase the narrative from the active working-memory to prevent 'Context-Drift' in future tasks."
+
+escalation_triggers:
+  - "Condition: An agent attempts to generate a 'Recurring-Report' that has had zero Director-Engagement for >3 cycles."
+  - "Condition: The report contains 'Conflicting-Narratives' from two different specialized agents."
+  - "Condition: A critical 'Action-Item' remains unaddressed as the report reaches its 'TTL-Expiration'."
+
+dependencies:
+  required_skills:
+    - forensic-intent-analysis
+    - strategic-alignment
+  required_kpis:
+    - decision-cycle-time
+    - interaction-quality-score

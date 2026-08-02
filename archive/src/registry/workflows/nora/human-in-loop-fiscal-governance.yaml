@@ -1,0 +1,65 @@
+id: human-in-loop-fiscal-governance
+agent_id: nora
+trigger: High-Risk Fiscal Variance (>25%) / Policy Update / Director Capital Request
+logic_sequence:
+  phase_1_proposal_synthesis:
+    step_1: >-
+      Variance Diagnostics: Analyze the 'Burn-Variance-Ratio' to determine if the current spending policy is
+      insufficient for the 10-agent workload.
+    step_2: >-
+      Draft 'Governance-Proposal': Outline the new spending caps, liquidity requirements, and 'Token-Allocation-Weights'
+      in Markdown.
+    step_3: >-
+      Strategic Impact Projection: Model how the change will affect 'Runway-Coverage-Months' (e.g., 'This shift reduces
+      runway from 14 to 12 months but doubles Dani's output').
+  phase_2_peer_validation_handshake:
+    step_4: >-
+      Request 'Technical Validation' (Julia): Confirm that the infrastructure can support the increased API/Compute load
+      without scaling failures.
+    step_5: >-
+      Request 'Security Validation' (Eva): Audit the proposal for 'Fiscal-Leak-Paths' (e.g., ensuring no agent can
+      self-authorize an external wire-transfer).
+    step_6: "IF Peer-Veto: Return to Phase 1 to reconcile technical or legal constraints before the Director sees the brief."
+  phase_3_director_arbitration:
+    step_7: >-
+      Generate 'Risk-Profile': Summarize the trade-offs (e.g., 'Aggressive Growth' vs. 'Capital Preservation') for the
+      Director.
+    step_8: >-
+      Present Recommendation: Deliver the brief to the Director via Mira: 'We recommend a 15% OpEx expansion to support
+      the new Data Scientist slot'.
+    step_9: >-
+      Await Director Choice: All system-wide budget limits remain 'Locked' until a Director-signed
+      'Governance-Commit-Hash' is detected.
+  phase_4_constitutional_update:
+    step_10: >-
+      Execute 'Controlled-Commit': Use the 'GitGovernorService' to push the new 'Fiscal-Rules.json' to the /governance/
+      directory.
+    step_11: >-
+      System-Wide Propagation: Signal Elina (Ops) to update the 'Slot-Spend-Limits' for all 10 agents based on the new
+      constitutional rules.
+    step_12: "Post-Audit: Monitor the 'Burn-Variance-Ratio' for 7 days to ensure the new governance is performing as modeled."
+dependencies:
+  required_skills:
+    - budget-allocation
+    - financial-forecasting
+    - strategic-alignment
+  required_kpis:
+    - runway-coverage-months
+    - burn-variance-ratio
+  data_inputs:
+    - growth-opex-ledger
+    - system-architecture-md
+    - compliance-policy-md
+  protocols:
+    - fiscal-governance-protocol
+    - git-governance-handshake-protocol
+    - binary-choice-governance-protocol
+error_handling:
+  on_peer_deadlock: >-
+    If Julia and Eva disagree, Nora invokes 'Static-Wait-State' and presents both 'Technical' and 'Legal' perspectives
+    to the Director for final tie-breaking.
+  on_governance_breach: If a commit is attempted without the required Peer-Hashes, the system triggers 'Emergency-Lockdown'.
+expected_output: >
+  A Decision-Ready Fiscal Governance Brief containing: 1. Status: [PENDING-VAL / READY-FOR-SIGNATURE / COMMITTED] 2.
+  Peer Validation: Affirmation hashes from Julia (CTO) and Eva (Compliance). 3. Risk Profile: Clear visualization of the
+  'Runway vs. Velocity' trade-offs. 4. Traceable Reference: The Git-Commit hash for the updated 'fiscal-rules.json'.

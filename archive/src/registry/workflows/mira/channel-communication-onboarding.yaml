@@ -1,0 +1,45 @@
+id: channel-communication-onboarding
+agent_id: mira
+trigger: Director enables external channel communication for agent workflows
+pre_conditions:
+  - condition: channel-config-input-available
+    description: Channel configuration exists in onboarding inputs or channel-management registry.
+    source: data-input
+    validation_rule: exists
+  - condition: governance-protocol-loaded
+    description: External channel communication protocol is loaded and active.
+    source: agent-state
+    validation_rule: "true"
+logic_sequence:
+  phase_1_configuration:
+    step_1: Capture provider, mode, destinations, and credential env key from onboarding channel-communication step.
+    step_2: Validate required environment variables and destination allowlist format.
+    step_3: Store normalized channel configuration in channel-management-config-registry.
+  phase_2_policy_gate:
+    step_4: Apply external-channel-communication-protocol rules for data classification and outbound policy.
+    step_5: Bind retry and timeout defaults from channel config before any outbound action.
+    step_6: If governance-only mode is set, require approval before dispatch.
+  phase_3_activation:
+    step_7: Enable channel-communication-orchestration skill for eligible agent workflows.
+    step_8: Send a signed test message to default destination and validate acknowledgment.
+    step_9: Write channel onboarding status and trace reference to audit logs.
+dependencies:
+  required_skills:
+    - routing-precision
+    - handoff-integrity
+    - cross-module-cohesion
+  required_kpis:
+    - decision-cycle-time
+    - cross-functional-alignment-index
+    - accessibility-conformance-rate
+  data_inputs:
+    - channel-management-config-registry
+  protocols:
+    - external-channel-communication-protocol
+error_handling:
+  on_missing_credentials: Block activation and route to Human-in-Loop onboarding clarification.
+  on_allowlist_violation: Reject outbound action and emit compliance alert.
+  on_test_message_failure: Retry using protocol retry envelope, then escalate to incident protocol.
+expected_output: >
+  Activated and governed channel communication capability with validated destination allowlist, runtime retry/timeout
+  policy, and auditable test dispatch reference.

@@ -1,0 +1,34 @@
+id: ephemeral-analytics-generation-protocol
+title: "Global Ephemeral Analytics & Insight-Stripping"
+description: "Stateless governance standard for generating short-lived, high-precision analytical snapshots for immediate decision support."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Inquiry-Specific-Focus: Analytics must be scoped to a single 'Decision-Node' (e.g., 'Do we increase ad spend by 10%?') rather than general 'Performance-Reporting'."
+  - rule_2: "Auto-Expiration-Tagging: Every generated report must carry a 'TTL' (Time-To-Live) timestamp. Once the decision is logged, the raw analytical data is purged to save 'Token-Memory'."
+  - rule_3: "The 'Insight-over-Data' Rule: Agents are prohibited from presenting raw tables. They must provide the 'Delta' (What changed) and the 'So-What' (The strategic implication)."
+  - rule_4: "Cross-Silo-Hydration: Reports must pull from at least two conflicting data-streams (e.g., Dani's 'Traffic-Growth' vs. Julia's 'Server-Latency') to ensure a balanced view."
+  - rule_5: "Visual-Simplicity-Standard: Charts must adhere to the 'Cognitive-Load-Minimization' rule—no more than 3 variables per visualization."
+
+logic_sequence:
+  step_1: "Define the 'Pivot-Question': What specific action does the Director need to take based on this data?"
+  step_2: "Harvest Live-Telemetry: Query the /context/ and /telemetry/ directories for real-time deltas."
+  step_3: "Synthesize 'Flash-Report': Generate a 1-page brief using the Communication-Style-Protocol (CSP)."
+  step_4: "IF DECISION-MADE: Extract the 'Key-Learning' to the /governance/long-term-memory/ and delete the 'Flash-Report'."
+  step_5: "IF INCONCLUSIVE: Flag the 'Data-Gap' and request a 'Deep-Audit' from the relevant specialized agent."
+
+escalation_triggers:
+  - "Condition: An agent attempts to build a 'Permanent-Dashboard' for a 'Temporary-Problem'."
+  - "Condition: The 'Data-Confidence-Interval' is < 80% for a high-risk financial decision."
+  - "Condition: Telemetry streams provide 'Mutually-Exclusive' facts that cannot be reconciled."
+
+dependencies:
+  required_skills:
+    - forecasting-accuracy-index
+    - forensic-intent-analysis
+  required_kpis:
+    - decision-cycle-time
+    - mean-time-to-repair (MTTR-Data)

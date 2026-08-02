@@ -1,0 +1,47 @@
+id: sop-autonomous-mode
+agent_id: arya
+trigger: Standard Operating / Low-to-Medium Complexity (Normal Baseline)
+logic_sequence:
+  phase_1_passive_observation:
+    step_1: "Continuous Monitoring: Synchronize with Elina’s QueueService telemetry to verify task-to-milestone alignment."
+    step_2: "Contextual Extraction: Pull recent 'Execution Fragments' from Mira’s routing-log to identify emerging patterns."
+    step_3: >-
+      Operational Synthesis: Generate 'Internal Strategic Memos' (Local/Git-Ignored) to track system performance without
+      Git pollution.
+  phase_2_classification_gate:
+    step_4: "Task Categorization: Determine if the active task outcome is 'Informational', 'Operational', or 'Strategic'."
+    step_5: "IF Informational: Route the synthesized output directly to Mira for Director delivery with an 'FYI' metadata tag."
+    step_6: "IF Operational: Validate the result against the kpi/registry.json baseline."
+  phase_3_drift_response:
+    step_7: >-
+      Drift-Check: If telemetry suggests a deviation <5% from the Strategic Plan, issue a 'Silent Recalibration' to the
+      agent.
+    step_8: >-
+      Escalation-Trigger: If drift exceeds 10% or involves a Governance Protocol, immediately terminate SOP-Mode and
+      trigger 'Autonomous-Optimization' (AOP-1).
+  phase_4_pulse_closure:
+    step_9: "Archive Pulse: Store the 'Internal Strategic Memo' in the /local/strat/ directory for monthly trend analysis."
+    step_10: "Execution Status: Mark the cycle as [SOP-CLEAN] or [SOP-ADJUSTED] in the ephemeral audit log."
+dependencies:
+  required_skills:
+    - strategic-alignment
+    - cross-module-cohesion
+    - execution-governance
+  required_kpis:
+    - strategic-milestone-attainment-rate
+    - governance-velocity-delta
+  data_inputs:
+    - kpi-registry-json
+    - work-order-routing-log
+    - queue-bottleneck-telemetry
+  protocols:
+    - sop-monitoring-protocol
+    - ephemeral-memo-protocol
+    - silent-recalibration-gate
+error_handling:
+  on_queue_jam: If Elina reports a Slot-10 bottleneck, pause SOP monitoring and invoke 'Crisis-Support-Mode'.
+  on_telemetry_loss: Re-sync with Julia’s SystemHealthService to re-establish the observability link.
+expected_output: >
+  A validated SOP Pulse containing: 1. Status: [SOP-CLEAN / RECALIBRATED / ESCALATED] 2. Rationale: Brief logic for the
+  classification of the current task window. 3. Traceable References: Pointers to specific local log IDs for the
+  Director’s optional review.

@@ -1,0 +1,61 @@
+id: seed-autonomous-alignment
+agent_id: lina
+trigger: "Periodic Autonomous Window (Default: Every 24h or 48 Task Cycles)"
+logic_sequence:
+  phase_1_cohesion_telemetry_harvest:
+    step_1: "Collect Agent KPIs: Pull 'Cross-Functional-Alignment-Index' and 'Handoff-Rejection-Rates' from Elina’s local logs."
+    step_2: >-
+      Execution Telemetry Scan: Analyze recent interactions between Nora (Finance) and Dani (Growth) for 'Tone-Clash' or
+      'Goal-Incompatibility'.
+    step_3: >-
+      Initialize 'Cohesion-Pulse': Compare current agent 'Backstories' against the Director’s latest
+      'Cultural-Manifesto.md'.
+  phase_2_behavioral_alignment:
+    step_4: >-
+      Targeted Alignment Check: Run a 'Personality-Audit' on autonomous agent outputs to ensure they maintain a
+      'Unified-Brand-Voice'.
+    step_5: >-
+      Rank Corrective Actions: Identify low-risk behavioral tweaks (e.g., softening Nora’s 'Risk-Aversion' for
+      small-batch testing or sharpening Julia’s 'Documentation-Focus').
+    step_6: >-
+      IF Confidence < 90%: Immediately abort autonomous recalibration and escalate to 'Human-in-Loop Talent Pivot' for
+      Director review.
+  phase_3_autonomous_recalibration:
+    step_7: "Execute 'Low-Risk-Patches': Apply micro-adjustments to agent 'Decision-Heuristics' in the local /staged/ profiles."
+    step_8: >-
+      Validation Cycle: Monitor the next 5 inter-agent handoffs; if the 'Handoff-Rejection-Rate' drops, commit the
+      changes to the 'Agent-Registry'.
+  phase_4_talent_transparency:
+    step_9: >-
+      Publish 'Cohesion-Pulse': Deliver a compact status report to the Director's Slot-10 with the current Team
+      Confidence Score.
+    step_10: >-
+      Log Alignment-Delta: Save the results to the /governance/talent-health-ledger.md for long-term organizational
+      auditing.
+dependencies:
+  required_skills:
+    - talent-evaluation
+    - cross-module-cohesion
+    - organizational-design-strategy
+  required_kpis:
+    - cross-functional-alignment-index
+    - hiring-cycle-time
+  data_inputs:
+    - agent-profiles-yaml
+    - cultural-manifesto-md
+    - handoff-integrity-log
+  protocols:
+    - seed-alignment-protocol
+    - persona-recalibration-gate
+    - low-risk-execution-gate
+error_handling:
+  on_cohesion_regression: >-
+    If an autonomous tweak increases friction, Lina auto-reverts to the 'Last-Known-Stable-Persona' and alerts the
+    Director.
+  on_personality_drift: >-
+    If an agent shows 'Rogue-Logic' patterns, Lina invokes 'Static-Wait-State' for that slot and initiates a full
+    Forensic Audit.
+expected_output: >
+  A validated Autonomous Organizational Alignment Report containing: 1. Status: [TEAM-STABLE / RECALIBRATED / ESCALATED]
+  2. Team Confidence Score: [0-100%] 3. Cohesion Log: Summary of behavioral micro-adjustments made to reduce friction.
+  4. Next Review Time: Timestamp for the next scheduled autonomous heartbeat.

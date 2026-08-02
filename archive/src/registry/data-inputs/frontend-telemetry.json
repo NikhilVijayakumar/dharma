@@ -1,0 +1,14 @@
+{
+  "uid": "frontend-telemetry",
+  "name": "Frontend Telemetry",
+  "description": "Generated data input for registry reference normalization: frontend-telemetry.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/sofia/seed-autonomous-alignment",
+  "privacyClassification": "internal"
+}

@@ -1,0 +1,34 @@
+id: self-healing-narrative-protocol
+title: "Global Narrative-Resiliency & Fact-Patching"
+description: "Stateless governance standard for the automated detection and correction of 'Narrative-Drift' and 'Historical-Inconsistency'."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Inconsistency-Detection-Gate: Every outgoing 'Narrative-Artifact' (Email, Tweet, PR, Doc) must be scanned against the 'Strategic-Vision.md' for 'Fact-Collisions'."
+  - rule_2: "The 'Correction-Propagation' Mandate: If a 'Core-Fact' changes (e.g., a pivot in pricing or tech stack), the system must 'Auto-Update' all downstream 'Narrative-Nodes' within 3600 seconds."
+  - rule_3: "Sentiment-Stabilization-Trigger: If external 'Market-Sentiment' regarding a 'Golden-Goose' asset drops >15%, the system must generate a 'Narrative-Counter-Patch' (Dani) to address specific objections."
+  - rule_4: "Recursive-History-Audit: Every 24 hours, the system must scan 'Active-Threads' to ensure agents haven't made 'Conflicting-Promises' to the Director (Slot-10)."
+  - rule_5: "The 'Truth-Anchor' Requirement: No 'Public-Facing-Claim' is permitted unless it is backed by a 'Telemetry-Verified-Proof' from Nora (Finance) or Julia (Tech)."
+
+logic_sequence:
+  step_1: "Narrative-Scan: Monitor internal and external 'Communication-Streams' for 'Semantic-Divergence'."
+  step_2: "Identify 'Fracture-Point': Determine where the story has drifted (e.g., 'Outdated-Feature-List' or 'Pricing-Confusion')."
+  step_3: "Generate 'Narrative-Patch': Produce a 'Synchronized-Correction' that updates the Website, FAQ, Investor-Deck, and Agent-Memory simultaneously."
+  step_4: "IF SYNCHRONIZED: Log the 'Narrative-Integrity-Hash' and resume standard operations."
+  step_5: "IF DRIFT-PERSISTS: Trigger the 'Incident-Escalation-Protocol' (Tier-1) for a 'Brand-Crisis-Intervention'."
+
+escalation_triggers:
+  - "Condition: Detection of a 'Public-Fact-Error' that has been live for >4 hours without a 'Self-Heal' trigger."
+  - "Condition: A 'Narrative-Contradiction' exists between two 'High-Authority' agents (e.g., Mira and Eva)."
+  - "Condition: The system cannot find 'Telemetry-Proof' to support a high-stakes 'Marketing-Claim'."
+
+dependencies:
+  required_skills:
+    - brand-fidelity-mapping
+    - forensic-intent-analysis
+  required_kpis:
+    - brand-fidelity-index
+    - interaction-quality-score

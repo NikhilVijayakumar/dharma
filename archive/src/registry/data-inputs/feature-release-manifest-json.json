@@ -1,0 +1,32 @@
+{
+  "uid": "feature-release-manifest-json",
+  "name": "Deployment-Impact-Manifest (DIM)",
+  "description": "The definitive execution-record for new capabilities, linking 'Technical-Stability' with 'Market-Readiness' and 'User-Incentives'.",
+  "schemaType": "Deployment-Protocol",
+  "requiredFields": [
+    "release_id",
+    "timestamp_iso8601",
+    "feature_vector_id",
+    "deployment_tier",
+    "agent_signoff_matrix",
+    "rollback_logic_hash",
+    "impact_prediction_score"
+  ],
+  "sampleSource": "product/release-vault/v2-core-update",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "deployment_tiers": {
+          "ALPHA": "Internal-Agent-Testing (Substrate-Only)",
+          "BETA": "Segment-Isolated (Canary-Release)",
+          "GA": "General-Availability (Global-Sync)"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

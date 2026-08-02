@@ -1,0 +1,33 @@
+{
+  "uid": "operational-sops-md",
+  "name": "Autonomous-Execution-Protocol (AEP)",
+  "description": "The definitive 'Operating-System' for agentic workflows, containing branching-logic, fail-safes, and hand-off triggers.",
+  "schemaType": "Procedural-Protocol",
+  "requiredFields": [
+    "sop_id",
+    "version_timestamp",
+    "execution_path_vector",
+    "agent_role_mapping",
+    "error_handling_logic",
+    "human_escalation_trigger",
+    "success_metric_ref"
+  ],
+  "sampleSource": "ops/protocol-vault/v5-standard-ops",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "operational_states": {
+          "NOMINAL": "Full-Autonomous-Execution",
+          "DEGRADED": "Pre-Planned-Failover-Active",
+          "LOCKED": "Human-Intervention-Required",
+          "RECOVERY": "Self-Healing-Protocol-Running"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "uid": "agent-telemetry-feed",
+  "name": "Agent Telemetry Feed",
+  "description": "Generated data input for registry reference normalization: agent-telemetry-feed.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/mira/contextual-self-healing",
+  "privacyClassification": "internal"
+}

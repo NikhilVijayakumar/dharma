@@ -1,0 +1,19 @@
+{
+  "uid": "role-fit-accuracy",
+  "name": "Role-Fit-Accuracy (RFA)",
+  "description": "Measures the alignment between 'Actual-Output-Quality' and 'Defined-Slot-Competencies' using peer-review scores and objective task-success-rates.",
+  "unit": "Index (0-1.00)",
+  "target": "> 0.88",
+  "value": "Calculated via (Task-Success-Rate * Peer-Validation-Score) / Expected-Benchmark",
+  "goalMapping": "Optimizes 'Resource-Allocation' and ensures every 'Agentic-Persona' is operating at peak 'Functional-Utility'.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Milestone / Monthly-Persona-Audit",
+    "shorthand": "Competency-Match"
+  },
+  "thresholds": {
+    "critical": "< 0.70 (Triggers 'Role-Reassignment' or 'Persona-Logic-Hardening' by Lina/HR)",
+    "warning": "0.70 - 0.85 (Triggers 'Context-Training-Sprint' and 'SOP-Update')",
+    "optimal": "> 0.92"
+  }
+}

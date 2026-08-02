@@ -1,0 +1,14 @@
+{
+  "uid": "brand-narrative-md",
+  "name": "Brand Narrative Md",
+  "description": "Generated data input for registry reference normalization: brand-narrative-md.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/sofia/human-in-loop-creative-direction",
+  "privacyClassification": "internal"
+}

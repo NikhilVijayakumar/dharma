@@ -1,0 +1,19 @@
+{
+  "uid": "sla-breach-count",
+  "name": "SLA-Breach-Count (SBC)",
+  "description": "Measures the frequency of 'Performance-Failures' where 'Agentic-Output' or 'System-Latency' exceeds the defined 'Hard-Constraint-Thresholds'.",
+  "unit": "Count (Integer)",
+  "target": "0 (Zero-Tolerance)",
+  "value": "Calculated via 'Eva-Audit-Logs' (Aggregated-Violations / Time-Window)",
+  "goalMapping": "Enforces 'Operational-Integrity' and identifies 'Infrastructure-Bottlenecks' before they impact 'Investor-Sentiment'.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Real-Time-Event-Driven",
+    "shorthand": "Failure-Pulse"
+  },
+  "thresholds": {
+    "critical": "> 5 per Window (Triggers 'System-Cool-Down' and 'Root-Cause-Analysis' by Julia/Tech)",
+    "warning": "1 - 4 per Window (Triggers 'Load-Balancing-Optimization' and 'Agent-Priority-Shift')",
+    "optimal": "0"
+  }
+}

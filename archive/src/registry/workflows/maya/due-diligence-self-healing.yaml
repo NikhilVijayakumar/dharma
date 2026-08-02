@@ -1,0 +1,59 @@
+id: due-diligence-self-healing
+agent_id: maya
+trigger: Investor Inquiry / Data Gap Detected in Pitch / Quarterly Audit Initialization
+logic_sequence:
+  phase_1_inquiry_triangulation:
+    step_1: >-
+      Intercept Data Request: Parse the 'Investor Pipeline' (CRM) for specific forensic requirements (e.g., 'Show me 6
+      months of churn data').
+    step_2: >-
+      Vault-Search: Query the 'VaultIngestService' for existing historical proofs from Nora (Finance) or Julia
+      (Architecture).
+    step_3: "Initialize 'Diligence-Manifest': Map the current 'Known-Truths' vs. the 'Information-Gaps' required for the round."
+  phase_2_cross-agent_data_scaffolding:
+    step_4: >-
+      Auto-Scaffold Internal Requests: If proof is missing, issue high-priority tasks to the relevant agents (e.g.,
+      'Julia: Generate 99.9% uptime logs'; 'Nora: Pull Q3 tax filings').
+    step_5: "Synthesis & Normalization: Convert raw technical/financial logs into investor-ready Markdown or CSV formats."
+    step_6: >-
+      Constraint Check (Nora): Confirm that sharing this specific data doesn't reveal 'Sensitive-Unit-Economics' that
+      could damage future valuation.
+  phase_3_compliance_&_integrity_gate:
+    step_7: >-
+      Compliance Scan (Eva): Pass the synthesized data through 'ComplianceScanService' to ensure no accidental PII leaks
+      or regulatory breaches.
+    step_8: >-
+      Veracity Check: Cross-reference Maya’s forecast with Julia’s actual deployment history to ensure
+      'Marketing-Claims' match 'Technical-Reality'.
+    step_9: "Verify 'Strategic-Alignment': Ensure the data supports the primary narrative in the 'Strategic-Vision.md'."
+  phase_4_data_room_hardening:
+    step_10: "Update 'Due-Diligence-Vault': Save the validated proof to the local /vault/investor-relations/ for future use."
+    step_11: >-
+      Release to Pipeline: Deliver the final 'Diligence-Brief' to the investor with a cryptographically secure
+      'Eva-Auth-Hash'.
+    step_12: "Gap-Closure Log: Update the 'Investor-Readiness-Score' and alert Arya (CEO) of the strengthened data room."
+dependencies:
+  required_skills:
+    - investor-pipeline-prioritization
+    - financial-forecasting
+    - strategic-alignment
+  required_kpis:
+    - investor-stage-conversion
+    - runway-coverage-months
+  data_inputs:
+    - vault-audit-trail
+    - technical-north-star-md
+    - growth-opex-ledger
+  protocols:
+    - investor-data-room-protocol
+    - cross-agent-synthesis-protocol
+    - compliance-gate-protocol
+error_handling:
+  on_data_missing: >-
+    If an agent cannot provide proof, Maya flags the gap as a 'Strategic-Risk' and prepares a 'Mitigation-Narrative' for
+    the Director.
+  on_compliance_fail: If Eva rejects the data, Maya initiates a 'Redaction-Loop' to scrub the document until it meets security standards.
+expected_output: >
+  A validated Due-Diligence Package containing: 1. Status: [TRUTH-VERIFIED / GAP-FILLED / RISK-FLAGGED] 2. Rationale:
+  Identification of why the data was requested and how it was synthesized. 3. Evidence Index: Links to the specific
+  logs/filings pulled from the Vault. 4. Traceable Reference: The 'Eva-Auth-Hash' for investor-side verification.

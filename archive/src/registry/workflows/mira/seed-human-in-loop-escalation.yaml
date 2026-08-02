@@ -1,0 +1,69 @@
+id: seed-human-in-loop-escalation
+agent_id: mira
+trigger: High-Risk Variance / Governance-Threshold Breach (Routing Failure > 15%)
+logic_sequence:
+  phase_1_network_forensics:
+    step_1: >-
+      Summarize the 'Routing-Rupture': Identify the specific agent-pair (e.g., Julia vs. Sofia) where the handoff-chain
+      has suffered a fatal disconnect.
+    step_2: "Workforce Impact Mapping: Determine which active 'Milestones' (Arya) are stalled due to the routing deadlock."
+    step_3: >-
+      Projected Strategic Fallout: Simulate the 'Logic-Contagion'—predicting if the stall will cause a cascade failure
+      in Nora’s budget or Dani’s growth cycles.
+  phase_2_evidence_compilation:
+    step_4: >-
+      Attach Hard-Evidence: Extract 'Handoff-Rejection-Logs' from Elina (Ops) and 'Context-Void-Traces' from the
+      VaultIngestService.
+    step_5: >-
+      Protocol Violation Check: Cross-reference the breach against the 'intent-mapping.md' to see where the Director's
+      original command was misinterpreted.
+    step_6: >-
+      Verify 'Sovereignty-Hard-Rules': Identify if an agent attempted to execute logic outside their assigned
+      'Slot-Domain'.
+  phase_3_recovery_arbitration_modeling:
+    step_7: >-
+      Draft 'Option A (Protocol-Overhaul)': A manual re-mapping of the 'Handoff-Logic' to favor speed, bypassing the
+      current bottleneck but increasing 'Compliance-Risk'.
+    step_8: >-
+      Draft 'Option B (Sovereignty-Reset)': A hard-reset of the conflicting agent's 'Role-Definition', forcing a
+      re-scaffold of the task under a different lead agent.
+    step_9: >-
+      Implementation Risk Matrix: Detail the trade-offs (e.g., 'Throughput-Velocity' vs. 'Logical-Fidelity') for each
+      path.
+  phase_4_director_auth_gate:
+    step_10: >-
+      Escalate to Director: Push the 'Network-Emergency Brief' to Mira’s high-priority Slot-10 for an executive
+      signature.
+    step_11: >-
+      Active Routing-Lock: Suspend all affected 'Handoff-Logic' updates across the Governance Lab until a
+      Director-signed 'Recovery-Hash' is detected.
+    step_12: >-
+      Execution & Logging: Once authorized, commit the updated 'intent-mapping.md' and log the resolution in the
+      'System-Architecture-History'.
+dependencies:
+  required_skills:
+    - routing-precision
+    - handoff-integrity
+    - cross-module-cohesion
+  required_kpis:
+    - decision-cycle-time
+    - routing-accuracy-score
+  data_inputs:
+    - intent-mapping-md
+    - work-order-routing-log
+    - system-architecture-md
+  protocols:
+    - emergency-routing-protocol
+    - intent-clarification-gate
+    - binary-choice-governance-protocol
+error_handling:
+  on_stalled_arbitration: >-
+    If the Director is silent > 6h, Mira auto-defaults to 'Safety-Isolation' and freezes the affected agent slots to
+    preserve data integrity.
+  on_identity-clash: >-
+    If the reset fails to clear the friction, Mira invokes 'Crisis-Command' and grants the Director direct command-line
+    access to the raw agent-slots.
+expected_output: >
+  A Decision-Ready Network Escalation Brief containing: 1. Breach Summary: Forensic breakdown of the routing/context
+  failure. 2. Evidence Package: Traceable handoff logs and logic-clash heatmaps. 3. Action Paths: Two distinct network
+  recovery options (A & B) with speed/fidelity trade-offs. 4. Status: [PENDING DIRECTOR EMERGENCY AUTH]

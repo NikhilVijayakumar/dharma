@@ -1,0 +1,32 @@
+{
+  "uid": "decisions",
+  "name": "Executive-Decision-Artifact (EDA)",
+  "description": "Structured repository of high-level 'Resolution-Nodes', capturing the trade-offs, confidence-scores, and counterfactuals of the 10-slot array.",
+  "schemaType": "Executive-Protocol",
+  "requiredFields": [
+    "decision_id",
+    "timestamp_iso8601",
+    "originator_slot",
+    "conflict_vectors",
+    "chosen_path_payload",
+    "confidence_score",
+    "counterfactual_analysis_ref"
+  ],
+  "sampleSource": "governance/executive-vault/q1-pivots",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "impact_zones": {
+          "CAPITAL": "Fiscal-Allocation / Burn-Rate",
+          "PRODUCT": "Technical-Roadmap / Feature-Set",
+          "REPUTATION": "Brand-Trust / External-Voice"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

@@ -1,0 +1,69 @@
+id: seed-human-in-loop-escalation
+agent_id: lina
+trigger: High-Risk Variance / Governance Breach (>20% Cross-Module Friction)
+logic_sequence:
+  phase_1_organizational_forensics:
+    step_1: >-
+      Summarize the 'Persona Variance': Identify which agent-pair (e.g., Dani vs. Eva) has entered a recursive
+      logic-rejection loop.
+    step_2: "Workforce Impact Mapping: Determine which milestones (Arya) are currently stalled due to the behavioral deadlock."
+    step_3: >-
+      Projected Cultural Fallout: Simulate the 'Cohesion-Degradation'—predicting if the friction will spread to other
+      agents in the 10-slot array.
+  phase_2_evidence_compilation:
+    step_4: >-
+      Attach Hard-Evidence: Extract 'Handoff-Rejection-Logs' from Elina (Ops) and 'Sentiment-Clash-Traces' from the
+      InteractionAnalyzer.
+    step_5: >-
+      Protocol Violation Check: Cross-reference the breach against the 'Cultural-Manifesto.md' to see which behavioral
+      boundary was crossed.
+    step_6: >-
+      Verify 'Hiring-Cycle-Time': Assess if the current friction necessitates the purging of an agent and the opening of
+      a new 'Technical-Slot'.
+  phase_3_structural_arbitration_modeling:
+    step_7: >-
+      Draft 'Option A (Hard-Persona-Reset)': A total recalibration of the conflicting agent's backstory to enforce 100%
+      adherence to the dominant goal.
+    step_8: >-
+      Draft 'Option B (Role-Surgical-Shift)': A redistribution of responsibilities between agents to physically separate
+      the conflicting logic-paths.
+    step_9: >-
+      Implementation Risk Matrix: Detail the trade-offs (e.g., Immediate Velocity vs. Long-term Strategic Debt) for each
+      path.
+  phase_4_director_auth_gate:
+    step_10: >-
+      Escalate to Director: Push the 'Team-Health Emergency Brief' to Mira’s high-priority Slot-10 for an executive
+      signature.
+    step_11: >-
+      Active Behavioral-Lock: Suspend all persona-level updates across the Governance Lab until a Director choice is
+      detected.
+    step_12: >-
+      Execution & Logging: Once authorized, commit the updated 'Agent-Profiles.yaml' and log the resolution in the
+      'Talent-History-Ledger'.
+dependencies:
+  required_skills:
+    - talent-evaluation
+    - cross-module-cohesion
+    - organizational-design-strategy
+  required_kpis:
+    - hiring-cycle-time
+    - cross-functional-alignment-index
+  data_inputs:
+    - agent-profiles-yaml
+    - handoff-integrity-log
+    - cultural-manifesto-md
+  protocols:
+    - emergency-mediation-protocol
+    - persona-recalibration-gate
+    - binary-choice-governance-protocol
+error_handling:
+  on_stalled_arbitration: >-
+    If the Director is silent > 12h, Lina auto-defaults to 'Safety-Over-Speed' and locks the conflicting agents in
+    'Read-Only' mode.
+  on_identity_clash: >-
+    If the reset fails to clear the friction, Lina initiates an 'Agent-Ejection-Protocol' and prepares a new Hiring
+    Blueprint.
+expected_output: >
+  A Decision-Ready Organizational Escalation Brief containing: 1. Conflict Summary: Forensic breakdown of the
+  team-alignment rupture. 2. Evidence Package: Traceable handoff logs and sentiment-clash heatmaps. 3. Action Paths: Two
+  distinct structural response options (A & B) with data-driven trade-offs. 4. Status: [PENDING DIRECTOR EMERGENCY AUTH]

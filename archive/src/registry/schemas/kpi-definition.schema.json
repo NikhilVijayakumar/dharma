@@ -1,0 +1,154 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "registry/kpi-definition.schema.json",
+  "title": "KpiDefinition",
+  "version": "2.0.0",
+  "description": "KPI with formula, threshold governance, and responsible agent role",
+  "type": "object",
+  "required": ["uid", "name", "description", "unit", "target", "value", "goalMapping"],
+  "properties": {
+    "uid": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Unique KPI identifier (kebab-case)"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Human-readable KPI name"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 20,
+      "description": "Detailed explanation of what this KPI measures"
+    },
+    "unit": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Measurement unit (%, ms, count, etc.)"
+    },
+    "target": {
+      "type": "string",
+      "description": "Target value or expression (e.g., '> 98%', '>= 99.5')"
+    },
+    "value": {
+      "type": "string",
+      "description": "How the current value is calculated or sourced"
+    },
+    "formula": {
+      "type": "string",
+      "description": "Quantitative formula for calculation (e.g., 'success_count / total_count * 100')"
+    },
+    "goalMapping": {
+      "type": "string",
+      "minLength": 8,
+      "description": "Strategic goal this KPI aligns with"
+    },
+    "frequency_of_check": {
+      "type": "string",
+      "enum": ["real-time", "per-transaction", "hourly", "daily", "weekly", "monthly", "on-demand"],
+      "description": "How frequently this KPI should be evaluated"
+    },
+    "responsible_agent_role": {
+      "type": "string",
+      "description": "Primary agent role responsible for monitoring/maintaining this KPI"
+    },
+    "thresholds": {
+      "type": "object",
+      "description": "Threshold levels for escalation",
+      "properties": {
+        "critical": {
+          "type": "string",
+          "description": "Critical threshold value (triggers immediate action)"
+        },
+        "warning": {
+          "type": "string",
+          "description": "Warning threshold range"
+        },
+        "optimal": {
+          "type": "string",
+          "description": "Optimal target range"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "priority": {
+          "type": "string",
+          "enum": ["Critical (Tier-1)", "High (Tier-2)", "Medium (Tier-3)", "Low (Tier-4)"],
+          "description": "Strategic priority tier"
+        },
+        "sampling_frequency": {
+          "type": "string",
+          "description": "Data sampling method"
+        },
+        "shorthand": {
+          "type": "string",
+          "description": "Abbreviated name for quick reference"
+        },
+        "created_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_modified": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "escalation_policy": {
+      "type": "object",
+      "description": "How to escalate when thresholds are breached",
+      "properties": {
+        "on_critical": {
+          "type": "string",
+          "description": "Action to take when critical threshold is hit"
+        },
+        "on_warning": {
+          "type": "string",
+          "description": "Action to take when warning threshold is hit"
+        }
+      }
+    },
+    "dependencies": {
+      "type": "object",
+      "description": "What data inputs or other KPIs this depends on",
+      "properties": {
+        "data_inputs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "dependent_kpis": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "hybrid_content": {
+      "type": "object",
+      "description": "Hybrid envelope supporting structured KPI data and unstructured markdown notes.",
+      "properties": {
+        "structured_payload": {
+          "oneOf": [
+            { "type": "object" },
+            { "type": "array" },
+            { "type": "string" },
+            { "type": "number" },
+            { "type": "boolean" },
+            { "type": "null" }
+          ]
+        },
+        "unstructured_markdown": { "type": "string" },
+        "source_format": { "type": "string", "enum": ["json", "yaml", "markdown", "mixed"] },
+        "projection_target": { "type": "string", "enum": ["git", "sqlite", "vault", "memory-cache", "hybrid"] },
+        "data_classification": { "type": "string", "enum": ["T1", "T2", "T3", "T4", "public", "internal", "confidential", "restricted"] },
+        "sync_status": { "type": "string", "enum": ["PENDING", "COMMITTED", "REJECTED", "STALE"] },
+        "canonical_source": { "type": "string", "enum": ["git", "vault", "registry"] },
+        "ingest_timestamp": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

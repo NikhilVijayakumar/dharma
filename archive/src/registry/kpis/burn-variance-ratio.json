@@ -1,0 +1,19 @@
+{
+  "uid": "burn-variance-ratio",
+  "name": "Burn-Variance-Ratio (BVR)",
+  "description": "Measures the delta between 'Allocated-Token-Budget' and 'Real-Time-Execution-Spend' to detect fiscal-drift and protocol-evasion.",
+  "unit": "% (Variance-Delta)",
+  "target": "< 5.00",
+  "value": "Calculated via SHBP-Ledger (Actual / Planned - 1)",
+  "goalMapping": "Enforces 'Fiscal-Discipline' and ensures the 'Self-Healing-Budget-Protocol' is mitigating waste.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Real-Time / 24h-Settlement",
+    "shorthand": "Burn-Drift"
+  },
+  "thresholds": {
+    "critical": "> 15% (Triggers 'Financial-Kill-Switch' on non-essential agent-work-orders)",
+    "warning": "5% - 15% (Triggers 'Resource-Optimization-Sprint' via Nora)",
+    "optimal": "< 3%"
+  }
+}

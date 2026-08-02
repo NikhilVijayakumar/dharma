@@ -1,0 +1,59 @@
+id: seed-autonomous-alignment
+agent_id: maya
+trigger: "Periodic Autonomous Window (Default: Every 72h or 128 Task Cycles)"
+logic_sequence:
+  phase_1_capital_telemetry_harvest:
+    step_1: >-
+      Collect Agent KPIs: Pull 'Investor-Stage-Conversion' and 'Runway-Coverage-Months' from the Nora-Maya shared
+      ledger.
+    step_2: >-
+      Execution Telemetry Scan: Review recent growth data from Dani to see if 'Customer-Acquisition-Cost' (CAC) is
+      drifting from the 'Pitch-Deck' projections.
+    step_3: "Initialize 'Capital-Pulse': Compare current 'Burn-Rate' against the 'Strategic-Vision.md' funding milestones."
+  phase_2_strategic_alignment_check:
+    step_4: >-
+      Targeted Alignment Check: Run a 'Market-Fidelity-Audit' on current agent tasks to ensure they are building
+      'Equity-Value' rather than just 'Technical-Noise'.
+    step_5: >-
+      Rank Corrective Actions: Identify low-risk adjustments (e.g., updating the 'Financial-Forecast' with real-time
+      revenue, or re-prioritizing an investor lead).
+    step_6: >-
+      IF Confidence < 85%: Immediately abort autonomous recalibration and escalate to 'Human-in-Loop-Equity-Pivot' for
+      Director review.
+  phase_3_autonomous_financial_tuning:
+    step_7: >-
+      Execute 'Low-Risk-Patches': Apply micro-adjustments to the 'Investor-Diligence-Vault' and update 'Unit-Economic'
+      models.
+    step_8: >-
+      Validation Cycle: Run a 'Monte-Carlo-Simulation' to confirm that the changes improve the
+      'Runway-Probability-Index' by > 2%.
+  phase_4_investor_transparency:
+    step_9: >-
+      Publish 'Strategic-Pulse': Deliver a compact status report to the Director's Slot-10 with the current
+      'Capital-Confidence-Score'.
+    step_10: "Log Value-Delta: Save the alignment results to the /vault/finance/valuation-history.md for the next Board Review."
+dependencies:
+  required_skills:
+    - investor-pipeline-prioritization
+    - financial-forecasting
+    - strategic-alignment
+  required_kpis:
+    - investor-stage-conversion
+    - runway-coverage-months
+  data_inputs:
+    - growth-opex-ledger
+    - strategic-milestones-json
+    - investor-crm-data
+  protocols:
+    - seed-alignment-protocol
+    - financial-modeling-gate
+    - low-risk-execution-gate
+error_handling:
+  on_runway_regression: >-
+    If an autonomous change lowers the 'Runway-Coverage', Maya auto-reverts to the 'Last-Known-Safe-Forecast' and alerts
+    Nora (Finance).
+  on_valuation_drift: If the 'Equity-Value' drops > 5% due to telemetry shifts, trigger an immediate 'Crisis-Fundraising-Protocol'.
+expected_output: >
+  A validated Autonomous Strategic Alignment Report containing: 1. Status: [STRATEGICALLY-ALIGNED / FORECAST-UPDATED /
+  ESCALATED] 2. Capital Confidence Score: [0-100%] 3. Alignment Log: Summary of micro-adjustments to the financial model
+  or pitch data. 4. Next Review Time: Timestamp for the next scheduled market-alignment pulse.

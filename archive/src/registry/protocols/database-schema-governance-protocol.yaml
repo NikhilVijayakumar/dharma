@@ -1,0 +1,34 @@
+id: database-schema-governance-protocol
+title: "Global Data Integrity & Schema Governance"
+description: "Stateless governance standard for managing structural changes, indexing strategies, and data-normalization across all Directive repositories."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Immutable-Core-Schema: Fundamental entities (User-ID, Transaction-UUID, Agent-Slot) cannot be renamed or dropped without a 'Director-Auth-Hash'."
+  - rule_2: "Downward-Compatibility: Every schema migration must be 'Non-Breaking'. Existing agent queries must function 100% during and after the transition."
+  - rule_3: "Normalization-Standard: Data must adhere to '3rd Normal Form' (3NF) unless a 'Performance-Denormalization-Waiver' is granted for specific high-velocity nodes."
+  - rule_4: "Automated-Indexing-Audit: No new table may be deployed without a defined 'Primary-Key' and 'Search-Optimization-Strategy' to prevent 'Query-Latency-Spikes'."
+  - rule_5: "Metadata-Shadowing: Every record must include 'Audit-Metadata' (Created-By-Agent-ID, Protocol-ID-Used, Logic-Version) for forensic traceability."
+
+logic_sequence:
+  step_1: "Migration-Scan: Analyze the proposed SQL/NoSQL schema delta for 'Destructive-Changes' (e.g., dropping columns or changing data types)."
+  step_2: "Dependency-Impact-Check: Query the 'System-Interconnect-Map' to see which other agents use the affected tables."
+  step_3: "Dry-Run-Validation: Execute the change in a 'Shadow-Environment' to measure latency impacts and logical regressions."
+  step_4: "IF PASS: Generate a 'Schema-Integrity-Seal' and update the global /governance/tech/data-dictionary.md."
+  step_5: "IF FAIL: Intercept. Request the agent to provide a 'Mapping-Layer' or 'View' that preserves the old structure for legacy dependencies."
+
+escalation_triggers:
+  - "Condition: A proposed change creates a 'Data-Silo'—information that is unreachable by the Conductor (Mira)."
+  - "Condition: Detection of 'Schema-Drift' where the production DB no longer matches the Governance Lab's 'Golden-Manifest'."
+  - "Condition: Migration projected to cause >500ms of 'System-Wide-Latency' during peak hours."
+
+dependencies:
+  required_skills:
+    - execution-governance
+    - low-risk-recalibration
+  required_kpis:
+    - mean-time-to-repair (MTTR-Data)
+    - contextual-retrieval-success-rate

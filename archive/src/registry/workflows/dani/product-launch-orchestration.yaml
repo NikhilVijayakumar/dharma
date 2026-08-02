@@ -1,0 +1,67 @@
+id: product-launch-orchestration
+agent_id: dani
+trigger: "Feature Status Update: 'Launch-Ready' (Tagged by Julia/CTO)"
+logic_sequence:
+  phase_1_technical_ingestion:
+    step_1: >-
+      Ingest 'feature-release-manifest.json': Extract technical capabilities, limitations, and performance benchmarks
+      from Julia.
+    step_2: >-
+      Fidelity Mapping: Cross-reference the technical manifest against the 'Strategic-North-Star' to ensure alignment
+      with project goals.
+    step_3: "Initialize 'GTM-Draft': Create a Go-To-Market strategy in the /local/launches/ directory."
+  phase_2_creative_&_fiscal_sync:
+    step_4: >-
+      Visual Identity Alignment: Invoke Sofia’s 'VisualAuditService' to ensure all launch assets (web, social, deck)
+      conform to the latest visual_tokens.json.
+    step_5: >-
+      Budget Procurement: Request Nora’s 'Launch-Capital-Authorization' based on the current FiscalForecastService and
+      Runway-Coverage.
+    step_6: >-
+      IF Budget Denied: Auto-pivot to 'Zero-Spend/Organic-Only' launch path or escalate for a Director-signed Budget
+      Expansion.
+  phase_3_governance_gate:
+    step_7: >-
+      Scaffold 'Launch Decision Package': Compile the Narrative, the Visual Audit Report, and the Fiscal Impact
+      Simulation.
+    step_8: >-
+      Director HIL-Review: Present the package for Git-validation; the launch remains 'Staged' until a Director-signed
+      Commit is detected.
+    step_9: >-
+      Compliance Verification: Request Eva’s 'Compliance-Scan' to ensure claims don't violate regulatory or ethical
+      protocols.
+  phase_4_market_activation:
+    step_10: >-
+      Invoke 'CampaignArchitectService': Trigger multi-channel distribution (Organic/Paid/Direct) across all
+      synchronized platforms.
+    step_11: >-
+      Telemetry Monitoring: Track 'launch-to-liquidity-delta' in real-time to measure market resonance and CAC (Customer
+      Acquisition Cost).
+    step_12: >-
+      Feedback Loop: Pull 'sentiment-polarity' from the first 48 hours of launch to feed Sofia’s UX refinement and
+      Julia’s patch-cycle.
+dependencies:
+  required_skills:
+    - market-narrative-design
+    - campaign-architecture
+    - strategic-alignment
+  required_kpis:
+    - qualified-pipeline-coverage
+    - launch-to-liquidity-delta
+  data_inputs:
+    - feature-release-manifest-json
+    - visual-tokens-json
+    - fiscal-policy-md
+  protocols:
+    - gtm-narrative-protocol
+    - launch-budget-gate-protocol
+    - visual-token-governance-protocol
+error_handling:
+  on_technical_regression: >-
+    If Julia revokes 'Launch-Ready' status during GTM drafting, Dani must immediately abort the campaign and archive the
+    draft.
+  on_budget_overrun: If Nora detects a >5% spend variance during activation, Dani is throttled to 'Organic-Only' modes automatically.
+expected_output: >
+  A Launch Activation Package containing: 1. Status: [LAUNCHED / STAGED / ABORTED] 2. Rationale: Strategic justification
+  for the timing and channel mix. 3. Spend Ledger: Authorized capital usage and projected ROI. 4. Resonance Report:
+  Initial 48-hour market sentiment and conversion delta.

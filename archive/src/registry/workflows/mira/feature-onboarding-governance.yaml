@@ -1,0 +1,47 @@
+id: feature-onboarding-governance
+agent_id: mira
+trigger: New product feature, format, or distribution surface is proposed
+pre_conditions:
+  - condition: feature-brief-available
+    description: Feature scope, audience, and intended channels are documented.
+    source: data-input
+    validation_rule: exists
+  - condition: company-context-loaded
+    description: Company and product context metadata is available.
+    source: vault
+    validation_rule: exists
+logic_sequence:
+  phase_1_classification:
+    step_1: Classify feature into educational track, fiction track, or shared infrastructure.
+    step_2: Validate intended audience and age-safety constraints from company and product context.
+    step_3: Reject onboarding packet if track is ambiguous.
+  phase_2_governance:
+    step_4: Apply company non-negotiables and human-review-required protocol checks.
+    step_5: Enforce product-track-separation protocol for all proposed transformations.
+    step_6: Require explicit risk trade-off summary for irreversible actions.
+  phase_3_enablement:
+    step_7: Bind required skills, KPIs, data inputs, and protocols to the feature rollout plan.
+    step_8: Prepare feature onboarding decision packet for human approval.
+    step_9: Write onboarding trace and reviewer metadata to audit trail.
+dependencies:
+  required_skills:
+    - routing-precision
+    - contextual-intent-mapping
+    - bavans-feature-onboarding-and-track-separation
+  required_kpis:
+    - decision-cycle-time
+    - human-review-gate-pass-rate
+    - product-track-separation-violation-count
+  data_inputs:
+    - work-order-routing-log
+    - compliance-audit-trail
+  protocols:
+    - company-non-negotiables-protocol
+    - human-review-required-protocol
+    - product-track-separation-protocol
+error_handling:
+  on_ambiguous_scope: Block onboarding and route to human-in-loop intent clarification.
+  on_protocol_breach: Abort activation and open compliance triage incident.
+expected_output: >
+  Feature onboarding governance packet with track classification, protocol compliance status,
+  risk trade-offs, and explicit human approval requirement.

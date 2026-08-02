@@ -1,0 +1,33 @@
+{
+  "uid": "design-quality-review-log",
+  "name": "Experience-Integrity-Log (EIL)",
+  "description": "Structured audit of 'User-Friction-Points', 'Accessibility-Gaps', and 'Brand-Cohesion-Deltas' across all digital surfaces.",
+  "schemaType": "Quality-Protocol",
+  "requiredFields": [
+    "event_id",
+    "timestamp_iso8601",
+    "surface_vector",
+    "issue_category",
+    "ux_debt_valuation",
+    "compliance_signature",
+    "remediation_priority"
+  ],
+  "sampleSource": "design/ops/quality-vault",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "issue_categories": {
+          "VISUAL": "Typography/Color/Spacing-Violations",
+          "FUNCTIONAL": "Interaction-Failure/Broken-Affordance",
+          "ACCESSIBILITY": "WCAG-Non-Compliance/Screen-Reader-Blocker",
+          "NARRATIVE": "Tone-Mismatch/Copy-Inconsistency"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

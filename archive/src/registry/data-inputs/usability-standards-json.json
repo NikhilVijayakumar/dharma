@@ -1,0 +1,14 @@
+{
+  "uid": "usability-standards-json",
+  "name": "Usability Standards Json",
+  "description": "Generated data input for registry reference normalization: usability-standards-json.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/sofia/human-in-loop-creative-direction",
+  "privacyClassification": "internal"
+}

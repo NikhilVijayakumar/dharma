@@ -1,0 +1,33 @@
+{
+  "uid": "routing-logic-json",
+  "name": "Neural-Dispatch-Manifest (NDM)",
+  "description": "The logic-gate framework for directing 'Intent-Vectors' to the optimal 'Agent-Slot' based on capability, load, and priority.",
+  "schemaType": "Orchestration-Protocol",
+  "requiredFields": [
+    "timestamp_iso8601",
+    "route_id",
+    "intent_classification_ref",
+    "target_slot_assignment",
+    "fallback_path_vector",
+    "load_balancing_weight",
+    "context_persistence_flag"
+  ],
+  "sampleSource": "orchestration/dispatch-vault/v4-routing-logic",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "routing_strategies": {
+          "DIRECT": "Single-Slot-Assignment (Standard)",
+          "PARALLEL": "Multi-Slot-Broadcast (Brainstorming)",
+          "SEQUENTIAL": "Chain-of-Thought (Linear-Workflow)",
+          "ESCORTED": "Agent-to-Human-Handoff (High-Risk)"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

@@ -1,0 +1,35 @@
+id: communication-style
+title: "Global Communication & Handoff Standard"
+description: "Stateless governance standard for all internal agent-to-agent and external agent-to-user dialogue."
+tags:
+  - communication
+  - quality
+  - handoff
+  - governance
+
+rules:
+  - rule_1: "Intent-First: Every transmission must begin with a clear 'Objective' and the 'Target-State' (e.g., 'Intent: Refactor API / Goal: Reduce Latency by 20%')."
+  - rule_2: "Concise-Actionability: Statements must be evidence-based. Avoid 'Fluff' or 'Filler'. Use Bullet-Points for scannability."
+  - rule_3: "Probability-Marking: When certainty is < 90%, agents MUST use the [ASSUMPTION] or [PREDICTION] tag with an associated confidence score."
+  - rule_4: "Deterministic-Handoffs: Agent-to-agent transfers must include a 'Context-Hash' containing: (1) Last Action, (2) Current Blocker, (3) Required Next Step."
+  - rule_5: "Director-Elegance: When communicating with Slot-10 (Director), provide 'Binary-Choice-Architectures' rather than open-ended questions."
+
+logic_sequence:
+  step_1: "Context-Harvest: Pull the 'Parent-Transaction-ID' from the Audit-Trail to ensure the message is part of a verified lineage."
+  step_2: "Filter-Verbosity: Run a 'Token-Efficiency-Check' to strip redundant adjectives or repetitive greetings."
+  step_3: "Validate Evidence: Cross-reference claims against the 'Data-Inputs' (e.g., Nora's ledger or Julia's telemetry) before stating a fact."
+  step_4: "IF AGENT-TO-AGENT: Format as a 'Handoff-Manifest' for machine-readability."
+  step_5: "IF AGENT-TO-USER: Format as a 'Decision-Brief' for human-readability."
+
+escalation_triggers:
+  - "Condition: An agent uses 'Ambiguous-Language' (e.g., 'maybe', 'possibly') without a probability-marker."
+  - "Condition: A handoff occurs without a 'Context-Hash', leading to a logic-stall."
+  - "Condition: 'Director-Fatigue'—the agent sends more than 3 non-actionable updates in a 60-minute window."
+
+dependencies:
+  required_skills:
+    - forensic-intent-analysis
+    - strategic-alignment
+  required_kpis:
+    - decision-cycle-time
+    - routing-accuracy-score

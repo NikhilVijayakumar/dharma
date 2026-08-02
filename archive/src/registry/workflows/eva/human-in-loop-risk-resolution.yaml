@@ -1,0 +1,65 @@
+id: human-in-loop-risk-resolution
+agent_id: eva
+trigger: High-Complexity Legal / Ethical Gray Area Detected
+logic_sequence:
+  phase_1_ambiguity_forensics:
+    step_1: >-
+      Detect 'Risk-Variance': Identify a task that passes all 'Hard-Gate' compliance checks but flags on 'Soft-Gate'
+      ethical or brand-safety heuristics.
+    step_2: >-
+      Isolate 'Friction-Logic': Pinpoint exactly which narrative (Dani) or technical method (Julia) is creating the
+      ambiguity.
+    step_3: >-
+      Initialize 'Risk-Disclosure' (Local/Secure): Document the 'Letter of the Law' vs. 'Spirit of the Protocol'
+      conflict.
+  phase_2_impact_modeling:
+    step_4: >-
+      Simulate 'Worst-Case-Fallout': Model the potential impact on 'Investor-Grade-Evidence' (Maya) and
+      'Brand-Sentiment' (Dani) if the risk is realized.
+    step_5: >-
+      Verify 'Feasibility-of-Pivot': Check with Elina (Ops) to see if pausing this task creates a critical bottleneck in
+      the 10-slot queue.
+    step_6: >-
+      Draft 'Mitigation Path': Identify a 'Safe-Alternative' that achieves 80% of the goal with 0% of the ethical gray
+      area.
+  phase_3_director_arbitration:
+    step_7: "Generate 'Strategic Risk Alert': Push a high-priority 'Ethics-Gate' notification to Mira’s Slot-10."
+    step_8: >-
+      Present 'Resolution Package': Provide a clear 'Proceed vs. Pivot' choice with associated risk-weighting and
+      implemention costs.
+    step_9: >-
+      Await Director Choice: The specific task remains 'Interdicted' (Paused) until a Director-signed 'Risk-Acceptance'
+      hash is received.
+  phase_4_threshold_recalibration:
+    step_10: >-
+      Execute Choice: Resume the task with 'Enhanced-Monitoring' or pivot to the safe alternative based on the
+      Director's command.
+    step_11: >-
+      Update 'Local Risk-Threshold': Modify Eva's internal heuristics to reflect the Director's specific risk-appetite
+      for this category.
+    step_12: >-
+      Permanent Logging: Record the decision, the rationale, and the Director's signature in the Git-tracked
+      'governance-decisions.md'.
+dependencies:
+  required_skills:
+    - security-audit
+    - governance-enforcement
+    - regulatory-mapping
+  required_kpis:
+    - control-pass-rate
+    - audit-trail-completeness-score
+  data_inputs:
+    - ethical-guidelines-md
+    - compliance-scan-results
+    - customer-sentiment-analysis-jsonl
+  protocols:
+    - ethical-interdiction-protocol
+    - risk-disclosure-protocol
+    - director-approval-gate-protocol
+error_handling:
+  on_decision_delay: If the Director is silent > 24h, auto-default to the 'Safe-Alternative' to prevent project-wide stagnation.
+  on_risk_escalation: If the task is flagged as 'High-Liability', Eva invokes 'Hard-Lockdown' until manual physical verification.
+expected_output: >
+  A validated Risk Resolution Brief containing: 1. Status: [PENDING-DECISION / RISK-ACCEPTED / PIVOTED] 2. Rationale:
+  The forensic breakdown of the legal vs. ethical conflict. 3. Impact Analysis: Projected brand and regulatory fallout
+  scores. 4. Traceable Reference: Director's authorization hash for the chosen path.

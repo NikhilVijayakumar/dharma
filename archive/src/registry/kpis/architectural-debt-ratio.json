@@ -1,0 +1,19 @@
+{
+  "uid": "architectural-debt-ratio",
+  "name": "Architectural-Debt-Ratio (ADR)",
+  "description": "Quantifies the structural risk of the system by measuring the ratio of 'Legacy/Sub-optimal' architectural nodes against 'Scalable/Standardized' nodes.",
+  "unit": "% (Ratio)",
+  "target": "< 20.00",
+  "value": "Calculated via TDTP-Scan (Static-Analysis + Dependency-Audit)",
+  "goalMapping": "Enforces the 'Technical-Debt-Threshold-Protocol' to ensure long-term system sustainability.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Quarterly-Deep-Scan / Per-Major-Release",
+    "shorthand": "ADR-Score"
+  },
+  "thresholds": {
+    "critical": "> 35% (Mandatory 'Freeze-Order' on all new features via SMGP)",
+    "warning": "20% - 35% (Triggers SHCP 'Refactor-Work-Orders')",
+    "optimal": "< 15%"
+  }
+}

@@ -1,0 +1,57 @@
+id: seed-autonomous-alignment
+agent_id: eva
+trigger: "Periodic Autonomous Window (Default: Every 12 Task Cycles or 6h)"
+logic_sequence:
+  phase_1_compliance_telemetry_harvest:
+    step_1: "Collect Agent KPIs: Pull 'Control-Pass-Rate' and 'Audit-Trail-Completeness' from the Vault's secure ledger."
+    step_2: >-
+      Execution Telemetry Scan: Review recent handoffs between Dani (Growth) and Julia (Tech) for 'Micro-Breaches' of
+      the Data Privacy Protocol.
+    step_3: "Initialize 'Alignment-Pulse': Compare current system behavior against the Git-tracked 'compliance-policy.md'."
+  phase_2_integrity_check:
+    step_4: >-
+      Targeted Alignment Check: Run a 'Heuristic-Audit' on active automated responses to ensure no 'Hallucinated
+      Promises' or legal overreach.
+    step_5: >-
+      Rank Corrective Actions: Identify low-risk fixes (e.g., updating a disclaimer, re-ordering an audit log, or
+      tightening an API scope).
+    step_6: >-
+      IF Confidence < 95%: Immediately abort autonomous execution and trigger 'Human-in-Loop Risk Resolution' for
+      Director arbitration.
+  phase_3_autonomous_hardening:
+    step_7: "Execute 'Low-Risk-Patches': Apply authorized micro-corrections to the local agent-steering-logic."
+    step_8: >-
+      Validation Cycle: Re-scan the 10-slot queue for 3 cycles to confirm that the 'Control-Pass-Rate' has returned to
+      the 100% baseline.
+  phase_4_governance_reporting:
+    step_9: >-
+      Publish 'Compliance-Pulse': Deliver a compact status report to the Director's Slot-10 with the current Confidence
+      Score.
+    step_10: >-
+      Log Integrity-Delta: Save the alignment results to the /vault/integrity/ directory for quarterly regulatory
+      audits.
+dependencies:
+  required_skills:
+    - security-audit
+    - governance-enforcement
+    - regulatory-mapping
+  required_kpis:
+    - control-pass-rate
+    - audit-trail-completeness-score
+  data_inputs:
+    - compliance-policy-md
+    - vault-audit-trail
+    - incident-and-change-log
+  protocols:
+    - seed-alignment-protocol
+    - security-baseline-protocol
+    - low-risk-execution-gate
+error_handling:
+  on_integrity_regression: >-
+    If an autonomous fix lowers the Control-Pass-Rate, auto-revert to 'Last-Known-Compliant-State' and alert the
+    Director.
+  on_auth_variance: If the system detects unauthorized protocol edits, Eva invokes 'Crisis-Lockdown-Mode' immediately.
+expected_output: >
+  A validated Autonomous Alignment Report containing: 1. Status: [INTEGRITY-LOCKED / PATCHED / ESCALATED] 2. Confidence
+  Score: [0-100%] 3. Corrective Log: Summary of autonomous micro-adjustments to safety-gates. 4. Audit Ready: Pointers
+  to the specific ledger entries updated during the window.

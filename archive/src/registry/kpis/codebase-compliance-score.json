@@ -1,0 +1,19 @@
+{
+  "uid": "codebase-compliance-score",
+  "name": "Codebase-Compliance-Score (CCS)",
+  "description": "Composite index measuring the alignment of the active repository with Security-Hardening, Accessibility (WCAG), and Architectural-Standard protocols.",
+  "unit": "% (Weighted-Compliance)",
+  "target": "> 98.00",
+  "value": "Calculated via APV-Skill (Static-Analysis-Ruleset / Total-Line-Items)",
+  "goalMapping": "Enforces the 'Technical-Debt-Threshold' and ensures 'Investor-Readiness' for the digital core.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Commit / 12h-Deep-Scan",
+    "shorthand": "Code-Health-Index"
+  },
+  "thresholds": {
+    "critical": "< 90% (Triggers 'Build-Blocker' and 'Refactor-Mandate' via Julia)",
+    "warning": "90% - 97.9% (Triggers 'Auto-Doc-Correction' and 'Linting-Sprint')",
+    "optimal": "> 99%"
+  }
+}

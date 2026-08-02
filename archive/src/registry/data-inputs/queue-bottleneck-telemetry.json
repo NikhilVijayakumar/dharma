@@ -1,0 +1,33 @@
+{
+  "uid": "queue-bottleneck-telemetry",
+  "name": "Velocity-Constraint-Monitor (VCM)",
+  "description": "Real-time telemetry measuring 'Queue-Depth', 'Inference-Latency', and 'Hand-off-Friction' across the 10-slot array.",
+  "schemaType": "Performance-Protocol",
+  "requiredFields": [
+    "snapshot_id",
+    "timestamp_iso8601",
+    "slot_id_vector",
+    "queue_depth_count",
+    "mean_wait_time_ms",
+    "congestion_coefficient",
+    "resource_saturation_ref"
+  ],
+  "sampleSource": "ops/telemetry-vault/v3-queue-sync",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "bottleneck_states": {
+          "FLUID": "Optimal-Throughput (No-Lag)",
+          "CONGESTED": "Queue-Build-up (Efficiency-Loss)",
+          "STALLED": "Critical-Block (Execution-Stop)",
+          "OVERFLOW": "SLA-Breach-Imminent"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

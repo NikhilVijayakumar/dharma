@@ -1,0 +1,54 @@
+id: creative-content-approval-gate
+agent_id: arya
+trigger: Creative content package is ready for publication or distribution
+pre_conditions:
+  - condition: content-package-available
+    description: Content package includes output id, track, and distribution targets.
+    source: data-input
+    validation_rule: exists
+  - condition: approval-ledgers-online
+    description: Origin and approval ledgers are available for write.
+    source: vault
+    validation_rule: exists
+logic_sequence:
+  phase_1_submission:
+    step_1: Collect content_id, creator_intent, content_track, and idea-origin attribution payload.
+    step_2: Validate required attribution fields against idea-origin-ledger schema.
+    step_3: Block package if content track is missing or ambiguous.
+  phase_2_value_gate:
+    step_4: Run BAVANS value-boundary enforcement and require 3-of-6 value gate pass.
+    step_5: Require risk trade-off summary and map to company non-negotiables.
+    step_6: Escalate to human review if any restricted boundary is triggered.
+  phase_3_policy_gate:
+    step_7: Validate product-track-separation and voice-identity consent requirements.
+    step_8: Route package through mandatory human reviewer sign-off.
+    step_9: Persist approval decision and trace metadata in content-approval-ledger.
+  phase_4_release_gate:
+    step_10: Emit release-ready status only when approval and origin completeness are satisfied.
+    step_11: Write audit references to compliance trail.
+dependencies:
+  required_skills:
+    - strategic-alignment
+    - bavans-value-boundary-enforcement
+    - idea-origin-attribution-tracking
+  required_kpis:
+    - human-review-gate-pass-rate
+    - idea-origin-traceability-rate
+    - bavans-value-gate-pass-rate
+  data_inputs:
+    - content-approval-ledger
+    - idea-origin-ledger
+    - voice-identity-consent-registry
+  protocols:
+    - company-non-negotiables-protocol
+    - human-review-required-protocol
+    - product-track-separation-protocol
+    - voice-identity-consent-protocol
+    - mandatory-persona-documentation-protocol
+error_handling:
+  on_missing_attribution: Block publish and request complete origin metadata.
+  on_value_gate_failure: Escalate to director-level creative review.
+  on_policy_violation: Trigger compliance incident and freeze release path.
+expected_output: >
+  A publication decision packet with value-gate status, origin attribution completeness,
+  policy compliance results, and human approval trace.

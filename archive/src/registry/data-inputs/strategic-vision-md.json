@@ -1,0 +1,14 @@
+{
+  "uid": "strategic-vision-md",
+  "name": "Strategic Vision Md",
+  "description": "Generated data input for registry reference normalization: strategic-vision-md.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/nora/seed-human-in-loop-escalation",
+  "privacyClassification": "internal"
+}

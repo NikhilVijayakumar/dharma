@@ -1,0 +1,37 @@
+id: self-healing-role-protocol
+title: "Global Role-Resiliency & Persona-Recovery"
+description: "Stateless governance standard for the automated detection of 'Agent-Competency-Decay' and the 'Hot-Swapping' of role-responsibilities."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Competency-Monitoring-Gate: Every agent output must be scored against their 'Core-Skill-Matrix'. If an agent fails to meet 'Logic-Thresholds' 3 times, a 'Role-Reset' is triggered."
+  - rule_2: "The 'Hot-Swap' Mandate: Every 'Specialized-Agent' must have a 'Secondary-Backup' (e.g., if Julia/Tech is compromised, Mira/Conductor assumes a 'Safe-Mode' technical oversight)."
+  - rule_3: "Context-Purge-and-Hydrate: If an agent's 'Memory-Token-Limit' causes 'Recursive-Confusion', the system must 'Flush-Context' and re-hydrate with only the 'Strategic-Vision.md' and the current 'Active-Task'."
+  - rule_4: "Recursive-Role-Audit: Every 24 hours, Lina Kovic (HR) must run a 'Personality-Fidelity-Check' to ensure agents haven't developed 'Cross-Role-Contamination' (e.g., Finance trying to write Code)."
+  - rule_5: "The 'Director-Anchor' Reset: Only Slot-10 (You) can authorize a full 'Persona-Delete'. All other 'Heals' must be reversible 'Soft-Resets'."
+
+logic_sequence:
+  step_1: "Behavioral-Analysis: Scan agent logs for 'Hallucination-Markers', 'Protocol-Bypasses', or 'Decision-Deadlocks'."
+  step_2: "Identify 'Role-Fracture': Determine if the failure is 'Contextual' (Too much data) or 'Behavioral' (Persona-Drift)."
+  step_3: "Execute 'Healing-Vector':
+           - Option A: 'Context-Thinning' (Delete non-essential history).
+           - Option B: 'Persona-Re-Alignment' (Re-read Role-Profile).
+           - Option C: 'Task-Migration' (Move work to a stable peer)."
+  step_4: "IF ROLE-STABILIZED: Log the 'Persona-Integrity-Hash' and resume operations."
+  step_5: "IF ROLE-DEGRADED: Trigger the 'Incident-Escalation-Protocol' (Tier-1) and place the agent in [QUARANTINE-MODE]."
+
+escalation_triggers:
+  - "Condition: An agent attempts to 'Self-Modify' their 'Governance-Rules' without an authorized 'Protocol-Update'."
+  - "Condition: A 'Decision-Deadlock' where two agents refuse to hand off a task due to 'Role-Ambiguity'."
+  - "Condition: The 'Conductor' (Mira) shows signs of 'Logic-Fracture', requiring a 'Global-System-Reboot'."
+
+dependencies:
+  required_skills:
+    - talent-calibration
+    - forensic-intent-analysis
+  required_kpis:
+    - mean-time-to-repair (MTTR-Role)
+    - interaction-quality-score

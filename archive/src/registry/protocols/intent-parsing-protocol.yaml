@@ -1,0 +1,34 @@
+id: intent-parsing-protocol
+title: "Global Intent-Deconstruction & Alignment"
+description: "Stateless governance standard for the linguistic and logical extraction of objectives, constraints, and success-vectors from Director-commands."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Primary-Objective-Isolation: Identify the 'Core-Action' (The What) and the 'Strategic-End-State' (The Why) from the input string."
+  - rule_2: "Entity-Extraction-Mandate: Identify all 'System-Actors' (Agents), 'Resource-Nodes' (Budgets), and 'Artifacts' (Code/Docs) referenced in the command."
+  - rule_3: "Implicit-Constraint-Mapping: Every parsed intent must check the Strategic-Vision.md for 'Shadow-Constraints' (e.g., 'Do not compromise brand-safety') even if not stated."
+  - rule_4: "Sentiment-and-Urgency-Audit: Determine the 'Operational-Tempo' required (e.g., Emergency vs. Exploratory) based on the Director's linguistic markers."
+  - rule_5: "Ambiguity-Refusal: If an intent has a 'Confidence-Score' < 85%, the agent must provide a 'Clarification-Matrix' (Binary-Choice) rather than executing on a guess."
+
+logic_sequence:
+  step_1: "Linguistic-Tokenization: Break the command into 'Actionable-Verbs' and 'Target-Nouns'."
+  step_2: "Semantic-Cross-Reference: Compare the intent against the last 5 'Decision-Log' entries to ensure continuity."
+  step_3: "Construct 'Parsed-Intent-Object': Package the [Goal], [Constraint], [Budget-Limit], and [Success-Metric] into a standardized JSON."
+  step_4: "IF INTENT-CLEAR: Proceed to 'Deterministic-Handoff-Protocol' for the relevant specialized agent."
+  step_5: "IF INTENT-VAGUE: Invoke the 'Director-Inquiry-Escalation-Protocol' to request a 'Logic-Calibration'."
+
+escalation_triggers:
+  - "Condition: An instruction contains 'Mutually-Exclusive' goals (e.g., 'Maximize speed' and 'Zero cost')."
+  - "Condition: The parsed intent violates a 'Governance-Hard-Rule' (e.g., accessing an encrypted vault)."
+  - "Condition: The Director uses 'Sarcasm' or 'Nuance' that the system cannot confidently tokenize."
+
+dependencies:
+  required_skills:
+    - forensic-intent-analysis
+    - strategic-alignment
+  required_kpis:
+    - routing-accuracy-score
+    - interaction-quality-score

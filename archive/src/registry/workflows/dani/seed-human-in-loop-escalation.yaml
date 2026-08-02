@@ -1,0 +1,62 @@
+id: seed-human-in-loop-escalation
+agent_id: dani
+trigger: High-Risk Variance / Governance-Threshold Breach (>20% Sentiment Drop or Brand Contradiction)
+logic_sequence:
+  phase_1_variance_forensics:
+    step_1: >-
+      Summarize the 'Narrative Breach': Identify where active marketing output contradicts Eva’s ComplianceScanService
+      or Sofia’s Visual Tokens.
+    step_2: >-
+      Affected Workflow Mapping: Determine if the breach impacts 'Product-Launch-Orchestration' or
+      'SOP-Autonomous-Mode'.
+    step_3: >-
+      Projected Impact Analysis: Execute 'Market-Fidelity-Simulation' to show potential loss in
+      'Qualified-Pipeline-Coverage' if left uncorrected.
+  phase_2_evidence_compilation:
+    step_4: >-
+      Attach Telemetry Proof: Extract 'customer-sentiment-analysis.jsonl' snapshots and 'brand-conversion-correlation'
+      logs.
+    step_5: "Protocol Check: Verify which 'Governance-Gate' was breached (e.g., Narrative-Integrity or Launch-Budget-Gate)."
+    step_6: "Stakeholder Risk Scan: Identify if the variance threatens 'Investor-Grade Evidence' managed by Maya (Funding)."
+  phase_3_strategic_option_modeling:
+    step_7: >-
+      Draft 'Option A (Correction)': A low-friction pivot to align current assets back to the existing
+      Brand-Protocol.md.
+    step_8: >-
+      Draft 'Option B (Evolution)': A high-impact proposal to update the Brand-Protocol.md to match the new market
+      reality.
+    step_9: >-
+      Implementation Risk Matrix: Map the trade-offs between 'Short-Term Brand Confusion' vs. 'Long-Term Market
+      Irrelevance' for both paths.
+  phase_4_escalation_protocol:
+    step_10: "Escalate to Director: Deliver the 'Escalation Brief' via Mira’s Slot-10 for high-priority review."
+    step_11: >-
+      Active Freeze: Pause all affected marketing API calls and automated sequences until a 'HIL-AUTH' signature is
+      detected.
+    step_12: >-
+      Decision Logging: Once approved, update the Git-tracked 'brand-protocols.md' or 'campaign-architecture.json' to
+      reflect the path chosen.
+dependencies:
+  required_skills:
+    - market-narrative-design
+    - campaign-architecture
+    - strategic-alignment
+  required_kpis:
+    - qualified-pipeline-coverage
+  data_inputs:
+    - customer-sentiment-analysis-jsonl
+    - brand-protocols-md
+    - campaign-performance-logs
+  protocols:
+    - emergency-escalation-protocol
+    - narrative-integrity-protocol
+    - binary-choice-governance-protocol
+error_handling:
+  on_stalled_decision: >-
+    If the Director does not respond within the 'Crisis Window' (default 6h), revert to
+    'Safe-State-Conservative-Messaging'.
+  on_ambiguous_signal: If the Director's approval hash is invalid, Mira will re-route the request for clarification.
+expected_output: >
+  A Decision-Ready Escalation Brief containing: 1. Variance Event: Precise breakdown of the brand or performance breach.
+  2. Evidence Logs: Traceable data proving the drift. 3. Action Paths: Two distinct response options (A & B) with
+  risk-weighting. 4. Status: [PENDING DIRECTOR SIGNATURE]

@@ -1,0 +1,56 @@
+id: seed-human-in-loop-escalation
+agent_id: elina
+trigger: High-Risk Variance / Governance Breach (>30% SLA Failure or Handoff Corruption)
+logic_sequence:
+  phase_1_log_forensics:
+    step_1: "Summarize the 'Execution Breach': Identify the specific agent-pair or queue-slot causing the recursive failure."
+    step_2: >-
+      Workforce Impact Mapping: Determine which downstream workflows (e.g., Dani’s Launch or Nora’s Payroll) are
+      currently stalled.
+    step_3: >-
+      Projected Fallout Analysis: Execute 'Latency-Cascade-Simulation' to show the time-to-complete system-wide failure
+      if left uncorrected.
+  phase_2_evidence_compilation:
+    step_4: >-
+      Attach Traceable Proof: Extract 'System-Health-Snapshots' from Julia and 'Queue-Occupancy-Heatmaps' from Elina’s
+      local cache.
+    step_5: >-
+      Protocol Violation Check: Cross-reference the breach against the 'Global-Ops-Protocol.md' to see which safety-gate
+      was bypassed.
+    step_6: "Verify 'Data-Integrity': Ensure the variance hasn't corrupted the 'Audit-Trail' managed by Eva (Compliance)."
+  phase_3_strategic_arbitration_modeling:
+    step_7: >-
+      Draft 'Option A (Hard-Reset)': Propose a total purge of non-essential slots (1-7) to restore core-governance
+      stability immediately.
+    step_8: >-
+      Draft 'Option B (Sequential-Drain)': Propose a throttled execution mode that clears the backlog slowly without
+      losing active task data.
+    step_9: "Implementation Risk Matrix: Detail the trade-offs (e.g., Data Loss vs. Recovery Velocity) for both paths."
+  phase_4_director_command_gate:
+    step_10: "Escalate to Director: Push the 'Emergency Resolution Brief' to Mira’s high-priority notification slot (Slot-10)."
+    step_11: >-
+      Active System-Freeze: Suspend all inter-agent API handoffs to prevent further 'State-Pollution' until a Director
+      signature is detected.
+    step_12: "Execution & Logging: Once the path is chosen, commit the 'Recovery-Hash' to the Git-tracked incident log."
+dependencies:
+  required_skills:
+    - execution-governance
+    - queue-health-management
+    - handoff-integrity-audit
+  required_kpis:
+    - sla-breach-count
+  data_inputs:
+    - queue-telemetry-feed
+    - incident-and-change-log
+    - global-ops-protocol-md
+  protocols:
+    - emergency-escalation-protocol
+    - latency-guardrail-protocol
+    - binary-choice-governance-protocol
+error_handling:
+  on_director_silence: If no decision is received within 2h during a 'Critical Failure', auto-invoke 'Safe-State-Hibernation'.
+  on_recovery_stall: If Option A/B fails to clear the queue, alert Julia (CTO) for manual 'Memory-Flush' intervention.
+expected_output: >
+  A Decision-Ready Escalation Brief containing: 1. Variance Summary: Precise forensic breakdown of the queue collapse.
+  2. Evidence Linkage: Pointers to specific log IDs and system heatmaps. 3. Action Paths: Two distinct response options
+  (A & B) with data-loss projections. 4. Status: [PENDING DIRECTOR EMERGENCY AUTH]

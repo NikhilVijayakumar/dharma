@@ -1,0 +1,61 @@
+id: operational-improvement-cycle
+agent_id: elina
+trigger: Bi-Weekly Scheduled Review / High SLA Breach Count (>5 breaches in 24h)
+logic_sequence:
+  phase_1_friction_forensics:
+    step_1: "Aggregate 'incident-and-change-log': Scan for recurring bottlenecks where Slot-latency exceeded the 16ms baseline."
+    step_2: >-
+      Root-Cause Synthesis: Identify if the friction is 'Agent-Based' (Skill gap), 'Protocol-Based' (Logic loop), or
+      'Resource-Based' (Compute cap).
+    step_3: >-
+      Initialize 'Operational-Delta': Map the current 'Handoff Protocol' against the observed failures to pinpoint the
+      specific logic-leak.
+  phase_2_governance_validation:
+    step_4: "Draft 'SOP Update Proposal': Create a Markdown package in the /local/governance/ staged directory."
+    step_5: >-
+      Request 'Strategy Handshake' (Arya): Confirm the change doesn't sacrifice long-term 'Milestone-Velocity' for
+      short-term 'Slot-Speed'.
+    step_6: >-
+      Request 'Compliance Handshake' (Eva): Verify the new handoff logic maintains 'Traceability-by-Design' and doesn't
+      obscure audit trails.
+  phase_3_director_validation_gate:
+    step_7: >-
+      Generate 'Efficiency Simulation': Predict the 'SLA-Breach-Reduction' and 'Throughput-Gain' if the new SOP is
+      committed.
+    step_8: >-
+      Present 'Operational Upgrade': Deliver the recommendation to the Director with the ready-to-commit Git-hash and
+      Peer Handshakes.
+    step_9: >-
+      Await Director Approval: The system continues under 'Old SOP' until a 'HIL-AUTH' signature is detected in the
+      /decisions/ vault.
+  phase_4_systemic_integration:
+    step_10: >-
+      Invoke 'GitGovernorService': Commit the new Operational SOP to the repository, updating the
+      'global-ops-protocol.md'.
+    step_11: >-
+      Global Re-Sync: Force all 10 agents to re-initialize their 'Handoff-Logic-Module' based on the updated Git-tracked
+      truth.
+    step_12: "Post-Commit Monitoring: Observe the next 50 Task Cycles to confirm the 'SLA-Breach-Count' returns to <1%."
+dependencies:
+  required_skills:
+    - execution-governance
+    - handoff-integrity-audit
+    - queue-health-management
+  required_kpis:
+    - sla-breach-count
+    - queue-throughput-velocity
+  data_inputs:
+    - incident-and-change-log
+    - global-ops-protocol-md
+    - agent-performance-telemetry
+  protocols:
+    - operational-improvement-protocol
+    - git-governance-handshake-protocol
+    - sop-revision-gate
+error_handling:
+  on_handshake_rejection: If Arya or Eva veto the change, archive the proposal in 'local/rejected' and revert to 'Continuous Observation'.
+  on_commit_failure: Alert Julia (CTO) for Git-Registry repair; maintain system on 'Last-Known-Good' SOP to prevent queue fragmentation.
+expected_output: >
+  A validated Operational Upgrade Package containing: 1. Status: [SOP-UPDATED / PENDING-APPROVAL / REJECTED] 2.
+  Rationale: Forensic proof of why the old Handoff Protocol was failing. 3. Efficiency Delta: Numerical prediction of
+  improved system velocity. 4. Audit Trail: Verified Handshake Tokens from Arya and Eva.

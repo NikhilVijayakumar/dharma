@@ -1,0 +1,34 @@
+id: handoff-validation-protocol
+title: "Global Handoff-Integrity & Validation"
+description: "Stateless governance standard for the pre-execution audit of task parameters and inter-agent data integrity."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "The 'Mirror-Back' Requirement: Before execution, the receiving agent must restate the 'Primary-Objective' and 'Success-Criteria' in their own words to verify alignment."
+  - rule_2: "Constraint-Check-Mandate: Agents must validate that all 'Hard-Constraints' (Budget, Timeline, Technical-Limits) are mathematically feasible within the current 'Global-State'."
+  - rule_3: "Dependency-Existence-Proof: The receiver must verify that all linked 'Artifact-UUIDs' (Mocks, PRs, Ledgers) are accessible and non-corrupt."
+  - rule_4: "Competency-Self-Audit: The receiving agent must cross-reference the task requirements against their 'Core-Skill-Matrix' to ensure no 'Hallucination-Risk'."
+  - rule_5: "The 'Clean-Handoff-Signature': Only once Rules 1-4 are satisfied can the agent sign the 'Validation-Hash', moving the task from [PENDING] to [ACTIVE]."
+
+logic_sequence:
+  step_1: "Inbound-Scan: Parse the 'Deterministic-Handoff-Manifest' for missing or ambiguous variables."
+  step_2: "State-Collision-Test: Check if the new task contradicts any 'Active-Sprints' or 'Global-Freeze-Protocols'."
+  step_3: "Resource-Reservation: Ping Nora (Finance) to ensure the 'Task-Budget-ID' is funded and unlocked."
+  step_4: "IF VALIDATED: Emit a 'Validation-Success-Signal' and begin logic execution."
+  step_5: "IF VALIDATION-FAIL: Trigger a 'Handoff-Rejection-Report' (HRR) detailing the specific logic-gap or resource-deficit."
+
+escalation_triggers:
+  - "Condition: A 'Validation-Loop' occurs (Agent A and Agent B repeatedly reject each other's handoffs)."
+  - "Condition: The task requires a 'Policy-Exception' that wasn't flagged in the initial work-order."
+  - "Condition: The 'Mirror-Back' summary (Rule 1) deviates by >15% in intent from the source instruction."
+
+dependencies:
+  required_skills:
+    - execution-governance
+    - forensic-intent-analysis
+  required_kpis:
+    - routing-accuracy-score
+    - decision-cycle-time

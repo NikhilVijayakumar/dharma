@@ -1,0 +1,55 @@
+id: seed-autonomous-alignment
+agent_id: julia
+trigger: "Periodic Autonomous Window (Default: Every 12 Task Cycles or 4h)"
+logic_sequence:
+  phase_1_technical_telemetry_harvest:
+    step_1: "Collect Agent KPIs: Pull 'Deployment-Success-Rate' and 'Mean-Time-To-Recovery' (MTTR) from the system logs."
+    step_2: >-
+      Execution Telemetry Scan: Review the last 50 inter-agent handoffs for 'Logic-Latency' or 'Schema-Friction' between
+      Dani and Nora.
+    step_3: "Initialize 'Technical-Pulse': Compare the current codebase state against the 'Technical-North-Star.md' goals."
+  phase_2_integrity_alignment:
+    step_4: >-
+      Targeted Alignment Check: Run a 'Static-Analysis' on any auto-generated code to ensure it meets
+      'Clean-Architecture' standards.
+    step_5: >-
+      Rank Corrective Actions: Identify low-risk technical debt (e.g., refactoring a redundant API call, updating a
+      stale dependency, or cleaning up log-bloat).
+    step_6: >-
+      IF Confidence < 98%: Abort autonomous execution and escalate to 'Human-in-Loop Technical Risk' for Director
+      review.
+  phase_3_autonomous_refactoring:
+    step_7: >-
+      Execute 'Low-Risk-Patches': Apply authorized micro-refactors to the staging branch using
+      'Git-Orchestration-Service'.
+    step_8: >-
+      Validation Cycle: Run automated unit/integration tests; if 100% pass, merge the 'Alignment-Patch' to the main
+      repository.
+  phase_4_technical_transparency:
+    step_9: >-
+      Publish 'Technical-Pulse': Deliver a compact status report to the Director's Slot-10 with the current Confidence
+      Score.
+    step_10: >-
+      Log Evolution-Delta: Save the alignment results to the /local/technical/evolution-log.md for the next
+      'Architectural Review'.
+dependencies:
+  required_skills:
+    - clean-architecture-enforcement
+    - git-orchestration
+  required_kpis:
+    - deployment-success-rate
+  data_inputs:
+    - system-architecture-md
+    - technical-north-star-md
+    - code-repository
+  protocols:
+    - seed-alignment-protocol
+    - git-orchestration-protocol
+    - clean-code-gate
+error_handling:
+  on_test_failure: If the validation cycle fails, Julia auto-reverts the commit and enters 'Observation-Mode' for 1 hour.
+  on_confidence_drift: If multiple autonomous attempts fail, trigger a 'Total-Logic-Freeze' and alert the Director.
+expected_output: >
+  A validated Autonomous Technical Alignment Report containing: 1. Status: [STABLE / REFACTORED / ESCALATED] 2.
+  Confidence Score: [0-100%] 3. Corrective Log: Summary of technical debt cleared or dependencies updated. 4. Efficiency
+  Gain: Predicted reduction in 'Change-Lead-Time' or 'System-Latency'.

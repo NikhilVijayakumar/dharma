@@ -1,0 +1,64 @@
+id: external-channel-communication-protocol
+title: "External Channel Communication Governance"
+description: "Global protocol governing how agents communicate outside the system through approved channels such as Telegram, Google ecosystem connectors, and Zapier/MCP endpoints."
+tags:
+  - global
+  - communication
+  - telegram
+  - google
+  - zapier
+  - mcp
+  - governance
+
+rules:
+  - "All outbound channel communication must use approved channel credentials sourced from managed environment variables."
+  - "Agents must classify message payloads before transmission and block restricted data from external channels."
+  - "Outbound messages must include trace metadata (agent_id, workflow_id, timestamp) for auditability."
+  - "Only allowlisted chat IDs or channels may receive agent-generated communications."
+  - "High-risk outbound actions require approval if policy indicates governance-only transmission mode."
+
+channel_policies:
+  allowed_channels:
+    - telegram
+    - gmail_api
+    - zapier_webhook
+    - mcp_server
+  required_env_vars:
+    - TELEGRAM_BOT_TOKEN
+    - GOOGLE_ADMIN_EMAIL
+  optional_env_vars:
+    - ALLOWED_CHAT_IDS
+    - TELEGRAM_DEFAULT_CHAT_ID
+    - GOOGLE_WORKSPACE_CLIENT_ID
+    - GOOGLE_WORKSPACE_CLIENT_SECRET
+    - GOOGLE_WORKSPACE_REFRESH_TOKEN
+    - ZAPIER_WEBHOOK_URL
+    - ZAPIER_WEBHOOK_SECRET
+    - MCP_GOOGLE_CONNECTOR_URL
+  transmission_modes:
+    - notify-only
+    - interactive
+    - governance-only
+  default_mode: notify-only
+  retry_policy:
+    max_retries: 3
+    initial_interval_ms: 1000
+    backoff_multiplier: 2
+    max_interval_ms: 30000
+  timeout_policy:
+    send_timeout_ms: 10000
+    ack_timeout_ms: 20000
+  audit_requirements:
+    - message_id
+    - channel
+    - destination
+    - agent_id
+    - workflow_id
+    - sent_at
+
+dependencies:
+  required_skills:
+    - governance-enforcement
+    - execution-governance
+  required_kpis:
+    - interaction-quality-score

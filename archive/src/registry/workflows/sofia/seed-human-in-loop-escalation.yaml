@@ -1,0 +1,66 @@
+id: seed-human-in-loop-escalation
+agent_id: sofia
+trigger: High-Risk Visual Variance / Accessibility Breach (<70% Score)
+logic_sequence:
+  phase_1_visual_forensics:
+    step_1: >-
+      Summarize the 'Aesthetic-Rupture': Identify the specific asset or UI component causing the breach (e.g., Dani’s
+      AI-generated ad-set violating Brand-Style-Guide.json).
+    step_2: >-
+      Workflow Impact Mapping: Determine which user-facing workflows are degraded (e.g., Conversion-Funnel stall due to
+      'Interaction-Friction').
+    step_3: >-
+      Projected Brand Impact: Simulate the 'Trust-Erosion-Timeline'—predicting how the variance affects
+      'Long-term-Brand-Equity'.
+  phase_2_evidence_gathering:
+    step_4: >-
+      Attach Hard-Evidence: Extract 'Accessibility-Audit-Logs' (WCAG 2.1) and side-by-side 'Visual-Regression-Tests'
+      showing the drift from the Baseline.
+    step_5: >-
+      Protocol Violation Check: Identify which 'Design-Gate' was bypassed or where 'Sovereignty-Hard-Rules' were ignored
+      by other agents.
+    step_6: >-
+      Verify 'Regulatory-Risk': Pull Eva’s compliance hashes to see if the visual variance triggers a legal
+      'Accessibility-Warning'.
+  phase_3_recovery_arbitration_modeling:
+    step_7: >-
+      Draft 'Option A (Hard-Reset)': Revert all UI/UX to the 'Last-Known-Stable-Style-Guide', sacrificing recent
+      conversion-optimizations for brand-safety.
+    step_8: >-
+      Draft 'Option B (Surgical-Patch)': Deploy an emergency CSS-overlay to fix 'Contrast' and 'Legibility' while
+      keeping Dani’s growth-experiments active.
+    step_9: "Implementation Risk Matrix: Detail the trade-offs (e.g., 'Conversion-Drop' vs. 'Legal-Exposure') for each path."
+  phase_4_director_auth_gate:
+    step_10: >-
+      Escalate to Director: Push the 'Visual-Recovery-Brief' to Mira’s high-priority Slot-10 for an immediate executive
+      decision.
+    step_11: >-
+      Active Style-Lock: Suspend all automated UI updates from Dani or Julia until a Director-signed 'Design-Auth-Hash'
+      is detected.
+    step_12: >-
+      Execution & Logging: Once authorized, update the 'Accessibility-Policy.json' and log the resolution in the
+      'Brand-History-Vault'.
+dependencies:
+  required_skills:
+    - visual-audit
+    - interaction-quality-mapping
+    - execution-governance
+  required_kpis:
+    - accessibility-conformance-rate
+  data_inputs:
+    - brand-style-guide-json
+    - accessibility-audit-logs
+    - compliance-policy-md
+  protocols:
+    - visual-arbitration-protocol
+    - wcag-compliance-gate
+    - binary-choice-governance-protocol
+error_handling:
+  on_auth_timeout: >-
+    If the Director is silent > 24h, Sofia auto-defaults to 'Option A' (Hard-Reset) to minimize legal and brand
+    liability.
+  on_logic-clash: If Dani (Marketing) attempts to override the Style-Lock, Sofia triggers a 'Sovereignty-Breach' alert to Elina (Ops).
+expected_output: >
+  A Decision-Ready Visual Escalation Brief containing: 1. Breach Summary: Forensic breakdown of why the brand/UX
+  integrity failed. 2. Evidence Package: Accessibility scores and visual-regression side-by-sides. 3. Action Paths: Two
+  distinct recovery options (A & B) with 'Growth vs. Identity' trade-offs. 4. Status: [PENDING DIRECTOR EMERGENCY AUTH]

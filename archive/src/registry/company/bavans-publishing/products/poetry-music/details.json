@@ -1,0 +1,23 @@
+{
+  "$schema": "../../schemas/product-standalone.schema.json",
+  "productId": "poetry-music",
+  "companyId": "bavans-publishing",
+  "goal": "Transform poetry into music through AI-assisted composition while preserving human creative intent",
+  "vision": "Every poem becomes a unique musical expression that resonates emotionally",
+  "problemSolved": "Poetry has limited audience reach; music reaches broader audiences",
+  "usp": "Human-created poetry transformed into AI-enhanced music (Suno) that maintains artistic integrity",
+  "mvp": [
+    "Poem-to-music conversion workflow",
+    "Basic music generation through Suno integration",
+    "Distribution to Spotify, Apple Music, YouTube Music",
+    "Royalty tracking and attribution"
+  ],
+  "validation": {
+    "methodology": "Streaming numbers, playlist additions, listener retention",
+    "successCriteria": "1000+ streams per track, playlist inclusion on 3+ curated playlists"
+  },
+  "contentFormats": ["audio"],
+  "targetAudience": ["general", "children", "adults"],
+  "contentTrack": "both",
+  "updatedAt": "2026-04-08T00:00:00.000Z"
+}

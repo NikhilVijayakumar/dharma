@@ -1,0 +1,34 @@
+id: clean-architecture-gate-protocol
+title: "Global Clean Architecture & Structural Integrity Gate"
+description: "Stateless governance standard for enforcing modularity, dependency inversion, and separation of concerns across all technical and logical outputs."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Dependency-Inversion: High-level policy (Strategic-Vision.md) must not depend on low-level details (API endpoints). Details must depend on policy."
+  - rule_2: "Single-Responsibility: No agent-generated script or module should have more than one reason to change. Functions must be 'Pure' where possible."
+  - rule_3: "Boundary-Integrity: 'Domain-Logic' (the Business Rules) must be isolated from the 'Infrastructure-Layer' (Databases, Web-Clients, External APIs)."
+  - rule_4: "Inter-Agent-Decoupling: Agents must interact via 'Interfaces' or 'Message-Buses' rather than direct, hard-coded dependencies to prevent 'Circular-Locks'."
+  - rule_5: "DRY-Policy (Don't Repeat Yourself): Every piece of knowledge or logic must have a single, unambiguous, authoritative representation within the system."
+
+logic_sequence:
+  step_1: "Scan Proposed Structure: Analyze the new code/logic for 'Tight-Coupling' or 'Leaky-Abstractions' (e.g., UI code touching the Database directly)."
+  step_2: "Verify Dependency-Direction: Ensure that the 'Source-Code-Dependencies' only point inwards toward the 'Core-Business-Rules'."
+  step_3: "IF PASS: Sign the 'Architecture-Compliance-Hash' and proceed to the 'API-Spend-Guardrail'."
+  step_4: "IF VIOLATION-DETECTED: Identify the 'Coupling-Point' and invoke 'Self-Healing' to refactor the logic into a more modular format."
+  step_5: "Log Compliance: Record the structural delta in the /governance/tech/architecture-log.md."
+
+escalation_triggers:
+  - "Condition: A proposed update requires breaking the 'Dependency-Rule' to meet a deadline."
+  - "Condition: Detection of a 'Spaghetti-Logic' loop that cannot be autonomously refactored."
+  - "Condition: An agent attempts to modify 'Core-Domain-Logic' from an 'Infrastructure' slot."
+
+dependencies:
+  required_skills:
+    - execution-governance
+    - low-risk-recalibration
+  required_kpis:
+    - token-compliance-score (Architecture Efficiency)
+    - mean-time-to-repair (MTTR-Tech)

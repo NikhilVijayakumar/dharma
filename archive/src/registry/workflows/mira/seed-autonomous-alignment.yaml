@@ -1,0 +1,67 @@
+id: seed-autonomous-alignment
+agent_id: mira
+trigger: "Periodic Autonomous Window (Default: Every 24h or 50 Task Handoffs)"
+logic_sequence:
+  phase_1_traffic_telemetry_harvest:
+    step_1: >-
+      Collect Routing KPIs: Extract 'Decision-Cycle-Time' and 'Routing-Accuracy-Score' from the global Elina/Ops
+      telemetry feed.
+    step_2: >-
+      Handoff Integrity Scan: Identify 'High-Friction' junctions (e.g., cases where Julia’s technical output was
+      rejected by Sofia’s design-audit).
+    step_3: >-
+      Initialize 'Alignment-Delta': Compare current routing patterns against the 'System-Architecture.md' to detect
+      'Shadow-Routing' or bypasses.
+  phase_2_integrity_validation:
+    step_4: >-
+      Targeted Alignment Check: Audit 'Work-Order-Metadata' to ensure context-injection (Contextual-Self-Healing) is
+      actually improving agent success rates.
+    step_5: >-
+      Rank Corrective Actions: Identify low-risk routing tweaks (e.g., adjusting the 'Sovereignty-Weight' of an agent
+      for specific task tags).
+    step_6: >-
+      IF 'Routing-Confidence' < 90%: Immediately abort autonomous recalibration and escalate to the Director for
+      'Intent-Clarification'.
+  phase_3_autonomous-routing-tuning:
+    step_7: >-
+      Execute 'Low-Risk-Patches': Apply micro-adjustments to the 'intent-mapping.md' to refine how Mira interprets vague
+      Director commands.
+    step_8: >-
+      Latency Optimization: Purge redundant 'Contextual-Scaffolding' from the Vault that is causing 'Token-Weight'
+      slowdowns in the handoff phase.
+    step_9: >-
+      Verify 'Cross-Module-Cohesion': Ensure that a routing change for one slot doesn't create a 'Circular-Dependency'
+      for another.
+  phase_4_network-transparency:
+    step_10: >-
+      Publish 'Systemic-Pulse': Deliver a compact status report to the Director's Slot-10 with the current
+      'Network-Confidence-Score'.
+    step_11: "Log Alignment Event: Record the tuning session in the git-ignored /local/governance/routing-log.md."
+    step_12: >-
+      Post-Audit Monitoring: Track 'Decision-Cycle-Time' for the next 10 handoffs to confirm the optimization was
+      successful.
+dependencies:
+  required_skills:
+    - routing-precision
+    - handoff-integrity
+    - cross-module-cohesion
+  required_kpis:
+    - decision-cycle-time
+    - routing-accuracy-score
+  data_inputs:
+    - work-order-routing-log
+    - intent-mapping-md
+    - system-architecture-md
+  protocols:
+    - seed-alignment-protocol
+    - handoff-integrity-gate
+    - low-risk-execution-gate
+error_handling:
+  on_optimization-failure: >-
+    If 'Decision-Cycle-Time' increases after tuning, Mira auto-reverts to the 'Last-Known-Stable-Mapping' and notifies
+    Julia (CTO).
+  on_deadlock-detection: If two agents are locked in a mutual rejection loop, Mira invokes 'Crisis-Command' to break the cycle.
+expected_output: >
+  A validated Autonomous Routing Alignment Report containing: 1. Status: [NETWORK-OPTIMIZED / STABLE / RE-MAPPED] 2.
+  Network Confidence Score: [0-100%] 3. Latency Delta: Comparison of routing speed before and after the alignment. 4.
+  Traceable Reference: The 'Routing-Patch-ID' for the local governance log.

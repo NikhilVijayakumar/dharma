@@ -1,0 +1,19 @@
+{
+  "uid": "brand-conversion-correlation",
+  "name": "Brand-Conversion-Correlation (BCC)",
+  "description": "A statistical coefficient measuring the impact of Brand-Fidelity (BFI) and Narrative-Integrity (SHNP) on User-Conversion-Rates.",
+  "unit": "r (Correlation Coefficient)",
+  "target": "> 0.70 (Strong Positive)",
+  "value": "Calculated via Regression-Analysis (BFI-Score vs. Conversion-Event-Logs)",
+  "goalMapping": "Validates the ROI of the 'Visual-Token-Governance' and 'Self-Healing-Narrative' protocols.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Weekly-Cohort-Analysis",
+    "shorthand": "Brand-ROI-Link"
+  },
+  "thresholds": {
+    "critical": "< 0.30 (Brand is 'De-coupled' from Growth; Marketing is ineffective)",
+    "warning": "0.30 - 0.50 (Triggers 'Brand-Fidelity-Mapping' skill-audit for Dani)",
+    "optimal": "> 0.85"
+  }
+}

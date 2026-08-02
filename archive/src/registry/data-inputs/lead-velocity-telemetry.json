@@ -1,0 +1,14 @@
+{
+  "uid": "lead-velocity-telemetry",
+  "name": "Lead Velocity Telemetry",
+  "description": "Generated data input for registry reference normalization: lead-velocity-telemetry.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/dani/seed-autonomous-alignment",
+  "privacyClassification": "internal"
+}

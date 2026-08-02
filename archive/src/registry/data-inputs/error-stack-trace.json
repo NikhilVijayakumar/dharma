@@ -1,0 +1,14 @@
+{
+  "uid": "error-stack-trace",
+  "name": "Error Stack Trace",
+  "description": "Generated data input for registry reference normalization: error-stack-trace.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/julia/self-healing-code-repair-goose-protocol",
+  "privacyClassification": "internal"
+}

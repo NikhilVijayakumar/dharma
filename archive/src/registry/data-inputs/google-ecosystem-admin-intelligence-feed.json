@@ -1,0 +1,57 @@
+{
+  "uid": "google-ecosystem-admin-intelligence-feed",
+  "name": "Google Ecosystem Admin Intelligence Feed",
+  "description": "Unified intake contract for dedicated admin email, Zapier/MCP ingestion, and meeting transcript payloads used for action-item synthesis and policy drift detection.",
+  "schemaType": "intelligence-protocol",
+  "source_type": "hybrid",
+  "source_location": "google-workspace-zapier-mcp-ingestion",
+  "requiredFields": [
+    "record_id",
+    "timestamp_iso8601",
+    "source_type",
+    "source_connector",
+    "admin_account",
+    "subject_or_title",
+    "normalized_text",
+    "participants",
+    "decision_signals",
+    "policy_impact_signal"
+  ],
+  "validation_rules": {
+    "source_type": "enum(email,meeting_transcript)",
+    "source_connector": "enum(gmail_api,zapier_webhook,mcp_server,telegram_bridge)",
+    "admin_account": "email-format",
+    "normalized_text": "non-empty-string",
+    "participants": "array<string>",
+    "decision_signals": "array<object>",
+    "policy_impact_signal": "enum(no_change,possible_change,confirmed_change)"
+  },
+  "sampleSource": "google-admin-mailbox-and-meeting-pipeline",
+  "update_frequency": "near-real-time",
+  "responsible_agent": "mira_the_conductor",
+  "privacy_classification": "confidential",
+  "retention_policy": "18 months",
+  "channel_config": {
+    "preferred_ingress": [
+      "gmail_api",
+      "zapier_webhook",
+      "mcp_server"
+    ],
+    "fallback_ingress": [
+      "telegram_bridge"
+    ],
+    "required_env_vars": [
+      "GOOGLE_ADMIN_EMAIL",
+      "GOOGLE_WORKSPACE_CLIENT_ID",
+      "GOOGLE_WORKSPACE_CLIENT_SECRET",
+      "GOOGLE_WORKSPACE_REFRESH_TOKEN"
+    ],
+    "optional_env_vars": [
+      "ZAPIER_WEBHOOK_URL",
+      "ZAPIER_WEBHOOK_SECRET",
+      "MCP_GOOGLE_CONNECTOR_URL",
+      "TELEGRAM_BOT_TOKEN",
+      "ALLOWED_CHAT_IDS"
+    ]
+  }
+}

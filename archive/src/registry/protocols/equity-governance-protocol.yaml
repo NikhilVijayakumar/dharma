@@ -1,0 +1,34 @@
+id: equity-governance-protocol
+title: "Global Equity Management & Cap-Table Integrity"
+description: "Stateless governance standard for the issuance, tracking, and protection of company ownership and equity-based incentives."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Anti-Dilution-Watch: No equity grant may be proposed if it pushes the 'Founder-Sovereignty-Floor' below the 51% threshold without Slot-10 explicit override."
+  - rule_2: "Vesting-Standardization: All internal and external grants must adhere to the 'Standard-Directive-Vesting' (e.g., 4-year duration, 1-year cliff) unless a 'Custom-Incentive-Waiver' is granted."
+  - rule_3: "Real-Time-Ledger-Sync: Any change to the cap table must be mirrored in the 'Legal-Vault' and the 'Nora-Fiscal-Mirror' to ensure tax-compliance and auditability."
+  - rule_4: "Equity-to-Value-Mapping: Grants for consultants or new agents (Lina Kovic) must be benchmarked against 'Market-Valuation-Oracles' to prevent over-issuance."
+  - rule_5: "Immutable-Share-Classes: The definition of 'Common', 'Preferred', and 'Shadow-Equity' classes is locked and requires 'Tri-Agent-Verification' (Eva, Nora, and Director) to modify."
+
+logic_sequence:
+  step_1: "Issuance-Intent-Scan: Analyze the work-order for equity-specific keywords (Grants, Options, RSUs, Secondary-Sales)."
+  step_2: "Cap-Table-Simulation: Run a 'Fully-Diluted-Projection' to see the impact of the new issuance on all existing stakeholders."
+  step_3: "Compliance-Handshake: Trigger Eva (Compliance) to verify the legal jurisdiction and 'Security-Law-Conformity' for the recipient."
+  step_4: "IF WITHIN-BOUNDS: Generate a 'Digital-Stock-Certificate-Hash' and update the /governance/fiscal/cap-table.json."
+  step_5: "IF OUT-OF-BOUNDS: Intercept. Generate a 'Dilution-Warning-Brief' highlighting the specific impact on the Director's control."
+
+escalation_triggers:
+  - "Condition: An equity proposal causes a 'Trigger-Event' (e.g., Change of Control) defined in the Articles of Incorporation."
+  - "Condition: Detection of 'Ghost-Equity'—shares that exist in the ledger but have no 'Source-of-Issuance-Hash'."
+  - "Condition: Tax-liability for an equity-event exceeds 20% of the current 'Liquid-Cash-Reserves'."
+
+dependencies:
+  required_skills:
+    - risk-modeling
+    - talent-calibration
+  required_kpis:
+    - fully-diluted-share-count
+    - founder-control-percentage

@@ -1,0 +1,14 @@
+{
+  "uid": "ethical-guidelines-md",
+  "name": "Ethical Guidelines Md",
+  "description": "Generated data input for registry reference normalization: ethical-guidelines-md.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/eva/human-in-loop-risk-resolution",
+  "privacyClassification": "internal"
+}

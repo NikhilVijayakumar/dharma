@@ -1,0 +1,19 @@
+{
+  "uid": "accessibility-conformance-rate",
+  "name": "Accessibility-Conformance-Rate (ACR)",
+  "description": "Real-time verification of UI/UX components against WCAG 2.2 (Level AA/AAA) and the 'Privacy-by-Design' inclusivity baseline.",
+  "unit": "%",
+  "target": "100.00",
+  "value": "Calculated via ACL-Skill (Automated-Audit-Scan)",
+  "goalMapping": "Directly impacts 'Brand-Fidelity-Index' and 'Legal-Safe-Harbor' status.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Commit / 24h-Recursive-Audit",
+    "shorthand": "ACR-Index"
+  },
+  "thresholds": {
+    "critical": "<95% (Triggers Stability-Mode-Governance-Protocol)",
+    "warning": "95% - 98% (Triggers SHUP Auto-Patching)",
+    "optimal": "100%"
+  }
+}

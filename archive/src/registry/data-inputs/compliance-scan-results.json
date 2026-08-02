@@ -1,0 +1,14 @@
+{
+  "uid": "compliance-scan-results",
+  "name": "Compliance Scan Results",
+  "description": "Generated data input for registry reference normalization: compliance-scan-results.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/dani/sop-autonomous-growth",
+  "privacyClassification": "internal"
+}

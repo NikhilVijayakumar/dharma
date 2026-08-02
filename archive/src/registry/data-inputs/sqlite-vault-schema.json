@@ -1,0 +1,14 @@
+{
+  "uid": "sqlite-vault-schema",
+  "name": "Sqlite Vault Schema",
+  "description": "Generated data input for registry reference normalization: sqlite-vault-schema.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/julia/sop-autonomous-tech-health",
+  "privacyClassification": "internal"
+}

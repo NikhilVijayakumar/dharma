@@ -1,0 +1,32 @@
+{
+  "uid": "competency-framework-md",
+  "name": "Capability-Orchestration-Taxonomy (COT)",
+  "description": "The master matrix defining 'Expertise-Thresholds', 'Skill-Dependencies', and 'Verification-Methods' for all agentic and human entities.",
+  "schemaType": "Capability-Protocol",
+  "requiredFields": [
+    "competency_id",
+    "domain_cluster",
+    "proficiency_levels",
+    "prerequisite_skills",
+    "validation_protocol_ref",
+    "agent_slot_affinity"
+  ],
+  "sampleSource": "governance/competency-vault/v2-technical-ops",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "proficiency_scale": {
+          "Level-1": "Operational (Execution-Only)",
+          "Level-2": "Advanced (Problem-Solving)",
+          "Level-3": "Mastery (Architecture & Optimization)",
+          "Level-4": "Sovereign (Strategic-Decision-Making)"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

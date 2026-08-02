@@ -1,0 +1,14 @@
+{
+  "uid": "api-billing-telemetry",
+  "name": "Api Billing Telemetry",
+  "description": "Generated data input for registry reference normalization: api-billing-telemetry.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/nora/crisis-runway-freeze",
+  "privacyClassification": "internal"
+}

@@ -1,0 +1,43 @@
+id: seed-human-in-loop-escalation
+agent_id: arya
+trigger: High-Risk Variance / Governance-Threshold Breach (>20% drift or Safety-Lock trigger)
+logic_sequence:
+  phase_1_forensic_synthesis:
+    step_1: "Summarize the 'Variance Event': Identify the specific protocol breach and the agent(s) involved."
+    step_2: "Impact Projection: Execute 'Strategic-Milestone-Simulation' to show the 30/60/90 day fallout if left uncorrected."
+    step_3: "Evidence Attachment: Compile a 'Governance Packet' including telemetry from Julia (Tech) and Nora (Fiscal)."
+  phase_2_option_modeling:
+    step_4: "Draft 'Option A (Conservative)': Propose a high-safety, low-cost recovery path with minimal structural change."
+    step_5: >-
+      Draft 'Option B (Aggressive)': Propose a high-velocity, higher-risk pivot to capitalize on or neutralize the
+      variance.
+    step_6: "Risk-Trade-off Matrix: Detail the implementation risks (e.g., technical debt vs. capital burn) for both paths."
+  phase_3_director_escalation:
+    step_7: "Push 'Decision-Ready Brief': Deliver a high-priority notification to the Director via Mira’s Slot-10."
+    step_8: "System Pause: Freeze all affected sub-agent workflows to prevent 'Cascading Failure' during the review."
+    step_9: "Await Explicit Approval: Hold state until a 'Director-Signed Hash' is received for either Option A or B."
+  phase_4_governance_execution:
+    step_10: "Execute 'Approved Path': Deploy the chosen recovery logic and verify via Eva (Compliance)."
+    step_11: "Audit Log Update: Commit the escalation event and the Director's decision to the Git-tracked audit trail."
+dependencies:
+  required_skills:
+    - strategic-alignment
+    - execution-governance
+    - crisis-impact-simulation
+  required_kpis:
+    - strategic-milestone-attainment
+  data_inputs:
+    - kpi-registry-json
+    - incident-and-change-log
+    - vault-audit-trail
+  protocols:
+    - emergency-escalation-protocol
+    - director-veto-protocol
+    - binary-choice-governance-protocol
+error_handling:
+  on_no_response: If Director is silent > 12h during a Critical Breach, invoke 'Safe-State-Hibernation'.
+  on_ambiguous_approval: Re-prompt for specific Option (A or B) to ensure deterministic execution.
+expected_output: >
+  A Decision-Ready Escalation Brief containing: 1. Variance Summary: Precise breakdown of the breach. 2. Evidence
+  Linkage: Traceable logs proving the drift. 3. Action Paths: Two distinct response options with risk-weighting. 4.
+  Status: [PENDING DIRECTOR REVIEW]

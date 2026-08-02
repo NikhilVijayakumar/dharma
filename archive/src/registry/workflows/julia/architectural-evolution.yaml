@@ -1,0 +1,65 @@
+id: architectural-evolution
+agent_id: julia
+trigger: New Module Request / Feature Expansion / Scaling Bottleneck Detected
+logic_sequence:
+  phase_1_technical_forensics:
+    step_1: >-
+      Perform 'Code Forensics': Scan the current repository to identify circular dependencies or legacy 'Logic-Gaps'
+      that might break during migration.
+    step_2: >-
+      Schema-Impact-Analysis: Map out required database migrations and API contract updates to prevent
+      'Data-Fragmentation'.
+    step_3: "Initialize 'Evolution-Blueprint': Scaffold a Markdown proposal in the /local/architecture/ staged directory."
+  phase_2_cross-module-validation:
+    step_4: >-
+      Request 'Security Handshake' (Eva): Confirm the new architecture maintains 'Encryption-at-Rest' and doesn't expand
+      the attack surface.
+    step_5: >-
+      Request 'Infrastructure Audit' (Nora): Verify the projected cloud compute/storage costs for the new module stay
+      within the 'Monthly-Runway-Limit'.
+    step_6: >-
+      IF Handshake Fails: Re-scaffold the blueprint using 'Cost-Optimized' or 'Hardened-Security' templates and
+      re-submit.
+  phase_3_director_validation_gate:
+    step_7: >-
+      Generate 'Performance Simulation': Predict the 'System-Latency-Gain' and 'Scalability-Ceiling' of the proposed
+      evolution.
+    step_8: >-
+      Present 'Architectural Proposal': Deliver the blueprint to the Director with a clear 'Status: Ready-to-Commit' and
+      peer-validation hashes.
+    step_9: >-
+      Await Director Approval: The system continues on the 'Legacy-Stack' until a Director-signed Git-transaction is
+      detected.
+  phase_4_orchestrated_deployment:
+    step_10: >-
+      Invoke 'Git-Orchestration-Service': Execute a multi-branch merge and commit the architectural changes to the
+      production-ready repo.
+    step_11: >-
+      Global Schema-Migration: Trigger automated DB updates and cache-purges to align all 10 agents with the new data
+      structures.
+    step_12: >-
+      Post-Evolution Audit: Monitor 'Deployment-Success-Rate' and 'Change-Lead-Time' for 100 cycles to confirm
+      stability.
+dependencies:
+  required_skills:
+    - clean-architecture-enforcement
+    - code-forensics
+    - git-orchestration
+  required_kpis:
+    - deployment-success-rate
+    - change-lead-time
+  data_inputs:
+    - system-architecture-md
+    - infrastructure-cost-ledger
+    - security-baseline-md
+  protocols:
+    - architectural-evolution-protocol
+    - git-governance-handshake-protocol
+    - schema-integrity-gate
+error_handling:
+  on_migration_failure: If a schema migration fails > 5%, Julia invokes 'Auto-Rollback-to-Last-Known-Good' and alerts the Director.
+  on_security_veto: If Eva identifies a 'Critical Vulnerability', the entire evolution is aborted and logged for forensic review.
+expected_output: >
+  A validated Architectural Evolution Package containing: 1. Status: [COMMITTED / STAGED / ABORTED] 2. Rationale:
+  Forensic proof of why the evolution was necessary for scaling. 3. Performance Delta: Numerical prediction of improved
+  system velocity/capacity. 4. Traceable Reference: The Git-Commit hash of the new 'system-architecture.md'.

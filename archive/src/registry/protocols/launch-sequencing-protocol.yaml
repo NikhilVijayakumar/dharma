@@ -1,0 +1,34 @@
+id: launch-sequencing-protocol
+title: "Global Launch-Sequence & Go-Live Governance"
+description: "Stateless governance standard for the synchronized deployment of multi-disciplinary project nodes."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Pre-Flight-Interlock: A launch cannot initiate until all 'Dependency-Slots' (Tech, Fiscal, Legal, Growth) issue a 'Green-Light-Hash'."
+  - rule_2: "T-Minus-Validation: Automated 'Sanity-Checks' must run 60 minutes, 10 minutes, and 1 minute before T-Zero to detect 'Environment-Drift'."
+  - rule_3: "The 'Kill-Switch' Authority: Any specialized agent can trigger an 'Abort-Sequence' if a 'High-Severity-Risk' (e.g., 404 error on landing page) is detected."
+  - rule_4: "Rollback-Integrity: Every launch must include an 'Instant-Revert-Script' capable of returning the system to the 'Last-Known-Good-State' (LKGS) in <120 seconds."
+  - rule_5: "Post-Launch-Stabilization: The launching agents must remain in 'High-Alert-Mode' for 4 hours post-T-Zero, prioritizing 'Incident-Response' over new tasks."
+
+logic_sequence:
+  step_1: "Define T-Zero: Establish the hard timestamp for the 'Go-Live' event."
+  step_2: "Build the 'Sequence-Ladder': Map the order of operations (e.g., 1. Database Migration -> 2. CDN Purge -> 3. Ad Activation)."
+  step_3: "Execute 'Dark-Launch' / Smoke-Test: Deploy to a 1% 'Shadow-Environment' to verify real-world behavior."
+  step_4: "IF ALL-GREEN: Execute the 'Final-Handshake' and commit the 'Production-Deploy-Hash'."
+  step_5: "IF ABORTED: Execute 'Rollback-Protocol' and generate an 'ERS-Forensic-Report' for the Director."
+
+escalation_triggers:
+  - "Condition: A 'Critical-Dependency' is missing its 'Validation-Signature' within 1 hour of T-Zero."
+  - "Condition: Detection of 'Synchronicity-Lag' where one agent's task is delaying the entire sequence."
+  - "Condition: External 'API-Latency' or 'Market-Volatility' exceeds the 'Stability-Threshold'."
+
+dependencies:
+  required_skills:
+    - execution-governance
+    - risk-modeling
+  required_kpis:
+    - mean-time-to-repair (MTTR-Launch)
+    - brand-fidelity-index

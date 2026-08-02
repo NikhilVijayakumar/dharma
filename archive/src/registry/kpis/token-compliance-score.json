@@ -1,0 +1,19 @@
+{
+  "uid": "token-compliance-score",
+  "name": "Token-Compliance-Score (TCS)",
+  "description": "Evaluates the 'Alignment-Depth' of agent outputs against 'Ethical-Guardrails', 'Strategic-Constraints', and 'Brand-Personality-Vectors'.",
+  "unit": "Score (0-10.0)",
+  "target": "> 9.2",
+  "value": "Calculated via 'Eva-Validator-Skill' (Semantic-Similiarity-to-Policy * Intent-Matching-Ratio)",
+  "goalMapping": "Secures 'Algorithmic-Accountability' and prevents 'Soft-Drift' in autonomous decision-making processes.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Interaction / Batch-Audit",
+    "shorthand": "Logic-Alignment"
+  },
+  "thresholds": {
+    "critical": "< 7.5 (Immediate 'Output-Redaction' and 'Logic-Audit' by Eva/Compliance)",
+    "warning": "7.5 - 8.8 (Triggers 'Instruction-Clarification' and 'Context-Refresh')",
+    "optimal": "> 9.5"
+  }
+}

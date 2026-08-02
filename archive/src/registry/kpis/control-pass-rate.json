@@ -1,0 +1,19 @@
+{
+  "uid": "control-pass-rate",
+  "name": "Control-Pass-Rate (CPR)",
+  "description": "Measures the operational integrity of mandatory governance guardrails (Access-Controls, Spending-Limits, Data-Silos) during autonomous execution.",
+  "unit": "% (Integrity-Ratio)",
+  "target": "100.00",
+  "value": "Calculated via GRC-Audit-Skill (Control-Success / Total-Inbound-Triggers)",
+  "goalMapping": "Guarantees 'Zero-Trust' architecture and provides the 'Audit-Trail-Completeness' for the Sangama Directive.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Continuous / Event-Driven",
+    "shorthand": "Guardrail-Health"
+  },
+  "thresholds": {
+    "critical": "< 99.0% (Immediate 'System-Lockdown' via Stability-Mode-Governance-Protocol)",
+    "warning": "99.0% - 99.9% (Triggers 'Forensic-Security-Audit' by Eva/Compliance)",
+    "optimal": "100.00%"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "uid": "financial-ledger-snapshot",
+  "name": "Fiscal-Velocity-Snapshot (FVS)",
+  "description": "A multi-dimensional view of 'Resource-Consumption', 'Liquidity-Reserves', and 'Forecast-Logic-Deltas' within the 10-slot array.",
+  "schemaType": "Financial-Protocol",
+  "requiredFields": [
+    "snapshot_id",
+    "fiscal_period",
+    "burn_vector_category",
+    "actual_vs_planned_delta",
+    "forecast_confidence_index",
+    "reserve_coverage_ratio",
+    "agent_budget_attribution"
+  ],
+  "sampleSource": "finance/treasury-vault/m3-reconciliation",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "burn_vectors": {
+          "COMPUTE": "LLM-Tokens / Server-Latency-Costs",
+          "ACQUISITION": "Marketing-Spend / Customer-Inflow",
+          "OPERATIONS": "Legal-Compliance / Human-Capital",
+          "R&D": "Strategic-Exploration / Prototype-Burn"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

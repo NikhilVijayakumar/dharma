@@ -1,0 +1,35 @@
+{
+  "uid": "human-review-gate-pass-rate",
+  "name": "Human Review Gate Pass Rate",
+  "description": "Percentage of production-impacting outputs that include explicit human review approval before release.",
+  "unit": "%",
+  "target": ">= 100%",
+  "value": "approved_release_count / production_impacting_output_count * 100",
+  "formula": "approved_release_count / production_impacting_output_count * 100",
+  "goalMapping": "Enforces non-negotiable human accountability in all critical execution paths.",
+  "frequency_of_check": "daily",
+  "responsible_agent_role": "Chief Compliance Officer (CCO) — Governance & Audit",
+  "thresholds": {
+    "critical": "< 95%",
+    "warning": ">= 95% and < 100%",
+    "optimal": "100%"
+  },
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-transaction",
+    "shorthand": "HRGPR"
+  },
+  "escalation_policy": {
+    "on_critical": "Trigger crisis compliance gate and block publish operations until corrected.",
+    "on_warning": "Escalate to governance review and enforce additional approval checkpoints."
+  },
+  "dependencies": {
+    "data_inputs": [
+      "compliance-audit-trail",
+      "audit-log-jsonl"
+    ],
+    "dependent_kpis": [
+      "control-pass-rate"
+    ]
+  }
+}

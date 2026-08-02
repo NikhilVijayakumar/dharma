@@ -1,0 +1,14 @@
+{
+  "uid": "system-health-telemetry",
+  "name": "System Health Telemetry",
+  "description": "Generated data input for registry reference normalization: system-health-telemetry.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/julia/seed-human-in-loop-escalation",
+  "privacyClassification": "internal"
+}

@@ -1,0 +1,14 @@
+{
+  "uid": "competitor-intelligence-feed",
+  "name": "Competitor Intelligence Feed",
+  "description": "Generated data input for registry reference normalization: competitor-intelligence-feed.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/dani/human-in-loop-narrative-pivot",
+  "privacyClassification": "internal"
+}

@@ -1,0 +1,11 @@
+id: conflict-escalation-protocol
+title: "Global Inter-Agent Conflict Arbitration"
+description: "Stateless governance standard for resolving logic deadlocks and priority clashes between autonomous nodes."
+tags:
+  - global
+  - inherited
+  - governance
+rules:
+  - "Apply strategic tie-breakers when deadlocked decisions impact core objectives."
+  - "Attempt one integrative solution before formal escalation."
+  - "Escalate to Director arbitration when conflict stalls beyond policy threshold."

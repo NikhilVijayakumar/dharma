@@ -1,0 +1,14 @@
+{
+  "uid": "agent-task-logs",
+  "name": "Agent Task Logs",
+  "description": "Generated data input for registry reference normalization: agent-task-logs.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/nora/sop-autonomous-fiscal-monitoring",
+  "privacyClassification": "internal"
+}

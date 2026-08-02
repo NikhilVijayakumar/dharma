@@ -1,0 +1,34 @@
+id: design-to-code-handoff-protocol
+title: "Global Design-to-Code Sync & Handoff"
+description: "Stateless governance standard for ensuring pixel-perfect and logic-compliant translation of UI/UX assets into production-ready code."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Token-Validation-Mandate: All CSS/Styling must utilize authorized 'Design-Tokens' (Hex, Spacing, Typography) from the 'visual_tokens.json' manifest."
+  - rule_2: "Component-Purity: Julia must utilize Sofia’s 'Approved-Component-Library' (React/Vue/Svelte components) before creating custom divs or wrappers."
+  - rule_3: "Responsive-Breakpoint-Contract: Every handoff must include explicit logic for 'Mobile', 'Tablet', and 'Desktop' viewports as defined in the layout-rules."
+  - rule_4: "Asset-Optimization-Check: All visual assets (SVG, PNG, WebP) must be run through the 'Optimization-Service' before being committed to the codebase."
+  - rule_5: "Accessibility-Sync: The handoff MUST include 'ARIA-Roles' and 'Tab-Index' mappings for every interactive element."
+
+logic_sequence:
+  step_1: "Extract Specification: Pull the 'Design-UUID' and 'Style-Specs' from Sofia's latest output-node."
+  step_2: "Map to Code-Tokens: Cross-reference the colors and fonts against the 'Production-Theme-Config' in the Tech-Vault."
+  step_3: "Scan for 'Design-Drift': Identify if the requested UI exceeds the 'Technical-Performance-Budget' (e.g., too many heavy animations)."
+  step_4: "IF ALIGNED: Generate a 'Handoff-Success-Hash' and initiate the 'Clean-Architecture-Gate'."
+  step_5: "IF DRIFT-DETECTED: Return the work-order to Sofia for 'Aesthetic-Refactoring' or to Julia for 'Custom-Component-Auth'."
+
+escalation_triggers:
+  - "Condition: A design requires a 3rd-party library that hasn't passed the 'Compliance-Gate'."
+  - "Condition: The 'Design-to-Code' variance exceeds the 2% 'Pixel-Perfect-Tolerance'."
+  - "Condition: A conflict arises between 'Visual-Elegance' (Sofia) and 'Core-Performance-Metrics' (Julia)."
+
+dependencies:
+  required_skills:
+    - visual-audit
+    - interaction-quality-mapping
+  required_kpis:
+    - brand-fidelity-index
+    - mean-time-to-repair (UI-Bugs)

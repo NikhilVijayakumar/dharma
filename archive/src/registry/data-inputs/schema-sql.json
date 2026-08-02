@@ -1,0 +1,32 @@
+{
+  "uid": "schema-sql",
+  "name": "Data-Substrate-Blueprint (DSB)",
+  "description": "The master-definition for 'Table-Relationships', 'Data-Integrity-Constraints', and 'Permission-Scoping' within the 10-slot array.",
+  "schemaType": "Architectural-Protocol",
+  "requiredFields": [
+    "timestamp_iso8601",
+    "ddl_instruction_set",
+    "normalization_tier",
+    "entity_relationship_hash",
+    "access_control_vector",
+    "migration_safety_flag"
+  ],
+  "sampleSource": "tech/architecture-vault/v3-sql-schema",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "structural_layers": {
+          "CORE": "Immutable-Foundational-Records (Ledgers)",
+          "TRANSACTIONAL": "High-Frequency-Event-Data (Usage)",
+          "ANALYTICAL": "Aggregated-Intelligence (KPIs)",
+          "EPHEMERAL": "Temporary-Processing-Buffers"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

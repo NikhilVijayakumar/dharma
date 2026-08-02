@@ -1,0 +1,26 @@
+{
+  "uid": "agent-directory-registry",
+  "name": "Agent Directory Registry",
+  "description": "Canonical index of approved agents, role ownership, delegation eligibility, and workflow assignment used by the Secretary router.",
+  "schemaType": "document",
+  "source_type": "file-system",
+  "requiredFields": [
+    "agent_id",
+    "name",
+    "role",
+    "approved",
+    "skills",
+    "kpis",
+    "protocols",
+    "workflows"
+  ],
+  "sampleSource": "src/core/registry/agents",
+  "update_frequency": "on-demand",
+  "responsible_agent": "mira",
+  "privacy_classification": "internal",
+  "dependencies": {
+    "dependent_workflows": [
+      "product-campaign-global-collaboration"
+    ]
+  }
+}

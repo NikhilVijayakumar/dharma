@@ -1,0 +1,31 @@
+{
+  "uid": "compliance-policy-md",
+  "name": "Governance-Execution-Manifest (GEM)",
+  "description": "The definitive 'Rule-Set' for autonomous operations, containing machine-readable constraints, regulatory-baselines, and ethical-guardrails.",
+  "schemaType": "Governance-Protocol",
+  "requiredFields": [
+    "timestamp",
+    "jurisdiction_context",
+    "policy_thresholds",
+    "restricted_action_vectors",
+    "audit_frequency",
+    "sovereign_override_keys"
+  ],
+  "sampleSource": "governance/protocol-vault/v4-global-compliance",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "policy_thresholds": {
+          "data_privacy": "GDPR/CCPA-Strict",
+          "financial_buffer": "> 15% Liquidity",
+          "bias_mitigation": "Equitable-Inference-Only"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

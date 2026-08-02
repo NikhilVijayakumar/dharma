@@ -1,0 +1,23 @@
+﻿# VIDHAN Module Index
+
+- administration-suite.md
+- agent-deprecation.md
+- agent-performance-review.md
+- agent-provisioning.md
+- compliance-audit-logger.md
+- design-audit-verification.md
+- governance-policy-editor.md
+- hiring-sim.md
+- management-suite.md
+- protocol-enforcement-gate.md
+- queue-execution-engine.md
+- queue-visualization.md
+- registry-agent-editor.md
+- registry-data-input-editor.md
+- registry-kpi-editor.md
+- registry-protocol-editor.md
+- registry-skill-editor.md
+- registry-workflow-editor.md
+- settings-application-rules.md
+- settings-user-profile.md
+- visual-identity-engine.md

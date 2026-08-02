@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/company-core.schema.json",
+  "companyId": "bavans-publishing",
+  "companyCore": "./company-core.json",
+  "branding": {
+    "theme": "./branding/theme.json",
+    "typography": "./branding/typography.json",
+    "templates": "./branding/templates/"
+  },
+  "metadata": {
+    "agents": "./metadata/agents.json",
+    "skills": "./metadata/skills.json",
+    "protocols": "./metadata/protocols.json",
+    "kpis": "./metadata/kpis.json",
+    "data-inputs": "./metadata/data-inputs.json",
+    "workflows": "./metadata/workflows.json",
+    "products": "./metadata/products.json"
+  },
+  "products": "./products/index.json",
+  "updatedAt": "2026-04-08T00:00:00.000Z",
+  "migrationNote": "This registry.json has been slimmed. All entity references are now in metadata/*.json files. Products are defined in products/ directory."
+}

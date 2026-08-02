@@ -1,0 +1,19 @@
+{
+  "uid": "autonomous-handoff-resolution-rate",
+  "name": "Autonomous-Handoff-Resolution-Rate (AHRR)",
+  "description": "Percentage of inter-agent task handoffs that fail initial validation but are successfully re-routed or auto-corrected by SHRP-2.",
+  "unit": "% (Success-Ratio)",
+  "target": "> 98.00",
+  "value": "Calculated via Handoff-Validation-Protocol (HVP) Logs",
+  "goalMapping": "Measures the 'Liquid-Logic' efficiency of the 10-agent bus and prevents 'Context-Deadlocks'.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Continuous / Per-Transaction",
+    "shorthand": "Handoff-Heal-Index"
+  },
+  "thresholds": {
+    "critical": "< 90% (Triggers SHRP-2 'Global-Routing-Table' Reset)",
+    "warning": "90% - 95% (Triggers 'Persona-Context-Purge' via SHRP-1)",
+    "optimal": "> 99%"
+  }
+}

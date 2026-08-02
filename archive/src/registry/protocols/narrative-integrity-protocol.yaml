@@ -1,0 +1,34 @@
+id: narrative-integrity-protocol
+title: "Global Narrative-Integrity & Truth-Synchronization"
+description: "Stateless governance standard for ensuring all agent outputs align with established facts, strategic goals, and brand voice."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Fact-Check-Against-State: Every narrative claim must be validated against the 'Current-Global-State' (e.g., 'Do not claim 24/7 support if the Tech-SLA is 99%')."
+  - rule_2: "Cross-Agent-Sync: Any public-facing narrative must be 'Vetted' by the relevant specialized agent (e.g., Eva for Legal-Narrative, Nora for Fiscal-Narrative)."
+  - rule_3: "The 'Golden-Thread' Rule: Every report or update must explicitly link back to a 'Core-Strategic-Pillar' defined in the Strategic-Vision.md."
+  - rule_4: "Recursive-Context-Search: Agents must scan the last 10 interactions for 'Verbal-Commitments' made to the Director to ensure consistency."
+  - rule_5: "Ambiguity-Pruning: Terms like 'Soon', 'Major', or 'Better' must be replaced with 'Quantifiable-Targets' (e.g., 'Q3', '25% increase') to prevent misleading narratives."
+
+logic_sequence:
+  step_1: "Draft-Generation: Create the initial narrative brief based on the 'Task-Node' requirements."
+  step_2: "Semantic-Integrity-Audit: Run the draft through the 'Conflict-Detector' to find contradictions with other active protocols."
+  step_3: "Stakeholder-Handshake: Request a 'Soft-Signature' from the agent responsible for the data being cited."
+  step_4: "IF ALIGNED: Apply the 'Communication-Style-Protocol' (CSP) and deliver the narrative."
+  step_5: "IF MISALIGNED: Flag the 'Narrative-Fracture', stop delivery, and suggest a 'Logic-Reconciliation'."
+
+escalation_triggers:
+  - "Condition: An agent identifies a 'Public-vs-Private' narrative gap (telling the Director one thing and the market another)."
+  - "Condition: Two agents are locked in a 'Fact-Contradiction' regarding the same data point."
+  - "Condition: A narrative requires 'Director-Override' because it contradicts a 'Strategic-Hard-Limit'."
+
+dependencies:
+  required_skills:
+    - interaction-quality-mapping
+    - forensic-intent-analysis
+  required_kpis:
+    - brand-fidelity-index
+    - interaction-quality-score

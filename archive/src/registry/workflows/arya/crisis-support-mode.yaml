@@ -1,0 +1,51 @@
+id: crisis-support-mode
+agent_id: arya
+trigger: CRISIS_ACTIVATED (Direct Invoke by Nora/Fiscal, Eva/Compliance, or Elina/Ops)
+logic_sequence:
+  phase_1_triage_lockdown:
+    step_1: "Suspend 'Ephemeral Reporting': Immediately kill all non-essential local log generation to preserve compute runway."
+    step_2: "Resource Rationing: Redirect 100% of available API tokens to Nora (Fiscal) and Eva (Compliance) for stabilization."
+    step_3: "Slot-10 Isolation: Lock the 10th slot of the QueueService for 'Director-Only' emergency commands."
+  phase_2_impact_forensics:
+    step_4: "Execute 'Crisis-Impact-Simulation': Model the drift of Strategic Milestones based on current resource depletion."
+    step_5: >-
+      Identify 'Sinking Assets': Determine which growth campaigns (Dani) or tech features (Julia) must be abandoned to
+      save the core.
+    step_6: "Verify 'Handshake Integrity': Ensure Elina (Ops) has successfully paused all 'Standard' Work Orders."
+  phase_3_emergency_governance:
+    step_7: >-
+      Draft 'Emergency Decision Package': Convert simulation data into actionable Git-commit proposals for the
+      /decisions/ vault.
+    step_8: >-
+      Coordinate 'Stabilization Re-prioritization': Re-route the queue to focus exclusively on 'Recovery' and 'Safety'
+      tasks.
+    step_9: "Director Sync: Push an 'Immediate Action Alert' to Mira for the Director’s high-priority workspace."
+  phase_4_recovery_transition:
+    step_10: "Monitor 'Stability Delta': Observe kpi/registry.json for return-to-baseline signals."
+    step_11: "Generate 'Post-Mortem Snapshot' (Vault): Document the cause, response, and cost of the crisis."
+    step_12: "Transition: Re-enable standard workflows only after a verified 3-way handshake (Arya/Nora/Eva)."
+dependencies:
+  required_skills:
+    - strategic-alignment
+    - crisis-impact-simulation
+    - cross-module-cohesion
+    - execution-governance
+    - git-transaction-scaffolding
+  required_kpis:
+    - crisis-recovery-speed
+    - strategic-milestone-attainment-rate
+  data_inputs:
+    - kpi-registry-json
+    - incident-and-change-log
+    - fiscal-policy-md
+  protocols:
+    - crisis-lockdown-protocol
+    - stability-mode-governance-protocol
+    - emergency-decision-protocol
+error_handling:
+  on_escalation_failure: If the Director does not sign the Emergency Commit within 5 cycles, invoke 'Safe-State-Hibernation'.
+  on_resource_exhaustion: Trigger Nora’s 'Fiscal-Freeze' and lock all external API gates until manual override.
+expected_output: >
+  A high-priority Crisis Execution Package delivered with: 1. Status: [CRITICAL / STABILIZING / RECOVERED] 2. Rationale:
+  Forensic analysis of why the Crisis Protocol was triggered. 3. Emergency Proposals: Ready-to-commit Git changes to
+  save the project DNA. 4. Impact Map: Visual delta showing the shift in Milestones due to the crisis.

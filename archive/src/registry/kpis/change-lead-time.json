@@ -1,0 +1,19 @@
+{
+  "uid": "change-lead-time",
+  "name": "Change-Lead-Time (CLT)",
+  "description": "The elapsed duration from 'Director-Intent-Validation' (Slot-10) to 'Verified-Production-State' across all digital assets.",
+  "unit": "Hours/Minutes",
+  "target": "< 2.0 (Standard) / < 0.25 (Emergency)",
+  "value": "Calculated via 'Intent-Timestamp' vs. 'Post-Deployment-Health-Check-Hash'",
+  "goalMapping": "Measures the 'Agility-Index' of the 10-agent array and the efficiency of the SHCP automated CI/CD pipeline.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Per-Deployment / Real-Time",
+    "shorthand": "Velocity-Index"
+  },
+  "thresholds": {
+    "critical": "> 24.0h (Triggers 'Bottleneck-Forensics' via Mira/Conductor)",
+    "warning": "4.0h - 24.0h (Triggers 'Dependency-Drift-Audit' via Julia/Tech)",
+    "optimal": "< 1.0h"
+  }
+}

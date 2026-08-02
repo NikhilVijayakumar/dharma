@@ -1,0 +1,33 @@
+{
+  "uid": "equity-ledger-json",
+  "name": "Sovereign-Equity-Ledger (SEL)",
+  "description": "An immutable, real-time ledger tracking 'Ownership-Distributions', 'Vesting-Schedules', and 'Governance-Weighting' for all stakeholders.",
+  "schemaType": "Financial-Protocol",
+  "requiredFields": [
+    "entry_id",
+    "timestamp_iso8601",
+    "stakeholder_uid",
+    "equity_class_ref",
+    "share_count_delta",
+    "vesting_status_vector",
+    "compliance_seal"
+  ],
+  "sampleSource": "finance/ledger-vault/v2-cap-table",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "equity_classes": {
+          "FOUNDER": "Class-A (High-Voting-Weight)",
+          "INVESTOR": "Class-B (Preferred-Liquidation)",
+          "CONTRIBUTOR": "Class-C (Vesting-Common)",
+          "AGENTIC": "Class-D (Compute-Treasury-Allocation)"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

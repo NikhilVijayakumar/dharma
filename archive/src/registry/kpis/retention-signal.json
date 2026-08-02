@@ -1,0 +1,19 @@
+{
+  "uid": "retention-signal",
+  "name": "Retention-Signal (RS)",
+  "description": "Measures the 'Re-Engagement-Velocity' and 'Feature-Depth-Adoption' of active entities within the 10-agent ecosystem.",
+  "unit": "% (Rolling-Cohort-Stability)",
+  "target": "> 94.00",
+  "value": "Calculated via 'Engagement-Telemetry' (Returning-Active-Users / Total-Cohort-Size)",
+  "goalMapping": "Verifies 'Product-Market-Durability' and prevents 'Value-Decay' in the Sangama-Operating-Model.",
+  "metadata": {
+    "priority": "Critical (Tier-1)",
+    "sampling_frequency": "Daily-Snapshot / Weekly-Cohort-Analysis",
+    "shorthand": "Stickiness-Index"
+  },
+  "thresholds": {
+    "critical": "< 85% (Triggers 'Immediate-Value-Gap-Audit' and 'Dani-Growth-Intervention')",
+    "warning": "85% - 92% (Triggers 'Feature-Adoption-Nudge' and 'UX-Friction-Scan')",
+    "optimal": "> 96.0%"
+  }
+}

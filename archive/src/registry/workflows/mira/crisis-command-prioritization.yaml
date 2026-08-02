@@ -1,0 +1,65 @@
+id: crisis-command-prioritization
+agent_id: mira
+trigger: CRISIS_ACTIVATED (Invoked by Nora/Finance, Eva/Compliance, or Elina/Ops)
+logic_sequence:
+  phase_1_traffic_quarantine:
+    step_1: >-
+      Immediate Suspension: Freeze all 'Exploration', 'R&D', and 'Low-Priority' routing paths (e.g., Dani’s experimental
+      ad-copy or Sofia’s design audits).
+    step_2: "Resource Re-allocation: Redirect 100% of the system's 'Routing-Logic' and API-priority to Crisis-Active agents."
+    step_3: >-
+      Initialize 'War-Room-Log': Create a high-fidelity, real-time audit trail of every routing decision made during the
+      crisis window.
+  phase_2_direct-link-enforcement:
+    step_4: "Bypass Standard SOPs: Disable the 'Handoff-Integrity-Gate' for high-speed Director-to-Agent communication."
+    step_5: >-
+      Enforce 'Direct-Link': Map Mira’s output directly to the Director’s Slot-10 and the Lead-Crisis-Agent (e.g., Nora
+      for a Runway-Breach).
+    step_6: >-
+      Constraint Lock (Eva): Ensure that despite the speed, 'Security-Baseline' encryption remains active for all
+      crisis-data transmissions.
+  phase_3_bottleneck-surveillance:
+    step_7: >-
+      Real-time Telemetry Monitor: Track 'Decision-Cycle-Time' at the millisecond level to identify any agent-side
+      'Logic-Latency'.
+    step_8: >-
+      Report Friction: If an agent (e.g., Julia) is slow to respond with forensic data, Mira triggers a
+      'High-Priority-Interrupt' signal.
+    step_9: >-
+      Verify 'Crisis-Cohesion': Ensure that Nora’s fiscal fixes don't accidentally violate Eva’s legal
+      emergency-protocols.
+  phase_4_strategic-de-escalation:
+    step_10: >-
+      De-activation Gate: Await a Director 'All-Clear' hash or a logic-signal from Elina (Ops) confirming the 'Variance'
+      is resolved.
+    step_11: >-
+      Protocol Restoration: Re-enable standard 'Handoff-Protocols' and 'Low-Priority' task slots in a staggered
+      sequence.
+    step_12: >-
+      Post-Crisis Audit: Deliver a full 'Routing-Accuracy-Report' to the Director and Arya (CEO) detailing the system’s
+      performance under pressure.
+dependencies:
+  required_skills:
+    - routing-precision
+    - handoff-integrity
+    - cross-module-cohesion
+  required_kpis:
+    - decision-cycle-time
+    - routing-accuracy-score
+  data_inputs:
+    - crisis-trigger-source
+    - director-override-key
+    - system-health-telemetry
+  protocols:
+    - war-room-routing-protocol
+    - direct-link-bypass-protocol
+    - emergency-log-protocol
+error_handling:
+  on_routing-failure: >-
+    If the Direct-Link fails, Mira auto-defaults to 'Hard-Coded-Recovery'—sending a raw data-dump to the Director's
+    secure local Vault.
+  on_identity-conflict: If multiple agents claim 'Lead-Crisis' status, Mira enforces the 'Sovereignty-Hierarchy' (Eva > Nora > Elina).
+expected_output: >
+  A validated Crisis Command Report containing: 1. Status: [CRISIS-ACTIVE / DE-ESCALATING / STABLE] 2. Lead Crisis
+  Agent: Identification of the agent controlling the primary response. 3. Routing Latency: Real-time ms report of the
+  decision cycle. 4. Traceable Reference: The 'War-Room-Log-ID' for the post-mortem audit.

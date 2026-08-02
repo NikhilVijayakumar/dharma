@@ -1,0 +1,65 @@
+id: seed-human-in-loop-escalation
+agent_id: eva
+trigger: High-Risk Variance / Governance-Threshold Breach (>15% Integrity Drift)
+logic_sequence:
+  phase_1_forensic_synthesis:
+    step_1: >-
+      Summarize the 'Governance Breach': Identify the specific protocol or legal boundary crossed by an agent or
+      external input.
+    step_2: >-
+      Workforce Impact Analysis: Map which workflows (e.g., Dani’s GTM or Julia’s Deploy) are stalled by the mandatory
+      safety-lock.
+    step_3: >-
+      Projected Liability Modeling: Estimate the financial or legal 'Value-at-Risk' if the variance is not mitigated
+      within the 'Crisis Window'.
+  phase_2_evidence_validation:
+    step_4: "Attach Hard-Evidence: Extract 'Vault-Audit-Logs' and 'Protocol-Violation-Snapshots' to prove the breach source."
+    step_5: >-
+      Verification Check: Confirm if the breach was triggered by internal logic drift or an external
+      'Malicious-Payload'.
+    step_6: >-
+      Verify 'Data-Safety': Confirm the current state of the project's 'Intellectual Property' and 'User Privacy'
+      vaults.
+  phase_3_strategic_arbitration:
+    step_7: >-
+      Draft 'Option A (Hard-Safety)': A conservative path prioritizing 100% compliance, potentially sacrificing 20-30%
+      of project velocity.
+    step_8: >-
+      Draft 'Option B (Risk-Managed)': A balanced path that patches the breach while maintaining 90% velocity, with a
+      documented 'Risk-Acceptance' flag.
+    step_9: >-
+      Implementation Risk Matrix: Detail the trade-offs (e.g., Regulatory Fine vs. Market Delay) for each proposed
+      action.
+  phase_4_director_veto_gate:
+    step_10: >-
+      Escalate to Director: Push the 'Governance-Safe Escalation Brief' to Mira’s high-priority Slot-10 for immediate
+      signature.
+    step_11: "Active Lockdown: Hold all affected agents in a 'Static-Wait-State' to prevent further non-compliant execution."
+    step_12: >-
+      Execution & Commit: Once approved, trigger the chosen recovery path and commit the Director's rationale to the
+      Git-tracked ledger.
+dependencies:
+  required_skills:
+    - security-audit
+    - governance-enforcement
+    - regulatory-mapping
+  required_kpis:
+    - control-pass-rate
+    - audit-trail-completeness-score
+  data_inputs:
+    - vault-audit-trail
+    - compliance-policy-md
+    - strategic-milestones-json
+  protocols:
+    - emergency-escalation-protocol
+    - git-governance-handshake-protocol
+    - binary-choice-governance-protocol
+error_handling:
+  on_stalled_auth: If no Director response within 4h during a 'Critical' breach, Eva auto-invokes 'Crisis-Lockdown-Mode'.
+  on_auth_mismatch: >-
+    If the Director’s digital signature fails verification, trigger an 'Identity-Verification-Protocol' via external
+    channels.
+expected_output: >
+  A Decision-Ready Governance Brief containing: 1. Breach Identification: Precise forensic link to the protocol
+  violation. 2. Evidence Package: Traceable logs and impact simulations. 3. Action Paths: Two distinct response options
+  (A & B) with quantified trade-offs. 4. Status: [PENDING DIRECTOR EMERGENCY AUTH]

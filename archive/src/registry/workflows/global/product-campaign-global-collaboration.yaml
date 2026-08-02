@@ -1,0 +1,150 @@
+id: product-campaign-global-collaboration
+agent_id: mira
+workflow_mode: global-collaborative
+trigger: Director requests launch of a new product campaign with cross-role execution.
+pre_conditions:
+  - condition: onboarding-approved-collaborators
+    description: All required collaborator agent roles are approved in onboarding runtime mappings.
+    source: agent-state
+    validation_rule: exists
+  - condition: campaign-brief-available
+    description: Campaign objective, audience, constraints, and budget envelope are present.
+    source: data-input
+    validation_rule: non-null
+logic_sequence:
+  phase_1_secretary_intake_and_split:
+    step_1: Mira captures the Director brief and frames structured requirements.
+    step_2: Mira decomposes the request into market research, campaign strategy, visual draft, compliance gate, and launch readiness.
+    step_3: Mira assigns owners and initiates transfer points with context packet requirements.
+  phase_2_parallel_specialist_execution:
+    step_4: Dani performs market research and strategy draft with campaign budget assumptions.
+    step_5: Sofia drafts creative direction and channel visual packages based on strategy.
+    step_6: Eva validates policy and compliance implications.
+  phase_3_merge_and_governance:
+    step_7: Mira merges outputs, checks missing context fields, and requests RFIs where necessary.
+    step_8: Nora validates fiscal feasibility and runway impact.
+    step_9: Mira packages milestone deliverable for Director oversight approval.
+  phase_4_activation:
+    step_10: Elina coordinates queue and execution timeline.
+    step_11: Dani publishes approved campaign actions.
+    step_12: Mira logs completion status and collaboration KPIs.
+collaborators:
+  - agent_id: mira
+    role: secretary
+    responsibility: Router, handshake orchestrator, and final synthesis owner.
+    required: true
+  - agent_id: dani
+    role: cmo
+    responsibility: Market research and campaign strategy owner.
+    required: true
+  - agent_id: sofia
+    role: designer
+    responsibility: Creative draft and visual QA.
+    required: true
+  - agent_id: eva
+    role: compliance
+    responsibility: Compliance gate review.
+    required: true
+  - agent_id: nora
+    role: cfo
+    responsibility: Budget and runway validation.
+    required: true
+  - agent_id: elina
+    role: coo
+    responsibility: Operational execution sequencing.
+    required: true
+handoff_rules:
+  transfer_points:
+    - id: secretary-to-analyst
+      from_agent: mira
+      to_agent: dani
+      condition: requirements packet ready
+      context_packet_required_fields:
+        - objective
+        - target_audience
+        - constraints
+        - deadline
+        - success_kpis
+      rfi_allowed: true
+      director_approval_required: false
+    - id: analyst-to-creative
+      from_agent: dani
+      to_agent: sofia
+      condition: strategy draft approved by router
+      context_packet_required_fields:
+        - strategy_summary
+        - channel_mix
+        - tone_and_positioning
+        - mandatory_assets
+      rfi_allowed: true
+      director_approval_required: false
+    - id: creative-to-compliance
+      from_agent: sofia
+      to_agent: eva
+      condition: creative draft complete
+      context_packet_required_fields:
+        - claim_text
+        - visual_assets
+        - disclaimers
+        - geography_scope
+      rfi_allowed: true
+      director_approval_required: false
+    - id: merge-to-director-milestone
+      from_agent: mira
+      to_agent: arya
+      condition: merged package complete
+      context_packet_required_fields:
+        - synthesis
+        - unresolved_risks
+        - budget_impact
+        - compliance_status
+      rfi_allowed: false
+      director_approval_required: true
+  milestone_approval_roles:
+    - director
+dependencies:
+  required_skills:
+    - multi-agent-sync-orchestration
+    - command-decomposition-logic
+    - campaign-architecture
+  required_kpis:
+    - handshake-success-rate
+    - cross-role-resolution-time
+    - routing-accuracy-score
+  data_inputs:
+    - work-order-routing-log
+    - marketing-budget-telemetry
+    - content-approval-ledger
+    - agent-directory-registry
+  required_agents:
+    - mira
+    - dani
+    - sofia
+    - eva
+    - nora
+    - elina
+  protocols:
+    - deterministic-handoff-protocol
+    - inter-agent-communication-protocol-gicp-1
+    - internal-memo-rfi-protocol
+    - human-review-required-protocol
+post_conditions:
+  - effect: update-kpi
+    description: Update handshake success rate based on completed transfer points.
+    target: handshake-success-rate
+    update_formula: successful_handshakes / total_handshakes * 100
+  - effect: update-kpi
+    description: Update cross-role resolution time for collaboration cycle.
+    target: cross-role-resolution-time
+    update_formula: completed_handoff_resolution_duration_seconds
+error_handling:
+  on_missing_context_packet: Set workflow to WAITING_ON_ROLE and emit RFI memo to source collaborator.
+  on_dependency_agent_unapproved: Block start and escalate to onboarding-registry-approval.
+  on_conflicting_outputs: Escalate to Mira for reconciliation and request Director milestone review if unresolved.
+expected_output: >
+  A campaign launch package with role-attributed deliverables, complete handoff trace,
+  internal memo transcript, approval milestones, and collaborative KPI measurements.
+metadata:
+  version: 1.0.0
+  status: active
+  estimated_duration: 2 hours

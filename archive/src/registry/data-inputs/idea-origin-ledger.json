@@ -1,0 +1,34 @@
+{
+  "uid": "idea-origin-ledger",
+  "name": "Idea Origin Ledger",
+  "description": "Immutable attribution ledger capturing human vs AI-assisted origin metadata for every output.",
+  "schemaType": "audit-trail",
+  "sourceType": "vault",
+  "sourceLocation": "governance/vault/idea-origin-ledger",
+  "requiredFields": [
+    "output_id",
+    "output_type",
+    "creator_human",
+    "creator_ai_agent",
+    "origin_classification",
+    "idea_genesis_description",
+    "timestamp_created",
+    "human_reviewer_id",
+    "reviewer_timestamp",
+    "audit_hash"
+  ],
+  "sampleSource": "governance/vault/idea-origin-ledger/2026-03",
+  "updateFrequency": "per-transaction",
+  "responsibleAgent": "eva",
+  "privacyClassification": "internal",
+  "retentionPolicy": "indefinite",
+  "dependencies": {
+    "dependent_kpis": [
+      "idea-origin-traceability-rate",
+      "bavans-value-gate-pass-rate"
+    ],
+    "dependent_workflows": [
+      "creative-content-approval-gate"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+id: seed-autonomous-alignment
+agent_id: dani
+trigger: "Periodic Autonomous Window (Default: Every 6 Task Cycles or 4h)"
+logic_sequence:
+  phase_1_growth_telemetry_harvest:
+    step_1: "Collect Current KPIs: Pull 'qualified-pipeline-coverage' and 'lead-velocity-index' from Nora’s ledger."
+    step_2: >-
+      Execution Telemetry Scan: Analyze Mira’s routing-log to see which marketing 'Narrative Fragments' are being
+      delivered to users.
+    step_3: >-
+      Quality Alignment Check: Run a 'Narrative-Fidelity-Audit' to ensure active ads/copy still match the
+      Brand-Protocol.md.
+  phase_2_low_risk_recalibration:
+    step_4: >-
+      Generate Ranked Actions: Identify micro-adjustments (e.g., A/B test adjustments, keyword pruning, or prompt-tuning
+      for copy generation).
+    step_5: "Assign Confidence Score: Calculate the probability of 'Conversion Uplift' without altering Sofia’s Visual Tokens."
+    step_6: "IF Confidence < 80%: Terminate Seed-Workflow and escalate to 'Human-in-Loop Narrative Pivot' for Director review."
+  phase_3_precision_correction:
+    step_7: "Execute 'Silent Adjustments': Update local campaign parameters in the CampaignArchitectService."
+    step_8: >-
+      Validation Cycle: Monitor the next 100 'Product-Usage-Events' to confirm the correction hasn't negatively impacted
+      lead quality.
+  phase_4_pulse_reporting:
+    step_9: "Publish Compact Status: Deliver a 'Growth-Pulse' report to Arya (CEO) with the current confidence score."
+    step_10: "Log Alignment-Delta: Store the recalibration data in /local/growth/ for trend-mapping by Nora."
+dependencies:
+  required_skills:
+    - market-narrative-design
+    - campaign-architecture
+    - narrative-fidelity-mapping
+  required_kpis:
+    - qualified-pipeline-coverage
+  data_inputs:
+    - brand-protocols-md
+    - campaign-performance-logs
+    - lead-velocity-telemetry
+  protocols:
+    - seed-alignment-protocol
+    - narrative-integrity-protocol
+    - low-risk-execution-gate
+error_handling:
+  on_conversion_drop: If lead quality drops >5% post-adjustment, auto-revert to the previous 'Last Known Good' state.
+  on_visual_conflict: If an adjustment requires a change to typography or color, pause and request a handshake from Sofia.
+expected_output: >
+  A validated Autonomous Alignment Report containing: 1. Status: [ALIGNED / RECALIBRATED / ESCALATED] 2. Confidence
+  Score: [0-100%] 3. Action Log: Summary of micro-adjustments to copy or targeting. 4. Next Review: Timestamp for the
+  next scheduled seed-window.

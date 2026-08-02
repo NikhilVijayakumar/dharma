@@ -1,0 +1,14 @@
+{
+  "uid": "model-gateway-status",
+  "name": "Model Gateway Status",
+  "description": "Generated data input for registry reference normalization: model-gateway-status.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/elina/sop-autonomous-queue-management",
+  "privacyClassification": "internal"
+}

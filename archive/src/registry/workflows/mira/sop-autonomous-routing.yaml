@@ -1,0 +1,61 @@
+id: sop-autonomous-routing
+agent_id: mira
+trigger: Director Command Detected / Agent Task Completion Signal
+logic_sequence:
+  phase_1_intent_deconstruction:
+    step_1: >-
+      Parse Input: Run the 'Intent-Parsing-Protocol' to strip metadata and identify the core 'Strategic Goal' (e.g.,
+      'Deploy' vs. 'Design').
+    step_2: >-
+      Capability Mapping: Cross-reference the goal with 'routing-logic.json' to identify the high-probability
+      Agent/Skill match (e.g., Target: Slot-2/Julia).
+    step_3: "Initialize 'Work-Order-Draft': Scaffold the technical requirements in the /staged/ queue."
+  phase_2_contextual_hydration:
+    step_4: >-
+      Inject 'Context Baggage': Query the 'VaultIngestService' for the last 5 relevant transactions to give the
+      destination agent 'Historical-Vision'.
+    step_5: >-
+      Sovereignty Check: Confirm the target agent has the 'Sovereignty-Hard-Rules' required to execute the requested
+      logic (e.g., ensuring Nora handles all Ledger writes).
+    step_6: >-
+      Constraint Embedding (Eva): Pass the draft through a 'Pre-Flight-Compliance-Check' to ensure the routing doesn't
+      bypass safety gates.
+  phase_3_queue_injection:
+    step_7: "Submit to QueueService: Push the finalized, hydrated Work Order to Elina (Ops) for slot assignment."
+    step_8: >-
+      Monitor Handoff-Acceptance: Track the millisecond 'Decision-Cycle-Time' until the destination agent 'Claims' the
+      task.
+    step_9: "IF Handoff Fails: If the agent rejects the context, trigger 'Contextual-Self-Healing' to repair the data gap."
+  phase_4_routing_audit:
+    step_10: >-
+      Log Transaction: Record the routing path, intent-confidence score, and latency in the git-ignored
+      '/local/logs/routing-log.md'.
+    step_11: >-
+      Update 'Routing-Accuracy-Score': Feed the success/failure data back into Mira’s 'Interaction-Analyzer' for future
+      logic tuning.
+    step_12: "Status Report: Deliver a 'Routing-Finalized' signal to the Director's Slot-10."
+dependencies:
+  required_skills:
+    - routing-precision
+    - handoff-integrity
+    - cross-module-cohesion
+  required_kpis:
+    - decision-cycle-time
+    - routing-accuracy-score
+  data_inputs:
+    - routing-logic-json
+    - vault-audit-trail
+    - system-architecture-md
+  protocols:
+    - intent-parsing-protocol
+    - context-hydration-protocol
+    - handoff-integrity-gate
+error_handling:
+  on_routing_ambiguity: >-
+    If Mira finds multiple capable agents (e.g., Dani vs. Sofia for UX), she invokes
+    'Human-in-Loop-Intent-Clarification'.
+  on_queue_timeout: If Elina fails to assign a slot within 30s, Mira triggers 'Crisis-Command' to identify the system bottleneck.
+expected_output: >
+  A validated Routing Status Update containing: 1. Status: [ROUTED / REJECTED / HEALING] 2. Logic Path: Rationale for
+  why Agent [X] was selected for Goal [Y]. 3. Context Hash: Verification of the historical data injected into the task.
+  4. Traceable Reference: The 'routing-log' entry ID for the transaction.

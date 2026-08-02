@@ -1,0 +1,63 @@
+id: crisis-support-mode
+agent_id: dani
+trigger: CRISIS_ACTIVATED (Invoke by Nora/CFO or Arya/CEO)
+logic_sequence:
+  phase_1_capital_preservation:
+    step_1: >-
+      Immediate Spend Suspension: Trigger Nora’s 'BudgetAuditService' to kill all top-of-funnel ad spend and
+      non-essential marketing subscriptions.
+    step_2: "Campaign Freeze: Pause all automated email sequences and social scheduling to prevent tone-deaf automated output."
+    step_3: >-
+      Resource Re-allocation: Move Dani's compute priority to support Eva (Compliance) and Arya (Strategy) for the
+      duration of the event.
+  phase_2_narrative_recalibration:
+    step_4: >-
+      Execute 'Narrative-Pivot-Logic': Transition all active messaging from 'Aggressive Growth' to 'Stability, Security,
+      and Long-Term Reliability'.
+    step_5: >-
+      Fidelity Check: Cross-reference crisis messaging with Sofia’s 'Accessibility Policy' to ensure emergency comms are
+      readable and clear.
+    step_6: >-
+      Scan 'Sentiment-Polarity': Monitor the customer-feedback-stream for panic signals or misinformation requiring
+      immediate correction.
+  phase_3_emergency_comms_scaffolding:
+    step_7: >-
+      Draft 'Emergency Stakeholder Comms': Use 'git-transaction-scaffolding' to prepare a public-facing response for the
+      Director's Git-validation.
+    step_8: >-
+      Impact Simulation: Model the 'Qualified-Pipeline-Coverage' loss expected from the ad-freeze to update Arya’s
+      Strategic Forecast.
+    step_9: "Director Sync: Deliver a 'Status: Crisis-Narrative-Locked' brief to Mira’s Slot-10 for immediate review."
+  phase_4_post_crisis_thaw:
+    step_10: "Gradual Re-entry: Once CRISIS_ACTIVATED is lifted, propose a 'Phased Spend Resumption' plan to Nora."
+    step_11: >-
+      Narrative Restoration: Slowly pivot back to growth themes only after a verified 3-way stability handshake
+      (Arya/Nora/Eva).
+dependencies:
+  required_skills:
+    - market-narrative-design
+    - campaign-architecture
+    - narrative-fidelity-mapping
+    - strategic-alignment
+  required_kpis:
+    - qualified-pipeline-coverage
+    - launch-to-liquidity-delta
+  data_inputs:
+    - fiscal-policy-md
+    - customer-feedback-stream
+    - brand-protocols-md
+  protocols:
+    - crisis-narrative-protocol
+    - emergency-spend-lockdown-protocol
+    - stakeholder-transparency-gate
+error_handling:
+  on_narrative_clash: >-
+    If Dani’s crisis copy violates Eva’s ComplianceScanService, auto-reject the draft and re-scaffold using
+    'Safe-State-Templates'.
+  on_burn_spike: >-
+    If Nora detects ongoing marketing spend during lockdown, Dani is automatically demoted to 'ReadOnly' until manual
+    override.
+expected_output: >
+  A Crisis Response Package containing: 1. Status: [MARKETING-FROZEN / NARRATIVE-PIVOTED] 2. Rationale: Forensic
+  justification for the specific messaging shift. 3. Spend Delta: Total capital saved by the immediate ad-suspend. 4.
+  Draft Comms: Ready-to-commit Stakeholder Update (Markdown).

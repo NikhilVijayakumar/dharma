@@ -1,0 +1,32 @@
+{
+  "uid": "intent-mapping-md",
+  "name": "Intent-to-Action-Map (IAM)",
+  "description": "The master translation layer that converts 'Natural-Language-Inputs' into 'Agentic-Workflows' and 'Priority-Queues'.",
+  "schemaType": "Cognitive-Protocol",
+  "requiredFields": [
+    "intent_id",
+    "semantic_cluster",
+    "primary_slot_assignment",
+    "dependency_chain",
+    "success_condition_logic",
+    "urgency_weight"
+  ],
+  "sampleSource": "orchestration/intent-vault/v5-nlp-bridge",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "intent_dimensions": {
+          "NAVIGATIONAL": "Searching for Internal-Assets/Data",
+          "TRANSACTIONAL": "Executing Financial/Operational-Change",
+          "INFORMATIVE": "Requesting Synthesis/Analysis",
+          "STRATEGIC": "Modifying Long-Term-Roadmaps"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "uid": "campaign-performance-logs",
+  "name": "Campaign Performance Logs",
+  "description": "Generated data input for registry reference normalization: campaign-performance-logs.",
+  "schemaType": "hybrid",
+  "sourceType": "json",
+  "requiredFields": [
+    "timestamp",
+    "source",
+    "payload"
+  ],
+  "sampleSource": "generated/from-workflow/dani/seed-autonomous-alignment",
+  "privacyClassification": "internal"
+}

@@ -1,0 +1,34 @@
+id: visual-token-governance-protocol
+title: "Global Visual-Token & Aesthetic-Integrity"
+description: "Stateless governance standard for the automated generation, auditing, and deployment of visual assets."
+tags:
+  - global
+  - inherited
+  - governance
+
+rules:
+  - rule_1: "Brand-DNA-Lock: Every generated image must be cross-referenced against the 'Style-Guide-Hash' (Colors, Typography, Composition-Weight) before deployment."
+  - rule_2: "The 'Anti-Artifact' Filter: AI-generated visuals must pass a 3-point 'Fidelity-Audit' (Anatomy, Text-Clarity, Lighting-Consistency) or be auto-rejected."
+  - rule_3: "Copyright-Provenance-Gate: No external image may enter the 'Production-Vault' without a verified 'License-Metadata-Tag' or 'Public-Domain-Proof'."
+  - rule_4: "Recursive-Asset-Minification: Julia (Tech) must auto-optimize all visual tokens for 'Web-Performance' (WebP/AVIF conversion) without losing 'Perceptual-Quality'."
+  - rule_5: "The 'Human-in-the-Loop' Threshold: Any visual asset intended for 'High-Stakes-Communication' (Investor-Decks, Hero-Sections) requires a manual 'Director-Approval-Stamp'."
+
+logic_sequence:
+  step_1: "Visual-Intent-Parsing: Define the 'Context' (Social, Web, Internal) and 'Emotion-Target' for the visual request."
+  step_2: "Execute 'Style-Injection': Feed the 'Brand-Fidelity-Weights' into the generation prompt or selection logic."
+  step_3: "Run 'Post-Generation-Refinement': Apply automated color-correction and scaling to meet the 'Sangama-Standard'."
+  step_4: "IF VISUAL-PASS: Assign a 'Visual-UUID' and log the 'Asset-History' in the /assets/ledger.json."
+  step_5: "IF VISUAL-FAIL: Trigger 'Recursive-Refinement' (max 3 attempts) before escalating to the Director."
+
+escalation_triggers:
+  - "Condition: Detection of 'Hallucination-Glitches' in visual outputs that compromise 'Brand-Dignity'."
+  - "Condition: A 'Copyright-Match' is found in an AI-generated output that risks 'Legal-Liability'."
+  - "Condition: The 'Visual-Budget' (GPU-Tokens) exceeds the 'Daily-SLA' by >20%."
+
+dependencies:
+  required_skills:
+    - brand-fidelity-mapping
+    - interaction-quality-mapping
+  required_kpis:
+    - brand-fidelity-index
+    - interaction-quality-score

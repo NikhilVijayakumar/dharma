@@ -1,0 +1,32 @@
+{
+  "uid": "compliance-audit-trail",
+  "name": "Governance-Evidence-Chain (GEC)",
+  "description": "An immutable, cryptographically-linked record of 'Policy-Interventions', 'Control-Verifications', and 'Exception-Auth-Flows'.",
+  "schemaType": "Integrity-Protocol",
+  "requiredFields": [
+    "event_id",
+    "timestamp_utc",
+    "control_logic_hash",
+    "acting_slot_id",
+    "validator_slot_id",
+    "compliance_delta",
+    "evidence_blob_ref"
+  ],
+  "sampleSource": "governance/compliance-vault/real-time-audit",
+  "hybrid_content": {
+    "structured_payload": {
+      "legacy_fields": {
+        "control_types": {
+          "PREVENTATIVE": "Hard-Lock (Execution-Blocked)",
+          "DETECTIVE": "Soft-Alert (Audit-Flagged)",
+          "CORRECTIVE": "Auto-Remediation (Self-Healing-Logic)"
+        }
+      }
+    },
+    "source_format": "json",
+    "projection_target": "hybrid",
+    "data_classification": "internal",
+    "sync_status": "COMMITTED",
+    "canonical_source": "registry"
+  }
+}

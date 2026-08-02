@@ -1,0 +1,83 @@
+id: email-collaborative-draft
+name: Email Collaborative Draft
+description: >
+  Multi-agent drafting workflow triggered when the Director selects specific emails
+  for response. Routes to domain-specific agents, collects contributions, merges into
+  a unified draft, and presents for Director review. Drafts are saved locally — never sent.
+version: 1.0.0
+
+trigger:
+  type: director_action
+  action: email:select-for-draft OR email:compose-new-draft
+
+owner: mira
+
+steps:
+  - id: resolve_agents
+    action: lookup
+    source: agent-directory-registry
+    input: action_item.department
+    description: >
+      Resolve which agent(s) should contribute to this draft based on
+      department classification (Finance→nora, Compliance→eva, HR→lina, etc).
+    output: assigned_agent_ids[]
+
+  - id: create_draft
+    action: db_write
+    table: email_drafts
+    description: >
+      Create SharedDraft entry with status IN_PROGRESS.
+      For replies: link to source ActionItem.
+      For new compositions: standalone draft.
+
+  - id: dispatch_work_orders
+    action: queue
+    service: QueueService
+    input: assigned_agent_ids[]
+    description: >
+      Dispatch work orders to each assigned agent via existing QueueService.
+      Each agent receives the email context and their contribution scope.
+
+  - id: collect_contributions
+    action: await
+    description: >
+      Wait for agents to submit sections via email:contribute-to-draft.
+      Mira provides framing sections (intro/outro).
+      Domain agents provide specialist content.
+
+  - id: merge_draft
+    action: merge
+    description: >
+      Merge all DraftContributions ordered by section_index.
+      Mira's framing wraps specialist sections.
+      Set draft status to AWAITING_REVIEW.
+
+  - id: notify_director
+    action: notification
+    target: director
+    description: >
+      Notify Director that collaborative draft is ready for review.
+      Show contributor summary badge.
+
+  - id: director_review
+    action: human_gate
+    description: >
+      Director reviews via DraftSync UI.
+      Options: Edit inline, Approve & Save, Copy to Clipboard, Discard.
+
+  - id: save_to_vault
+    action: vault_commit
+    path: /org/administration/email/drafts/<draftId>.md
+    condition: director approved
+    description: >
+      Persist approved draft to Vault with metadata header.
+      NEVER sends the email. Director copies draft to their email client.
+
+protocols:
+  - deterministic-handoff-protocol
+  - clear-desk-protocol
+
+constraints:
+  - App must NEVER send emails via SMTP
+  - All drafts saved locally only
+  - Director manually sends from their email client
