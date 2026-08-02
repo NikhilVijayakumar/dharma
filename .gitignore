@@ -182,3 +182,12 @@ out/
 # samgraha local registry
 /.samgraha/
 
+# dharma build output (scripts/build-release.{sh,ps1}) — regenerable, not source
+/release/
+
+# opencode tool artifacts (mirrors samgraha.toml's own ignore pattern)
+/.opencode/
+
+# local MCP client config — points at a machine-specific binary path
+/.mcp.json
+
