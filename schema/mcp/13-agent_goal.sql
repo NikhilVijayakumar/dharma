@@ -1,5 +1,5 @@
 -- mcp.db — one Agent's goal set (see docs/proposal/01-agent-model.md).
--- Scoped by `agent_id` into agent (08); the owning Agent is itself scoped to
+-- Scoped by `agent_id` into agent (12); the owning Agent is itself scoped to
 -- an Agent System by `agent.agent_system_id`, so no `agent_system_id` column
 -- is needed here.
 --

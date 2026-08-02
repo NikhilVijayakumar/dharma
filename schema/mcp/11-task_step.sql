@@ -1,6 +1,6 @@
 -- mcp.db — one Task's ordered execution steps (see docs/proposal/02-task-model.md,
 -- docs/proposal/07-proposal-execution-protocol.md). Scoped by `task_id` into
--- task (06).
+-- task (10).
 --
 -- `required_capability` names the concern a step needs (e.g. `rust-
 -- development`) and is a real FOREIGN KEY against agent_system_registry

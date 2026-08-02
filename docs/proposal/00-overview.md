@@ -14,6 +14,7 @@
 | 06 | [MCP Registration & Bootstrap](06-mcp-registration-bootstrap.md) | Ordered sequence: MCP exists → repo registers → repo selects Domain System → default Agent System resolves capability |
 | 07 | [Proposal & Execution Protocol](07-proposal-execution-protocol.md) | Mandatory Propose → Review → Approve gate, then handoff-chain execution |
 | 08 | [Schema & Crate Architecture](08-schema-and-crate-architecture.md) | Concrete SQLite schema for 01-07, grouped by physical database — `mcp.db` (global registries + content) and `repo.db` (per-repo runtime state), see `schema/` — + six-crate Rust workspace (`common`/`schemas`/`registry`/`services`/`cli`/`mcp`); per-crate docs follow [docs/raw/crates.md](../raw/crates.md) |
+| 09 | [Vision](09-vision.md) | The pivot (Electron app → agent platform) and Dharma's role as MCP infrastructure; sources the "(source: Vision)" constraints in 01-08 |
 
 ## Build Order
 
@@ -41,5 +42,5 @@ These proposals are structural (architecture-level) only, per `docs/raw/architec
 
 - The MCP transport/tool surface itself (tool names, request/response shapes) — 08 defines the `mcp` crate's role, not its wire-level tool contract.
 - Engineering, Build, Implementation, and QA documentation for any of the above — those follow their own `docs/raw` standards once the architecture here is settled.
-- **No Vision or Philosophy document exists yet.** `docs/raw/architecture.md` expects Architecture to cross-reference Vision(01) and Security to reference Philosophy(02). 01's Traceability diagram and its "(source: Vision)" constraint citation are placeholders for the pivot decision (Electron app → agent platform) recorded in conversation, not a real Vision doc. Write Vision and Philosophy before treating these proposals as final.
+- **Vision(09) exists; Philosophy(02) does not.** `docs/raw/architecture.md` expects Architecture to cross-reference Vision(01) and Security to reference Philosophy(02). The Vision document ([09](09-vision.md)) now supplies the pivot decision and the "(source: Vision)" constraints cited in 01-08. A Philosophy document (tier-1, feeding Security and Architecture) is still missing and should be written before treating these proposals as final.
 - **Bodha's `.bodha-structure/section` and `profile-default` are cited but not vendored or linked as an External Context doc** (05). The Section Map / Section Profile shape in this proposal set assumes that structure is stable and reusable as-is; that assumption is unverified against Bodha's own docs and should become an explicit External Context reference before implementation.

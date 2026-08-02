@@ -9,8 +9,8 @@
 -- One row per registered Domain System (e.g. `rust-dev-domain`,
 -- `electron-dev-domain`, see docs/proposal/05-domain-system-
 -- registration.md). Unlike the earlier design, this table no longer
--- points at a separate db file — the Domain System's Section Map,
--- Section Profiles, and Epic/Usecase/Task set (02-07 in this directory)
+-- points at a separate db file — the Domain System's domains (05),
+-- Section Maps and Profiles (06-07), and Epic/Usecase/Task set (08-11)
 -- live in this same db, scoped by `domain_system_id`.
 
 CREATE TABLE IF NOT EXISTS domain_system_registry (

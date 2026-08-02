@@ -8,20 +8,21 @@ entities themselves are specified in `docs/proposal/01` through `07`.
 
 | Directory | DB file | Where it lives | Scope | Written by |
 |---|---|---|---|---|
-| `mcp/` | `mcp.db` (one, global) | MCP's own data directory (e.g. `~/.dharma/mcp.db`), never inside a repository | `domain_system_registry` (00), `agent_system_registry` (01); one file per Domain System content table — `section` (02), `section_profile` (03), `epic` (04), `usecase` (05), `task` (06), `task_step` (07); one file per Agent System content table — `agent` (08), `agent_goal` (09), `skill` (10), `skill_prompt` (11), `skill_script` (12), `skill_example` (13), `agent_skill_binding` (14); `repo_registration` (15), `capability_manifest` (16) | Agent-Management Agent System (00-14); MCP registration flow + human approval (15, 16) |
-| `repo/` | one `repo.db` per registered repository | inside that repository (path recorded in `mcp.db`'s `repo_registration.repo_db_path`) | `task_instance`, `proposal_revision`, `proposal_approval`, `execution_state`, `handoff_log`, `context_envelope`, `completion_validation` — the Propose→Review→Approve→Execute runtime state for every Task Instance this repo runs | Task Runtime, Proposal Loop, Handoff Broker, Completion Validator |
+| `mcp/` | `mcp.db` (one, global) | MCP's own data directory (e.g. `~/.dharma/mcp.db`), never inside a repository | registries — `domain_system_registry` (00), `agent_system_registry` (01); capture layer — `content_asset` (02), `yaml_template` (03), `seeder` (04); Domain System content — `domain` (05), `section` (06), `section_profile` (07), `epic` (08), `usecase` (09), `task` (10), `task_step` (11); Agent System content — `agent` (12), `agent_goal` (13), `skill` (14), `skill_prompt` (15), `skill_script` (16), `skill_example` (17), `skill_template` (18), `agent_skill_binding` (19); audit definitions — `audit_definition` (20), `audit_rule` (21), `audit_semantic` (22), `audit_calculation` (23), `audit_weights` (24), `audit_template` (25); `analysis_cache` (26); registration — `repo_registration` (27), `capability_manifest` (28) | capture/registration flows through `services`; content rows written only at capture time from provider files |
+| `repo/` | one `repo.db` per registered repository | inside that repository (path recorded in `mcp.db`'s `repo_registration.repo_db_path`) | the Propose→Review→Approve→Execute runtime state for every Task Instance this repo runs — `task_instance`, `proposal_revision`, `proposal_approval`, `execution_state`, `handoff_log`, `context_envelope`, `completion_validation`; plus synced content (`synced_content`, 07) and audit executions (`audit_run` 08, `audit_deterministic_result` 09, `audit_semantic_run` 10, `audit_semantic_dimension` 11, `audit_finding` 12, `audit_override` 13) | Task Runtime, Proposal Loop, Handoff Broker, Completion Validator; sync/seed and audit flows through `services` |
 
 ## Why two databases, not five
 
 Every table inside `mcp/` shares one file, so every reference between
-`domain_system_registry` → `section`/`epic`/`usecase`/`task`/`task_step`,
-`agent_system_registry` → `agent`/`skill`, and `repo_registration` →
-`capability_manifest` is a real, enforced `FOREIGN KEY` — an earlier draft of
-this schema split those into one file per registered Domain System / Agent
-System, which turned every one of those references into an unenforced
-cross-database logical reference for no isolation benefit, since they're all
-platform-owned, global, Agent-Management-Agent-System-authored content either
-way.
+`domain_system_registry` → `domain`/`section`/`section_profile`/`epic`/
+`usecase`/`task`/`task_step`, `agent_system_registry` → `agent`/`skill`, the
+content tables → `content_asset` (the capture ledger every content row
+traces to), and `repo_registration` → `capability_manifest` is a real,
+enforced `FOREIGN KEY` — an earlier draft of this schema split those into
+one file per registered Domain System / Agent System, which turned every
+one of those references into an unenforced cross-database logical reference
+for no isolation benefit, since they're all platform-owned, global,
+provider-captured content either way.
 
 `repo/` stays a separate file per repository — mirroring samgraha's per-repo
 `knowledge.db` — because it genuinely is different data: repo-local runtime
@@ -35,11 +36,12 @@ shared-file design.
 SQLite has no foreign keys across separate database files. `repo.db` →
 `mcp.db` is the **only** remaining cross-database boundary in this schema:
 columns like `task_id`, `initiating_agent_system_id`/`initiating_agent_id`,
-and the `handoff_log` `from`/`to` pairs in `repo/` are **logical references**,
-validated by the `registry` crate at write time, not enforced by
-`REFERENCES`. Every such column is commented at its declaration with which
-table in `mcp.db` it logically points to. Nothing inside `mcp/` needs this
-treatment — see "Why two databases, not five" above.
+the `handoff_log` `from`/`to` pairs, `synced_content.mcp_row_id`, and
+`audit_run.domain_id` in `repo/` are **logical references**, validated by
+the `registry` crate at write time, not enforced by `REFERENCES`. Every such
+column is commented at its declaration with which table in `mcp.db` it
+logically points to. Nothing inside `mcp/` needs this treatment — see "Why
+two databases, not five" above.
 
 ## Status
 

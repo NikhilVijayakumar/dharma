@@ -179,7 +179,7 @@ Task Runtime ──assign(task)──▶ Agent ──per step──▶ Skill Bin
 ### Derivation Chain
 
 ```text
-Vision (Dharma pivot: Electron app → agent platform)
+Vision (09-vision.md: the pivot — Electron app → agent platform)
     │
     ▼
 Agent Model (this document)

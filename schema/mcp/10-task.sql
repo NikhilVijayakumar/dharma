@@ -1,5 +1,5 @@
 -- mcp.db — one Usecase's Task set (see docs/proposal/02-task-model.md).
--- Scoped by `usecase_id` into usecase (05); the owning Usecase is itself
+-- Scoped by `usecase_id` into usecase (09); the owning Usecase is itself
 -- scoped to an Epic and a Domain System, so no `domain_system_id` column is
 -- needed here.
 --
@@ -9,6 +9,11 @@
 -- least one entry in EACH of the three tiers of `acceptance_criteria_
 -- json` before it can be assigned — enforced by the `schemas` crate at
 -- write time, not by a CHECK constraint (structure varies).
+--
+-- `template_ref` is optional: the Domain System provides the task, but an
+-- Agent may substitute a better template based on the task at hand (see
+-- docs/proposal/08-schema-and-crate-architecture.md, "Tasks and the Epic →
+-- Usecase → Task hierarchy").
 --
 -- acceptance_criteria_json shape:
 -- { "happy_path": [...], "corner_case": [...], "edge_case": [...] }
@@ -21,6 +26,8 @@ CREATE TABLE IF NOT EXISTS task (
     input_contract_json      TEXT    NOT NULL,
     output_contract_json     TEXT    NOT NULL,
     acceptance_criteria_json TEXT    NOT NULL,
+    template_ref             TEXT,  -- optional: a better template an Agent may substitute
+    content_asset_id         INTEGER NOT NULL REFERENCES content_asset(id),
     sort_order               INTEGER NOT NULL DEFAULT 0,
     UNIQUE(usecase_id, name)
 );

@@ -9,7 +9,7 @@
 ## Responsibility
 
 `cli` owns:
-- The command-line entry point for administrative operations — registering a Domain System or Agent System, inspecting registries, running migrations
+- The command-line entry point for administrative operations — registering a Domain System or Agent System, capturing provider files, inspecting registries, running migrations, running seeders
 
 `cli` explicitly does not own:
 - Business logic (owned by `services`)

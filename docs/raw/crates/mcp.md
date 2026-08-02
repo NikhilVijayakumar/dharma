@@ -9,7 +9,7 @@
 ## Responsibility
 
 `mcp` owns:
-- The MCP protocol server exposing Dharma's operations as tools — repository registration, Task assignment, proposal submission/approval, handoff
+- The MCP protocol server exposing Dharma's operations as tools — repository registration, Domain/Agent System resolution, content capture, Task assignment, proposal submission/approval, handoff, audit invocation and report rendering
 
 `mcp` explicitly does not own:
 - Business logic (owned by `services`)

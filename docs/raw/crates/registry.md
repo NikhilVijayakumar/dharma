@@ -10,8 +10,8 @@
 
 `registry` owns:
 - The `.sql` migration constants, mirrored from `schema/` — the canonical reference copy (see `schema/README.md`)
-- Typed read/write operations per table, one store trait per schema area: `DomainSystemRegistryStore` (`domain_system_registry`), `DomainContentStore` (`section`/`section_profile`/`epic`/`usecase`/`task`/`task_step`, scoped by `domain_system_id`), `AgentSystemRegistryStore` (`agent_system_registry`), `AgentContentStore` (`agent`/`agent_goal`/`skill`/`skill_prompt`/`skill_script`/`skill_example`/`agent_skill_binding`, scoped by `agent_system_id`), `RegistrationStore` (`repo_registration`/`capability_manifest`), and `ExecutionStore` (all seven `repo.db` tables)
-- The `repo.db` → `mcp.db` logical-reference validation named in `schema/`'s comments — the only cross-database boundary in this schema; every reference within `mcp.db` itself is a real `FOREIGN KEY`, needing no validation at this layer beyond what SQLite already enforces
+- Typed read/write operations per table, one store trait per schema area: `DomainSystemRegistryStore` (`domain_system_registry`), `DomainContentStore` (`domain`/`section`/`section_profile`/`epic`/`usecase`/`task`/`task_step`), `AgentSystemRegistryStore` (`agent_system_registry`), `AgentContentStore` (`agent`/`agent_goal`/`skill`/`skill_prompt`/`skill_script`/`skill_example`/`skill_template`/`agent_skill_binding`), `CaptureStore` (`content_asset`/`yaml_template`/`seeder`), `AuditDefinitionStore` (`audit_definition`/`audit_rule`/`audit_semantic`/`audit_calculation`/`audit_weights`/`audit_template`), `AnalysisCacheStore` (`analysis_cache`), `RegistrationStore` (`repo_registration`/`capability_manifest`), `ExecutionStore` (the seven `repo.db` runtime tables), `SyncedContentStore` (`synced_content`), and `AuditExecutionStore` (`audit_run`/`audit_deterministic_result`/`audit_semantic_run`/`audit_semantic_dimension`/`audit_finding`/`audit_override`)
+- The `repo.db` → `mcp.db` logical-reference validation named in `schema/`'s comments (`task_id`, `initiating_agent_system_id`/`initiating_agent_id`, the `handoff_log` `from`/`to` pairs, `synced_content.mcp_row_id`, `audit_run.domain_id`) — the only cross-database boundary in this schema; every reference within `mcp.db` itself is a real `FOREIGN KEY`, needing no validation at this layer beyond what SQLite already enforces
 
 `registry` explicitly does not own:
 - Business logic (owned by `services`)
@@ -39,4 +39,4 @@
 ### Hard Constraints
 - **Sole SQLite access** (source: 08, Trust Boundaries) — `registry` is the only crate that opens a SQLite connection; `cli` and `mcp` may not depend on `registry` directly.
 - **`schema/` is the canonical reference copy** (source: `schema/README.md`) — the `registry` crate's actual migrations must match it; divergence is a defect, not an acceptable variance.
-- **Logical references validated before commit** (source: 08, Threat Model) — no `repo.db` write may reference an `mcp.db` row (`task`, `agent_system_registry`, `agent`) that doesn't exist.
+- **Logical references validated before commit** (source: 08, Threat Model) — no `repo.db` write may reference an `mcp.db` row (`task`, `agent_system_registry`, `agent`, `synced_content.mcp_row_id`, `audit_run.domain_id`) that doesn't exist.

@@ -9,7 +9,7 @@
 ## Responsibility
 
 `schemas` owns:
-- JSON Schema documents for every JSON-shaped column in `schema/` — Task Input/Output Contracts, Acceptance Criteria, Skill Invocation Contracts, proposal drafts, Context Envelope payloads
+- JSON Schema documents for every JSON-shaped column in `schema/` — Task Input/Output Contracts, Acceptance Criteria, Skill Invocation Contracts, proposal drafts, Context Envelope payloads, Section Map/Profile JSON payloads, and audit evidence JSON — plus captured-YAML structure validation at capture time
 - The validation entry point applied before any JSON-shaped write is committed
 
 `schemas` explicitly does not own:

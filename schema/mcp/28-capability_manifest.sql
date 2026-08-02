@@ -2,7 +2,7 @@
 -- proposed by the Default/Bootstrap Agent System and gated by human
 -- approval before a repo_registration reaches 'approved' (see docs/proposal/
 -- 06-mcp-registration-bootstrap.md). Scoped by `repo_registration_id` into
--- repo_registration (15). `status` distinguishes proposed (not yet reviewed),
+-- repo_registration (27). `status` distinguishes proposed (not yet reviewed),
 -- approved, and rejected — a bare boolean can't represent "reviewed and
 -- rejected" distinctly from "never reviewed" (06's human reviewer may modify
 -- or reject a proposed entry, not just approve it). Both FKs are real now
