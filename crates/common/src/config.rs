@@ -2,6 +2,17 @@ use serde::{Deserialize, Serialize};
 use std::path::{Path, PathBuf};
 use uuid::Uuid;
 
+/// Read + parse `<root>/dharma-repo.toml`, the consuming repository config.
+/// The MCP adapter uses this to resolve `.dharma/` and to read the pinned
+/// domain/version without re-parsing in the transport layer.
+pub fn load_repo_config(root: &Path) -> Result<RepoConfig, String> {
+    let path = root.join("dharma-repo.toml");
+    let text = std::fs::read_to_string(&path)
+        .map_err(|e| format!("No dharma-repo.toml at {}: {}", path.display(), e))?;
+    toml::from_str(&text)
+        .map_err(|e| format!("Invalid dharma-repo.toml at {}: {}", path.display(), e))
+}
+
 /// Resolve `${VAR}` or `${VAR:-default}` from the process environment.
 ///
 /// - `"${VAR}"`: read `VAR` from the environment. Returns `None` if unset —

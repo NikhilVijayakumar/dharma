@@ -240,6 +240,92 @@ pub fn approved_agent_system_ids(db: &McpDb, repo_registration_id: i64) -> Resul
     Ok(out)
 }
 
+/// Remove a repo registration by repo uuid. `capability_manifest` rows
+/// cascade (ON DELETE CASCADE); the repo's own `repo.db` file is left in
+/// place (deleting files is the caller's business).
+pub fn unregister_repo(db: &McpDb, repo_uuid: &str) -> Result<bool> {
+    let conn = db.conn();
+    let conn = conn.lock().unwrap();
+    let affected = conn.execute(
+        "DELETE FROM repo_registration WHERE repo_uuid = ?1",
+        rusqlite::params![repo_uuid],
+    )?;
+    Ok(affected > 0)
+}
+
+/// The Default/Bootstrap Agent System proposes every registered Agent System
+/// as a candidate capability for a repo registration (proposal 06); a human
+/// then reviews each entry. Idempotent — an already-proposed (repo, agent
+/// system) pair is not duplicated (UNIQUE).
+pub fn propose_all_capabilities(
+    db: &McpDb,
+    repo_registration_id: i64,
+) -> Result<Vec<CapabilityManifestRow>> {
+    let conn = db.conn();
+    let conn = conn.lock().unwrap();
+    conn.execute(
+        "INSERT OR IGNORE INTO capability_manifest (repo_registration_id, agent_system_id)
+         SELECT ?1, id FROM agent_system_registry",
+        rusqlite::params![repo_registration_id],
+    )?;
+    drop(conn);
+    list_capability_manifests(db, repo_registration_id)
+}
+
+/// Full registration sequence (proposal 06): resolve the Domain System by
+/// name, pin the version (the DS's current version unless pinned), record
+/// the repo registration, propose every Agent System as a capability, and
+/// move the registration to `manifest_proposed` — where it sits until a
+/// human approves at least one capability, which triggers the automatic sync.
+pub fn bootstrap_repo_registration(
+    db: &McpDb,
+    repo_uuid: &str,
+    repo_name: &str,
+    repo_root: &str,
+    domain_system_name: &str,
+    domain_system_version: Option<&str>,
+) -> Result<RepoRegistrationRow> {
+    let ds = crate::get_domain_system_by_name(db, domain_system_name)?
+        .ok_or_else(|| anyhow::anyhow!("Domain System '{domain_system_name}' is not registered"))?;
+    let version = domain_system_version.unwrap_or(&ds.version).to_string();
+    let reg = register_repo(db, repo_uuid, repo_name, repo_root, ds.id, &version)?;
+    propose_all_capabilities(db, reg.id)?;
+    set_repo_status(db, repo_uuid, "manifest_proposed", None)?;
+    get_repo_registration(db, repo_uuid)?
+        .ok_or_else(|| anyhow::anyhow!("repo registration {repo_uuid} vanished after bootstrap"))
+}
+
+/// Read the repo_config singleton (repo.db 14) back as resolved values.
+pub fn get_repo_config(repo: &RepoDb) -> Result<Option<RepoConfigValues>> {
+    let conn = repo.conn();
+    let conn = conn.lock().unwrap();
+    let mut stmt = conn.prepare(
+        "SELECT repo_uuid, repo_name, repo_root, domain_system_name, domain_system_version,
+                docs_dir, implementation_dir, scripts_dir, tests_dir, report_dir, dharma_dir, mcp_dir
+         FROM repo_config WHERE id = 1",
+    )?;
+    let mut rows = stmt.query_map([], |row| {
+        Ok(RepoConfigValues {
+            repo_uuid: row.get(0)?,
+            repo_name: row.get(1)?,
+            repo_root: row.get(2)?,
+            domain_system_name: row.get(3)?,
+            domain_system_version: row.get(4)?,
+            docs_dir: row.get(5)?,
+            implementation_dir: row.get(6)?,
+            scripts_dir: row.get(7)?,
+            tests_dir: row.get(8)?,
+            report_dir: row.get(9)?,
+            dharma_dir: row.get(10)?,
+            mcp_dir: row.get(11)?,
+        })
+    })?;
+    match rows.next() {
+        Some(Ok(row)) => Ok(Some(row)),
+        _ => Ok(None),
+    }
+}
+
 fn map_capability_manifest(row: &rusqlite::Row) -> rusqlite::Result<CapabilityManifestRow> {
     Ok(CapabilityManifestRow {
         id: row.get(0)?,
@@ -693,11 +779,9 @@ fn missing_coverage(
         )?;
         let mut required: Vec<String> = Vec::new();
         let rows = stmt.query_map([], |r| r.get::<_, String>(0))?;
-        for row in rows {
-            if let Ok(cap) = row {
-                if !required.contains(&cap) {
-                    required.push(cap);
-                }
+        for cap in rows.flatten() {
+            if !required.contains(&cap) {
+                required.push(cap);
             }
         }
         required
@@ -776,7 +860,7 @@ fn write_agent_summary(
         for row in sys_rows {
             md.push_str(&format!("- `{}` — {}\n", row.kind, row.local_path));
         }
-        md.push_str("\n");
+        md.push('\n');
     }
     if by_system.is_empty() {
         md.push_str("_No Agent Systems approved yet._\n\n");

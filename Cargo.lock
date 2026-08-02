@@ -248,11 +248,13 @@ dependencies = [
  "clap",
  "common",
  "registry",
+ "rusqlite",
  "schemas",
  "serde_json",
  "services",
  "tracing",
  "tracing-subscriber",
+ "uuid",
 ]
 
 [[package]]
@@ -1000,12 +1002,14 @@ dependencies = [
  "anyhow",
  "common",
  "registry",
+ "rusqlite",
  "schemas",
  "serde",
  "serde_json",
  "services",
  "tracing",
  "tracing-subscriber",
+ "uuid",
 ]
 
 [[package]]
