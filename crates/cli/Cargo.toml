@@ -1,0 +1,21 @@
+[package]
+name = "cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "dharma"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = { workspace = true }
+serde_json = { workspace = true }
+clap = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+common = { workspace = true }
+schemas = { workspace = true }
+registry = { workspace = true }
+services = { workspace = true }
