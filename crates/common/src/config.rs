@@ -13,6 +13,17 @@ pub fn load_repo_config(root: &Path) -> Result<RepoConfig, String> {
         .map_err(|e| format!("Invalid dharma-repo.toml at {}: {}", path.display(), e))
 }
 
+/// Read + parse `<root>/dharma-build.toml` — dharma's own self-tooling
+/// config (`xtask`, `scripts/build-release.{sh,ps1}`). Template lives at
+/// `config.example/dharma-build.toml`; copy it to the repo root to activate.
+pub fn load_build_config(root: &Path) -> Result<BuildConfig, String> {
+    let path = root.join("dharma-build.toml");
+    let text = std::fs::read_to_string(&path)
+        .map_err(|e| format!("No dharma-build.toml at {}: {}", path.display(), e))?;
+    toml::from_str(&text)
+        .map_err(|e| format!("Invalid dharma-build.toml at {}: {}", path.display(), e))
+}
+
 /// Resolve `${VAR}` or `${VAR:-default}` from the process environment.
 ///
 /// - `"${VAR}"`: read `VAR` from the environment. Returns `None` if unset —
@@ -380,6 +391,71 @@ pub struct BuildConfig {
     pub pipelines: Option<PipelineContractConfig>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub report: Option<ReportConfig>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub package: Option<PackageConfig>,
+}
+
+/// `[package]` — where `xtask` (scripts/build-release.{sh,ps1}) drops the
+/// packaged release (bin/, config/, env/, schema/).
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+pub struct PackageConfig {
+    #[serde(default = "default_package_output_dir")]
+    pub output_dir: String,
+    /// Validity window baked into `dharma-mcp` at compile time
+    /// (`crates/mcp/build.rs`) — `-1` means the build never expires.
+    #[serde(default = "default_expiry_days")]
+    pub expiry_days: String,
+    #[serde(default = "default_expiry_hours")]
+    pub expiry_hours: String,
+}
+
+fn default_package_output_dir() -> String {
+    "${DHARMA_BUILD_OUTPUT_DIR}".to_string()
+}
+
+fn default_expiry_days() -> String {
+    "${DHARMA_BUILD_EXPIRY_DAYS:-30}".to_string()
+}
+
+fn default_expiry_hours() -> String {
+    "${DHARMA_BUILD_EXPIRY_HOURS:-0}".to_string()
+}
+
+impl Default for PackageConfig {
+    fn default() -> Self {
+        Self {
+            output_dir: default_package_output_dir(),
+            expiry_days: default_expiry_days(),
+            expiry_hours: default_expiry_hours(),
+        }
+    }
+}
+
+impl BuildConfig {
+    /// Resolve where the packaged release goes — `[package].output_dir`
+    /// (`${DHARMA_BUILD_OUTPUT_DIR}` by default), falling back to
+    /// `<root>/release` if unset.
+    pub fn resolve_output_dir(&self, root: &Path) -> PathBuf {
+        let raw = self
+            .package
+            .as_ref()
+            .map(|p| p.output_dir.as_str())
+            .unwrap_or("${DHARMA_BUILD_OUTPUT_DIR}");
+        resolve_configured_dir(raw, root, "release")
+    }
+
+    /// Resolve `(days, hours)` for the packaged build's validity window —
+    /// `[package].expiry_days` / `expiry_hours`, overridden per-build via
+    /// `.env` (`DHARMA_BUILD_EXPIRY_DAYS`/`DHARMA_BUILD_EXPIRY_HOURS`).
+    /// `days == -1` means the build never expires. Falls back to `(30, 0)`
+    /// if unset or unparseable.
+    pub fn resolve_expiry(&self) -> (i64, i64) {
+        let days_raw = self.package.as_ref().map(|p| p.expiry_days.clone()).unwrap_or_else(default_expiry_days);
+        let hours_raw = self.package.as_ref().map(|p| p.expiry_hours.clone()).unwrap_or_else(default_expiry_hours);
+        let days = resolve_env_string(&days_raw).and_then(|s| s.parse().ok()).unwrap_or(30);
+        let hours = resolve_env_string(&hours_raw).and_then(|s| s.parse().ok()).unwrap_or(0);
+        (days, hours)
+    }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Default)]

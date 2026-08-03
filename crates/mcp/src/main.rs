@@ -40,7 +40,26 @@ struct JsonRpcError {
     message: String,
 }
 
+/// Refuse to start past the build's baked-in expiry (`DHARMA_EXPIRY`, set by
+/// `crates/mcp/build.rs` from `config/dharma-build.toml` `[package]` +
+/// `.env`). Absent env means the build was packaged with `expiry_days = -1`
+/// (never expires) — a no-op.
+fn check_expiry() {
+    let Some(expiry) = option_env!("DHARMA_EXPIRY") else { return };
+    let now = chrono::Utc::now();
+    match chrono::DateTime::parse_from_rfc3339(expiry) {
+        Ok(dt) if now > dt => {
+            eprintln!("ERROR: This binary expired at {expiry} UTC. Build a new one.");
+            std::process::exit(1);
+        }
+        Ok(_) => {}
+        Err(_) => eprintln!("Warning: DHARMA_EXPIRY='{expiry}' is not RFC3339, ignored"),
+    }
+}
+
 fn main() -> anyhow::Result<()> {
+    check_expiry();
+
     tracing_subscriber::fmt()
         .with_writer(std::io::stderr)
         .with_max_level(tracing::Level::INFO)

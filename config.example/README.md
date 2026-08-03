@@ -1,7 +1,9 @@
 # Dharma Config — example TOML per repository role
 
-Proposal state — examples, not loaded by any runtime yet. Design rationale
-lives in `docs/proposal/11-provider-config-and-repo-sync.md`.
+Proposal state — examples, not loaded by any runtime yet, except
+`dharma-build.toml` which `crates/xtask` reads in place for
+`scripts/build-release.{sh,ps1}`. Design rationale lives in
+`docs/proposal/11-provider-config-and-repo-sync.md`.
 
 | File | Role | Lives in |
 |---|---|---|

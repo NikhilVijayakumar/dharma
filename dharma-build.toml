@@ -1,8 +1,8 @@
-# Example — proposal state, not yet loaded by any runtime.
 # Dharma's OWN self-tooling config: building/testing the dharma workspace and
 # keeping its docs/raw compliant. Has no MCP protocol role — see
 # docs/proposal/11-provider-config-and-repo-sync.md, "Dharma Build Config".
-# Lives at the dharma repository's own root, alongside dharma-build.toml itself.
+# Read in place from here (repo root) by crates/xtask
+# (scripts/build-release.{sh,ps1}). Template: config.example/dharma-build.toml.
 
 [repository]
 id = "dharma"
@@ -43,6 +43,17 @@ working_directory = "${PROJECT_ROOT}"
 description = "Run unit + integration tests across the workspace"
 produces = ["test results"]
 consumes = ["source code"]
+
+[package]
+# Where crates/xtask drops the packaged release (bin/, config/, env/,
+# schema/). Falls back to <repo>/release if DHARMA_BUILD_OUTPUT_DIR is unset.
+output_dir = "${DHARMA_BUILD_OUTPUT_DIR}"
+# Validity window baked into dharma-mcp at compile time (crates/mcp/build.rs)
+# — the packaged binary refuses to start once expired. expiry_days = -1
+# means the build never expires. Override per-build via .env
+# (env/dharma-build.env.example); defaults to 30 days, 0 hours if unset.
+expiry_days = "${DHARMA_BUILD_EXPIRY_DAYS:-30}"
+expiry_hours = "${DHARMA_BUILD_EXPIRY_HOURS:-0}"
 
 [report]
 # Base dir for generated reports. Falls back to <repo>/docs/report if
