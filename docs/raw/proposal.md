@@ -241,4 +241,4 @@ Written by whoever is designing a gated unit of work, before implementation star
 
 - [Architecture Standard](architecture.md) — every section this standard requires
 - [Crates Standard](crates.md) — the other doc type this repository added beyond the inherited five, same house style
-- [Proposal 12 — Proposal Lifecycle & Archival](../proposal/12-proposal-lifecycle-and-archival.md) — the `repo.db` schema this standard's Lifecycle section mirrors
+- [Proposal 12 — Proposal Lifecycle & Archival](../proposal/archive/12-proposal-lifecycle-and-archival.md) — the `repo.db` schema this standard's Lifecycle section mirrors

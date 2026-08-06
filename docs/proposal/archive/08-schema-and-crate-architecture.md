@@ -65,7 +65,7 @@ The two databases map onto exactly one distinction proposals 01-07 already draw:
 ### `registry` crate
 - **Responsibility:** Owns SQLite migrations and typed access for both physical databases (`mcp.db`, `repo.db`).
 - **Ownership:** The `.sql` migration constants (mirrored from `schema/`, the canonical reference copy — see `schema/README.md`), and the `repo.db` → `mcp.db` logical-reference validation named in `schema/`'s comments — the only cross-database boundary in this schema; every reference within `mcp.db` itself is a real `FOREIGN KEY`, needing no validation at this layer beyond what SQLite already enforces.
-- **Interfaces:** Depends on `common` and `schemas`; exposes typed read/write functions per table, never raw SQL, to `services`. See [`docs/raw/crates/registry.md`](../raw/crates/registry.md) for this crate's own Crate document.
+- **Interfaces:** Depends on `common` and `schemas`; exposes typed read/write functions per table, never raw SQL, to `services`. See [`docs/raw/crates/registry.md`](../../raw/crates/registry.md) for this crate's own Crate document.
 
 ### `services` crate
 - **Responsibility:** Business logic implementing proposals 01-07's behavior and Dharma's infra role — repository registration, Domain/Agent System resolution (Default/Bootstrap Agent System logic), **content capture from provider files**, **sync-to-repo (seeding)**, Proposal Loop drafting/revision, Handoff Broker resolution, Completion Validator checks, **audit orchestration (deterministic rule runs, per-model semantic runs, aggregation, override/cancel, evidence persistence)**.
@@ -92,7 +92,7 @@ cli, mcp ──depend on──▶ services ──depend on──▶ registry ─
 
 ## Crate Architecture
 
-This system is organized as a Cargo workspace with six crates enforcing the same architectural boundaries Samgraha already validated: primitives (`common`), validation (`schemas`), storage (`registry`), business logic (`services`), and two entry points (`cli`, `mcp`) that share `services` rather than duplicating logic. This section is the whole-workspace crate graph; one Crate document per member (following the `docs/raw/crates.md` standard) lives under `docs/raw/crates/` — [`common`](../raw/crates/common.md), [`schemas`](../raw/crates/schemas.md), [`registry`](../raw/crates/registry.md), [`services`](../raw/crates/services.md), [`cli`](../raw/crates/cli.md), [`mcp`](../raw/crates/mcp.md).
+This system is organized as a Cargo workspace with six crates enforcing the same architectural boundaries Samgraha already validated: primitives (`common`), validation (`schemas`), storage (`registry`), business logic (`services`), and two entry points (`cli`, `mcp`) that share `services` rather than duplicating logic. This section is the whole-workspace crate graph; one Crate document per member (following the `docs/raw/crates.md` standard) lives under `docs/raw/crates/` — [`common`](../../raw/crates/common.md), [`schemas`](../../raw/crates/schemas.md), [`registry`](../../raw/crates/registry.md), [`services`](../../raw/crates/services.md), [`cli`](../../raw/crates/cli.md), [`mcp`](../../raw/crates/mcp.md).
 
 ```mermaid
 graph TD
