@@ -290,7 +290,7 @@ impl McpAdapter {
             .iter()
             .map(|r| json!({"id": r.id.0, "name": r.name, "version": r.version, "description": r.description}))
             .collect();
-        Ok(json!(out))
+        Ok(json!({"domain_systems": out}))
     }
 
     fn tool_list_agent_systems(&self) -> Result<Value> {
@@ -301,7 +301,7 @@ impl McpAdapter {
                 json!({"id": r.id.0, "name": r.name, "concern": r.concern, "is_privileged": r.is_privileged})
             })
             .collect();
-        Ok(json!(out))
+        Ok(json!({"agent_systems": out}))
     }
 
     // ------------------------------------------------------------------
@@ -367,7 +367,7 @@ impl McpAdapter {
                 })
             })
             .collect();
-        Ok(json!(out))
+        Ok(json!({"repos": out}))
     }
 
     fn tool_repo_status(&self, req: &McpRequest) -> Result<Value> {
@@ -1223,8 +1223,8 @@ mod tests {
         );
         assert_eq!(out["name"], "base_dev");
         let list = call(&a, "list_domain_systems", &[], None);
-        assert_eq!(list.as_array().unwrap().len(), 1);
-        assert_eq!(list[0]["name"], "base_dev");
+        assert_eq!(list["domain_systems"].as_array().unwrap().len(), 1);
+        assert_eq!(list["domain_systems"][0]["name"], "base_dev");
     }
 
     #[test]
