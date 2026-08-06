@@ -182,6 +182,9 @@ out/
 # samgraha local registry
 /.samgraha/
 
+# dharma local registry (synced mcp.db state, regenerable via sync_repo) — not source
+/.dharma/
+
 # dharma build output (scripts/build-release.{sh,ps1}) — regenerable, not source
 /release/
 
