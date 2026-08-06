@@ -59,3 +59,26 @@ expiry_hours = "${DHARMA_BUILD_EXPIRY_HOURS:-0}"
 # Base dir for generated reports. Falls back to <repo>/docs/report if
 # DHARMA_REPORT_DIR is unset.
 dir = "${DHARMA_REPORT_DIR}"
+
+# Provider entries xtask's Release Bundling Step registers into the packaged
+# data/mcp.db before packaging (docs/proposal/16-agent-system-concern-split-
+# and-release-bundling.md). Each config_path is relative to this repo's root.
+# A missing/empty content root on the referenced provider config is skipped
+# and logged, not a build failure — e.g. the three agent_system entries below
+# stay skipped until Kriti splits its combined analyse/ folder (proposal 16,
+# Constraints) or publishes agent-system-evaluation content.
+[[release.providers]]
+kind = "domain_system"
+config_path = "config/providers/domain.toml"
+
+[[release.providers]]
+kind = "agent_system"
+config_path = "config/providers/agent-capability-provisioning.toml"
+
+[[release.providers]]
+kind = "agent_system"
+config_path = "config/providers/agent-domain-system-evaluation.toml"
+
+[[release.providers]]
+kind = "agent_system"
+config_path = "config/providers/agent-agent-system-evaluation.toml"

@@ -60,3 +60,19 @@ expiry_hours = "${DHARMA_BUILD_EXPIRY_HOURS:-0}"
 # Base dir for generated reports. Falls back to <repo>/docs/report if
 # DHARMA_REPORT_DIR is unset.
 dir = "${DHARMA_REPORT_DIR}"
+
+# Optional — provider entries xtask's Release Bundling Step registers into
+# the packaged data/mcp.db before packaging (docs/proposal/16-agent-system-
+# concern-split-and-release-bundling.md). kind is "agent_system" or
+# "domain_system"; config_path names a dharma-agent.toml/dharma-domain.toml-
+# shaped file, relative to this repo's root. A missing/empty content root on
+# the referenced file is skipped and logged, not a build failure — safe to
+# list an entry whose provider hasn't published content yet.
+#
+# [[release.providers]]
+# kind = "domain_system"
+# config_path = "config/providers/domain.toml"
+#
+# [[release.providers]]
+# kind = "agent_system"
+# config_path = "config/providers/agent-capability-provisioning.toml"

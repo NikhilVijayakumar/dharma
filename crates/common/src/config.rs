@@ -393,6 +393,32 @@ pub struct BuildConfig {
     pub report: Option<ReportConfig>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub package: Option<PackageConfig>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub release: Option<ReleaseConfig>,
+}
+
+/// `[release]` — provider entries `xtask`'s Release Bundling Step registers
+/// into the packaged `data/mcp.db` before packaging (proposal 16). Each
+/// entry names a provider config file (`dharma-agent.toml`/`dharma-domain.toml`
+/// shape) to parse and capture; a missing or empty `content_root` on the
+/// referenced file is not an error — that entry is skipped and logged, not
+/// treated as a build failure (e.g. `agent-system-evaluation` before its
+/// provider publishes content).
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Default)]
+pub struct ReleaseConfig {
+    #[serde(default, rename = "providers")]
+    pub providers: Vec<ReleaseProviderEntry>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+pub struct ReleaseProviderEntry {
+    /// `"agent_system"` or `"domain_system"` — which registration call and
+    /// which provider-config struct (`AgentSystemProviderConfig` /
+    /// `DomainSystemProviderConfig`) this entry's `config_path` parses as.
+    pub kind: String,
+    /// Path to a provider config file, relative to the repository root
+    /// unless absolute.
+    pub config_path: String,
 }
 
 /// `[package]` — where `xtask` (scripts/build-release.{sh,ps1}) drops the
@@ -690,5 +716,28 @@ mod tests {
         let cfg: BuildConfig = toml::from_str(toml_str).unwrap();
         assert_eq!(cfg.repository.documentation.as_ref().unwrap().domain.len(), 4);
         assert_eq!(cfg.pipelines.as_ref().unwrap().build.as_ref().unwrap().command, vec!["cargo", "build", "--release", "--workspace"]);
+        assert!(cfg.release.is_none());
+    }
+
+    #[test]
+    fn build_config_parses_release_providers() {
+        let toml_str = r#"
+            [repository]
+            id = "dharma"
+            name = "dharma"
+
+            [[release.providers]]
+            kind = "domain_system"
+            config_path = "config/providers/domain.toml"
+
+            [[release.providers]]
+            kind = "agent_system"
+            config_path = "config/providers/agent-capability-provisioning.toml"
+        "#;
+        let cfg: BuildConfig = toml::from_str(toml_str).unwrap();
+        let providers = &cfg.release.unwrap().providers;
+        assert_eq!(providers.len(), 2);
+        assert_eq!(providers[0].kind, "domain_system");
+        assert_eq!(providers[1].config_path, "config/providers/agent-capability-provisioning.toml");
     }
 }

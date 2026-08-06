@@ -1,0 +1,17 @@
+# Real (not example) provider config — read by xtask's Release Bundling
+# Step (docs/proposal/16-agent-system-concern-split-and-release-bundling.md),
+# never by the runtime MCP server. Registers the `domain-system-evaluation`
+# concern once Kriti splits its combined agent/system/analyse/ folder into
+# per-concern subfolders (proposal 16, Constraints — precondition, not yet
+# done: `root_dir` below does not exist on disk today, so this entry is
+# skipped by the Release Bundling Step until it does).
+# Referenced from dharma-build.toml's [[release.providers]].
+
+[agent_system]
+name = "domain-system-evaluation"
+concern = "domain-system-evaluation"
+description = "Judges whether a registered Domain System's content is good, not just present"
+is_privileged_request = false
+
+[agent_system.content]
+root_dir = "${DHARMA_AGENT_DOMAIN_SYSTEM_EVALUATION_CONTENT_DIR:-/home/dell/PycharmProjects/Kriti/dharma/agent/system/domain-system-evaluation}"

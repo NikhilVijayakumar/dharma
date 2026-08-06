@@ -12,6 +12,15 @@ tool call that targets a specific repository does so explicitly via a
 working directory. There is nothing repo-specific to set up when
 launching the server itself.
 
+A release built with `[[release.providers]]` configured (proposal 16) also
+ships a `data/mcp.db` next to `bin/`, pre-populated with whichever Domain/
+Agent Systems their providers had published content for at build time. On
+the very first launch — by any client below, since all of them invoke
+`bin/dharma-mcp[.exe]` directly — if the global `mcp.db` doesn't exist yet,
+that packaged database seeds it, once; after that it's the same single
+global store described above, not a second package-local database. An
+already-initialized global `mcp.db` is never touched by a later install.
+
 ## 1. Claude Code
 
 **Development (source repo, any platform):**
@@ -29,11 +38,11 @@ launching the server itself.
 
 **Windows — release binary** (built with `scripts/build-release.ps1`):
 
-Set `OUTPUT_DIR` in `.env`, then build:
+Set `DHARMA_BUILD_OUTPUT_DIR` in `.env`, then build:
 
 ```powershell
 # .env
-OUTPUT_DIR=E:\MCP\Dharma\release
+DHARMA_BUILD_OUTPUT_DIR=E:\MCP\Dharma\release
 
 # Build
 .\scripts\build-release.ps1
@@ -59,7 +68,7 @@ Code at it:
 ```
 
 Replace `E:\\MCP\\Dharma\\release\\dharma` with the actual `Location`
-path printed by the script (which is `OUTPUT_DIR\dharma` from your
+path printed by the script (which is `DHARMA_BUILD_OUTPUT_DIR\dharma` from your
 `.env`). Use double backslashes in JSON.
 
 To point the server at a non-default `mcp.db` location, set
@@ -79,11 +88,11 @@ below) rather than relying on the `<home>/.dharma` default:
 
 **Linux / Ubuntu — release binary** (built with `scripts/build-release.sh`):
 
-Set `OUTPUT_DIR` in `.env`, then build:
+Set `DHARMA_BUILD_OUTPUT_DIR` in `.env`, then build:
 
 ```bash
 # .env
-OUTPUT_DIR=$HOME/mcp/dharma/release
+DHARMA_BUILD_OUTPUT_DIR=$HOME/mcp/dharma/release
 
 # Build
 bash scripts/build-release.sh
@@ -109,7 +118,7 @@ at it:
 ```
 
 Replace `<Location>` with the actual path printed by the script (which
-is `OUTPUT_DIR/dharma` from your `.env`).
+is `DHARMA_BUILD_OUTPUT_DIR/dharma` from your `.env`).
 
 Test prompts:
 

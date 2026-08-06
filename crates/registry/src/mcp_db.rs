@@ -375,14 +375,57 @@ pub struct McpDb {
     conn: Mutex<Connection>,
 }
 
+/// A packaged release's pre-bundled `data/mcp.db`, next to this running
+/// binary (`<exe_dir>/../data/mcp.db`), if one exists. `None` for a dev
+/// build (`cargo run`) or a release binary run from anywhere else.
+fn packaged_seed_db() -> Option<std::path::PathBuf> {
+    let exe = std::env::current_exe().ok()?;
+    let candidate = exe.parent()?.parent()?.join("data").join("mcp.db");
+    candidate.is_file().then_some(candidate)
+}
+
+/// Copy `seed` to `target` only if `target` doesn't exist yet — never
+/// overwrites an already-initialized global db. Pulled out of `open()` so
+/// the copy-once behavior is directly testable without depending on
+/// `std::env::current_exe()`.
+fn seed_if_absent(target: &std::path::Path, seed: &std::path::Path) -> Result<()> {
+    if target.exists() {
+        return Ok(());
+    }
+    if let Some(parent) = target.parent() {
+        std::fs::create_dir_all(parent)?;
+    }
+    std::fs::copy(seed, target)
+        .with_context(|| format!("seeding {} from packaged {}", target.display(), seed.display()))?;
+    Ok(())
+}
+
 impl McpDb {
-    /// Open or create the global mcp.db at `mcp_dir()/mcp.db`.
+    /// Open or create the global mcp.db at `mcp_dir()/mcp.db`. If it does
+    /// not exist yet and this binary is running from a packaged release
+    /// layout (`<exe_dir>/../data/mcp.db` — `xtask`'s Release Bundling
+    /// Step, proposal 16), that packaged db seeds the global one on this
+    /// first open only. Every MCP client (Claude Code, OpenCode, Antigravity,
+    /// Codex) launches `bin/dharma-mcp` directly, never a launcher script —
+    /// seeding here, not in a shell wrapper, is what actually reaches them.
+    /// After the first open, `mcp_dir()`'s db is the single global store,
+    /// unchanged from `docs/release/mcp-configuration.md`'s documented model.
     pub fn open() -> Result<Self> {
         let path = common::env::mcp_dir().join("mcp.db");
+        if let Some(seed) = packaged_seed_db() {
+            seed_if_absent(&path, &seed)?;
+        }
+        Self::open_at(&path)
+    }
+
+    /// Open or create the mcp.db at an explicit `path` — used by `xtask`'s
+    /// Release Bundling Step to write into a packaged `data/mcp.db` instead
+    /// of the runtime default (mirrors `RepoDb::open_at`).
+    pub fn open_at(path: &std::path::Path) -> Result<Self> {
         if let Some(parent) = path.parent() {
             std::fs::create_dir_all(parent)?;
         }
-        let conn = Connection::open(&path)
+        let conn = Connection::open(path)
             .with_context(|| format!("Failed to open mcp.db at {}", path.display()))?;
         conn.execute_batch("PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON;")?;
         let store = Self { conn: Mutex::new(conn) };
@@ -508,6 +551,70 @@ mod tests {
     fn schema_version_reaches_one() {
         let db = McpDb::open_in_memory().unwrap();
         assert_eq!(db.schema_version(), 1);
+    }
+
+    #[test]
+    fn seed_if_absent_copies_when_target_missing() {
+        let base = std::env::temp_dir().join(format!("dharma-mcp-seed-test-{}", uuid::Uuid::new_v4()));
+        let seed_path = base.join("packaged-data").join("mcp.db");
+        let target_path = base.join("home-dharma").join("mcp.db");
+        {
+            let seed_db = McpDb::open_at(&seed_path).unwrap();
+            let conn = seed_db.conn();
+            conn.lock().unwrap().execute(
+                "INSERT INTO domain_system_registry (name, version, description) VALUES ('seeded', '1.0.0', '')",
+                [],
+            ).unwrap();
+        }
+        assert!(!target_path.exists());
+        seed_if_absent(&target_path, &seed_path).unwrap();
+        assert!(target_path.exists());
+        let opened = McpDb::open_at(&target_path).unwrap();
+        let name: String = opened
+            .conn()
+            .lock()
+            .unwrap()
+            .query_row("SELECT name FROM domain_system_registry", [], |r| r.get(0))
+            .unwrap();
+        assert_eq!(name, "seeded");
+        std::fs::remove_dir_all(&base).ok();
+    }
+
+    #[test]
+    fn seed_if_absent_never_overwrites_existing_target() {
+        let base = std::env::temp_dir().join(format!("dharma-mcp-seed-test-{}", uuid::Uuid::new_v4()));
+        let seed_path = base.join("packaged-data").join("mcp.db");
+        let target_path = base.join("home-dharma").join("mcp.db");
+        McpDb::open_at(&seed_path).unwrap();
+        {
+            let target_db = McpDb::open_at(&target_path).unwrap();
+            target_db.conn().lock().unwrap().execute(
+                "INSERT INTO domain_system_registry (name, version, description) VALUES ('already-here', '1.0.0', '')",
+                [],
+            ).unwrap();
+        }
+        seed_if_absent(&target_path, &seed_path).unwrap();
+        let opened = McpDb::open_at(&target_path).unwrap();
+        let name: String = opened
+            .conn()
+            .lock()
+            .unwrap()
+            .query_row("SELECT name FROM domain_system_registry", [], |r| r.get(0))
+            .unwrap();
+        assert_eq!(name, "already-here");
+        std::fs::remove_dir_all(&base).ok();
+    }
+
+    #[test]
+    fn open_at_creates_parent_dirs_and_migrates() {
+        let path = std::env::temp_dir()
+            .join(format!("dharma-mcp-db-test-{}", uuid::Uuid::new_v4()))
+            .join("data")
+            .join("mcp.db");
+        let db = McpDb::open_at(&path).unwrap();
+        assert!(path.exists());
+        assert_eq!(db.schema_version(), 1);
+        std::fs::remove_dir_all(path.parent().unwrap().parent().unwrap()).ok();
     }
 
     #[test]
